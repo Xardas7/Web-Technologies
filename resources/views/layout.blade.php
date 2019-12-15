@@ -18,8 +18,8 @@
         <div class="menu-top container">
             <div class="d-flex justify-content-between align-items-center">
                 <ul class="list">
-                    <li><a href="tel:+12312-3-1209">+12312-3-1209</a></li>
-                    <li><a href="mailto:support@colorlib.com">support@colorlib.com</a></li>
+                    <li><a href="tel:+39 1234567890">+39 123 456 7890</a></li>
+                    <li><a href="support@progettoTdW.com">support@progettoTdW.com</a></li>
                 </ul>
                 <ul class="list">
                     <li><a href="/login">login</a></li>
@@ -29,7 +29,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="index.blade.php">
+            <a class="navbar-brand" href="/">
                 <img src="img/logo.png" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,11 +37,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#catagory">Category</a></li>
-                    <li><a href="#men">Men</a></li>
-                    <li><a href="#women">Women</a></li>
-                    <li><a href="#latest">latest</a></li>
+                @yield('navbar')
                     <!-- Dropdown -->
                     <li class="dropdown">
                         <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
