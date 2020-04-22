@@ -9,13 +9,7 @@
             <link rel="stylesheet" href="css/bootstrap.css">
             <link rel="stylesheet" href="css/main.css">
       @endsection
-@section('navbar')
-    <li><a href="/#home">Home</a></li>
-    <li><a href="/#catagory">Category</a></li>
-    <li><a href="/#men">Men</a></li>
-    <li><a href="/#women">Women</a></li>
-    <li><a href="/#latest">latest</a></li>
-@endsection
+
 @section('area-unica')
             <!-- Start Banner Area -->
             <section class="banner-area organic-breadcrumb">
