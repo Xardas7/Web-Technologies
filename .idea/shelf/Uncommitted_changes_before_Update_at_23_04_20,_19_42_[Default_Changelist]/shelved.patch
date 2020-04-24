@@ -1,0 +1,37 @@
+Index: routes/web.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n\nRoute::get('/cart', function () {\n    return view('cart');\n});\nRoute::get('/category', function () {\n    return view('category');\n});\nRoute::get('/checkout', function () {\n    return view('checkout');\n});\nRoute::get('/confermation', function () {\n    return view('confermation');\n});\nRoute::get('/generic', function () {\n    return view('generic');\n});\nRoute::get('/login', function () {\n    return view('login');\n});\nRoute::get('/single', function () {\n    return view('single');\n});\nRoute::get('/tracking', function () {\n    return view('tracking');\n});\nRoute::get('/elements', function () {\n    return view('elements');\n});\nRoute::get('/', function () {\n    return view('index');\n}); ?>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- routes/web.php	(revision e951896066d953fb724312c27822b48b9d30b572)
++++ routes/web.php	(date 1587556938314)
+@@ -1,5 +1,7 @@
+ <?php
+-
++Route::get('/welcome', function () {
++    return view('welcome');
++});
+ Route::get('/cart', function () {
+     return view('cart');
+ });
+Index: .idea/phpunit.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/phpunit.xml	(date 1587555750629)
++++ .idea/phpunit.xml	(date 1587555750629)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="PHPUnit">
++    <option name="directories">
++      <list>
++        <option value="$PROJECT_DIR$/tests" />
++      </list>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
