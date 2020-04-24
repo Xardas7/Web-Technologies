@@ -19,7 +19,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="nav update" />
+    <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="nav update">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +44,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -127,6 +141,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
       <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/laravel/ui" />
     </include_path>
   </component>
   <component name="ProjectId" id="1atX5sXxL4HOsJBMeQV91obKBnv" />
@@ -165,6 +180,8 @@
       <updated>1587555686580</updated>
       <workItem from="1587555710081" duration="5210000" />
       <workItem from="1587663661584" duration="968000" />
+      <workItem from="1587726106053" duration="486000" />
+      <workItem from="1587727532270" duration="3554000" />
     </task>
     <task id="LOCAL-00001" summary="update to laravel-7">
       <created>1587555791366</created>
@@ -180,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587583140645</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="some changes">
+      <created>1587726301265</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1587726301265</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,20 +225,29 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update to laravel-7" />
     <MESSAGE value="nav update" />
-    <option name="LAST_COMMIT_MESSAGE" value="nav update" />
+    <MESSAGE value="some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog" timestamp="1587678151676">
+    <state width="596" height="461" key="Diff.GoToChangePopup" timestamp="1587726262093">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1587678151676" />
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1587583143636">
+    <state width="596" height="461" key="Diff.GoToChangePopup/0.0.1366.768@0.0.1366.768" timestamp="1587726262093" />
+    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog" timestamp="1587726446019">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1587583143636" />
-    <state x="492" y="294" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587678187527">
+    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1587726446019" />
+    <state x="576" y="247" width="391" height="274" key="MultipleFileMergeDialog" timestamp="1587726335387">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="492" y="294" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1587678187527" />
+    <state x="576" y="247" width="391" height="274" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1587726335387" />
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1587726303474">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1587726303474" />
+    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587726492496">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1587726492496" />
   </component>
 </project>
