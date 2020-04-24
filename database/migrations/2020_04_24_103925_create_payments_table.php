@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGeneralPreferencesTable extends Migration
+class CreatePaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateGeneralPreferencesTable extends Migration
      */
     public function up()
     {
-        Schema::create('general_preferences', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->enum('weight-unit',['kg','lb']);
-            $table->enum('length-unit',['cm','m','in']);
-            $table->enum('height',['feet','centimeters']);
-            $table->enum('value',['dollar','euro']);
+            $table->string('card_number');
+            $table->string('name',40);
+            $table->string('surname',40);
+            $table->date('exp_date');
+            $table->integer('cvv');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateGeneralPreferencesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('general_preferences');
+        Schema::dropIfExists('payments');
     }
 }
