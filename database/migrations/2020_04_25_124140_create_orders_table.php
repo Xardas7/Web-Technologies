@@ -17,12 +17,8 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('coupon_id');
+            $table->unsignedBigInterger('card_id');
             $table->string('track');
-            $table->string('card_number');
-            $table->string('name',40);
-            $table->string('surname',40);
-            $table->date('exp_date');
-            $table->integer('cvv');
             $table->double('amount');
             $table->enum('state',['success','in progress','shipped','finalized','delivery failed','canceled','returned']);
             $table->date('arrival_time');
