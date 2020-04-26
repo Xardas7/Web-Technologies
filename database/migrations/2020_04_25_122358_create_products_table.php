@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('code',255);
             $table->double('price');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->unsignedBigInteger('producer_id');
             $table->timestamps();
         });

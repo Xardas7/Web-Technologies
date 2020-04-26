@@ -16,10 +16,10 @@ class CreateGeneralPreferencesTable extends Migration
         Schema::create('general_preferences', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->enum('weight-unit',['kg','lb']);
-            $table->enum('length-unit',['cm','m','in']);
-            $table->enum('height',['feet','centimeters']);
-            $table->enum('value',['dollar','euro']);
+            $table->enum('weight-unit',['kg','lb'])->default('kg');
+            $table->enum('length-unit',['cm','m','in'])->default('cm');
+            $table->enum('height',['feet','centimeters'])->default('centimeters');
+            $table->enum('value',['dollar','euro'])->default('euro');
             $table->timestamps();
         });
     }
