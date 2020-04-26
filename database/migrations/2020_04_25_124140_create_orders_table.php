@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('coupon_id');
-            $table->unsignedBigInterger('card_id');
+            $table->unsignedBigInteger('card_id');
             $table->string('track')->nullable();
             $table->double('amount');
             $table->enum('state',['success','in progress','shipped','finalized','delivery failed','canceled','returned']);
@@ -33,6 +33,8 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('orders');
+        Schema::enableForeignKeyConstraints();
     }
 }

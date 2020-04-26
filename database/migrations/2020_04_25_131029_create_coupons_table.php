@@ -18,7 +18,7 @@ class CreateCouponsTable extends Migration
             $table->string('code');
             $table->double('amount');
             $table->date('exp_date');
-            $table->int('quantity')->default('1');
+            $table->integer('quantity')->default('1');
             $table->timestamps();
         });
     }
@@ -30,6 +30,8 @@ class CreateCouponsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('coupons');
+        Schema::enableForeignKeyConstraints();
     }
 }

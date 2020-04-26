@@ -20,13 +20,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_26_103823_foreign_keys.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_23_165208_create_addresses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_23_165208_create_addresses_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_24_072328_create_avatars_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_24_072328_create_avatars_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_24_072740_create_general_preferences_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_24_072740_create_general_preferences_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_24_105314_create_preferences_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_24_105314_create_preferences_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_24_110452_create_producers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_24_110452_create_producers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_112209_create_sizes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_112209_create_sizes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_112249_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_112249_create_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_121711_create_comments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_121711_create_comments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_122313_create_products_have_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_122313_create_products_have_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_122358_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_122358_create_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_123401_create_images_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_123401_create_images_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_123530_create_details_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_123530_create_details_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_123629_create_wish_lists_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_123629_create_wish_lists_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_124140_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_124140_create_orders_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_131029_create_coupons_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_131029_create_coupons_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_131542_create_shopping_carts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_131542_create_shopping_carts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_132813_create_orders_have_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_132813_create_orders_have_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_133328_create_shopping_carts_have_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_133328_create_shopping_carts_have_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_175113_create_cards_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_175113_create_cards_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_190959_create_groups_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_190959_create_groups_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_191057_create_services_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_191057_create_services_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_191435_create_group_has_services_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_191435_create_group_has_services_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_191524_create_user_has_groups_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_191524_create_user_has_groups_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_26_103823_foreign_keys.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_26_103823_foreign_keys.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +222,7 @@
       <workItem from="1587726106053" duration="486000" />
       <workItem from="1587727532270" duration="3554000" />
       <workItem from="1587836309906" duration="3620000" />
-      <workItem from="1587895614176" duration="3722000" />
+      <workItem from="1587895614176" duration="7895000" />
     </task>
     <task id="LOCAL-00001" summary="update to laravel-7">
       <created>1587555791366</created>
@@ -238,7 +259,28 @@
       <option name="project" value="LOCAL" />
       <updated>1587896939785</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="corrections">
+      <created>1587899739389</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587899739389</updated>
+    </task>
+    <task id="LOCAL-00007" summary="foreign keys">
+      <created>1587903235550</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587903235550</updated>
+    </task>
+    <task id="LOCAL-00008" summary="corrections">
+      <created>1587903986669</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1587903986669</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,17 +305,19 @@
     <MESSAGE value="nav update" />
     <MESSAGE value="some changes" />
     <MESSAGE value="groups services" />
-    <option name="LAST_COMMIT_MESSAGE" value="groups services" />
+    <MESSAGE value="foreign keys" />
+    <MESSAGE value="corrections" />
+    <option name="LAST_COMMIT_MESSAGE" value="corrections" />
   </component>
   <component name="WindowStateProjectService">
     <state x="714" y="116" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587896796452">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="714" y="116" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1587896796452" />
-    <state x="505" y="120" key="CommitChangelistDialog2" timestamp="1587896938993">
+    <state x="505" y="120" key="CommitChangelistDialog2" timestamp="1587903985981">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="505" y="120" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1587896938993" />
+    <state x="505" y="120" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1587903985981" />
     <state width="596" height="461" key="Diff.GoToChangePopup" timestamp="1587726262093">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -286,18 +330,18 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="576" y="247" width="391" height="274" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1587726335387" />
-    <state x="396" y="156" key="Vcs.Push.Dialog.v2" timestamp="1587896966585">
+    <state x="396" y="156" key="Vcs.Push.Dialog.v2" timestamp="1587903989352">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1587726303474" />
-    <state x="396" y="156" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1587896966585" />
+    <state x="396" y="156" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1587903989352" />
     <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587726492496">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1587726492496" />
-    <state x="673" y="317" key="git4idea.merge.GitPullDialog" timestamp="1587896959977">
+    <state x="673" y="317" key="git4idea.merge.GitPullDialog" timestamp="1587904031797">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="673" y="317" key="git4idea.merge.GitPullDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1587896959977" />
+    <state x="673" y="317" key="git4idea.merge.GitPullDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1587904031797" />
   </component>
 </project>

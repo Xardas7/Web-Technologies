@@ -28,6 +28,8 @@ class CreateGroupHasServicesTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('group_has_services');
+        Schema::enableForeignKeyConstraints();
     }
 }

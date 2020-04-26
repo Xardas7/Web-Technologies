@@ -28,6 +28,8 @@ class CreateOrdersHaveProductsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('orders_have_products');
+        Schema::enableForeignKeyConstraints();
     }
 }
