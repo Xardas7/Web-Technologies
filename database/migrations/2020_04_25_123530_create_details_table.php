@@ -18,7 +18,7 @@ class CreateDetailsTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->string('material');
             $table->string('composition');
-            $table->int('quantity');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
