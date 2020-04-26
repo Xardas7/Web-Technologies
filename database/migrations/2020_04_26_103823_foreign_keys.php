@@ -28,7 +28,111 @@ class ForeignKeys extends Migration
         Schema::table('group_has_services', function(Blueprint $table0) {
             $table0->foreign('service_id')->references('id')
                 ->on('services')->onDelete('cascade'); });
-    }
+
+        Schema::table('avatars', function(Blueprint $table0) {
+            $table0->foreign('user_id')->references('id')
+                ->on('users')->onDelete('cascade'); });
+
+        Schema::table('comments', function(Blueprint $table0) {
+            $table0->foreign('user_id')->references('id')
+                ->on('users')->onDelete('cascade'); });
+
+        Schema::table('comments', function(Blueprint $table0) {
+            $table0->foreign('product_id')->references('id')
+                ->on('products')->onDelete('cascade'); });
+
+        Schema::table('shopping_carts', function(Blueprint $table0) {
+            $table0->foreign('user_id')->references('id')
+                ->on('users')->onDelete('cascade'); });
+
+        Schema::table('orders', function(Blueprint $table0) {
+            $table0->foreign('user_id')->references('id')
+                ->on('users')->onDelete('cascade'); });
+
+        Schema::table('orders', function(Blueprint $table0) {
+            $table0->foreign('coupon_id')->references('id')
+                ->on('coupons')->onDelete('cascade'); });
+
+        Schema::table('orders', function(Blueprint $table0) {
+            $table0->foreign('card_id')->references('id')
+                ->on('cards')->onDelete('cascade'); });
+
+        Schema::table('preferences', function(Blueprint $table0) {
+            $table0->foreign('user_id')->references('id')
+                ->on('users')->onDelete('cascade'); });
+
+        Schema::table('preferences', function(Blueprint $table0) {
+            $table0->foreign('category_id')->references('id')
+                ->on('categories')->onDelete('cascade'); });
+
+        Schema::table('preferences', function(Blueprint $table0) {
+            $table0->foreign('producer_id')->references('id')
+                ->on('producers')->onDelete('cascade'); });
+
+        Schema::table('general_preferences', function(Blueprint $table0) {
+            $table0->foreign('user_id')->references('id')
+                ->on('users')->onDelete('cascade'); });
+
+        Schema::table('products', function(Blueprint $table0) {
+            $table0->foreign('producer_id')->references('id')
+                ->on('producers')->onDelete('cascade'); });
+
+        Schema::table('sizes', function(Blueprint $table0) {
+            $table0->foreign('category_id')->references('id')
+                ->on('categories')->onDelete('cascade'); });
+
+        Schema::table('details', function(Blueprint $table0) {
+            $table0->foreign('product_id')->references('id')
+                ->on('products')->onDelete('cascade'); });
+
+        Schema::table('orders_have_products', function(Blueprint $table0) {
+            $table0->foreign('product_id')->references('id')
+                ->on('products')->onDelete('cascade'); });
+
+        Schema::table('orders_have_products', function(Blueprint $table0) {
+            $table0->foreign('order_id')->references('id')
+                ->on('orders')->onDelete('cascade'); });
+
+        Schema::table('addresses', function(Blueprint $table0) {
+            $table0->foreign('user_id')->references('id')
+                ->on('users')->onDelete('cascade'); });
+
+        Schema::table('wish_lists', function(Blueprint $table0) {
+            $table0->foreign('user_id')->references('id')
+                ->on('users')->onDelete('cascade'); });
+
+        Schema::table('wish_lists', function(Blueprint $table0) {
+            $table0->foreign('product_id')->references('id')
+                ->on('products')->onDelete('cascade'); });
+
+        Schema::table('products_have_categories', function(Blueprint $table0) {
+            $table0->foreign('category_id')->references('id')
+                ->on('categories')->onDelete('cascade'); });
+
+        Schema::table('products_have_categories', function(Blueprint $table0) {
+            $table0->foreign('product_id')->references('id')
+                ->on('products')->onDelete('cascade'); });
+
+        Schema::table('cards', function(Blueprint $table0) {
+            $table0->foreign('user_id')->references('id')
+                ->on('users')->onDelete('cascade'); });
+
+        Schema::table('shopping_carts_have_products', function(Blueprint $table0) {
+            $table0->foreign('shoppingcart_id')->references('id')
+                ->on('shopping_carts')->onDelete('cascade'); });
+
+        Schema::table('shopping_carts_have_products', function(Blueprint $table0) {
+            $table0->foreign('product_id')->references('id')
+                ->on('products')->onDelete('cascade'); });
+
+        Schema::table('users', function(Blueprint $table0) {
+            $table0->foreign('default_address')->references('id')
+                ->on('addresses')->onDelete('cascade'); });
+
+        Schema::table('images', function(Blueprint $table0) {
+            $table0->foreign('product_id')->references('id')
+                ->on('products')->onDelete('cascade'); });
+        }
 
     /**
      * Reverse the migrations.
