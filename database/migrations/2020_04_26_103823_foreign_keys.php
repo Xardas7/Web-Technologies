@@ -141,6 +141,6 @@ class ForeignKeys extends Migration
      */
     public function down()
     {
-        //
+        Schema::disableForeignKeyConstraints();
     }
 }
