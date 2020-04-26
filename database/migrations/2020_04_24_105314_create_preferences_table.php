@@ -29,6 +29,8 @@ class CreatePreferencesTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('preferences');
+        Schema::enableForeignKeyConstraints();
     }
 }

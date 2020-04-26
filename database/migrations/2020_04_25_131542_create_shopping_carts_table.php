@@ -28,6 +28,8 @@ class CreateShoppingCartsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('shopping_carts');
+        Schema::enableForeignKeyConstraints();
     }
 }

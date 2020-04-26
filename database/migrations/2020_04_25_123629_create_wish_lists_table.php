@@ -28,6 +28,8 @@ class CreateWishListsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('wish_lists');
+        Schema::enableForeignKeyConstraints();
     }
 }

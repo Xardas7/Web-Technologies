@@ -28,6 +28,8 @@ class CreateSizesTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('sizes');
+        Schema::enableForeignKeyConstraints();
     }
 }

@@ -28,6 +28,8 @@ class CreateProducersTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('producers');
+        Schema::enableForeignKeyConstraints();
     }
 }

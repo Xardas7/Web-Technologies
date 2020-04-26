@@ -28,6 +28,8 @@ class CreateUserHasGroupsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('user_has_groups');
+        Schema::enableForeignKeyConstraints();
     }
 }
