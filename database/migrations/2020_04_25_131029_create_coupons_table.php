@@ -18,11 +18,7 @@ class CreateCouponsTable extends Migration
             $table->string('code');
             $table->double('amount');
             $table->date('exp_date');
-<<<<<<< HEAD
             $table->int('quantity')->default('1');
-=======
-            $table->integer('quantity');
->>>>>>> 3c9a665dd7e2cedd8619f485156cdb1d8ca934cf
             $table->timestamps();
         });
     }
