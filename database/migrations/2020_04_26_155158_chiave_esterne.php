@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ForeignKeys extends Migration
+class ChiaveEsterne extends Migration
 {
     /**
      * Run the migrations.
@@ -57,6 +57,10 @@ class ForeignKeys extends Migration
             $table0->foreign('card_id')->references('id')
                 ->on('cards')->onDelete('cascade'); });
 
+                Schema::table('orders', function(Blueprint $table0) {
+                    $table0->foreign('address_id')->references('id')
+                        ->on('addresses')->onDelete('cascade'); });
+
         Schema::table('preferences', function(Blueprint $table0) {
             $table0->foreign('user_id')->references('id')
                 ->on('users')->onDelete('cascade'); });
@@ -77,9 +81,13 @@ class ForeignKeys extends Migration
             $table0->foreign('producer_id')->references('id')
                 ->on('producers')->onDelete('cascade'); });
 
-        Schema::table('sizes', function(Blueprint $table0) {
+        Schema::table('categories_have_sizes', function(Blueprint $table0) {
             $table0->foreign('category_id')->references('id')
                 ->on('categories')->onDelete('cascade'); });
+
+         Schema::table('categories_have_sizes', function(Blueprint $table0) {
+            $table0->foreign('size_id')->references('id')
+                ->on('sizes')->onDelete('cascade'); });
 
         Schema::table('details', function(Blueprint $table0) {
             $table0->foreign('product_id')->references('id')

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreateCategoriesHaveSizesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('categories_have_sizes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->enum('gender',['male','female','unisex','all'])->default('all');
-            $table->string('type');
+            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('size_id');
             $table->timestamps();
         });
     }
@@ -30,7 +29,7 @@ class CreateCategoriesTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('categories_have_sizes');
         Schema::enableForeignKeyConstraints();
     }
 }
