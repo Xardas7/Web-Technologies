@@ -18,13 +18,10 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(User::class, function (Faker $faker) {
-    $gender = $faker->randomElement(['male', 'female', 'undefined']);
-    $name = $faker->firstName;
-    $surname = $faker->lastName;
     return [
-        'name' => $name,
-        'surname' => $surname,
-        'sex' => $gender,
+        'name' => $faker->firstName,
+        'surname' => $faker->lastName,
+        'sex' => $faker->randomElement(['male', 'female', 'undefined']),
         'birth_date' => $faker->dateTimeBetween('-100 years','-20 years'),
         'email' => $faker->unique()->safeEmail,                                      //(strtolower($name) . '.' . strtolower($surname) . '@gmail.com'),
         'email_verified_at' => now(),

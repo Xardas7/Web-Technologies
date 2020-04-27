@@ -10,6 +10,7 @@ $factory->define(Address::class, function (Faker $faker) {
         'country' => $faker->country,
         'city' => $faker->city,
         'address' => $faker->streetAddress,
+        'type' => $faker->randomElement(['billing','delivery','both']),
         'postal_code' => $faker->postcode,
     ];
 });

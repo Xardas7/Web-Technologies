@@ -17,14 +17,12 @@ Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/prova',function(){
+    $user = App\Service::where('permission','all')->first()->id;
+    dd($user);
+});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

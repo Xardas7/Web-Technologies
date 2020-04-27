@@ -40,7 +40,7 @@ class User extends Authenticatable
     // Groups
 
     public function groups(){
-        return $this->belongsToMany('App\Group','user_has_groups');
+        return $this->belongsToMany('App\Group','user_has_groups')->withTimeStamps();
     }
 
     // General Preferences
