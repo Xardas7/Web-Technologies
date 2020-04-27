@@ -25,6 +25,7 @@ $factory->define(User::class, function (Faker $faker) {
         'name' => $name,
         'surname' => $surname,
         'sex' => $gender,
+        'birth_date' => $faker->dateTimeBetween('-100 years','-20 years'),
         'email' => $faker->unique()->safeEmail,                                      //(strtolower($name) . '.' . strtolower($surname) . '@gmail.com'),
         'email_verified_at' => now(),
         'password' => bcrypt($faker->password(8)),
