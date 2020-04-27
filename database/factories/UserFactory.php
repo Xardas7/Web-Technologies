@@ -18,11 +18,16 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+    $gender = $faker->randomElement(['male', 'female', 'undefined']);
+    $name = $faker->firstName;
+    $surname = $faker->lastName;
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
+        'name' => $name,
+        'surname' => $surname,
+        'sex' => $gender,
+        'email' => strtolower($name) . '.' . strtolower($surname) . '@gmail.com',
         'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'password' => bcrypt($faker->password(8)),
         'remember_token' => Str::random(10),
     ];
 });
