@@ -11,9 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class,50)->create()->each(function ($user){
-            $user->cards()->save(factory(App\Card::class)->make());
-            $user->addresses()->save(factory(App\Address::class)->make());
-        });
+        $this->call([
+            UserSeeder::class
+        ]);
     }
 }
