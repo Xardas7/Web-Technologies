@@ -12,12 +12,37 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-         factory(User::class, 50)
+         factory(User::class, 30)
          ->create()
          ->each(function ($user){
              $user->cards()->createMany(factory(App\Card::class,2)->make()->toArray());
              $user->addresses()->save(factory(App\Address::class)->make());
              $user->generalPreferences()->save(factory(App\GeneralPreferences::class)->make());
+             $user->groups()->sync([
+                 App\Group::where('name','buyer')->first()->id
+             ]);
+         });
+
+         factory(User::class, 15)
+         ->create()
+         ->each(function ($user){
+             $user->cards()->createMany(factory(App\Card::class,2)->make()->toArray());
+             $user->addresses()->save(factory(App\Address::class)->make());
+             $user->generalPreferences()->save(factory(App\GeneralPreferences::class)->make());
+             $user->groups()->sync([
+                 App\Group::where('name','seller')->first()->id
+             ]);
+         });
+         
+         factory(User::class, 5)
+         ->create()
+         ->each(function ($user){
+             $user->cards()->createMany(factory(App\Card::class,2)->make()->toArray());
+             $user->addresses()->save(factory(App\Address::class)->make());
+             $user->generalPreferences()->save(factory(App\GeneralPreferences::class)->make());
+             $user->groups()->sync([
+                 App\Group::where('name','admin')->first()->id
+             ]);
          });
     }
 }
