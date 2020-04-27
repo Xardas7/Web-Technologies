@@ -9,7 +9,7 @@ $factory->define(Card::class, function (Faker $faker) {
     $user = factory(App\User::class)->create();
     return [
         'user_id' => $user->id,
-        'card_number' => $faker->creditCardNuber,
+        'card_number' => $faker->creditCardNumber,
         'type' => $faker->creditCardType,
         'name' => $user->name,
         'surname' => $user->surname,
