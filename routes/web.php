@@ -17,17 +17,12 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/prova',function(){
-    $user = App\Service::where('permission','all')->first()->id;
-    dd($user);
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/products', 'SingleController@index');
-Route::get('/products/{product}', 'SingleController@show');
+Route::get('/products', 'ProductController@index')->name('product.index');
+Route::get('/products/{product}', 'ProductController@show')->name('product.show');
 
 Route::get('/single', function () {
     return view('single');

@@ -6,10 +6,9 @@ use App\Product;
 use Faker\Generator as Faker;
 $factory->define(Product::class, function (Faker $faker) {
     return [
-        'code'=> $faker->streetName,
-        'name'=> $faker->name,
+        'code'=> $faker->unique()->ean13,
+        'name'=> $faker->unique()->word,
         'price'=> $faker->randomFloat('2','10','300'),
         'description'=> $faker->text,
-        'producer_id'=> factory(\App\Producers::class)
     ];
 });

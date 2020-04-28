@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Producers extends Model
+class Producer extends Model
 {
     public function users(){
         return $this->belongsToMany('App\User','preferences','producer_id','user_id');

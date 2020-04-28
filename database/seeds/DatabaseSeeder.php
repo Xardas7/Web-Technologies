@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             GroupSeeder::class,
             CategorySeeder::class,
+            ProducerSeeder::class,
             UserSeeder::class
         ]);
     }
