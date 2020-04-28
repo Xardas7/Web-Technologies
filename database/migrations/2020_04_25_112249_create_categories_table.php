@@ -16,7 +16,7 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->enum('gender',['male','female','unisex','all'])->default('all');
+            $table->enum('gender',['male','female','boy','girl','baby']);
             $table->string('type');
             $table->timestamps();
         });
