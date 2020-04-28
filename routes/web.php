@@ -25,4 +25,10 @@ Route::get('/prova',function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/category', 'CategoryController@index')->name('home');
+
+Route::get('/products', 'SingleController@index');
+Route::get('/products/{product}', 'SingleController@show');
+
+Route::get('/single', function () {
+    return view('single');
+});

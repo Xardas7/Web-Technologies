@@ -1,13 +1,13 @@
 @extends('layout')
 @section('css')
-            <link rel="stylesheet" href="css/linearicons.css">
-            <link rel="stylesheet" href="css/owl.carousel.css">
-            <link rel="stylesheet" href="css/font-awesome.min.css">
-            <link rel="stylesheet" href="css/nice-select.css">
-            <link rel="stylesheet" href="css/ion.rangeSlider.css" />
-            <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
-            <link rel="stylesheet" href="css/bootstrap.css">
-            <link rel="stylesheet" href="css/main.css">
+            <link rel="stylesheet" href="/css/linearicons.css">
+            <link rel="stylesheet" href="/css/owl.carousel.css">
+            <link rel="stylesheet" href="/css/font-awesome.min.css">
+            <link rel="stylesheet" href="/css/nice-select.css">
+            <link rel="stylesheet" href="/css/ion.rangeSlider.css" />
+            <link rel="stylesheet" href="/css/ion.rangeSlider.skinFlat.css" />
+            <link rel="stylesheet" href="/css/bootstrap.css">
+            <link rel="stylesheet" href="/css/main.css">
  @endsection
 
 @section('area-unica')
@@ -33,27 +33,24 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="quick-view-carousel-details">
-                                <div class="item" style="background: url(img/q1.jpg);">
-
-                                </div>
-                                <div class="item" style="background: url(img/q1.jpg);">
-
-                                </div>
-                                <div class="item" style="background: url(img/q1.jpg);">
-
-                                </div>
+                                @foreach($product->images() as $image)
+                                    <div class="item" style="background:
+                                        url({{$image->path}});">
+                                    </div>
+                                    ciao
+                                @endforeach
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="quick-view-content">
                                 <div class="top">
                                     <h3 class="head">Faded SkyBlu Denim Jeans</h3>
-                                    <div class="price d-flex align-items-center"><span class="lnr lnr-tag"></span> <span class="ml-10">$149.99</span></div>
+                                    <div class="price d-flex align-items-center"><span class="lnr lnr-tag"></span> <span class="ml-10">{{$product->price}}€</span></div>
                                     <div class="category">Category: <span>Household</span></div>
                                     <div class="available">Availibility: <span>In Stock</span></div>
                                 </div>
                                 <div class="middle">
-                                    <p class="content">Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for something that can make your interior look awesome, and at the same time give you the pleasant warm feeling during the winter.</p>
+                                    <p class="content">{{$product->description}}</p>
                                 </div>
                                 <div >
                                     <div class="quantity-container d-flex align-items-center mt-15">
@@ -97,8 +94,7 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="description">
                         <div class="description">
-                            <p>Beryl Cook is one of Britain’s most talented and amusing artists .Beryl’s pictures feature women of all shapes and sizes enjoying themselves .Born between the two world wars, Beryl Cook eventually left Kendrick School in Reading at the age of 15, where she went to secretarial school and then into an insurance office. After moving to London and then Hampton, she eventually married her next door neighbour from Reading, John Cook. He was an officer in the Merchant Navy and after he left the sea in 1956, they bought a pub for a year before John took a job in Southern Rhodesia with a motor company. Beryl bought their young son a box of watercolours, and when showing him how to use it, she decided that she herself quite enjoyed painting. John subsequently bought her a child’s painting set for her birthday and it was with this that she produced her first significant work, a half-length portrait of a dark-skinned lady with a vacant expression and large drooping breasts. It was aptly named ‘Hangover’ by Beryl’s husband and still hangs in their house today</p>
-                            <p>It is often frustrating to attempt to plan meals that are designed for one. Despite this fact, we are seeing more and more recipe books and Internet websites that are dedicated to the act of cooking for one. Divorce and the death of spouses or grown children leaving for college are all reasons that someone accustomed to cooking for more than one would suddenly need to learn how to adjust all the cooking practices utilized before into a streamlined plan of cooking that is more efficient for one person creating less waste. The mission</p>
+                            {{$product->description}}
                         </div>
                     </div>
                     <div class="tab-pane fade" id="specification" role="tabpanel" aria-labelledby="specification">
@@ -357,14 +353,14 @@
             <!-- End Product Details -->
 @endsection
 @section('js')
-            <script src="js/vendor/jquery-2.2.4.min.js"></script>
+            <script src="/js/vendor/jquery-2.2.4.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-            <script src="js/vendor/bootstrap.min.js"></script>
-            <script src="js/jquery.ajaxchimp.min.js"></script>
-            <script src="js/jquery.nice-select.min.js"></script>
-            <script src="js/jquery.sticky.js"></script>
-            <script src="js/ion.rangeSlider.js"></script>
-            <script src="js/jquery.magnific-popup.min.js"></script>
-            <script src="js/owl.carousel.min.js"></script>
-            <script src="js/main.js"></script>
+            <script src="/js/vendor/bootstrap.min.js"></script>
+            <script src="/js/jquery.ajaxchimp.min.js"></script>
+            <script src="/js/jquery.nice-select.min.js"></script>
+            <script src="/js/jquery.sticky.js"></script>
+            <script src="/js/ion.rangeSlider.js"></script>
+            <script src="/js/jquery.magnific-popup.min.js"></script>
+            <script src="/js/owl.carousel.min.js"></script>
+            <script src="/js/main.js"></script>
 @endsection

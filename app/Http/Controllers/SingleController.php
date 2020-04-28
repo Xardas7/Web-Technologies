@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class SingleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view("category");
+        return view('category');
     }
 
     /**
@@ -45,7 +46,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::find($id);
+        return view('single', ['product'=>$product]);
     }
 
     /**
@@ -82,4 +84,3 @@ class CategoryController extends Controller
         //
     }
 }
-
