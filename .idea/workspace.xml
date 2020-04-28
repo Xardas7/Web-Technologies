@@ -21,11 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/AddressFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AddressFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CardFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CardFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +31,7 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -167,23 +162,17 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="php artisan" />
+      <command value="xampp" />
+    </option>
+  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -277,20 +266,19 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -309,6 +297,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="714" y="116" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1587896796452" />
+    <state x="363" y="9" key="#phpunit.xml" timestamp="1588076251564">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="363" y="9" key="#phpunit.xml/0.0.1366.768@0.0.1366.768" timestamp="1588076251564" />
     <state x="505" y="120" key="CommitChangelistDialog2" timestamp="1587986422799">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -321,6 +313,22 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="65" y="156" width="1166" height="568" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1587726446019" />
+    <state width="1320" height="2" key="GridCell.Tab.0.bottom" timestamp="1588060905046">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1320" height="2" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1588060905046" />
+    <state width="1320" height="2" key="GridCell.Tab.0.center" timestamp="1588060905046">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1320" height="2" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1588060905046" />
+    <state width="1320" height="2" key="GridCell.Tab.0.left" timestamp="1588060905046">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1320" height="2" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1588060905046" />
+    <state width="1320" height="2" key="GridCell.Tab.0.right" timestamp="1588060905046">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1320" height="2" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1588060905046" />
     <state x="576" y="247" width="391" height="274" key="MultipleFileMergeDialog" timestamp="1587726335387">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -330,21 +338,23 @@
     </state>
     <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1587726303474" />
     <state x="396" y="156" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1587986491801" />
-    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587726492496">
+    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588072560216">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1587726492496" />
+    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1588072560216" />
     <state x="673" y="317" key="git4idea.merge.GitPullDialog" timestamp="1587989095900">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="673" y="317" key="git4idea.merge.GitPullDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1587989095900" />
-    <state x="616" y="243" key="run.anything.popup" timestamp="1587981216917">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="438" y="178" width="672" height="677" key="run.anything.popup" timestamp="1588061592943">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state x="438" y="178" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1588061592943" />
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1587981216917" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1587981224039">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup" timestamp="1588076509309">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1588076509309" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1587981224039" />
   </component>
 </project>
