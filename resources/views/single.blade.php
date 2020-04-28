@@ -33,12 +33,14 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="quick-view-carousel-details">
-                                @foreach($product->images() as $image)
-                                    <div class="item" style="background:
-                                        url({{$image->path}});">
-                                    </div>
-                                    ciao
-                                @endforeach
+
+                                <div class="item" style="background:
+                                    url({{$product->images->last()->path}});">
+                                </div>
+                                <div class="item" style="background: url(https://picsum.photos/200/300);">
+
+                                </div>
+
                             </div>
                         </div>
                         <div class="col-lg-6">
