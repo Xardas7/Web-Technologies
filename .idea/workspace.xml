@@ -20,9 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="single make (not complete)">
-      <change afterPath="$PROJECT_DIR$/database/factories/ImagesFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/ProducersFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/ProductFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/single.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/single.blade.php" afterDir="false" />
     </list>
@@ -193,7 +190,7 @@
       <workItem from="1587836309906" duration="3620000" />
       <workItem from="1587895614176" duration="8213000" />
       <workItem from="1587980161165" duration="5736000" />
-      <workItem from="1588083435093" duration="12493000" />
+      <workItem from="1588083435093" duration="13516000" />
     </task>
     <task id="LOCAL-00001" summary="update to laravel-7">
       <created>1587555791366</created>
@@ -279,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588090314811</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="single make (not complete)">
+      <created>1588096411337</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1588096411337</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,10 +356,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="576" y="247" width="391" height="274" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1587726335387" />
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1588090316424">
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1588096439824">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1588090316424" />
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1588096439824" />
     <state x="396" y="156" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1587986491801" />
     <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588091179930">
       <screen x="0" y="0" width="1366" height="768" />

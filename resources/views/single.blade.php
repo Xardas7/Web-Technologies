@@ -19,7 +19,7 @@
                             <h1>Single Product Page</h1>
                              <nav class="d-flex align-items-center justify-content-start">
                                 <a href="index.blade.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="single.blade.php">Single Product Page</a>
+                                <a href="single.blade.php">Enjoy our products</a>
                             </nav>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                         <div class="col-lg-6">
                             <div class="quick-view-content">
                                 <div class="top">
-                                    <h3 class="head">Faded SkyBlu Denim Jeans</h3>
+                                    <h3 class="head">{{$product->name}}</h3>
                                     <div class="price d-flex align-items-center"><span class="lnr lnr-tag"></span> <span class="ml-10">{{$product->price}}€</span></div>
                                     <div class="category">Category: <span>Household</span></div>
                                     <div class="available">Availibility: <span>In Stock</span></div>
