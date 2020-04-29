@@ -21,8 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="single make (not complete)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/single.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/single.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_123530_create_details_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_123530_create_details_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +198,7 @@
       <workItem from="1587895614176" duration="8213000" />
       <workItem from="1587980161165" duration="5736000" />
       <workItem from="1588083435093" duration="13671000" />
-      <workItem from="1588166787837" duration="8529000" />
+      <workItem from="1588166787837" duration="9528000" />
     </task>
     <task id="LOCAL-00001" summary="update to laravel-7">
       <created>1587555791366</created>
@@ -299,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588097246493</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="single make (not complete)">
+      <created>1588175556752</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1588175556752</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,15 +378,15 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="576" y="247" width="391" height="274" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1587726335387" />
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1588097249165">
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1588175560459">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1588097249165" />
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1588175560459" />
     <state x="396" y="156" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1587986491801" />
-    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588175036919">
+    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588175988045">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1588175036919" />
+    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1588175988045" />
     <state x="673" y="317" key="git4idea.merge.GitPullDialog" timestamp="1587989095900">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
