@@ -17,6 +17,39 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/cart', function () {
+    return view('cart');
+});
+
+Route::get('/checkout', function () {
+    return view('checkout');
+});
+
+Route::get('/category', function () {
+    return view('category');
+});
+
+
+Route::get('/confermation', function () {
+    return view('confermation');
+});
+
+Route::get('/login2', function () {
+    return view('login');
+});
+
+Route::get('/tracking', function () {
+    return view('tracking');
+});
+
+Route::get('/generic', function () {
+    return view('generic');
+});
+
+Route::get('/elements', function () {
+    return view('elements');
+});
+
 // Route::get('/prova',function(){
 //     $scarpe_sizes = App\Category::where('name','Abbigliamento')
 //     ->where('type','Giacche e cappotti')
@@ -34,6 +67,3 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/products', 'ProductController@index')->name('product.index');
 Route::get('/products/{product}', 'ProductController@show')->name('product.show');
 
-Route::get('/single', function () {
-    return view('single');
-});
