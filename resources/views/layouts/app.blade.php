@@ -19,7 +19,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
-    
+
 </head>
 <body>
     <div id="app">
@@ -126,9 +126,9 @@
             @include('products.mostSearch')
             @include('footer.footer')
         </main>
-        
-        
-       
+
+
+
 
     </div>
     <!-- Scripts -->
