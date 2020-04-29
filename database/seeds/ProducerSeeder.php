@@ -15,6 +15,7 @@ class ProducerSeeder extends Seeder
                 ->each(function ($producer){
                     $producer->products()->createMany(factory(App\Product::class,2)->make()->toArray());
                     foreach($producer->products as $product){
+                        $product->detail()->save(factory(App\Detail::class)->make());
                         $product->images()->createMany(factory(App\Image::class,5)->make()->toArray());
                     }
                 });

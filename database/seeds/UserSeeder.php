@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
          ->each(function ($user){
              $user->cards()->createMany(factory(App\Card::class,2)->make()->toArray());
              $user->addresses()->save(factory(App\Address::class)->make());
+             $user->ShoppingCart()->save(factory(App\ShoppingCart::class)->make());
              $user->generalPreferences()->save(factory(App\GeneralPreferences::class)->make());
              $user->groups()->sync([
                  App\Group::where('name','buyer')->first()->id

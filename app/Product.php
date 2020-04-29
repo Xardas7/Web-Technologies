@@ -26,11 +26,15 @@ class Product extends Model
         return $this->hasMany('App\Image');
     }
 
+    public function likes(){
+        return $this->hasMany('App\User','users_likes_products','product_id','user_id');
+    }
+
     public function shoppingCart(){
         return $this->belongsToMany('App\ShoppingCart','shopping_carts_have_products');
     }
 
-    public function Comments(){
+    public function comments(){
         return $this->hasMany('App\Comment');
     }
 

@@ -17,4 +17,8 @@ class Comment extends Model
     public function product(){
         return $this->belongsTo('App\Comment');
     }
+
+    public function likes(){
+        return $this->hasMany('App\User','users_likes_comments','comment_id','user_id');
+    }
 }

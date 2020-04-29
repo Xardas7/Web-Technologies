@@ -5,6 +5,8 @@
 use App\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +27,7 @@ $factory->define(User::class, function (Faker $faker) {
         'birth_date' => $faker->dateTimeBetween('-100 years','-20 years'),
         'email' => $faker->unique()->safeEmail,                                      //(strtolower($name) . '.' . strtolower($surname) . '@gmail.com'),
         'email_verified_at' => now(),
-        'password' => bcrypt($faker->password(8)),
+        'password' => Hash::make('password'),
         'remember_token' => Str::random(10),
     ];
 });
