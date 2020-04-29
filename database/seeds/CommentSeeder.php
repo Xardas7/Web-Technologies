@@ -14,7 +14,7 @@ class CommentSeeder extends Seeder
         factory(App\Comment::class)->create([
             'user_id' => 1,
             'product_id' => 1,
-            'vote' => 'two'
+            'vote' => 'one'
         ]);
         factory(App\Comment::class)->create([
             'user_id' => 1,

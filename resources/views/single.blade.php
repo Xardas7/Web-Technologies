@@ -70,7 +70,6 @@
                                     </div>
                                     <div class="d-flex mt-20">
                                         <a href="#" class="view-btn color-2"><span>Add to Cart</span></a>
-                                        <a href="#" class="like-btn"><span class="lnr lnr-layers"></span></a>
                                         <a href="#" class="like-btn"><span class="lnr lnr-heart"></span></a>
                                     </div>
                                 </div>
@@ -205,7 +204,7 @@
                                                 <img src="https://www.croptecshow.com/wp-content/uploads/2017/04/guest-avatar-250x250px.png" class="img-fluid" alt="">
                                                 <div class="user-name">
                                                     <h5>{{$comment->user->name}} {{$comment->user->surname}}</h5>
-                                                    <div class="total-star five-star d-flex align-items-center">
+                                                    <div class="total-star {{$comment->vote}}-star d-flex align-items-center">
                                                         <i class="fa fa-star" aria-hidden="true"></i>
                                                         <i class="fa fa-star" aria-hidden="true"></i>
                                                         <i class="fa fa-star" aria-hidden="true"></i>
