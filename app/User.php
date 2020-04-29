@@ -75,7 +75,7 @@ class User extends Authenticatable
 
     // A user wishes x Products
     public function wishes(){
-        return $this->belongsToMany('App\Product','wish_lists');
+        return $this->belongsToMany('App\Product','wish_lists')->withTimeStamps();
     }
 
     // Preferences
@@ -83,14 +83,23 @@ class User extends Authenticatable
         return $this->hasMany('App\Category','preferences','user_id','category_id');
     }
 
+    // Producers
     public function producers(){
         return $this->hasMany('App\Producer','preferences','user_id','producer_id');
     }
-
+    // Likes comments
+    public function likesComments(){
+        return $this->hasMany('App\Comment','users_likes_comments','user_id','comment_id');
+    }
+    // Likes Products
+    public function likesProducts(){
+        return $this->hasMany('App\Product','users_likes_products','user_id','comment_id');
+    }
+    // Shopping Cart
     public function shoppingCart(){
         return $this->hasOne('App\ShoppingCart');
     }
-    
+    // Address
     public function address(){
         return $this->belongsTo('App\Address','default_id');
     }

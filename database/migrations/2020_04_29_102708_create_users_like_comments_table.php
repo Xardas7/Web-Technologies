@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesTable extends Migration
+class CreateUsersLikeCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('users_like_comments', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->enum('gender',['male','female']);
-            $table->string('type');
+            $table->unsignedBigInteger('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('comment_id')->references('id')->on('comments')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,8 +28,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('categories');
-        Schema::enableForeignKeyConstraints();
+        Schema::dropIfExists('users_like_comments');
     }
 }

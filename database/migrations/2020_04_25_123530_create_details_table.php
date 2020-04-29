@@ -19,6 +19,10 @@ class CreateDetailsTable extends Migration
             $table->string('material');
             $table->string('composition')->nullable();
             $table->integer('quantity')->default('1');
+            $table->integer('Width')->nullable();;
+            $table->integer('Height')->nullable();;
+            $table->integer('Depth')->nullable();;
+            $table->integer('Weight')->nullable();;
             $table->timestamps();
         });
     }

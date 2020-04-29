@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('product_id');
             $table->text('content');
-            $table->double('vote');
+            $table->double('vote')->default(0.0);
             $table->timestamps();
         });
     }

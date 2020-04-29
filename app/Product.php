@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public function categories(){
-        return $this->belongsToMany('App\Category','products_have_categories')->orderBy('name');
+    public function category(){
+        return $this->belongsTo('App\Category')->orderBy('name');
     }
 
     public function producer(){
@@ -15,7 +15,7 @@ class Product extends Model
     }
 
     public function isWished(){
-        return $this->belongsToMany('App\User','wish_lists')->orderBy('id');
+        return $this->belongsToMany('App\User','wish_lists')->orderBy('id')->withTimeStamps();
     }
 
     public function detail(){
@@ -26,15 +26,19 @@ class Product extends Model
         return $this->hasMany('App\Image');
     }
 
-    public function shoppingCart(){
-        return $this->belongsToMany('App\ShoppingCart','shopping_carts_have_products');
+    public function likes(){
+        return $this->hasMany('App\User','users_likes_products','product_id','user_id');
     }
 
-    public function Comments(){
+    public function shoppingCart(){
+        return $this->belongsToMany('App\ShoppingCart','shopping_carts_have_products')->withTimeStamps();
+    }
+
+    public function comments(){
         return $this->hasMany('App\Comment');
     }
 
     public function orders(){
-        return $this->belongsToMany('App\Order','orders_have_products');
+        return $this->belongsToMany('App\Order','orders_have_products')->withTimeStamps();
     }
 }

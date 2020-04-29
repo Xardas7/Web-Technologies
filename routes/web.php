@@ -17,12 +17,23 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/prova',function(){
-    $user = App\Service::where('permission','all')->first()->id;
-    dd($user);
-});
+// Route::get('/prova',function(){
+//     $scarpe_sizes = App\Category::where('name','Abbigliamento')
+//     ->where('type','Giacche e cappotti')
+//     ->where('gender','female')
+//     ->first();
+//     $product = App\Product::find(1);
+//     $product->category()->associate($scarpe_sizes)->save();
+//     dd($scarpe_sizes);
+// });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/products', 'ProductController@index')->name('product.index');
+Route::get('/products/{product}', 'ProductController@show')->name('product.show');
+
+Route::get('/single', function () {
+    return view('single');
+});
