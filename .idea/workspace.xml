@@ -19,12 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="single make (not complete)">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" afterDir="false" />
+    <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="adding details">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_124140_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_124140_create_orders_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/single.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/single.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,9 +32,7 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -185,18 +182,6 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -215,7 +200,7 @@
       <workItem from="1587895614176" duration="8213000" />
       <workItem from="1587980161165" duration="5736000" />
       <workItem from="1588083435093" duration="13671000" />
-      <workItem from="1588166787837" duration="9528000" />
+      <workItem from="1588166787837" duration="11028000" />
     </task>
     <task id="LOCAL-00001" summary="update to laravel-7">
       <created>1587555791366</created>
@@ -322,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588175556752</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="adding details">
+      <created>1588176694779</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1588176694779</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,13 +325,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -353,7 +344,8 @@
     <MESSAGE value="User factory" />
     <MESSAGE value="category" />
     <MESSAGE value="single make (not complete)" />
-    <option name="LAST_COMMIT_MESSAGE" value="single make (not complete)" />
+    <MESSAGE value="adding details" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding details" />
   </component>
   <component name="WindowStateProjectService">
     <state x="714" y="116" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587896796452">
@@ -372,10 +364,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="596" height="461" key="Diff.GoToChangePopup/0.0.1366.768@0.0.1366.768" timestamp="1587726262093" />
-    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog" timestamp="1588167100527">
+    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog" timestamp="1588178041043">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1588167100527" />
+    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1588178041043" />
     <state width="1320" height="2" key="GridCell.Tab.0.bottom" timestamp="1588060905046">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -396,28 +388,28 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="576" y="247" width="391" height="274" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1587726335387" />
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1588175560459">
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1588176700939">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1588175560459" />
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1588176700939" />
     <state x="396" y="156" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1587986491801" />
-    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588175988045">
+    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588177730163">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1588175988045" />
-    <state x="673" y="317" key="git4idea.merge.GitPullDialog" timestamp="1588176754482">
+    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1588177730163" />
+    <state x="673" y="317" key="git4idea.merge.GitPullDialog" timestamp="1587989095900">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="673" y="317" key="git4idea.merge.GitPullDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1588176754482" />
+    <state x="673" y="317" key="git4idea.merge.GitPullDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1587989095900" />
     <state x="438" y="178" width="672" height="677" key="run.anything.popup" timestamp="1588170524776">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="438" y="178" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1588170524776" />
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1587981216917" />
-    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup" timestamp="1588175520033">
+    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup" timestamp="1588177667224">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1588175520033" />
+    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1588177667224" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1587981224039" />
   </component>
 </project>

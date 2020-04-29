@@ -50,10 +50,8 @@
                                     <div class="price d-flex align-items-center"><span class="lnr lnr-tag"></span> <span class="ml-10">{{$product->price}}€</span></div>
                                     <div class="category">
                                         Category: <span>
-                                            @foreach($product->categories as $category)
-                                        {{$category->name}}, {{$category->type}}
-                                            @endforeach
-                                            .
+                                        {{$product->category->name}}
+                                            {{$product->category->type}}
                                         </span></div>
                                     <div class="available">Availibility: <span>{{$product->detail->quantity}} pieces </span></div>
                                 </div>
@@ -114,19 +112,19 @@
                             </div>
                             <div class="single-row">
                                 <span>Width</span>
-                                <span>128mm</span>
+                                <span>{{$product->detail->width}}</span>
                             </div>
                             <div class="single-row">
                                 <span>Height</span>
-                                <span>508mm</span>
+                                <span>{{$product->detail->height}}</span>
                             </div>
                             <div class="single-row">
                                 <span>Depth</span>
-                                <span>85mm</span>
+                                <span>{{$product->detail->depth}}</span>
                             </div>
                             <div class="single-row">
                                 <span>Weight</span>
-                                <span>52gm</span>
+                                <span>{{$product->detail->weight}}</span>
                             </div>
                         </div>
                     </div>
