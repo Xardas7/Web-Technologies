@@ -17,6 +17,16 @@ Route::get('/', function () {
     return view('index');
 });
 
+// Route::get('/prova',function(){
+//     $scarpe_sizes = App\Category::where('name','Abbigliamento')
+//     ->where('type','Giacche e cappotti')
+//     ->where('gender','female')
+//     ->first();
+//     $product = App\Product::find(1);
+//     $product->category()->associate($scarpe_sizes)->save();
+//     dd($scarpe_sizes);
+// });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

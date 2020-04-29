@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Producer extends Model
 {
     public function users(){
-        return $this->belongsToMany('App\User','preferences','producer_id','user_id');
+        return $this->belongsToMany('App\User','preferences','producer_id','user_id')->withTimeStamps();
     }
 
     public function products(){
@@ -15,6 +15,6 @@ class Producer extends Model
     }
 
     public function categories(){
-        return $this->belongsToMany('App\Category','preferences','producer_id','category_id');
+        return $this->belongsToMany('App\Category','preferences','producer_id','category_id')->withTimeStamps();
     }
 }

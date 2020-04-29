@@ -81,6 +81,11 @@ class ChiaveEsterne extends Migration
             $table0->foreign('producer_id')->references('id')
                 ->on('producers')->onDelete('cascade'); });
 
+        Schema::table('products', function(Blueprint $table0){
+            $table0->foreign('category_id')->references('id')
+                ->on('categories')->onDelete('cascade');
+        });
+
         Schema::table('categories_have_sizes', function(Blueprint $table0) {
             $table0->foreign('category_id')->references('id')
                 ->on('categories')->onDelete('cascade'); });
@@ -113,13 +118,6 @@ class ChiaveEsterne extends Migration
             $table0->foreign('product_id')->references('id')
                 ->on('products')->onDelete('cascade'); });
 
-        Schema::table('products_have_categories', function(Blueprint $table0) {
-            $table0->foreign('category_id')->references('id')
-                ->on('categories')->onDelete('cascade'); });
-
-        Schema::table('products_have_categories', function(Blueprint $table0) {
-            $table0->foreign('product_id')->references('id')
-                ->on('products')->onDelete('cascade'); });
 
         Schema::table('cards', function(Blueprint $table0) {
             $table0->foreign('user_id')->references('id')
