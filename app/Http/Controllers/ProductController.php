@@ -12,12 +12,13 @@ class ProductController extends Controller
     {
         return view('category');
     }
-    
+
     public function show($id)
     {
         $product = Product::find($id);
-        return view('single', ['product'=>$product]);
+       return $product->comments;
+        // return view('single', ['product'=>$product]);
     }
 
-    
+
 }

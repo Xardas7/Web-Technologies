@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="single make (not complete)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/single.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/single.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +36,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/Xardas7/Web-Technologies.git" />
+      </set>
+    </option>
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
@@ -190,7 +198,8 @@
       <workItem from="1587836309906" duration="3620000" />
       <workItem from="1587895614176" duration="8213000" />
       <workItem from="1587980161165" duration="5736000" />
-      <workItem from="1588083435093" duration="13516000" />
+      <workItem from="1588083435093" duration="13671000" />
+      <workItem from="1588166787837" duration="8529000" />
     </task>
     <task id="LOCAL-00001" summary="update to laravel-7">
       <created>1587555791366</created>
@@ -283,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588096411337</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="single make (not complete)">
+      <created>1588097246493</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1588097246493</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,10 +348,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="596" height="461" key="Diff.GoToChangePopup/0.0.1366.768@0.0.1366.768" timestamp="1587726262093" />
-    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog" timestamp="1587726446019">
+    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog" timestamp="1588167100527">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1587726446019" />
+    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1588167100527" />
     <state width="1320" height="2" key="GridCell.Tab.0.bottom" timestamp="1588060905046">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -356,28 +372,28 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="576" y="247" width="391" height="274" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1587726335387" />
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1588096439824">
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1588097249165">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1588096439824" />
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1588097249165" />
     <state x="396" y="156" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1587986491801" />
-    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588091179930">
+    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588175036919">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1588091179930" />
+    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1588175036919" />
     <state x="673" y="317" key="git4idea.merge.GitPullDialog" timestamp="1587989095900">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="673" y="317" key="git4idea.merge.GitPullDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1587989095900" />
-    <state x="438" y="178" width="672" height="677" key="run.anything.popup" timestamp="1588061592943">
+    <state x="438" y="178" width="672" height="677" key="run.anything.popup" timestamp="1588170524776">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="438" y="178" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1588061592943" />
+    <state x="438" y="178" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1588170524776" />
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1587981216917" />
-    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup" timestamp="1588083722022">
+    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup" timestamp="1588175520033">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1588083722022" />
+    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1588175520033" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1587981224039" />
   </component>
 </project>
