@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('product_id');
             $table->text('content');
-            $table->enum('vote',['one','double','three','four','five'])->default('one');
+            $table->enum('vote',['one','two','three','four','five'])->default('one');
             $table->timestamps();
         });
     }
