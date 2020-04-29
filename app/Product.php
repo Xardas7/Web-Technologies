@@ -15,7 +15,7 @@ class Product extends Model
     }
 
     public function isWished(){
-        return $this->belongsToMany('App\User','wish_lists')->orderBy('id')->withTimeStamps();
+        return $this->belongsToMany('App\User','wish_lists')->orderBy('id');
     }
 
     public function detail(){
@@ -31,7 +31,7 @@ class Product extends Model
     }
 
     public function shoppingCart(){
-        return $this->belongsToMany('App\ShoppingCart','shopping_carts_have_products')->withTimeStamps();
+        return $this->belongsToMany('App\ShoppingCart','shopping_carts_have_products');
     }
 
     public function comments(){
@@ -39,6 +39,6 @@ class Product extends Model
     }
 
     public function orders(){
-        return $this->belongsToMany('App\Order','orders_have_products')->withTimeStamps();
+        return $this->belongsToMany('App\Order','orders_have_products');
     }
 }
