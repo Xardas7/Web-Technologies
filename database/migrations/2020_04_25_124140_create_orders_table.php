@@ -17,12 +17,12 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('address_id');
-            $table->unsignedBigInteger('coupon_id');
+            $table->unsignedBigInteger('coupon_id')->nullable();
             $table->unsignedBigInteger('card_id');
             $table->string('track')->nullable();
             $table->double('amount');
-            $table->enum('state',['success','in progress','shipped','finalized','delivery failed','canceled','returned']);
-            $table->date('arrival_time');
+            $table->enum('state',['in progress','success','shipped','finalized','delivery failed','canceled','returned']);
+            $table->date('arrival_time')->nullable();
             $table->timestamps();
         });
     }
