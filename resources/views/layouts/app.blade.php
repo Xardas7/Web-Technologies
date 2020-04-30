@@ -126,10 +126,7 @@
             @include('products.mostSearch')
             @include('footer.footer')
         </main>
-
-
-
-
+            
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
