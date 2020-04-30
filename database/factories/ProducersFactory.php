@@ -8,6 +8,6 @@ use Faker\Generator as Faker;
 $factory->define(Producer::class, function (Faker $faker) {
     return [
         'name'=> $faker->unique()->company,
-        'logo'=>$faker->imageUrl()
+        'logo'=>'\'https://picsum.photos/seed/picsum/50/50\''
     ];
 });

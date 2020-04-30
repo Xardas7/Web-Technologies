@@ -18,8 +18,8 @@
                         <div class="col-first">
                             <h1>Single Product Page</h1>
                              <nav class="d-flex align-items-center justify-content-start">
-                                <a href="index.blade.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="single.blade.php">Enjoy our products</a>
+                                <a href="/">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                <a href="/products">Enjoy our products</a>
                             </nav>
                         </div>
                     </div>
@@ -33,14 +33,11 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="quick-view-carousel-details">
-
+                                @foreach($product->images as $image)
                                 <div class="item" style="background:
-                                    url({{$product->images->last()->path}});">
+                                    url({{$image->path}});">
                                 </div>
-                                <div class="item" style="background: url(https://picsum.photos/200/300);">
-
-                                </div>
-
+                                @endforeach
                             </div>
                         </div>
                         <div class="col-lg-6">
