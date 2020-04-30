@@ -13,8 +13,8 @@ class ProductController extends Controller
     {
         $category_obj = Category::findOrFail($category);
        $products = $category_obj->products;
-       //return view('category', compact($products));
-        return view('category');
+       return view('category', compact('products'));
+        //return view('category');
     }
 
     public function show($id)
