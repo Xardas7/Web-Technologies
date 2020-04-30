@@ -63,6 +63,6 @@ Route::get('/elements', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/products', 'ProductController@index')->name('product.index');
+Route::get('/products/categories/{category}', 'ProductController@index')->name('product.index');
 Route::get('/products/{product}', 'ProductController@show')->name('product.show');
 Route::post('/comment', 'ProductController@store');

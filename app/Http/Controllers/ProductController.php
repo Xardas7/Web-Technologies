@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Product;
 
 class ProductController extends Controller
 {
 
-    public function index()
+    public function index($category)
     {
+        $category_obj = Category::findOrFail($category);
+       $products = $category_obj->products;
+       //return view('category', compact($products));
         return view('category');
     }
 
@@ -17,7 +21,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         //return$product->comments->content;
-        return view('single', ['product'=>$product]);
+        return view('single', compact('product'));
     }
 
 

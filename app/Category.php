@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+
     public function sizes(){
         return $this->belongsToMany('App\Size','categories_have_sizes')->withTimeStamps();
     }
