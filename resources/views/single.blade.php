@@ -16,7 +16,7 @@
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                         <div class="col-first">
-                            <h1>Single Product Page</h1>
+                            <h1>{{$product->name}}</h1>
                              <nav class="d-flex align-items-center justify-content-start">
                                 <a href="/">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
                                 <a href="/products">Enjoy our products</a>
@@ -33,11 +33,20 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="quick-view-carousel-details">
+                                @if($product==null ))
+                                @else
+                                @if($product->images==null )
+                                    <div class="item" style="background:
+                                        url(https://cdn.tobi.com/product_images/lg/1/plum-maddie-asymmetrical-bodycon-dress.jpg);">
+                                    </div>
+                                @else
                                 @foreach($product->images as $image)
-                                <div class="item" style="background:
-                                    url({{$image->path}});">
+                                <div class="item"> <!-- style="background: url($image->path);-->
+                                    <img src="{{$image->path}}" />
                                 </div>
                                 @endforeach
+                                    @endif
+                                    @endif
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -47,10 +56,20 @@
                                     <div class="price d-flex align-items-center"><span class="lnr lnr-tag"></span> <span class="ml-10">{{$product->price}}€</span></div>
                                     <div class="category">
                                         Category: <span>
+                                            @if($product->category==null)
+                                                No category yet!
+                                            @else
                                         {{$product->category->name}}
                                             {{$product->category->type}}
+                                                @endif
                                         </span></div>
-                                    <div class="available">Availibility: <span>{{$product->detail->quantity}} pieces </span></div>
+                                    <div class="available">Availibility: <span>
+                                            @if($product->detail==null)
+                                                not avaiable
+                                            @else
+                                            {{$product->detail->quantity}} pieces
+                                            @endif
+                                        </span></div>
                                 </div>
                                 <div class="middle">
                                     <p class="content">{{$product->description}}</p>
@@ -98,6 +117,9 @@
                     </div>
                     <div class="tab-pane fade" id="specification" role="tabpanel" aria-labelledby="specification">
                         <div class="specification-table">
+                            @if($product->detail==null)
+                                nothing here
+                            @else
                             <div class="single-row">
                                 <span>Material</span>
                                 <span>{{$product->detail->material}}</span>
@@ -123,6 +145,7 @@
                                 <span>{{$product->detail->weight}}</span>
                             </div>
                         </div>
+                        @endif
                     </div>
                     <div class="tab-pane fade show active" id="reviews" role="tabpanel" aria-labelledby="reviews">
                         <div class="review-wrapper">

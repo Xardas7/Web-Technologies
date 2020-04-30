@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(\App\Image::class, function (Faker $faker) {
     return [
-        'path'=>'https://picsum.photos/seed/picsum/200/300',
+        'path'=>'https://i.picsum.photos/id/'.$faker->numberBetween(1,1000).'/540/600.jpg',
     ];
 });
