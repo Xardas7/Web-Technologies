@@ -20,12 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="category commit">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_04_20,_13_08_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_04_20__13_08__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/footer/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/footer/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/products/mostSearch.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/products/mostSearch.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/category.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +210,10 @@
       <workItem from="1588260690761" duration="839000" />
       <workItem from="1588275279885" duration="4295000" />
       <workItem from="1588279647016" duration="1839000" />
-      <workItem from="1588332830873" duration="7036000" />
+      <workItem from="1588332830873" duration="7093000" />
+      <workItem from="1588340093199" duration="99000" />
+      <workItem from="1588590009833" duration="301000" />
+      <workItem from="1588593763250" duration="9169000" />
     </task>
     <task id="LOCAL-00001" summary="update to laravel-7">
       <created>1587555791366</created>
@@ -375,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588281313457</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="category commit">
+      <created>1588340020727</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1588340020727</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,10 +445,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="596" height="461" key="Diff.GoToChangePopup/0.0.1366.768@0.0.1366.768" timestamp="1587726262093" />
-    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog" timestamp="1588178041043">
+    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog" timestamp="1588594102801">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1588178041043" />
+    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1588594102801" />
     <state x="544" y="303" key="Github.Dialog.Accounts.Choose" timestamp="1588279568150">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -465,15 +473,15 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="576" y="247" width="391" height="274" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1587726335387" />
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1588281315868">
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1588340022614">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1588281315868" />
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1588340022614" />
     <state x="396" y="156" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1587986491801" />
-    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588340001429">
+    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588593815850">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="492" y="294" width="389" height="180" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1588340001429" />
+    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1588593815850" />
     <state x="673" y="317" key="git4idea.merge.GitPullDialog" timestamp="1587989095900">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -483,10 +491,10 @@
     </state>
     <state x="438" y="178" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1588170524776" />
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1587981216917" />
-    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup" timestamp="1588339688098">
+    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup" timestamp="1588603100044">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1588339688098" />
+    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1588603100044" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1587981224039" />
   </component>
 </project>

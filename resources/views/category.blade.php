@@ -21,7 +21,7 @@
                             <h1>Shop Category page</h1>
                              <nav class="d-flex align-items-center justify-content-start">
                                 <a href="/">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="/products/categories/{{$products->first()->category->id}}">{{$products->first()->category->name}} Category</a>
+                                <a href="/products/categories/">{{$products->first()->category->name}} Category</a>
                             </nav>
                         </div>
                     </div>

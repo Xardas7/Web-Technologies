@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
 Route::get('/cart', function () {
     return view('cart');
@@ -62,7 +62,10 @@ Route::get('/elements', function () {
 
 Auth::routes();
 
+/*
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/products/categories/{category}', 'ProductController@index')->name('product.index');
 Route::get('/products/{product}', 'ProductController@show')->name('product.show');
 Route::post('/comment', 'ProductController@store');
+*/
+Route::get('/{gender}-clothing', 'ProductController@index')->name('product.index');

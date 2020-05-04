@@ -9,30 +9,30 @@ use App\Product;
 class ProductController extends Controller
 {
 
-    public function index($category)
+    public function index($gender)
     {
+        if($gender=='mens'){
+            $gender='male';
+        }
+        elseif ($gender=='womens'){
+            $gender='female';
+        }
+        else{
+          abort(404,'no category found');
+        }
+        // get all products where gender is male (for example)
+        // get gender
+        // get products
+        // for each
+         $products_col = Product::all();
+        $products=Product::where('id',0)->get();
+        foreach ($products_col as $product_obj){
+            if ($product_obj->category->gender == $gender) {
+                $products->push($product_obj);
+            }
+    }
+            return view('category',compact('products'));
 
-        $category_obj = Category::findOrFail($category);
-        $products = $category_obj->products;
-        return view('category', compact('products'));
-        /*
-              if( ($category_obj = Category::where('name',$category)->get())!= null ){
-               return $category_obj;
-               /*    $products = $category_obj->products;
-                   return view('category', compact('products'));
-               }
-               if (($category_obj = Category::where('gender',$category)->get())!= null){
-                   $products = $category_obj->products;
-                   return view('category', compact('products'));
-               }
-               if (($category_obj = Category::where('type',$category)->get())!= null){
-                   $products = $category_obj->products;
-                   return view('category', compact('products'));
-               }
-               else{
-                   abort(404);
-               }
-*/
     }
 
     public function show($id)
