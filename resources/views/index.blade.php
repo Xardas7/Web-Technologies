@@ -21,7 +21,7 @@
 				<div class="container-fluid">
 					<div class="row fullscreen align-items-center justify-content-center">
 						<div class="col-lg-6 col-md-12 d-flex align-self-end img-right no-padding">
-							<img class="img-fluid" src="img/header-img.png" alt="">
+							<img class="img-fluid" src="/img/header-img.png" alt="">
 						</div>
 						<div class="banner-content col-lg-6 col-md-12">
 							<h1 class="title-top"><span>Flat</span> 75%Off</h1>
@@ -52,9 +52,9 @@
 							<div class="row category-bottom">
 								<div class="col-lg-6 col-md-6 mb-30">
 									<div class="content">
-									    <a href="#" target="_blank">
+									    <a href="/womens-clothing">
 									      <div class="content-overlay"></div>
-									  		 <img class="content-image img-fluid d-block mx-auto" src="img/c1.jpg" alt="">
+									  		 <img class="content-image img-fluid d-block mx-auto" src="/img/c1.jpg" alt="">
 									      <div class="content-details fadeIn-bottom">
 									        <h3 class="content-title">Product for Women</h3>
 									      </div>
@@ -65,7 +65,7 @@
 									<div class="content">
 									    <a href="#" target="_blank">
 									      <div class="content-overlay"></div>
-									  		 <img class="content-image img-fluid d-block mx-auto" src="img/c2.jpg" alt="">
+									  		 <img class="content-image img-fluid d-block mx-auto" src="/img/c2.jpg" alt="">
 									      <div class="content-details fadeIn-bottom">
 									        <h3 class="content-title">Product for Couple</h3>
 									      </div>
@@ -76,7 +76,7 @@
 									<div class="content">
 										<a href="#" target="_blank">
 									      <div class="content-overlay"></div>
-									  		 <img class="content-image img-fluid d-block mx-auto" src="img/c3.jpg" alt="">
+									  		 <img class="content-image img-fluid d-block mx-auto" src="/img/c3.jpg" alt="">
 									      <div class="content-details fadeIn-bottom">
 									        <h3 class="content-title">Shop Now</h3>
 									      </div>
@@ -87,9 +87,9 @@
 						</div>
 						<div class="col-lg-4 col-md-4 mb-10">
 						  <div class="content">
-						    <a href="#" target="_blank">
+						    <a href="/mens-clothing">
 						      <div class="content-overlay"></div>
-						  		 <img class="content-image img-fluid d-block mx-auto" src="img/c4.jpg" alt="">
+						  		 <img class="content-image img-fluid d-block mx-auto" src="/img/c4.jpg" alt="">
 						      <div class="content-details fadeIn-bottom">
 						        <h3 class="content-title">Product For Men</h3>
 						      </div>
