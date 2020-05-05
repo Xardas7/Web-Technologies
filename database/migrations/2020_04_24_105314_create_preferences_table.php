@@ -16,7 +16,6 @@ class CreatePreferencesTable extends Migration
         Schema::create('preferences', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('producer_id')->nullable();
             $table->timestamps();
         });
