@@ -51,8 +51,8 @@
 							</div>
 							<div class="pagination">
 								<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-								<a href="#" class="active">1</a>
-								<a href="#">2</a>
+                                <a href="{{Request::url()}}?page=1" class="active">1</a>
+								<a href="{{Request::url()}}?page=2">2</a>
 								<a href="#">3</a>
 								<a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
 								<a href="#">6</a>
@@ -73,7 +73,7 @@
                                                 <a href="#"><span class="lnr lnr-heart"></span></a>
                                                 <a href="#"><span class="lnr lnr-layers"></span></a>
                                                 <a href="#"><span class="lnr lnr-cart"></span></a>
-                                                <a href="/products/{{$product->id}}"><span class="lnr lnr-frame-expand"></span></a>
+                                                <a href="/{{$product->id}}"><span class="lnr lnr-frame-expand"></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -97,8 +97,8 @@
 							</div>
 							<div class="pagination">
 								<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-								<a href="#" class="active">1</a>
-								<a href="#">2</a>
+                                <a href="{{Request::url()}}?page=1" class="active">1</a>
+                                <a href="{{Request::url()}}?page=2">2</a>
 								<a href="#">3</a>
 								<a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
 								<a href="#">6</a>

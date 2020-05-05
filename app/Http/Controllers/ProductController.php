@@ -3,19 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Helpers\General\CollectionHelper;
 use Illuminate\Http\Request;
 use App\Product;
 
 class ProductController extends Controller
 {
-    public function paginate($items, $perPage = 15, $page = null, $options = [])
-    {
-        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
-
-        $items = $items instanceof Collection ? $items : Collection::make($items);
-
-        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
-    }
     public function index($gender)
     {
         if($gender=='mens'){
@@ -38,14 +31,15 @@ class ProductController extends Controller
                 $products->push($product_obj);
             }
     }
-            return $products->paginate(2);
-            return view('category',compact('products'));
+        $total=$products->count();
+        $products = CollectionHelper::paginate($products, $total,12);
+        return view('category',compact('products'));
 
     }
 
-    public function show($id)
+    public function show($product)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::findOrFail($product);
         //return$product->comments->content;
         return view('single', compact('product'));
     }
