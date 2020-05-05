@@ -19,13 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="add man and woman category root/section">
-      <change afterPath="$PROJECT_DIR$/app/Helpers/General/CollectionHelper.php" afterDir="false" />
+    <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="pagination">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +217,8 @@
       <workItem from="1588340093199" duration="99000" />
       <workItem from="1588590009833" duration="301000" />
       <workItem from="1588593763250" duration="14871000" />
-      <workItem from="1588679884530" duration="7459000" />
+      <workItem from="1588679884530" duration="7689000" />
+      <workItem from="1588689354290" duration="3115000" />
     </task>
     <task id="LOCAL-00001" summary="update to laravel-7">
       <created>1587555791366</created>
@@ -398,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588604371419</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="pagination">
+      <created>1588688688906</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1588688688906</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,7 +438,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="category commit" />
     <MESSAGE value="add man and woman category root/section" />
-    <option name="LAST_COMMIT_MESSAGE" value="add man and woman category root/section" />
+    <MESSAGE value="pagination" />
+    <option name="LAST_COMMIT_MESSAGE" value="pagination" />
   </component>
   <component name="WindowStateProjectService">
     <state x="425" y="187" width="507" height="405" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588333170366">
@@ -497,15 +502,15 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="507" y="304" key="NewPhpFileDialog/0.0.1366.768@0.0.1366.768" timestamp="1588682466102" />
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1588604374170">
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1588688690948">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1588604374170" />
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1588688690948" />
     <state x="396" y="156" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1587986491801" />
-    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588604336128">
+    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588688667617">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1588604336128" />
+    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1588688667617" />
     <state x="673" y="317" key="git4idea.merge.GitPullDialog" timestamp="1587989095900">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
