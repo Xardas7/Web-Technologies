@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name','surname', 'email', 'password',
     ];
 
     /**
@@ -47,7 +47,7 @@ class User extends Authenticatable
     public function generalPreferences(){
         return $this->hasOne('App\GeneralPreferences');
     }
-    
+
     // Avatar
     public function avatar(){
         return $this->hasOne('App\Avatar')->withDefault();

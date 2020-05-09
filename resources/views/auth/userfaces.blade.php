@@ -18,8 +18,8 @@
                         <div class="col-first">
                             <h1>Shopping Cart</h1>
                              <nav class="d-flex align-items-center justify-content-start">
-                                <a href="index.blade.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="cart.blade.php">Shopping Cart</a>
+                                <a href="../index.blade.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                <a href="../cart.blade.php">Shopping Cart</a>
                             </nav>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
 						<h3 class="billing-title text-center">Register</h3>
 						<p class="text-center mt-40 mb-30">Create your very own account </p>
 
-                        <form method="POST" action="/login2">
+                        <form method="POST" action="{{ route('register')}}">
                             @csrf
 
                             <div>
