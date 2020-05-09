@@ -8,8 +8,6 @@
 			<link rel="stylesheet" href="/css/nouislider.min.css">
             <link rel="stylesheet" href="/css/bootstrap.css">
             <link rel="stylesheet" href="/css/main.css">
-        </head>
-        <body>
 @endsection
 
 @section('content')

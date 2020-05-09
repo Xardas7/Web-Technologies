@@ -49,13 +49,51 @@
 					<div class="register-form">
 						<h3 class="billing-title text-center">Register</h3>
 						<p class="text-center mt-40 mb-30">Create your very own account </p>
-						<form action="#">
-							<input type="text" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20">
-							<input type="email" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20">
-							<input type="text" placeholder="Phone number*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'" required class="common-input mt-20">
-							<input type="text" placeholder="Username*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Username*'" required class="common-input mt-20">
-							<input type="password" placeholder="Password*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Password*'" required class="common-input mt-20">
-							<button class="view-btn color-2 mt-20 w-100"><span>Register</span></button>
+
+                        <form method="POST" action="/login2">
+                            @csrf
+
+                            <div>
+                            <input type="text" name="name" id="name" placeholder="Full name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full name*'" required class="common-input mt-20 @error('name') is-invalid @enderror">
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div>
+                            <input type="text" name="surname" id="surname" placeholder="Full surname*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Full surname*'" required class="common-input mt-20 @error('surname') is-invalid @enderror ">
+                                @error('surname')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div>
+                            <input type="email" name="email" id="email" placeholder="Email address*" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email address*'" required class="common-input mt-20 @error('email') is-invalid @enderror ">
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div>
+                            <input type="password" name="password" id="password" placeholder="Password*" onfocus="this.placeholder='Password*'" onblur="this.placeholder = 'Password*'" required class="common-input mt-20 @error('password') is-invalid @enderror">
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div>
+                            <input type="password" name="password-confirm" id="password-confirm" placeholder="Confirm Password*" onfocus="this.placeholder='Confirm Password*'" onblur="this.placeholder = 'Confirm Password*'" required class="common-input mt-20" autocomplete="new-password">
+                            </div>
+
+                            <button type="submit" class="view-btn color-2 mt-20 w-100"><span>Register</span></button>
 						</form>
 					</div>
 				</div>

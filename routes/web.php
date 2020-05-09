@@ -67,3 +67,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/{gender}-clothing', 'ProductController@index')->name('product.index');
 Route::get('{product}', 'ProductController@show')->name('product.show');
+Route::get('{product}', 'ProductController@show')->name('product.show');
+Route::post('/login2','Auth\RegisterController@create');

@@ -14,11 +14,6 @@
 
     <!-- Css -->
     @yield('css')
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<!-- Scripts -->
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 
 </head>
 <body>
@@ -90,7 +85,7 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
                     <a class="navbar-brand" href="/">
-                        <img src="img/logo.png" alt="">
+                        <img src="/img/logo.png" alt="">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -124,12 +119,10 @@
         <main class="py-4">
             @yield('content')
             @include('products.mostSearch')
-            @include('footer.footer')
         </main>
-            
     </div>
+    @include('footer.footer')
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
     @yield('js');
 </body>
 </html>
