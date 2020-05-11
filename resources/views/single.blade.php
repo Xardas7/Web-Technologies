@@ -255,12 +255,10 @@
                                             </div>
                                             <span>Outstanding</span>
                                         </div>
-                                        <form action="#" class="main-form">
-                                            <input type="text" placeholder="Your Full name" onfocus="this.placeholder=''" onblur="this.placeholder = 'Your Full name'" required class="common-input">
-                                            <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="Email Address" onfocus="this.placeholder=''" onblur="this.placeholder = 'Email Address'" required class="common-input">
-                                            <input type="text" placeholder="Phone Number" onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone Number'" required class="common-input">
+                                        <form action="#" method="POST" class="main-form">
+                                            @csrf
                                             <textarea placeholder="Review" onfocus="this.placeholder=''" onblur="this.placeholder = 'Review'" required class="common-textarea"></textarea>
-                                            <button class="view-btn color-2"><span>Submit Now</span></button>
+                                            <button type="submit" class="view-btn color-2"><span>Submit Now</span></button>
                                         </form>
                                     </div>
                                 </div>

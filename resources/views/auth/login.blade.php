@@ -9,7 +9,21 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
 @endsection
+
 @section('content')
+    <section class="banner-area organic-breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
+                <div class="col-first">
+                    <h1>Shopping Cart</h1>
+                    <nav class="d-flex align-items-center justify-content-start">
+                        <a href="../index.blade.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                        <a href="../cart.blade.php">Shopping Cart</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

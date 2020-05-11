@@ -73,7 +73,7 @@
                                                 <a href="#"><span class="lnr lnr-heart"></span></a>
                                                 <a href="#"><span class="lnr lnr-layers"></span></a>
                                                 <a href="#"><span class="lnr lnr-cart"></span></a>
-                                                <a href="/{{$product->id}}"><span class="lnr lnr-frame-expand"></span></a>
+                                                <a href="/{{$product->name}}"><span class="lnr lnr-frame-expand"></span></a>
                                             </div>
                                         </div>
                                     </div>

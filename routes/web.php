@@ -73,4 +73,4 @@ Route::get('/login2', function(){
     return view('auth.userfaces');
 });
 
-Route::get('{product}', 'ProductController@show')->name('product.show');
+Route::get('{name}', 'ProductController@show')->name('product.show');

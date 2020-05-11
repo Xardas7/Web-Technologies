@@ -6,6 +6,7 @@ use App\Category;
 use App\Helpers\General\CollectionHelper;
 use Illuminate\Http\Request;
 use App\Product;
+use Symfony\Component\Console\Input\Input;
 
 class ProductController extends Controller
 {
@@ -20,11 +21,16 @@ class ProductController extends Controller
         else{
           abort(404,'no category found');
         }
-        // get all products where gender is male (for example)
-        // get gender
-        // get products
-        // for each
-         $products_col = Product::all();
+        /*$input=request('color').request('type');
+
+        if (empty($input)){
+            return "niente";
+        }
+        else{
+            return $input.' dall url';
+        }
+        */
+        $products_col = Product::all();
         $products=collect();
         foreach ($products_col as $product_obj){
             if ($product_obj->category->gender == $gender) {
@@ -37,10 +43,16 @@ class ProductController extends Controller
 
     }
 
-    public function show($product)
+    public function show($name)
     {
-        $product = Product::findOrFail($product);
-        //return$product->comments->content;
+        $products = Product::all();
+        $product = new Product();
+        foreach ($products as $product1 ){
+            if($product1->name == $name){
+                $product=$product1;
+                break;
+            }
+            }
         return view('single', compact('product'));
     }
 
