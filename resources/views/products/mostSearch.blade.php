@@ -4,7 +4,7 @@
         <div class="organic-section-title text-center">
             <h3>Most Searched Products</h3>
         </div>
-            @foreach($most_search = \App\MostSearchedProducts::all()->sortBy('count')->take(15) as $ms )
+            @foreach($most_search = \App\MostSearchedProducts::all()->sortByDesc('count')->take(15) as $ms )
 
         <div class="row mt-30">
             <div class="col-lg-3 col-md-4 col-sm-6">
