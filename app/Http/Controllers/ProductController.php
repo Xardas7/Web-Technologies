@@ -6,6 +6,7 @@ use App\Category;
 use App\Helpers\General\CollectionHelper;
 use Illuminate\Http\Request;
 use App\Product;
+use App\MostSearchedProducts;
 use Symfony\Component\Console\Input\Input;
 
 class ProductController extends Controller
@@ -45,6 +46,7 @@ class ProductController extends Controller
 
     public function show($name)
     {
+        // trovare un prodotto dato suo codice, altro metodo non fuznionava dovevo arrangiarmi cosi
         $products = Product::all();
         $product = new Product();
         foreach ($products as $product1 ){
@@ -53,6 +55,26 @@ class ProductController extends Controller
                 break;
             }
             }
+        //update di most searched
+        //da qui controllo se e' stato gia cercato
+        $most_searched_products = MostSearchedProducts::all();
+        $most_searched_product = new MostSearchedProducts();
+        foreach ($most_searched_products as $most_searched_product1){
+            if($most_searched_product1->product_id == $product->id){
+                $most_searched_product=$most_searched_product1;
+            }
+        }
+        //se non e' stato mai cercato ne crea uno
+        if($most_searched_product->id == null){
+            $most_searched_product->product_id=$product->id;
+            $most_searched_product->count=1;
+            $most_searched_product->save();
+        }
+        //se è stato trovato aumenta count
+        else{
+            $most_searched_product->count=($most_searched_product->count+1);
+            $most_searched_product->save();
+        }
         return view('single', compact('product'));
     }
 

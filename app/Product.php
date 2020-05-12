@@ -14,6 +14,9 @@ class Product extends Model
     public function category(){
         return $this->belongsTo('App\Category')->orderBy('name');
     }
+    public function mostsearched(){
+        return $this->belongsTo('App\MostSearchedProducts');
+    }
 
     public function producer(){
         return $this->belongsTo('App\Producer');
