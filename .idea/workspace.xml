@@ -19,8 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="product controller">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="most searched realoed">
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/MostSearchedProducts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/MostSearchedProducts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/products/mostSearch.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/products/mostSearch.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +229,7 @@
       <workItem from="1589212280567" duration="6174000" />
       <workItem from="1589286043347" duration="13809000" />
       <workItem from="1589304374079" duration="2653000" />
-      <workItem from="1589308596152" duration="336000" />
+      <workItem from="1589308596152" duration="654000" />
     </task>
     <task id="LOCAL-00001" summary="update to laravel-7">
       <created>1587555791366</created>
@@ -495,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589306950486</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="most searched realoed">
+      <created>1589308980130</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1589308980130</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +524,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="groups services" />
     <MESSAGE value="foreign keys" />
     <MESSAGE value="corrections" />
     <MESSAGE value="can remove foreign keys" />
@@ -540,7 +548,8 @@
     <MESSAGE value="beauty js" />
     <MESSAGE value="index products" />
     <MESSAGE value="product controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="product controller" />
+    <MESSAGE value="most searched realoed" />
+    <option name="LAST_COMMIT_MESSAGE" value="most searched realoed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="425" y="187" width="507" height="405" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588333170366">
@@ -612,10 +621,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="191" y="13" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1589303230077" />
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1589306953860">
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1589308985968">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1589306953860" />
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1589308985968" />
     <state x="396" y="156" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1587986491801" />
     <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589308935164">
       <screen x="0" y="0" width="1366" height="768" />

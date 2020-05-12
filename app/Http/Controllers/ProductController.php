@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Helpers\General\CollectionHelper;
-use App\mostSearchedProducts;
+use App\MostSearchedProducts;
 use Illuminate\Http\Request;
 use App\Product;
 
