@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="index products">
+    <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="product controller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -226,7 +226,8 @@
       <workItem from="1589029697966" duration="9354000" />
       <workItem from="1589212280567" duration="6174000" />
       <workItem from="1589286043347" duration="13809000" />
-      <workItem from="1589304374079" duration="2287000" />
+      <workItem from="1589304374079" duration="2653000" />
+      <workItem from="1589308596152" duration="336000" />
     </task>
     <task id="LOCAL-00001" summary="update to laravel-7">
       <created>1587555791366</created>
@@ -487,7 +488,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589305852986</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="product controller">
+      <created>1589306950486</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1589306950486</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,7 +515,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="some changes" />
     <MESSAGE value="groups services" />
     <MESSAGE value="foreign keys" />
     <MESSAGE value="corrections" />
@@ -532,7 +539,8 @@
     <MESSAGE value="bug fix" />
     <MESSAGE value="beauty js" />
     <MESSAGE value="index products" />
-    <option name="LAST_COMMIT_MESSAGE" value="index products" />
+    <MESSAGE value="product controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="product controller" />
   </component>
   <component name="WindowStateProjectService">
     <state x="425" y="187" width="507" height="405" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588333170366">
@@ -548,10 +556,10 @@
     </state>
     <state x="508" y="85" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768@0.0.1366.768" timestamp="1589295999581" />
     <state x="714" y="116" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1587896796452" />
-    <state x="420" y="136" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1589213601131">
+    <state x="420" y="136" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1589308950779">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="420" y="136" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.768@0.0.1366.768" timestamp="1589213601131" />
+    <state x="420" y="136" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.768@0.0.1366.768" timestamp="1589308950779" />
     <state x="363" y="9" key="#phpunit.xml" timestamp="1588076251564">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -564,10 +572,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="596" height="461" key="Diff.GoToChangePopup/0.0.1366.768@0.0.1366.768" timestamp="1587726262093" />
-    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog" timestamp="1589306730689">
+    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog" timestamp="1589308952415">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1589306730689" />
+    <state x="65" y="156" width="1166" height="568" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1589308952415" />
     <state x="544" y="303" key="Github.Dialog.Accounts.Choose" timestamp="1588279568150">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -604,15 +612,15 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="191" y="13" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1589303230077" />
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1589305854977">
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1589306953860">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1589305854977" />
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1589306953860" />
     <state x="396" y="156" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1587986491801" />
-    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589306690371">
+    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589308935164">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1589306690371" />
+    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1589308935164" />
     <state x="673" y="317" key="git4idea.merge.GitPullDialog" timestamp="1587989095900">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
