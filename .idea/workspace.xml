@@ -19,15 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="bug fix">
+    <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="beauty js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/jquery.magnific-popup.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/jquery.magnific-popup.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/jquery.nice-select.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/jquery.nice-select.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/nouislider.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/nouislider.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/owl.carousel.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/owl.carousel.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/parallax.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/parallax.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/vendor/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/jquery-2.2.4.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/vendor/jquery-2.2.4.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,7 +226,8 @@
       <workItem from="1588770701220" duration="815000" />
       <workItem from="1589029697966" duration="9354000" />
       <workItem from="1589212280567" duration="6174000" />
-      <workItem from="1589286043347" duration="13725000" />
+      <workItem from="1589286043347" duration="13809000" />
+      <workItem from="1589304374079" duration="1184000" />
     </task>
     <task id="LOCAL-00001" summary="update to laravel-7">
       <created>1587555791366</created>
@@ -479,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589302866993</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="beauty js">
+      <created>1589303973522</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1589303973522</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -499,7 +501,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update to laravel-7" />
     <MESSAGE value="nav update" />
     <MESSAGE value="some changes" />
     <MESSAGE value="groups services" />
@@ -524,7 +525,8 @@
     <MESSAGE value="most searched products" />
     <MESSAGE value="litle change" />
     <MESSAGE value="bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
+    <MESSAGE value="beauty js" />
+    <option name="LAST_COMMIT_MESSAGE" value="beauty js" />
   </component>
   <component name="WindowStateProjectService">
     <state x="425" y="187" width="507" height="405" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588333170366">
@@ -596,15 +598,15 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="191" y="13" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1589303230077" />
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1589301887629">
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1589303990301">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1589301887629" />
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1589303990301" />
     <state x="396" y="156" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1587986491801" />
-    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589302857104">
+    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589303951604">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1589302857104" />
+    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1589303951604" />
     <state x="673" y="317" key="git4idea.merge.GitPullDialog" timestamp="1587989095900">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -614,10 +616,10 @@
     </state>
     <state x="438" y="178" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1589038348525" />
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1587981216917" />
-    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup" timestamp="1589303376416">
+    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup" timestamp="1589304650303">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1589303376416" />
+    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1589304650303" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1587981224039" />
     <state x="412" y="292" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1589038296535">
       <screen x="0" y="0" width="1366" height="768" />

@@ -113,84 +113,54 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-3 col-md-6 single-product">
-						  <div class="content">
-						      <div class="content-overlay"></div>
-						  		 <img class="content-image img-fluid d-block mx-auto" src="img/l1.jpg" alt="">
-						      <div class="content-details fadeIn-bottom">
-							        <div class="bottom d-flex align-items-center justify-content-center">
-										<a href="#"><span class="lnr lnr-heart"></span></a>
-										<a href="#"><span class="lnr lnr-layers"></span></a>
-										<a href="#"><span class="lnr lnr-cart"></span></a>
-										<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-									</div>
-						      </div>
-						  </div>
-						  <div class="price">
-						  		<h5 class="text-white">Long Sleeve shirt</h5>
-						  		<h3 class="text-white">$150.00</h3>
-						   </div>
-						</div>
-						<div class="col-lg-3 col-md-6 single-product">
-						  <div class="content">
-						      <div class="content-overlay"></div>
-						  		 <img class="content-image img-fluid d-block mx-auto" src="img/l2.jpg" alt="">
-						      <div class="content-details fadeIn-bottom">
-							        <div class="bottom d-flex align-items-center justify-content-center">
-										<a href="#"><span class="lnr lnr-heart"></span></a>
-										<a href="#"><span class="lnr lnr-layers"></span></a>
-										<a href="#"><span class="lnr lnr-cart"></span></a>
-										<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-									</div>
-						      </div>
-						  </div>
-						  <div class="price">
-						  		<h5 class="text-white">Long Sleeve shirt</h5>
-						  		<h3 class="text-white">$150.00</h3>
-						   </div>
-						</div>
-						<div class="col-lg-3 col-md-6 single-product">
-						  <div class="content">
-						      <div class="content-overlay"></div>
-						  		 <img class="content-image img-fluid d-block mx-auto" src="img/l3.jpg" alt="">
-						      <div class="content-details fadeIn-bottom">
-							        <div class="bottom d-flex align-items-center justify-content-center">
-										<a href="#"><span class="lnr lnr-heart"></span></a>
-										<a href="#"><span class="lnr lnr-layers"></span></a>
-										<a href="#"><span class="lnr lnr-cart"></span></a>
-										<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-									</div>
-						      </div>
-						  </div>
-						  <div class="price">
-						  		<h5 class="text-white">Long Sleeve shirt</h5>
-						  		<h3 class="text-white">$150.00</h3>
-						   </div>
-						</div>
+                        @php
+                                $products_col = \App\Product::all()->sortByDesc('create_at');
+                                $products=collect();
+                                $i=0;
+                                foreach ($products_col as $product_obj){
+                                    if ($product_obj->category->gender == 'male' && $i<4) {
+                                        $products->push($product_obj);
+                                        $i++;
+                                    }
+                                }
+                             @endphp
+                        @foreach($products as $product)
 						<div class="col-lg-3 col-md-6 single-product">
 						  <div class="content">
 					      	<div class="content-overlay"></div>
-					  		 <img class="content-image img-fluid d-block mx-auto" src="img/l4.jpg" alt="">
+					  		 <img class="content-image img-fluid d-block mx-auto" src="{{$product->images->first()->path}}" alt="">
 						      <div class="content-details fadeIn-bottom">
 							        <div class="bottom d-flex align-items-center justify-content-center">
 										<a href="#"><span class="lnr lnr-heart"></span></a>
 										<a href="#"><span class="lnr lnr-layers"></span></a>
 										<a href="#"><span class="lnr lnr-cart"></span></a>
-										<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
+										<a href="/{{$product->name}}"><span class="lnr lnr-frame-expand"></span></a>
 									</div>
 						      </div>
 						  </div>
 						    <div class="price">
-						  		<h5 class="text-white">Long Sleeve shirt</h5>
-						  		<h3 class="text-white">$150.00</h3>
+						  		<h5 class="text-white">{{$product->name}}</h5>
+						  		<h3 class="text-white">{{$product->price}}€</h3>
 						    </div>
 						</div>
+                        @endforeach
 					</div>
 				</div>
 			</section>
 			<!-- End men-product Area -->
 
 			<!-- Start women-product Area -->
+            @php
+                $products_col = \App\Product::all()->sortByDesc('create_at');
+                $products=collect();
+                $i=0;
+                foreach ($products_col as $product_obj){
+                    if ($product_obj->category->gender == 'female' && $i<4) {
+                        $products->push($product_obj);
+                        $i++;
+                    }
+                }
+            @endphp
 			<section class="women-product-area section-gap" id="women">
 				<div class="container">
 					<div class="countdown-content pb-40">
@@ -200,78 +170,26 @@
 						</div>
 					</div>
 					<div class="row">
+                        @foreach($products as $product)
 						<div class="col-lg-3 col-md-6 single-product">
 						  <div class="content">
 						      <div class="content-overlay"></div>
-						  		 <img class="content-image img-fluid d-block mx-auto" src="img/l5.jpg" alt="">
+						  		 <img class="content-image img-fluid d-block mx-auto" src="{{$product->images->first()->path}}" alt="">
 						      <div class="content-details fadeIn-bottom">
 							        <div class="bottom d-flex align-items-center justify-content-center">
 										<a href="#"><span class="lnr lnr-heart"></span></a>
 										<a href="#"><span class="lnr lnr-layers"></span></a>
 										<a href="#"><span class="lnr lnr-cart"></span></a>
-										<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
+										<a href="/{{$product->name}}"><span class="lnr lnr-frame-expand"></span></a>
 									</div>
 						      </div>
 						  </div>
 						  <div class="price">
-						  		<h5>Long Sleeve shirt</h5>
-						  		<h3>$150.00</h3>
+						  		<h5>{{$product->name}}</h5>
+						  		<h3>{{$product->price}}€</h3>
 						   </div>
 						</div>
-						<div class="col-lg-3 col-md-6 single-product">
-						  <div class="content">
-						      <div class="content-overlay"></div>
-						  		 <img class="content-image img-fluid d-block mx-auto" src="img/l6.jpg" alt="">
-						      <div class="content-details fadeIn-bottom">
-							        <div class="bottom d-flex align-items-center justify-content-center">
-										<a href="#"><span class="lnr lnr-heart"></span></a>
-										<a href="#"><span class="lnr lnr-layers"></span></a>
-										<a href="#"><span class="lnr lnr-cart"></span></a>
-										<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-									</div>
-						      </div>
-						  </div>
-						  <div class="price">
-						  		<h5>Long Sleeve shirt</h5>
-						  		<h3>$150.00</h3>
-						   </div>
-						</div>
-						<div class="col-lg-3 col-md-6 single-product">
-						  <div class="content">
-						      <div class="content-overlay"></div>
-						  		 <img class="content-image img-fluid d-block mx-auto" src="img/l7.jpg" alt="">
-						      <div class="content-details fadeIn-bottom">
-							        <div class="bottom d-flex align-items-center justify-content-center">
-										<a href="#"><span class="lnr lnr-heart"></span></a>
-										<a href="#"><span class="lnr lnr-layers"></span></a>
-										<a href="#"><span class="lnr lnr-cart"></span></a>
-										<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-									</div>
-						      </div>
-						  </div>
-						  <div class="price">
-						  		<h5>Long Sleeve shirt</h5>
-						  		<h3>$150.00</h3>
-						   </div>
-						</div>
-						<div class="col-lg-3 col-md-6 single-product">
-						  <div class="content">
-						      <div class="content-overlay"></div>
-						  		 <img class="content-image img-fluid d-block mx-auto" src="img/l8.jpg" alt="">
-						      <div class="content-details fadeIn-bottom">
-							        <div class="bottom d-flex align-items-center justify-content-center">
-										<a href="#"><span class="lnr lnr-heart"></span></a>
-										<a href="#"><span class="lnr lnr-layers"></span></a>
-										<a href="#"><span class="lnr lnr-cart"></span></a>
-										<a href="#" data-toggle="modal" data-target="#exampleModal"><span class="lnr lnr-frame-expand"></span></a>
-									</div>
-						      </div>
-						  </div>
-						  <div class="price">
-						  		<h5>Long Sleeve shirt</h5>
-						  		<h3>$150.00</h3>
-						   </div>
-						</div>
+                        @endforeach
 					</div>
 				</div>
 			</section>
