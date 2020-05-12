@@ -10,7 +10,18 @@ use Symfony\Component\Console\Input\Input;
 
 class ProductController extends Controller
 {
-    public function index($gender)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $products = Product::paginate(30);
+        return view('admin.productsIndex', ['products'=>$products]);
+    }
+
+    public function indexByGender($gender)
     {
         if($gender=='mens'){
             $gender='male';
@@ -45,16 +56,21 @@ class ProductController extends Controller
 
     public function show($name)
     {
-        $products = Product::all();
+        $product = Product::where('name', $name)->get();
+
+        /*$products = Product::all();
         $product = new Product();
         foreach ($products as $product1 ){
             if($product1->name == $name){
                 $product=$product1;
                 break;
             }
-            }
+            }*/
+
         return view('single', compact('product'));
     }
+
+
 
 
 }
