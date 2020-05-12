@@ -13,7 +13,6 @@
     <li><a href="#catagory">Category</a></li>
     <li><a href="#men">Men</a></li>
     <li><a href="#women">Women</a></li>
-    <li><a href="#latest">latest</a></li>
     @endsection
 @section('content')
 			<!-- start banner Area -->

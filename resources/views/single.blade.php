@@ -151,14 +151,22 @@
                         <div class="review-wrapper">
                             <div class="row">
                                 <div @auth class="col-lg-6" @endauth>
+                                    @php $total = 0; $one=0; $two=0; $three=0; $four=0; $five=0; @endphp
+                                    @foreach($product->comments as $comment)
+                                        @if($comment->vote=='one') @php $total+=1; $one+=1; @endphp @endif
+                                        @if($comment->vote=='two') @php $total+=2; $two+=1; @endphp  @endif
+                                        @if($comment->vote=='three') @php $total+=3; $three+=1; @endphp @endif
+                                        @if($comment->vote=='four') @php $total+=4; $four+=1; @endphp @endif
+                                        @if($comment->vote=='five') @php $total+=5; $five+=1; @endphp @endif
+                                    @endforeach
                                     <div class="review-stat d-flex align-items-center flex-wrap">
                                         <div class="review-overall">
                                             <h3>Overall</h3>
-                                            <div class="main-review">4.0</div>
-                                            <span>(03 Reviews)</span>
+                                            <div class="main-review">@if($product->comments->count()==0) 0 @else {{ number_format((float)$total/$product->comments->count(), 2, '.', '')}} @endif</div>
+                                            <span>({{$product->comments->count()}} Reviews)</span>
                                         </div>
                                         <div class="review-count">
-                                            <h4>Based on 3 Reviews</h4>
+                                            <h4>Based on {{$product->comments->count()}} Reviews</h4>
                                             <div class="single-review-count d-flex align-items-center">
                                                 <span>5 Star</span>
                                                 <div class="total-star five-star d-flex align-items-center">
@@ -168,7 +176,9 @@
                                                     <i class="fa fa-star" aria-hidden="true"></i>
                                                     <i class="fa fa-star" aria-hidden="true"></i>
                                                 </div>
-                                                <span>01</span>
+                                                <span>
+                                                    {{$five}}
+                                                </span>
                                             </div>
                                             <div class="single-review-count d-flex align-items-center">
                                                 <span>4 Star</span>
@@ -179,7 +189,9 @@
                                                     <i class="fa fa-star" aria-hidden="true"></i>
                                                     <i class="fa fa-star" aria-hidden="true"></i>
                                                 </div>
-                                                <span>01</span>
+                                                <span>
+                                                    {{$four}}
+                                                </span>
                                             </div>
                                             <div class="single-review-count d-flex align-items-center">
                                                 <span>3 Star</span>
@@ -190,7 +202,7 @@
                                                     <i class="fa fa-star" aria-hidden="true"></i>
                                                     <i class="fa fa-star" aria-hidden="true"></i>
                                                 </div>
-                                                <span>01</span>
+                                                <span>{{$three}}</span>
                                             </div>
                                             <div class="single-review-count d-flex align-items-center">
                                                 <span>2 Star</span>
@@ -201,7 +213,9 @@
                                                     <i class="fa fa-star" aria-hidden="true"></i>
                                                     <i class="fa fa-star" aria-hidden="true"></i>
                                                 </div>
-                                                <span>00</span>
+                                                <span>
+                                                    {{$two}}
+                                                </span>
                                             </div>
                                             <div class="single-review-count d-flex align-items-center">
                                                 <span>1 Star</span>
@@ -212,7 +226,7 @@
                                                     <i class="fa fa-star" aria-hidden="true"></i>
                                                     <i class="fa fa-star" aria-hidden="true"></i>
                                                 </div>
-                                                <span>00</span>
+                                                <span>{{$one}}</span>
                                             </div>
                                         </div>
                                     </div>

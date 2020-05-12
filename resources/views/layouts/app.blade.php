@@ -122,22 +122,22 @@
                         <ul class="navbar-nav">
                         @yield('navbar')
                             <!-- Dropdown -->
+                            <!--
                             <li class="dropdown">
                                 <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                                     Pages
                                 </a>
+
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="/category">Category</a>
-                                    <a class="dropdown-item" href="/single">Single</a>
                                     <a class="dropdown-item" href="/cart">Cart</a>
                                     <a class="dropdown-item" href="/checkout">Checkout</a>
                                     <a class="dropdown-item" href="/confermation">Confermation</a>
-                                    <a class="dropdown-item" href="/login">Login</a>
                                     <a class="dropdown-item" href="/tracking">Tracking</a>
                                     <a class="dropdown-item" href="/generic">Generic</a>
                                     <a class="dropdown-item" href="/elements">Elements</a>
                                 </div>
                             </li>
+                            -->
                         </ul>
                     </div>
                 </div>
