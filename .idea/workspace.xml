@@ -19,11 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="few changes">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_04_20__19_42__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_04_20__19_42__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="bug fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/jquery.magnific-popup.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/jquery.magnific-popup.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/jquery.nice-select.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/jquery.nice-select.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/nouislider.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/nouislider.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/owl.carousel.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/owl.carousel.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/parallax.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/parallax.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/vendor/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/vendor/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/vendor/jquery-2.2.4.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/vendor/jquery-2.2.4.min.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +36,7 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -175,6 +177,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -195,18 +198,6 @@
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -241,8 +232,7 @@
       <workItem from="1588770701220" duration="815000" />
       <workItem from="1589029697966" duration="9354000" />
       <workItem from="1589212280567" duration="6174000" />
-      <workItem from="1589286043347" duration="4847000" />
-      <workItem from="1589297656109" duration="5767000" />
+      <workItem from="1589286043347" duration="13725000" />
     </task>
     <task id="LOCAL-00001" summary="update to laravel-7">
       <created>1587555791366</created>
@@ -461,24 +451,51 @@
       <option name="project" value="LOCAL" />
       <updated>1589289653485</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="review count">
+      <created>1589295055686</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1589295055686</updated>
+    </task>
+    <task id="LOCAL-00033" summary="most searched products">
+      <created>1589301721082</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1589301721082</updated>
+    </task>
+    <task id="LOCAL-00034" summary="litle change">
+      <created>1589301871677</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1589301871678</updated>
+    </task>
+    <task id="LOCAL-00035" summary="bug fix">
+      <created>1589302866993</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1589302866993</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -503,7 +520,11 @@
     <MESSAGE value="registration" />
     <MESSAGE value="registration and login" />
     <MESSAGE value="few changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="few changes" />
+    <MESSAGE value="review count" />
+    <MESSAGE value="most searched products" />
+    <MESSAGE value="litle change" />
+    <MESSAGE value="bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
   </component>
   <component name="WindowStateProjectService">
     <state x="425" y="187" width="507" height="405" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588333170366">
@@ -514,23 +535,23 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="493" y="61" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1588688252290" />
-    <state x="714" y="116" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587896796452">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="508" y="85" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1589295999581">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state x="508" y="85" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768@0.0.1366.768" timestamp="1589295999581" />
     <state x="714" y="116" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1587896796452" />
-    <state x="590" y="186" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1589302353826">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="420" y="136" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1589213601131">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="420" y="136" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.768@0.0.1366.768" timestamp="1589213601131" />
-    <state x="590" y="186" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1589302353826" />
     <state x="363" y="9" key="#phpunit.xml" timestamp="1588076251564">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="363" y="9" key="#phpunit.xml/0.0.1366.768@0.0.1366.768" timestamp="1588076251564" />
-    <state x="505" y="120" key="CommitChangelistDialog2" timestamp="1589305615458">
+    <state x="505" y="120" key="CommitChangelistDialog2" timestamp="1587986422799">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="505" y="120" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1589305615458" />
+    <state x="505" y="120" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1587986422799" />
     <state width="596" height="461" key="Diff.GoToChangePopup" timestamp="1587726262093">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -571,28 +592,32 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="507" y="304" key="NewPhpFileDialog/0.0.1366.768@0.0.1366.768" timestamp="1588682466102" />
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1589218446781">
+    <state x="191" y="13" key="SettingsEditor" timestamp="1589303230077">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1589218446781" />
+    <state x="191" y="13" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1589303230077" />
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1589301887629">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1589301887629" />
     <state x="396" y="156" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1587986491801" />
-    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589295031587">
+    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589302857104">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1589295031587" />
-    <state x="673" y="317" key="git4idea.merge.GitPullDialog" timestamp="1589305596398">
+    <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.768@0.0.1366.768" timestamp="1589302857104" />
+    <state x="673" y="317" key="git4idea.merge.GitPullDialog" timestamp="1587989095900">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="673" y="317" key="git4idea.merge.GitPullDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1589305596398" />
+    <state x="673" y="317" key="git4idea.merge.GitPullDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1587989095900" />
     <state x="438" y="178" width="672" height="677" key="run.anything.popup" timestamp="1589038348525">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="438" y="178" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1589038348525" />
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1587981216917" />
-    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup" timestamp="1589294802416">
+    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup" timestamp="1589303376416">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1589294802416" />
+    <state x="443" y="166" width="672" height="496" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1589303376416" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1587981224039" />
     <state x="412" y="292" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1589038296535">
       <screen x="0" y="0" width="1366" height="768" />
