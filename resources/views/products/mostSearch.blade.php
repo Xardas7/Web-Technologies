@@ -11,7 +11,7 @@
                     <a href="/{{$ms->product->name}}"><img src="{{$ms->product->images->first()->path }}" alt=""></a>
                     <div class="desc">
                         <a href="/{{$ms->product->name}}" class="title">{{$ms->product->name}}</a>
-                        <div class="price"><span class="lnr lnr-tag"></span> {{$ms->product->price}}</div>
+                        <div class="price"><span class="lnr lnr-tag"></span> {{$ms->product->price}}€</div>
                     </div>
                 </div>
             </div>
