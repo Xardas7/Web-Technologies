@@ -17,6 +17,7 @@ class CreateShoppingCartsHaveProductsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('shoppingcart_id');
             $table->unsignedBigInteger('product_id');
+            $table->unsignedInteger('quantity');
             $table->timestamps();
         });
     }
