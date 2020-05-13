@@ -50,7 +50,9 @@
 								</select>
 							</div>
 							<div class="pagination">
+                                @if(!($products->lastPage()<3))
 								<a href="{{$products->previousPageUrl()}}" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+                                @endif
                             @for ($i = 1; $i<=$products->lastPage(); $i++)
                                <a href="{{Request::url()}}?page={{$i}}"
                                    class="{{$products->currentPage() == $i ? 'active' : ''}}">{{$i}}</a>
@@ -58,7 +60,9 @@
                                     <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
                                     @endif
                                 @endfor
+                                    @if(!($products->lastPage()<3))
 								<a href="{{$products->nextPageUrl()}}" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                        @endif
 							</div>
 						</div>
 						<!-- End Filter Bar -->
@@ -98,7 +102,9 @@
 								</select>
 							</div>
                             <div class="pagination">
+                                @if(!($products->lastPage()<3))
                                 <a href="{{$products->previousPageUrl()}}" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+                                @endif
                                 @for ($i = 1; $i<=$products->lastPage(); $i++)
                                     <a href="{{Request::url()}}?page={{$i}}"
                                        class="{{$products->currentPage() == $i ? 'active' : ''}}">{{$i}}</a>
@@ -106,7 +112,9 @@
                                         <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
                                     @endif
                                 @endfor
+                                    @if(!($products->lastPage()<3))
                                 <a href="{{$products->nextPageUrl()}}" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                        @endif
                             </div>
 						</div>
 						<!-- End Filter Bar -->
