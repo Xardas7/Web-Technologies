@@ -115,7 +115,7 @@
                             <ul class="main-categories">
                                 @foreach($all_categories= \App\Category::all()->unique('name') as $category )
                                 <li class="main-nav-list"><a data-toggle="collapse" href="#{{$category->name}}" aria-expanded="false" aria-controls="{{$category->name}}"><span class="lnr lnr-arrow-right"></span>{{$category->name}}<span class="number">(53)</span></a>
-									<ul class="collapse" id="{{$category->name}}" data-toggle="collapse" aria-expanded="false" aria-controls="{{$category->name}}">
+									<ul class="collapse" id="{{$category->name}}"aria-expanded="false" aria-controls="{{$category->name}}">
                                         @foreach($name_categories= \App\Category::where('name',$category->name)->get() as $type_category)
                                         <li class="main-nav-list child"><a href="{{Request::url()}}?name={{$category->name}}&type={{$type_category->type}}" target='_self'>{{$type_category->type}}<span class="number">(13)</span></a></li>
                                         @endforeach

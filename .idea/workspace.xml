@@ -19,152 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="most searched realoed">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_04_20,_19_42_[Default_Changelist]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_04_20,_19_42_[Default_Changelist]/shelved.patch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_04_20__19_42__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_04_20__19_42__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Address.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Avatars.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Avatars.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Card.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Card.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/CategoriesHaveSize.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CategoriesHaveSize.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Coupon.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Coupon.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Detail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/GeneralPreferences.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GeneralPreferences.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Group.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Group.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/GroupHasService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GroupHasService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/General/CollectionHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/General/CollectionHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AddressController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AddressController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AvatarsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AvatarsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriesHaveSizeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriesHaveSizeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CouponController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CouponController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DetailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DetailController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GeneralPreferencesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GeneralPreferencesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GroupController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GroupsHaveServiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GroupsHaveServiceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ImageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrdersHaveProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrdersHaveProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PreferencesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PreferencesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProducersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProducersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductsHaveCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductsHaveCategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShoppingCartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShoppingCartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShoppingCartsHaveProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShoppingCartsHaveProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SizeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SizeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsersHaveGroupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsersHaveGroupController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsersLikeCommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsersLikeCommentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsersLikeProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsersLikeProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WishListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WishListController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Image.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Image.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/MostSearchedProducts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/MostSearchedProducts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/OrdersHaveProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/OrdersHaveProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Preferences.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Preferences.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Producer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Producer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ProductsHaveCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ProductsHaveCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Service.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Service.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ShoppingCart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ShoppingCart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ShoppingCartsHaveProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ShoppingCartsHaveProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Size.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Size.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/UserHasGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/UserHasGroup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/UsersLikeComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/UsersLikeComment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/UsersLikeProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/UsersLikeProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/WishList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/WishList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/cors.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/cors.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/AddressFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AddressFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CardFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CardFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CategoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CategoryFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CommentFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CommentFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/DetailFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/DetailFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/GeneralPreferenceFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/GeneralPreferenceFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/GroupFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/GroupFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ImagesFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ImagesFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ProducersFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ProducersFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ProductFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ProductFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ServiceFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ServiceFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ShoppingCartFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ShoppingCartFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/SizeFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/SizeFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_23_165208_create_addresses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_23_165208_create_addresses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_24_072328_create_avatars_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_24_072328_create_avatars_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_24_072740_create_general_preferences_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_24_072740_create_general_preferences_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_24_105314_create_preferences_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_24_105314_create_preferences_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_24_110452_create_producers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_24_110452_create_producers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_112209_create_sizes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_112209_create_sizes_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_112249_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_112249_create_categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_121711_create_comments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_121711_create_comments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_122358_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_122358_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_123401_create_images_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_123401_create_images_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_123530_create_details_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_123530_create_details_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_123629_create_wish_lists_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_123629_create_wish_lists_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_124140_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_124140_create_orders_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_131029_create_coupons_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_131029_create_coupons_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_131542_create_shopping_carts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_131542_create_shopping_carts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_132813_create_orders_have_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_132813_create_orders_have_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_133328_create_shopping_carts_have_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_133328_create_shopping_carts_have_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_175113_create_cards_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_175113_create_cards_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_190959_create_groups_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_190959_create_groups_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_191057_create_services_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_191057_create_services_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_191435_create_group_has_services_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_191435_create_group_has_services_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_25_191524_create_user_has_groups_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_25_191524_create_user_has_groups_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_26_150308_create_categories_have_sizes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_26_150308_create_categories_have_sizes_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_26_155158_chiave_esterne.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_26_155158_chiave_esterne.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_29_102708_create_users_like_comments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_29_102708_create_users_like_comments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_29_102739_create_users_like_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_29_102739_create_users_like_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_12_145351_create_most_searched_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_12_145351_create_most_searched_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/CardsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CardsSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/CategorySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CategorySeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/CommentSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CommentSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/GroupSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/GroupSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ImageSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ImageSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ProducerSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ProducerSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ServiceSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ServiceSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/SizeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/SizeSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/2019-20 Specifiche progetto EN.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/2019-20 Specifiche progetto EN.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/database-diagram.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/database-diagram.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
+    <list default="true" id="c8d01483-d787-4aa6-b7c9-32b5b7344be0" name="Default Changelist" comment="boh">
       <change beforePath="$PROJECT_DIR$/resources/views/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/footer/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/footer/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/products/mostSearch.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/products/mostSearch.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/single.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/single.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -372,7 +228,7 @@
       <workItem from="1589286043347" duration="13809000" />
       <workItem from="1589304374079" duration="2653000" />
       <workItem from="1589308596152" duration="654000" />
-      <workItem from="1589369314713" duration="10821000" />
+      <workItem from="1589369314713" duration="11333000" />
     </task>
     <task id="LOCAL-00001" summary="update to laravel-7">
       <created>1587555791366</created>
@@ -647,7 +503,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589308980130</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="boh">
+      <created>1589381909787</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1589381909787</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -667,7 +530,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="foreign keys" />
     <MESSAGE value="corrections" />
     <MESSAGE value="can remove foreign keys" />
     <MESSAGE value="User factory" />
@@ -692,7 +554,8 @@
     <MESSAGE value="index products" />
     <MESSAGE value="product controller" />
     <MESSAGE value="most searched realoed" />
-    <option name="LAST_COMMIT_MESSAGE" value="most searched realoed" />
+    <MESSAGE value="boh" />
+    <option name="LAST_COMMIT_MESSAGE" value="boh" />
   </component>
   <component name="WindowStateProjectService">
     <state x="425" y="187" width="507" height="405" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588333170366">
@@ -764,10 +627,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="191" y="13" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1589303230077" />
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1589308985968">
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2" timestamp="1589381911546">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1589308985968" />
+    <state x="282" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1589381911546" />
     <state x="396" y="156" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1587986491801" />
     <state x="492" y="294" width="389" height="192" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589369339032">
       <screen x="0" y="0" width="1366" height="768" />
