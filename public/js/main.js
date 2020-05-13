@@ -313,20 +313,32 @@ $(document).ready(function(){
 //----- Ours scripts --//
 
   
-  $('.view-btn color-2 addCart').click(function(){
-    
+  var url = 'http://127.0.0.1:8000';
+
+  $('#provaclick').click(function(event){
+    event.preventDefault();
     let product_id, quantity;
     product_id = $('input[name="product_id"]').val();
     quantity = $('#quantity').val();
+
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+
     $.ajax({
-      url: ,
-      type: GET,
+      url: url+'/cart',
+      type: 'POST',
       data: {
-        product_id,
-        quantity
+       product_id: product_id,
+        quantity: quantity
       },
       success: function(){
-        alert('Prodotto aggiunto al carrello')
+        alert('Prodotto aggiunto al carello')
+      },
+      error: function(data){
+        console.log(data);
       }
 
     })

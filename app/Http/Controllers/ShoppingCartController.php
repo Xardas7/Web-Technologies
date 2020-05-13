@@ -9,13 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ShoppingCartController extends Controller
 {
-    public function store($request){
+    public function store(Request $request){
         //Estraggo le info dell'utente loggato
         $user = Auth::user();
-
         //Estraggo le info del carrello dell'utente loggato
         $cart = ShoppingCart::where('user_id',$user->id)->first();
-
         //Controllo se nel carrello dell'utente quel prodotto è già presente
         $shoppingcarthasproducts = ShoppingCartsHaveProduct::where('shoppingcart_id',$cart->id)
                                     ->where('product_id',$request->product_id)
@@ -28,12 +26,11 @@ class ShoppingCartController extends Controller
 
         } else {
             //Altrimenti, lo inserisco
-            $shoppingcarthasproducts = ShoppingCartsHaveProduct::create([
-                'shoppingcart_id' => $cart->id,
-                'product_id' => $request->product_id,
-                'quantity' => $request->quantity
-            ]);
+            $shopping = new ShoppingCartsHaveProduct;
+            $shopping->shoppingcart_id = $cart->id;
+            $shopping->product_id = $request->product_id;
+            $shopping->quantity = $request->quantity;
+            $shopping->save();
         }
-        return redirect()->back();
     }
 }

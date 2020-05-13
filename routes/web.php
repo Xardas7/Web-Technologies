@@ -79,5 +79,5 @@ Route::post('/comment', 'CommentController@store')->name('product.comment');
 
 Route::post('/wishlist', 'WishListController@store')->name('product.wishlist');
 
-Route::get('/cart', 'ShoppingCartController@store')->name('product.cart');
+Route::post('/cart', 'ShoppingCartController@store')->name('product.cart');
 
