@@ -22,5 +22,8 @@ class CommentController extends Controller
             'content' => $request->content,
             'vote' => 'one'
         ]);
+
+        return redirect()->back();
+
     }
 }
