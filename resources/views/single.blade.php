@@ -87,7 +87,7 @@
                                    <div >
                                        <div class="quantity-container d-flex align-items-center mt-15">
                                            Quantity:
-                                           <input type="text" class="quantity-amount ml-15" value="1" />
+                                           <input type="text" class="quantity-amount ml-15" id="quantity" value="1" />
                                            <div class="arrow-btn d-inline-flex flex-column">
                                                <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
                                                <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
@@ -95,7 +95,7 @@
 
                                        </div>
                                        <div class="d-flex mt-20">
-                                           <a href="#" class="view-btn color-2"><span>Add to Cart</span></a>
+                                           <a href="#" class="view-btn color-2 addCart"><span>Add to Cart</span></a>
                                            <a href="#" class="like-btn"><span class="lnr lnr-heart"></span></a>
                                        </div>
                                    </div>

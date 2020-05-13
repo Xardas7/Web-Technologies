@@ -310,6 +310,28 @@ $(document).ready(function(){
 //------- End Quantity Increase & Decrease Value --------//
 
 
+//----- Ours scripts --//
+
+  
+  $('.view-btn color-2 addCart').click(function(){
+    
+    let product_id, quantity;
+    product_id = $('input[name="product_id"]').val();
+    quantity = $('#quantity').val();
+    $.ajax({
+      url: ,
+      type: GET,
+      data: {
+        product_id,
+        quantity
+      },
+      success: function(){
+        alert('Prodotto aggiunto al carrello')
+      }
+
+    })
+
+  });
   
 
  });
