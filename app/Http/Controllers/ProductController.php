@@ -19,14 +19,22 @@ class ProductController extends Controller
         elseif ($gender=='womens'){
             $gender='female';
         }
+        elseif ($gender=='all'){
+            $gender='all';
+        }
         else{
             abort(404,'no category found');
         }
-        $products_col = Product::all();
-        $products=collect();
-        foreach ($products_col as $product_obj){
-            if ($product_obj->category->gender == $gender) {
-                $products->push($product_obj);
+        if($gender=='all'){
+            $products=Product::all();
+        }
+        else {
+            $products_col = Product::all();
+            $products = collect();
+            foreach ($products_col as $product_obj) {
+                if ($product_obj->category->gender == $gender) {
+                    $products->push($product_obj);
+                }
             }
         }
         $name=request('name');
