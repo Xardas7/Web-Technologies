@@ -20,12 +20,12 @@ class ProductController extends Controller
             $gender='female';
         }
         elseif ($gender=='all'){
-            $gender='female';
+            $gender='all';
         }
         else{
             abort(404,'no category found');
         }
-        if($gender='all'){
+        if($gender=='all'){
             $products=Product::all();
         }
         else {
