@@ -19,7 +19,9 @@
                             <h1>Shop Category page</h1>
                              <nav class="d-flex align-items-center justify-content-start">
                                 <a href="/">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="/products/categories/">{{$products->first()->category->name}} Category</a>
+                                <a href="{{Request::url()}}">@if(!empty($products->first()))
+                                    {{$products->first()->category->name}} Category</a>
+                                 @endif
                             </nav>
                         </div>
                     </div>
@@ -110,17 +112,16 @@
 					<div class="col-xl-3 col-lg-4 col-md-5">
 						<div class="sidebar-categories">
 							<div class="head">Browse Categories</div>
-							<ul class="main-categories">
-								<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false" aria-controls="fruitsVegetable"><span class="lnr lnr-arrow-right"></span>Fruits and Vegetables<span class="number">(53)</span></a>
-									<ul class="collapse" id="fruitsVegetable" data-toggle="collapse" aria-expanded="false" aria-controls="fruitsVegetable">
-										<li class="main-nav-list child"><a href="#">Frozen Fish<span class="number">(13)</span></a></li>
-										<li class="main-nav-list child"><a href="#">Dried Fish<span class="number">(09)</span></a></li>
-										<li class="main-nav-list child"><a href="#">Fresh Fish<span class="number">(17)</span></a></li>
-										<li class="main-nav-list child"><a href="#">Meat Alternatives<span class="number">(01)</span></a></li>
-										<li class="main-nav-list child"><a href="#">Meat<span class="number">(11)</span></a></li>
-									</ul>
+                            <ul class="main-categories">
+                                @foreach($all_categories= \App\Category::all()->unique('name') as $category )
+                                <li class="main-nav-list"><a data-toggle="collapse" href="#{{$category->name}}" aria-expanded="false" aria-controls="{{$category->name}}"><span class="lnr lnr-arrow-right"></span>{{$category->name}}<span class="number">(53)</span></a>
+									<ul class="collapse" id="{{$category->name}}" data-toggle="collapse" aria-expanded="false" aria-controls="{{$category->name}}">
+                                        @foreach($name_categories= \App\Category::where('name',$category->name)->get() as $type_category)
+                                        <li class="main-nav-list child"><a href="{{Request::url()}}?name={{$category->name}}&type={{$type_category->type}}" target='_self'>{{$type_category->type}}<span class="number">(13)</span></a></li>
+                                        @endforeach
+                                    </ul>
 								</li>
-
+                                @endforeach
 							</ul>
 						</div>
 						<div class="sidebar-filter mt-50">

@@ -22,15 +22,6 @@ class ProductController extends Controller
         else{
             abort(404,'no category found');
         }
-        /*$input=request('color').request('type');
-
-        if (empty($input)){
-            return "niente";
-        }
-        else{
-            return $input.' dall url';
-        }
-        */
         $products_col = Product::all();
         $products=collect();
         foreach ($products_col as $product_obj){
@@ -38,6 +29,73 @@ class ProductController extends Controller
                 $products->push($product_obj);
             }
         }
+        $name=request('name');
+        $type=request('type');
+        $brand=request('brand');
+        $color=request('color');
+        $max_price=request('max_price');
+        $min_price=request('min_price');
+    if (!empty($name)) {
+        $products_all=collect();
+        foreach ($products as $product_obj){
+            if ($product_obj->category->name === $name) {
+
+                $products_all->push($product_obj);
+            }
+        }
+        $products=$products_all;
+    }
+        if (!empty($type)) {
+            $products_all=collect();
+            foreach ($products as $product_obj){
+                if ($product_obj->category->type === $type) {
+
+                    $products_all->push($product_obj);
+                }
+            }
+            $products=$products_all;
+        }
+        if (!empty($brand)) {
+            $products_all=collect();
+            foreach ($products as $product_obj){
+                if ($product_obj->category->brand === $brand) {
+
+                    $products_all->push($product_obj);
+                }
+            }
+            $products=$products_all;
+        }/*
+        if (!empty($color)) {
+            $products_all=collect();
+            foreach ($products as $product_obj){
+                if ($product_obj->category->name === $name) {
+
+                    $products_all->push($product_obj);
+                }
+            }
+            $products=$products_all;
+        }
+        if (!empty($max_price)) {
+            $products_all=collect();
+            foreach ($products as $product_obj){
+                if ($product_obj->category->name === $name) {
+
+                    $products_all->push($product_obj);
+                }
+            }
+            $products=$products_all;
+        }
+        if (!empty($min_price)) {
+            $products_all=collect();
+            foreach ($products as $product_obj){
+                if ($product_obj->category->name === $name) {
+
+                    $products_all->push($product_obj);
+                }
+            }
+            $products=$products_all;
+        }
+*/
         $total=$products->count();
         $products = CollectionHelper::paginate($products, $total,12);
         return view('category',compact('products'));
@@ -62,6 +120,7 @@ class ProductController extends Controller
         foreach ($most_searched_products as $most_searched_product1){
             if($most_searched_product1->product_id == $product->id){
                 $most_searched_product=$most_searched_product1;
+                break;
             }
         }
         //se non e' stato mai cercato ne crea uno

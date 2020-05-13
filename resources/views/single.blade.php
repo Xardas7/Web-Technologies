@@ -59,99 +59,109 @@
                                             @if($product->category==null)
                                                 No category yet!
                                             @else
-                                        {{$product->category->name}}
-                                            {{$product->category->type}}
-                                                @endif
+                                                @if($product->category->gender=='male')
+                                                    <a href="/mens-clothing/?name={{$product->category->name}}&type={{$product->category->type}}">
+                                           {{$product->category->name}}
+                                               {{$product->category->type}}
+                                                    </a>
+                                                   @endif
+                                                    @if($product->category->gender=='female')
+                                                        <a href="/womens-clothing/?name={{$product->category->name}}&type={{$product->category->type}}">
+                                           {{$product->category->name}}
+                                                            {{$product->category->type}}
+                                                    </a>
+                                                    @endif
+                                        @endif
                                         </span></div>
-                                    <div class="available">Availibility: <span>
-                                            @if($product->detail==null)
-                                                not avaiable
-                                            @else
-                                            {{$product->detail->quantity}} pieces
-                                            @endif
-                                        </span></div>
-                                </div>
-                                <div class="middle">
-                                    <p class="content">{{$product->description}}</p>
-                                </div>
-                                <div >
-                                    <div class="quantity-container d-flex align-items-center mt-15">
-                                        Quantity:
-                                        <input type="text" class="quantity-amount ml-15" value="1" />
-                                        <div class="arrow-btn d-inline-flex flex-column">
-                                            <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
-                                            <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
-                                        </div>
+                                       <div class="available">Availibility: <span>
+                                               @if($product->detail==null)
+                                                   not avaiable
+                                               @else
+                                               {{$product->detail->quantity}} pieces
+                                               @endif
+                                           </span></div>
+                                   </div>
+                                   <div class="middle">
+                                       <p class="content">{{$product->description}}</p>
+                                   </div>
+                                   <div >
+                                       <div class="quantity-container d-flex align-items-center mt-15">
+                                           Quantity:
+                                           <input type="text" class="quantity-amount ml-15" value="1" />
+                                           <div class="arrow-btn d-inline-flex flex-column">
+                                               <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
+                                               <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
+                                           </div>
 
-                                    </div>
-                                    <div class="d-flex mt-20">
-                                        <a href="#" class="view-btn color-2"><span>Add to Cart</span></a>
-                                        <a href="#" class="like-btn"><span class="lnr lnr-heart"></span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                       </div>
+                                       <div class="d-flex mt-20">
+                                           <a href="#" class="view-btn color-2"><span>Add to Cart</span></a>
+                                           <a href="#" class="like-btn"><span class="lnr lnr-heart"></span></a>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
 
-            <div class="container">
-                <div class="details-tab-navigation d-flex justify-content-center mt-30">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li>
-                            <a class="nav-link" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-expanded="true">Description</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" id="specification-tab" data-toggle="tab" href="#specification" role="tab" aria-controls="specification">Specification</a>
-                        </li>
-                        <li>
-                            <a class="nav-link active" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews">Reviews</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="description">
-                        <div class="description">
-                            {{$product->description}}
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="specification" role="tabpanel" aria-labelledby="specification">
-                        <div class="specification-table">
-                            @if($product->detail==null)
-                                nothing here
-                            @else
-                            <div class="single-row">
-                                <span>Material</span>
-                                <span>{{$product->detail->material}}</span>
-                            </div>
-                            <div class="single-row">
-                                <span>Composition</span>
-                                <span>{{$product->detail->composition}}</span>
-                            </div>
-                            <div class="single-row">
-                                <span>Width</span>
-                                <span>{{$product->detail->width}}</span>
-                            </div>
-                            <div class="single-row">
-                                <span>Height</span>
-                                <span>{{$product->detail->height}}</span>
-                            </div>
-                            <div class="single-row">
-                                <span>Depth</span>
-                                <span>{{$product->detail->depth}}</span>
-                            </div>
-                            <div class="single-row">
-                                <span>Weight</span>
-                                <span>{{$product->detail->weight}}</span>
-                            </div>
-                        </div>
-                        @endif
-                    </div>
-                    <div class="tab-pane fade show active" id="reviews" role="tabpanel" aria-labelledby="reviews">
-                        <div class="review-wrapper">
-                            <div class="row">
-                                <div @auth class="col-lg-6" @endauth>
-                                    @php $total = 0; $one=0; $two=0; $three=0; $four=0; $five=0; @endphp
+               <div class="container">
+                   <div class="details-tab-navigation d-flex justify-content-center mt-30">
+                       <ul class="nav nav-tabs" id="myTab" role="tablist">
+                           <li>
+                               <a class="nav-link" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-expanded="true">Description</a>
+                           </li>
+                           <li>
+                               <a class="nav-link" id="specification-tab" data-toggle="tab" href="#specification" role="tab" aria-controls="specification">Specification</a>
+                           </li>
+                           <li>
+                               <a class="nav-link active" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews">Reviews</a>
+                           </li>
+                       </ul>
+                   </div>
+                   <div class="tab-content" id="myTabContent">
+                       <div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="description">
+                           <div class="description">
+                               {{$product->description}}
+                           </div>
+                       </div>
+                       <div class="tab-pane fade" id="specification" role="tabpanel" aria-labelledby="specification">
+                           <div class="specification-table">
+                               @if($product->detail==null)
+                                   nothing here
+                               @else
+                               <div class="single-row">
+                                   <span>Material</span>
+                                   <span>{{$product->detail->material}}</span>
+                               </div>
+                               <div class="single-row">
+                                   <span>Composition</span>
+                                   <span>{{$product->detail->composition}}</span>
+                               </div>
+                               <div class="single-row">
+                                   <span>Width</span>
+                                   <span>{{$product->detail->width}}</span>
+                               </div>
+                               <div class="single-row">
+                                   <span>Height</span>
+                                   <span>{{$product->detail->height}}</span>
+                               </div>
+                               <div class="single-row">
+                                   <span>Depth</span>
+                                   <span>{{$product->detail->depth}}</span>
+                               </div>
+                               <div class="single-row">
+                                   <span>Weight</span>
+                                   <span>{{$product->detail->weight}}</span>
+                               </div>
+                           </div>
+                           @endif
+                       </div>
+                       <div class="tab-pane fade show active" id="reviews" role="tabpanel" aria-labelledby="reviews">
+                           <div class="review-wrapper">
+                               <div class="row">
+                                   <div @auth class="col-lg-6" @endauth>
+                                       @php $total = 0; $one=0; $two=0; $three=0; $four=0; $five=0; @endphp
                                     @foreach($product->comments as $comment)
                                         @if($comment->vote=='one') @php $total+=1; $one+=1; @endphp @endif
                                         @if($comment->vote=='two') @php $total+=2; $two+=1; @endphp  @endif
