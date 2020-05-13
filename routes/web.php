@@ -75,5 +75,5 @@ Route::get('/login2', function(){
 
 Route::get('{name}', 'ProductController@show')->name('product.show');
 
-Route::post('/comment', 'CommentController@store');
+Route::post('/comment', 'CommentController@store')->name('product.comment');
 

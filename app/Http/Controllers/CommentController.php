@@ -19,8 +19,8 @@ class CommentController extends Controller
         $comment = Comment::create([
             'user_id' => $user->id,
             'product_id' => $request->product_id,
-            'content' => $request->commentContent,
-            'vote' => $request->vote
+            'content' => $request->content,
+            'vote' => 'one'
         ]);
     }
 }

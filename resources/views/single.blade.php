@@ -264,7 +264,7 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                @auth
+                                {{-- @auth --}}
                                 <div class="col-lg-6">
                                     <div class="add-review">
                                         <h3>Add a Review</h3>
@@ -281,12 +281,13 @@
                                         </div>
                                         <form action="/comment" method="POST" class="main-form">
                                             @csrf
-                                            <textarea placeholder="Review" onfocus="this.placeholder=''" onblur="this.placeholder = 'Review'" required class="common-textarea"></textarea>
+                                            <textarea placeholder="Review" onfocus="this.placeholder=''" onblur="this.placeholder = 'Review'" required class="common-textarea" name="commentContent"></textarea>
+                                        <input type="text" name="product_id" hidden value="{{$product->id}}" />
                                             <button type="submit" class="view-btn color-2"><span>Submit Now</span></button>
                                         </form>
                                     </div>
                                 </div>
-                                @endauth
+                                {{-- @endauth --}}
                             </div>
                         </div>
                     </div>
