@@ -113,11 +113,57 @@
 						<div class="sidebar-categories">
 							<div class="head">Browse Categories</div>
                             <ul class="main-categories">
+                                @php
+                                if(!empty($products->first()->category->gender)){
+                                $current_gender= $products->first()->category->gender;
+                                }
+                                else{
+                                    $current_gender="*";
+                                }
+                                @endphp
                                 @foreach($all_categories= \App\Category::all()->unique('name') as $category )
-                                <li class="main-nav-list"><a data-toggle="collapse" href="#{{$category->name}}" aria-expanded="false" aria-controls="{{$category->name}}"><span class="lnr lnr-arrow-right"></span>{{$category->name}}<span class="number">(53)</span></a>
+                                    @php
+                                        $all_products = \App\Product::all();
+                                        $products_by_name = collect();
+                                        foreach ($all_products as $single_product){
+                                            if($single_product->category->name == $category->name and $single_product->category->gender==$current_gender){
+                                                $products_by_name->push($single_product);
+                                            }
+                                            //tutti products con nome della categoria
+                                            $count_by_name = $products_by_name->count();
+                                        }
+                                    @endphp
+                                    <li class="main-nav-list"><a data-toggle="collapse" href="#{{$category->name}}" aria-expanded="false" aria-controls="{{$category->name}}"><span class="lnr lnr-arrow-right"></span>{{$category->name}}
+                                            <span class="number">
+                                                ({{$count_by_name}})
+                                        </span></a>
 									<ul class="collapse" id="{{$category->name}}"aria-expanded="false" aria-controls="{{$category->name}}">
-                                        @foreach($name_categories= \App\Category::where('name',$category->name)->get() as $type_category)
-                                        <li class="main-nav-list child"><a href="{{Request::url()}}?name={{$category->name}}&type={{$type_category->type}}" target='_self'>{{$type_category->type}}<span class="number">(13)</span></a></li>
+
+                                        <!--      -->
+                                        @php
+                                            $products_by_type = collect();
+                                            foreach ($all_products as $single_product){
+                                                if($single_product->category->type == $category->type and $single_product->category->gender==$current_gender){
+                                                    $products_by_type->push($single_product);
+
+                                                }
+                                            }
+                                        @endphp
+                                        @foreach($types=\App\Category::all()->where('name',$category->name) as $type_category)
+                                            @php
+                                                $products_by_type = collect();
+                                                foreach ($all_products as $single_product){
+                                                    if($single_product->category->type == $type_category->type and $single_product->category->gender==$current_gender){
+                                                        $products_by_type->push($single_product);
+                                                    }
+                                                    $count_by_type = $products_by_type->count();
+                                                }
+                                            @endphp
+
+                                        <li class="main-nav-list child"><a href="{{Request::url()}}?name={{$category->name}}&type={{$type_category->type}}" target='_self'>{{$type_category->type}}
+                                                <span class="number">
+                                                    ({{$count_by_type}})
+                                                </span></a></li>
                                         @endforeach
                                     </ul>
 								</li>
