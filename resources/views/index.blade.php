@@ -62,11 +62,11 @@
 								</div>
 								<div class="col-lg-6 col-md-6 mb-30">
 									<div class="content">
-									    <a href="#" target="_blank">
+									    <a href="/all-clothing">
 									      <div class="content-overlay"></div>
 									  		 <img class="content-image img-fluid d-block mx-auto" src="/img/c2.jpg" alt="">
 									      <div class="content-details fadeIn-bottom">
-									        <h3 class="content-title">Product for Couple</h3>
+									        <h3 class="content-title">All Product</h3>
 									      </div>
 									    </a>
 									</div>
