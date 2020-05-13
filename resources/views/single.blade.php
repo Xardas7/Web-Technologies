@@ -279,7 +279,7 @@
                                             </div>
                                             <span>Outstanding</span>
                                         </div>
-                                        <form action="#" method="POST" class="main-form">
+                                        <form action="/comment" method="POST" class="main-form">
                                             @csrf
                                             <textarea placeholder="Review" onfocus="this.placeholder=''" onblur="this.placeholder = 'Review'" required class="common-textarea"></textarea>
                                             <button type="submit" class="view-btn color-2"><span>Submit Now</span></button>
