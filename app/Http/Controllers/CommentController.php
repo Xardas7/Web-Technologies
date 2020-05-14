@@ -21,7 +21,7 @@ class CommentController extends Controller
         //Se la recensione è già presente viene aggiornata
         if($commentSearch){
             $commentSearch->content = $request->content;
-            $commentSearch->vote = 'two';
+            $commentSearch->vote = $request->vote;
             $commentSearch->save();
         } else {
         //Altrimenti viene inserita da zero
