@@ -62,7 +62,7 @@
                 </div>
                 <div class="col-md-2 col-6">
                     <div class="quantity-container d-flex align-items-center mt-15">
-                        <input type="text" class="quantity-amount" value={{ $product->details->quantity }} />
+                        <input type="number" class="quantity-amount" value={{ $product->details->quantity }} />
                         <div class="arrow-btn d-inline-flex flex-column">
                             <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
                             <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
