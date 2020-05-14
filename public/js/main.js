@@ -358,9 +358,7 @@ $(document).ready(function(){
 
   var stars = $('#commento i')
   stars.css("cursor","pointer")
-  var classe = stars[4].className.slice(11).trim()
-  
-  
+  var classe = 5
   stars.on("click",function(event){
     event.preventDefault()
     parent = stars.parent();
@@ -395,7 +393,6 @@ $(document).ready(function(){
 
     $('#inviaCommento').on("click",function(event){
       event.preventDefault();
-      let comments = $('.total-comment').children()
       let content = $('textarea[name="content"]').val()
       let product_id = $('input[name="product_id"]').val();
 
