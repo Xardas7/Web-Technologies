@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
   "use strict";
-  
+
   //--------- AJAX SETUP-----///
 
   $.ajaxSetup({
@@ -22,7 +22,7 @@ $(document).ready(function(){
 
   //-------- Active Sticky Js ----------//
      $(".default-header").sticky({topSpacing:0});
-  
+
 
   //------- Active Nice Select --------//
 
@@ -41,7 +41,7 @@ $(document).ready(function(){
         enabled:true
         }
     });
-     
+
    // -------   Active Mobile Menu-----//
 
   $(".navbar-nav li a[href^='#']").on('click', function(event) {
@@ -79,8 +79,8 @@ $(document).ready(function(){
     .click(function(event) {
       // On-page links
       if (
-        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-        && 
+        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+        &&
         location.hostname == this.hostname
       ) {
         // Figure out element to scroll to
@@ -147,7 +147,7 @@ $(document).ready(function(){
 
     $(document).ready(function() {
         $('#mc_embed_signup').find('form').ajaxChimp();
-    });   
+    });
 
 
 
@@ -218,9 +218,9 @@ $(document).ready(function(){
     $(function(){
 
         if(document.getElementById("price-range")){
-        
+
         var nonLinearSlider = document.getElementById('price-range');
-        
+
         noUiSlider.create(nonLinearSlider, {
             connect: true,
             behaviour: 'tap',
@@ -251,7 +251,7 @@ $(document).ready(function(){
 
     });
 
-    
+
     //-------- Have Cupon Button Text Toggle Change -------//
 
     $('.have-btn').on('click', function(e){
@@ -267,7 +267,7 @@ $(document).ready(function(){
         $('.load-product').fadeIn('slow');
         $(this).fadeOut();
     });
-    
+
 
 
 
@@ -320,24 +320,24 @@ $(document).ready(function(){
 
 //----- Ours scripts --//
 
-  
+
   var url = 'http://127.0.0.1:8000';
 
 
   //------------------ ADD A PRODUCT TO SHOPPING CART --------------//
 
- 
+
 
   $('.view-btn.color-2.addCart').click(function(event){
-    
+
     event.preventDefault();
     let product_id, quantity;
     product_id = $('input[name="product_id"]').val();
     quantity = $('#quantity').val();
-    
+
 
     $.ajax({
-      url: url+'/cart',
+      url: '/cart',
       type: 'POST',
       data: {
        product_id: product_id,
@@ -365,7 +365,7 @@ $(document).ready(function(){
     classe = parseInt(this.className.slice(11).trim())
     console.log(classe)
     switch(classe){
-      
+
         case 1:
         parent.removeClass()
         parent.addClass('total-star one-star d-flex align-items-center')
@@ -390,7 +390,7 @@ $(document).ready(function(){
     }
 
     })
-    
+
     //----- SEND REVIEW AJAX ----//
 
     $('#inviaCommento').on("click",function(event){
@@ -399,7 +399,7 @@ $(document).ready(function(){
       let product_id = $('input[name="product_id"]').val();
 
       $.ajax({
-        url: url+'/comment',
+        url: '/comment',
         type: 'POST',
         data:{
           product_id: product_id,
@@ -418,13 +418,13 @@ $(document).ready(function(){
 
 
   //----- ADD WISHLIST ---//
-    
+
     $('a.like-btn').on("click",function(event){
       event.preventDefault()
       let product_id = $('input[name="product_id"]').val();
 
       $.ajax({
-        url: url+'/wishlist',
+        url: '/wishlist',
         type: 'POST',
         data: {
          product_id: product_id,
@@ -435,16 +435,16 @@ $(document).ready(function(){
         error: function(data){
           console.log(data);
         }
-  
+
       })
 
     })
- 
-  
-  
 
-  
-  
+
+
+
+
+
 
 
 
