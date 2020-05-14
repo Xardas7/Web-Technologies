@@ -388,35 +388,36 @@ $(document).ready(function(){
           break
     }
 
+
     $('#inviaCommento').on("click",function(event){
-      event.preventDefault();
       let comments = $('.total-comment').children()
       let content = $('textarea[name="content"]').val()
-      let product_id = $('input[name="product_id"]')
+      let product_id = $('input[name="product_id"]').val();
       
       $.ajax({
         url: url+'/comment',
         type: 'POST',
         data:{
-          product_id: this.product_id,
-          content: this.content,
-          vote: this.classe
+          product_id: product_id,
+          content: content,
+          vote: classe
         },
         success: function(){
-          location.reload();
         }
       })
       
       
     })
+
+
+    
     
   })
   
   //----- SEND REVIEW AJAX ----//
 
   
-
-
+  
 
 
 
