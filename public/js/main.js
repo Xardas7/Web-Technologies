@@ -299,9 +299,10 @@ $(document).ready(function(){
 
       
 
-        value = isNaN(value) ? 0 : value;
-        ++value;
-        quantityAmount.value = value;
+        quantity = isNaN(value) ? 0 : value;
+        ++quantity;
+        
+        quantityAmount.value = quantity.toString();
 
         console.log(quantityAmount, quantityAmount.value);
     }
@@ -309,10 +310,10 @@ $(document).ready(function(){
     function decreaseValue(quantityAmount) {
         value = parseInt(quantityAmount.value, 10);
 
-        value = isNaN(value) ? 0 : value;
-        if (value > 0) --value;
+        quantity = isNaN(value) ? 0 : value;
+        if (quantity > 0) --quantity;
 
-        quantityAmount.value = value;
+        quantityAmount.value = quantity.toString();
 
         console.log(quantityAmount, quantityAmount.value);
 
