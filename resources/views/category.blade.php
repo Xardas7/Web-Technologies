@@ -124,7 +124,7 @@
 							<div class="head">Browse Categories</div>
                             <ul class="main-categories">
                                 @php
-                                if(strpos(Request::url(), "all")){
+                                if(strpos(Request::url(), "all-clothing")){
                                 $has_gender= 0;
                                 $current_gender=null;
                                 }
