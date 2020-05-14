@@ -390,6 +390,8 @@ $(document).ready(function(){
     }
 
     })
+    
+    //----- SEND REVIEW AJAX ----//
 
     $('#inviaCommento').on("click",function(event){
       event.preventDefault();
@@ -413,11 +415,33 @@ $(document).ready(function(){
       })
 
   })
+
+
+  //----- ADD WISHLIST ---//
     
-    
+    $('span.lnr.lnr-heart').on("click",function(event){
+      event.preventDefault()
+      let product_id = $('input[name="product_id"]').val();
+
+      $.ajax({
+        url: url+'/wishlist',
+        type: 'POST',
+        data: {
+         product_id: product_id,
+        },
+        success: function(){
+          alert('Prodotto aggiunto ala wishlist')
+        },
+        error: function(data){
+          console.log(data);
+        }
+  
+      })
+
+    })
  
   
-  //----- SEND REVIEW AJAX ----//
+  
 
   
   

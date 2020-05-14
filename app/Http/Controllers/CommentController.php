@@ -32,7 +32,6 @@ class CommentController extends Controller
                 'vote' => 'one'
             ]);
         }
-        return redirect()->back();
 
     }
 }
