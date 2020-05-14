@@ -356,13 +356,16 @@ $(document).ready(function(){
 
   //------------- Stars -------------//
 
-  var stars = $('div.total-star.five-star.d-flex.align-items-center.comment i')
+  var stars = $('#commento i')
   stars.css("cursor","pointer")
-
+  var classe = stars[4].className.slice(11).trim()
+  
+  
   stars.on("click",function(event){
     event.preventDefault()
     parent = stars.parent();
-    let classe = parseInt(this.className.slice(11).trim())
+    classe = parseInt(this.className.slice(11).trim())
+    console.log(classe)
     switch(classe){
       
         case 1:
@@ -388,12 +391,14 @@ $(document).ready(function(){
           break
     }
 
+    })
 
     $('#inviaCommento').on("click",function(event){
+      event.preventDefault();
       let comments = $('.total-comment').children()
       let content = $('textarea[name="content"]').val()
       let product_id = $('input[name="product_id"]').val();
-      
+
       $.ajax({
         url: url+'/comment',
         type: 'POST',
@@ -402,17 +407,18 @@ $(document).ready(function(){
           content: content,
           vote: classe
         },
-        success: function(){
+        success: function(e){
+          location.reload()
+        },
+        error: function(e){
+          console.log(e)
         }
       })
-      
-      
-    })
 
-
-    
-    
   })
+    
+    
+ 
   
   //----- SEND REVIEW AJAX ----//
 
