@@ -285,6 +285,9 @@ $(document).ready(function(){
         var increase = quantityContainer.getElementsByClassName('increase')[0];
         var decrease = quantityContainer.getElementsByClassName('decrease')[0];
         increase.addEventListener('click', function () { increaseValue(quantityAmount); });
+        quantityAmount.addEventListener('input', function(){
+            calcolaPrezzo();
+        });
         decrease.addEventListener('click', function () { decreaseValue(quantityAmount); });
     }
 
@@ -292,19 +295,19 @@ $(document).ready(function(){
         for (var i = 0; i < quantity.length; i++ ) {
             createBindings(quantity[i]);
         }
+        calcolaPrezzo();
     };
 
     function increaseValue(quantityAmount) {
         value = parseInt(quantityAmount.value, 10);
 
-      
-
         quantity = isNaN(value) ? 0 : value;
-        ++quantity;
-        
+        quantity++;
+
         quantityAmount.value = quantity.toString();
 
-        console.log(quantityAmount, quantityAmount.value);
+        calcolaPrezzo();
+        console.log(quantityAmount.value);
     }
 
     function decreaseValue(quantityAmount) {
@@ -315,6 +318,7 @@ $(document).ready(function(){
 
         quantityAmount.value = quantity.toString();
 
+        calcolaPrezzo();
         console.log(quantityAmount, quantityAmount.value);
 
     }
@@ -461,20 +465,22 @@ $(document).ready(function(){
     function calcolaPrezzo(){
       let products = $('div.cart-single-item');
             $.each(products,function(i,element){
-              
-              let price = parseFloat($(this).find('div.price').text())
-              let quantity = parseInt($(this).find('input.quantity-amount').val())
-              console.log(quantity,price)
-              let total = price * quantity
-              $(this).find('div.total').text(total)
 
+              let price = parseFloat($(this).find('div.price').text());
+              let quantity = parseInt($(this).find('input.quantity-amount').val());
+              let total = price * quantity;
+              let totalRounded = Math.round((total + Number.EPSILON) * 100) / 100;
+              if(isNaN(total)){
+                  totalRounded = 0;
+              }
+              $(this).find('div.total').text(totalRounded+"$");
 
             })
 
-  
+
     }
 
-     calcolaPrezzo();
+    /* calcolaPrezzo();
 
     $('.lnr.lnr-chevron-up').click(function(event){
      calcolaPrezzo();
@@ -482,9 +488,9 @@ $(document).ready(function(){
 
     $('.lnr.lnr-chevron-down').click(function(event){
       calcolaPrezzo();
-     })
-    
-    
+     })*/
+
+
 
 
 

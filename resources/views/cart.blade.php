@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="col-md-2 col-6">
-                    <div class="price">{{ $product->price }}</div>
+                    <div class="price">{{ $product->price."$" }}</div>
                 </div>
                 <div class="col-md-2 col-6">
                     <div class="quantity-container d-flex align-items-center mt-15">
@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="col-md-2 col-12">
-                    <div class="total">{{ $product->price }}</div>
+                    <div class="total"></div>
                 </div>
             </div>
     </div>
