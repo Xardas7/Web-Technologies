@@ -18,9 +18,6 @@ class CommentController extends Controller
 
         $commentSearch = Comment::where('user_id',$user->id)->where('product_id',$request->product_id)->first();
 
-<<<<<<< HEAD
-        
-=======
         //Se la recensione è già presente viene aggiornata
         if($commentSearch){
             $commentSearch->content = $request->content;
@@ -36,7 +33,6 @@ class CommentController extends Controller
             ]);
         }
         return redirect()->back();
->>>>>>> e92cef3eaec9de43d069fdf56933931e509b58bd
 
     }
 }
