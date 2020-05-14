@@ -452,8 +452,33 @@ $(document).ready(function(){
 
 
 
+    function calcolaPrezzo(){
+      let products = $('div.cart-single-item');
+            $.each(products,function(i,element){
+              
+              let quantity = parseInt($(this).find('input.quantity-amount').val())
+              console.log(quantity)
+              let price = parseFloat($(this).find('div.price').text())
+              let total = price * quantity
+              $(this).find('div.total').text(total)
 
 
+            })
+
+  
+    }
+
+     calcolaPrezzo();
+
+    $('.lnr.lnr-chevron-up').click(function(event){
+     calcolaPrezzo();
+    })
+
+    $('.lnr.lnr-chevron-down').click(function(event){
+      calcolaPrezzo();
+     })
+    
+    
 
 
 
