@@ -6,5 +6,5 @@ use Illuminate\Http\Request;
 
 class ShoppingCartsHaveProductController extends Controller
 {
-    protected $filliable = ['*']
+    protected $filliable = ['*'];
 }

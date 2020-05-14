@@ -1,6 +1,14 @@
 
 $(document).ready(function(){
-	"use strict";
+  "use strict";
+  
+  //--------- AJAX SETUP-----///
+
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
 
 	var window_width 	 = $(window).width(),
 	window_height 		 = window.innerHeight,
@@ -327,11 +335,6 @@ $(document).ready(function(){
     product_id = $('input[name="product_id"]').val();
     quantity = $('#quantity').val();
     
-    $.ajaxSetup({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-    });
 
     $.ajax({
       url: url+'/cart',
@@ -385,8 +388,39 @@ $(document).ready(function(){
           break
     }
 
+    $('#inviaCommento').on("click",function(event){
+      event.preventDefault();
+      let comments = $('.total-comment').children()
+      let content = $('textarea[name="content"]').val()
+      let product_id = $('input[name="product_id"]')
+      
+      $.ajax({
+        url: url+'/comment',
+        type: 'POST',
+        data:{
+          product_id: this.product_id,
+          content: this.content,
+          vote: this.classe
+        },
+        success: function(){
+          location.reload();
+        }
+      })
+      
+      
+    })
     
   })
   
+  //----- SEND REVIEW AJAX ----//
+
+  
+
+
+
+
+
+
+
 
  });
