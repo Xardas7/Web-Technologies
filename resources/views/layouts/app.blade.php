@@ -122,7 +122,7 @@
                         <ul class="navbar-nav">
                         @yield('navbar')
                             <!-- Dropdown -->
-                            <!--
+                        
                             <li class="dropdown">
                                 <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                                     Pages
@@ -137,7 +137,7 @@
                                     <a class="dropdown-item" href="/elements">Elements</a>
                                 </div>
                             </li>
-                            -->
+                            
                         </ul>
                     </div>
                 </div>

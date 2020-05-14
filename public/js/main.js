@@ -328,12 +328,17 @@ $(document).ready(function(){
 
 
 
-  $('.view-btn.color-2.addCart').click(function(event){
+  $('.view-btn.color-2.addCart,.carello').click(function(event){
 
     event.preventDefault();
     let product_id, quantity;
     product_id = $('input[name="product_id"]').val();
     quantity = $('#quantity').val();
+
+    if(!product_id && !quantity){
+      product_id = $(this).data('id')
+      quantity = 1
+    }
 
 
     $.ajax({
@@ -419,10 +424,13 @@ $(document).ready(function(){
 
   //----- ADD WISHLIST ---//
 
-    $('a.like-btn').on("click",function(event){
+    $('a.like-btn,a.wishlist').on("click",function(event){
       event.preventDefault()
       let product_id = $('input[name="product_id"]').val();
 
+      if(!product_id){
+        product_id = $(this).data('id')
+      }
       $.ajax({
         url: '/wishlist',
         type: 'POST',
