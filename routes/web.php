@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::options('/{path}', function(){ 
+    return '';
+})->where('path', '.*');
 
 Route::get('/', function () {
     return view('index');
