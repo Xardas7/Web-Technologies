@@ -350,6 +350,43 @@ $(document).ready(function(){
     })
 
   });
+
+  //------------- Stars -------------//
+
+  var stars = $('div.total-star.five-star.d-flex.align-items-center.comment i')
+  stars.css("cursor","pointer")
+
+  stars.on("click",function(event){
+    event.preventDefault()
+    parent = stars.parent();
+    let classe = parseInt(this.className.slice(11).trim())
+    switch(classe){
+      
+        case 1:
+        parent.removeClass()
+        parent.addClass('total-star one-star d-flex align-items-center')
+        break
+
+        case 2:
+          parent.removeClass()
+          parent.addClass('total-star two-star d-flex align-items-center')
+          break
+        case 3:
+          parent.removeClass()
+          parent.addClass('total-star three-star d-flex align-items-center')
+          break
+        case 4:
+        parent.removeClass()
+        parent.addClass('total-star four-star d-flex align-items-center')
+          break
+        case 5:
+        parent.removeClass()
+        parent.addClass('total-star five-star d-flex align-items-center')
+          break
+    }
+
+    
+  })
   
 
  });

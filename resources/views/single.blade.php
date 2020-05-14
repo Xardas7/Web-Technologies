@@ -270,12 +270,12 @@
                                         <h3>Add a Review</h3>
                                         <div class="single-review-count mb-15 d-flex align-items-center">
                                             <span>Your Rating:</span>
-                                            <div class="total-star five-star d-flex align-items-center">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            <div class="total-star five-star d-flex align-items-center comment">
+                                                <i class="fa fa-star 1" aria-hidden="true"></i>
+                                                <i class="fa fa-star 2" aria-hidden="true"></i>
+                                                <i class="fa fa-star 3" aria-hidden="true"></i>
+                                                <i class="fa fa-star 4" aria-hidden="true"></i>
+                                                <i class="fa fa-star 5" aria-hidden="true"></i>
                                             </div>
                                             <span>Outstanding</span>
                                         </div>
