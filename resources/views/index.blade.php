@@ -149,7 +149,6 @@
 
 			<!-- Start women-product Area -->
             @php
-                $products_col = \App\Product::all()->sortByDesc('create_at');
                 $products=collect();
                 $i=0;
                 foreach ($products_col as $product_obj){
