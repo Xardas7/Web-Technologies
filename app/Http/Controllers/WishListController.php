@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class WishListController extends Controller
 {
-    public function store($request){
+    public function store(Request $request){
         $user = Auth::user();
 
         $wishlistSearch = WishList::where('user_id',$user->id)->where('product_id',$request->product_id)->first();
