@@ -50,7 +50,9 @@
 								</select>
 							</div>
 							<div class="pagination">
+                                @if(!($products->lastPage()<3))
 								<a href="{{$products->previousPageUrl()}}" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+                                @endif
                             @for ($i = 1; $i<=$products->lastPage(); $i++)
                                <a href="{{Request::url()}}?page={{$i}}"
                                    class="{{$products->currentPage() == $i ? 'active' : ''}}">{{$i}}</a>
@@ -58,7 +60,9 @@
                                     <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
                                     @endif
                                 @endfor
+                                    @if(!($products->lastPage()<3))
 								<a href="{{$products->nextPageUrl()}}" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                        @endif
 							</div>
 						</div>
 						<!-- End Filter Bar -->
@@ -97,15 +101,21 @@
 									<option value="1">Show 12</option>
 								</select>
 							</div>
-							<div class="pagination">
-								<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-                                <a href="{{Request::url()}}?page=1" class="active">1</a>
-                                <a href="{{Request::url()}}?page=2">2</a>
-								<a href="#">3</a>
-								<a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-								<a href="#">6</a>
-								<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-							</div>
+                            <div class="pagination">
+                                @if(!($products->lastPage()<3))
+                                <a href="{{$products->previousPageUrl()}}" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+                                @endif
+                                @for ($i = 1; $i<=$products->lastPage(); $i++)
+                                    <a href="{{Request::url()}}?page={{$i}}"
+                                       class="{{$products->currentPage() == $i ? 'active' : ''}}">{{$i}}</a>
+                                    @if($i>3 && $i!=4 && $i<($products->lastPage())-1)
+                                        <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+                                    @endif
+                                @endfor
+                                    @if(!($products->lastPage()<3))
+                                <a href="{{$products->nextPageUrl()}}" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                                        @endif
+                            </div>
 						</div>
 						<!-- End Filter Bar -->
 					</div>
@@ -113,11 +123,100 @@
 						<div class="sidebar-categories">
 							<div class="head">Browse Categories</div>
                             <ul class="main-categories">
+                                @php
+                                if(strpos(Request::url(), "all")){
+                                $has_gender= 0;
+                                $current_gender=null;
+                                }
+                                else{
+                                    $has_gender=1;
+                                    $current_gender=$products->first()->category->gender;
+                                }
+                                @endphp
                                 @foreach($all_categories= \App\Category::all()->unique('name') as $category )
-                                <li class="main-nav-list"><a data-toggle="collapse" href="#{{$category->name}}" aria-expanded="false" aria-controls="{{$category->name}}"><span class="lnr lnr-arrow-right"></span>{{$category->name}}<span class="number">(53)</span></a>
+                                    @php
+                                        $all_products = \App\Product::all();
+                                        $products_by_name = collect();
+                                        if($has_gender){
+                                        foreach ($all_products as $single_product){
+                                            if($single_product->category->name == $category->name and $single_product->category->gender==$current_gender){
+                                                $products_by_name->push($single_product);
+                                            }
+                                            //tutti products con nome della categoria
+                                            $count_by_name = $products_by_name->count();
+                                        }
+                                        }
+                                        else{
+                                            foreach ($all_products as $single_product){
+                                            if($single_product->category->name == $category->name){
+                                                $products_by_name->push($single_product);
+                                            }
+                                            //tutti products con nome della categoria
+                                            $count_by_name = $products_by_name->count();
+                                        }
+                                        }
+                                    @endphp
+                                    @if($count_by_name)
+                                    <li class="main-nav-list"><a data-toggle="collapse" href="#{{$category->name}}" aria-expanded="false" aria-controls="{{$category->name}}"><span class="lnr lnr-arrow-right"></span>{{$category->name}}
+                                            <span class="number">
+                                                ({{$count_by_name}})
+                                        </span></a>
+                                    </li>
+                                    @endif
 									<ul class="collapse" id="{{$category->name}}"aria-expanded="false" aria-controls="{{$category->name}}">
-                                        @foreach($name_categories= \App\Category::where('name',$category->name)->get() as $type_category)
-                                        <li class="main-nav-list child"><a href="{{Request::url()}}?name={{$category->name}}&type={{$type_category->type}}" target='_self'>{{$type_category->type}}<span class="number">(13)</span></a></li>
+                                        <!--      -->
+                                        @php
+                                            $products_by_type = collect();
+                                            if($has_gender){
+                                                foreach ($all_products as $single_product){
+                                                if($single_product->category->type == $category->type and $single_product->category->gender==$current_gender){
+                                                    $products_by_type->push($single_product);
+
+                                                }
+                                            }
+                                                }
+                                            else{
+                                            foreach ($all_products as $single_product){
+                                                if($single_product->category->type == $category->type){
+                                                    $products_by_type->push($single_product);
+
+                                                }
+                                            }
+                                            }
+                                        @endphp
+                                        <li class="main-nav-list child"><a href="{{Request::url()}}?name={{$category->name}}" target='_self'>
+                                                All {{$category->name}}
+                                                <span class="number">
+                                                    ({{$count_by_name}})
+                                                </span></a></li>
+                                        @foreach($types=\App\Category::all()->where('name',$category->name) as $type_category)
+                                            @php
+                                                $products_by_type = collect();
+                                            if($has_gender){
+                                                foreach ($all_products as $single_product){
+                                                    if($single_product->category->type == $type_category->type and $single_product->category->gender==$current_gender){
+                                                        $products_by_type->push($single_product);
+                                                    }
+                                                    $count_by_type = $products_by_type->count();
+                                                }
+                                                }
+                                                else{
+                                                    foreach ($all_products as $single_product){
+                                                    if($single_product->category->type == $type_category->type){
+                                                        $products_by_type->push($single_product);
+                                                    }
+                                                    $count_by_type = $products_by_type->count();
+                                                }
+                                                }
+
+                                            @endphp
+                                        @if($count_by_type) <!-- se non ci sono oggetti nella cateogira non mostra niente -->
+                                        <li class="main-nav-list child"><a href="{{Request::url()}}?name={{$category->name}}&type={{$type_category->type}}" target='_self'>
+                                                {{$type_category->type}}
+                                                <span class="number">
+                                                    ({{$count_by_type}})
+                                                </span></a></li>
+                                            @endif
                                         @endforeach
                                     </ul>
 								</li>
