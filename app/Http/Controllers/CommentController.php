@@ -14,17 +14,15 @@ class CommentController extends Controller
     }
     public function store(Request $request)
     {
+
         $user = Auth::user();
 
         $commentSearch = Comment::where('user_id',$user->id)->where('product_id',$request->product_id)->first();
 
-<<<<<<< HEAD
-        
-=======
         //Se la recensione è già presente viene aggiornata
         if($commentSearch){
             $commentSearch->content = $request->content;
-            $commentSearch->vote = 'two';
+            $commentSearch->vote = $request->vote;
             $commentSearch->save();
         } else {
         //Altrimenti viene inserita da zero
@@ -32,11 +30,9 @@ class CommentController extends Controller
                 'user_id' => $user->id,
                 'product_id' => $request->product_id,
                 'content' => $request->content,
-                'vote' => 'one'
+                'vote' => $request->vote
             ]);
         }
-        return redirect()->back();
->>>>>>> e92cef3eaec9de43d069fdf56933931e509b58bd
 
     }
 }
