@@ -419,7 +419,7 @@ $(document).ready(function(){
 
   //----- ADD WISHLIST ---//
     
-    $('span.lnr.lnr-heart').on("click",function(event){
+    $('a.like-btn').on("click",function(event){
       event.preventDefault()
       let product_id = $('input[name="product_id"]').val();
 
