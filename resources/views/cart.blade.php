@@ -47,81 +47,35 @@
             </div>
         </div>
     </div>
-    <div class="cart-single-item">
-        <div class="row align-items-center">
-            <div class="col-md-6 col-12">
-                <div class="product-item d-flex align-items-center">
-                    <img src="img/ci1.jpg" class="img-fluid" alt="">
-                    <h6>Pixelstore fresh Blackberry</h6>
-                </div>
-            </div>
-            <div class="col-md-2 col-6">
-                <div class="price">$360.00</div>
-            </div>
-            <div class="col-md-2 col-6">
-                <div class="quantity-container d-flex align-items-center mt-15">
-                    <input type="text" class="quantity-amount" value="1" />
-                    <div class="arrow-btn d-inline-flex flex-column">
-                        <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
-                        <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
+
+    @foreach ($products as $product)
+        <div class="cart-single-item">
+            <div class="row align-items-center">
+                <div class="col-md-6 col-12">
+                    <div class="product-item d-flex align-items-center">
+                        <img src="img/ci1.jpg" class="img-fluid" alt="">
+                        <h6>{{ $product->name }}</h6>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-2 col-12">
-                <div class="total">$720.00</div>
-            </div>
-        </div>
-    </div>
-    <div class="cart-single-item">
-        <div class="row align-items-center">
-            <div class="col-md-6 col-12">
-                <div class="product-item d-flex align-items-center">
-                    <img src="img/ci2.jpg" class="img-fluid" alt="">
-                    <h6>Pixelstore fresh Blackberry</h6>
+                <div class="col-md-2 col-6">
+                    <div class="price">{{ $product->price }}</div>
                 </div>
-            </div>
-            <div class="col-md-2 col-6">
-                <div class="price">$360.00</div>
-            </div>
-            <div class="col-md-2 col-6">
-                <div class="quantity-container d-flex align-items-center mt-15">
-                    <input type="text" class="quantity-amount" value="1" />
-                    <div class="arrow-btn d-inline-flex flex-column">
-                        <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
-                        <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
+                <div class="col-md-2 col-6">
+                    <div class="quantity-container d-flex align-items-center mt-15">
+                        <input type="text" class="quantity-amount" value="1" />
+                        <div class="arrow-btn d-inline-flex flex-column">
+                            <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
+                            <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-2 col-12">
-                <div class="total">$720.00</div>
-            </div>
-        </div>
-    </div>
-    <div class="cart-single-item">
-        <div class="row align-items-center">
-            <div class="col-md-6 col-12">
-                <div class="product-item d-flex align-items-center">
-                    <img src="img/ci3.jpg" class="img-fluid" alt="">
-                    <h6>Pixelstore fresh Blackberry</h6>
+                <div class="col-md-2 col-12">
+                    <div class="total">$720.00</div>
                 </div>
             </div>
-            <div class="col-md-2 col-6">
-                <div class="price">$360.00</div>
-            </div>
-            <div class="col-md-2 col-6">
-                <div class="quantity-container d-flex align-items-center mt-15">
-                    <input type="text" class="quantity-amount" value="1" />
-                    <div class="arrow-btn d-inline-flex flex-column">
-                        <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
-                        <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 col-12">
-                <div class="total">$720.00</div>
-            </div>
-        </div>
     </div>
+    @endforeach
+
     <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
         <a href="#" class="view-btn color-2"><span>Update Cart</span></a>
         <div class="cuppon-wrap d-flex align-items-center flex-wrap">

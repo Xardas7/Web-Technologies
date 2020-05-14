@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::options('/{path}', function(){ 
+Route::options('/{path}', function(){
     return '';
 })->where('path', '.*');
 
@@ -20,9 +20,7 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
-Route::get('/cart', function () {
-    return view('cart');
-});
+Route::get('/cart', 'ShoppingCartController@indexByUser');
 
 Route::get('/checkout', function () {
     return view('checkout');
