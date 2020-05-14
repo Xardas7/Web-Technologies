@@ -95,7 +95,7 @@
 
                                        </div>
                                        <div class="d-flex mt-20">
-                                           <a href="" class="view-btn color-2 addCart" id="provaclick"><span>Add to Cart</span></a>
+                                           <a href="" class="view-btn color-2 addCart"><span>Add to Cart</span></a>
                                            <a href="#" class="like-btn"><span class="lnr lnr-heart"></span></a>
                                        </div>
                                    </div>
