@@ -88,7 +88,7 @@
     </div>
     <div class="subtotal-area d-flex align-items-center justify-content-end">
         <div class="title text-uppercase">Subtotal</div>
-        <div class="subtotal">$2160.00</div>
+        <div class="subtotal"></div>
     </div>
     <div class="shipping-area d-flex justify-content-end">
         <div class="tile text-uppercase">Shipping</div>

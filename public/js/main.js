@@ -279,14 +279,14 @@ $(document).ready(function(){
 
     var value,
         quantity = document.getElementsByClassName('quantity-container');
-
-    function createBindings(quantityContainer) {
+        function createBindings(quantityContainer) {
         var quantityAmount = quantityContainer.getElementsByClassName('quantity-amount')[0];
         var increase = quantityContainer.getElementsByClassName('increase')[0];
         var decrease = quantityContainer.getElementsByClassName('decrease')[0];
         increase.addEventListener('click', function () { increaseValue(quantityAmount); });
         quantityAmount.addEventListener('input', function(){
             calcolaPrezzo();
+            calcolaSubtotale();
         });
         decrease.addEventListener('click', function () { decreaseValue(quantityAmount); });
     }
@@ -296,6 +296,7 @@ $(document).ready(function(){
             createBindings(quantity[i]);
         }
         calcolaPrezzo();
+        calcolaSubtotale();
     };
 
     function increaseValue(quantityAmount) {
@@ -307,7 +308,7 @@ $(document).ready(function(){
         quantityAmount.value = quantity.toString();
 
         calcolaPrezzo();
-        console.log(quantityAmount.value);
+        calcolaSubtotale();
     }
 
     function decreaseValue(quantityAmount) {
@@ -319,8 +320,7 @@ $(document).ready(function(){
         quantityAmount.value = quantity.toString();
 
         calcolaPrezzo();
-        console.log(quantityAmount, quantityAmount.value);
-
+        calcolaSubtotale();
     }
 
   init();
@@ -476,8 +476,17 @@ $(document).ready(function(){
               $(this).find('div.total').text(totalRounded+"$");
 
             })
+    }
 
-
+    function calcolaSubtotale(){
+        let products = $('div.cart-single-item');
+        let subtotal = 0;
+        $.each(products,function(i,element){
+            let total = parseFloat($(this).find('div.total').text());
+            subtotal += total;
+        })
+        let subtotalRounded = Math.round((subtotal + Number.EPSILON) * 100) / 100;
+        $('div.subtotal').text(subtotalRounded+"$");
     }
 
     /* calcolaPrezzo();
