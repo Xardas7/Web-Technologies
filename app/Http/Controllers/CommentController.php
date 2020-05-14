@@ -29,7 +29,7 @@ class CommentController extends Controller
                 'user_id' => $user->id,
                 'product_id' => $request->product_id,
                 'content' => $request->content,
-                'vote' => 'one'
+                'vote' => $request->vote
             ]);
         }
 
