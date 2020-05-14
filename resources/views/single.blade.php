@@ -270,7 +270,7 @@
                                         <h3>Add a Review</h3>
                                         <div class="single-review-count mb-15 d-flex align-items-center">
                                             <span>Your Rating:</span>
-                                            <div class="total-star five-star d-flex align-items-center comment">
+                                            <div class="total-star five-star d-flex align-items-center" id="commento">
                                                 <i class="fa fa-star 1" aria-hidden="true"></i>
                                                 <i class="fa fa-star 2" aria-hidden="true"></i>
                                                 <i class="fa fa-star 3" aria-hidden="true"></i>

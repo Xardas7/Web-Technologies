@@ -14,7 +14,6 @@ class CommentController extends Controller
     }
     public function store(Request $request)
     {
-
         $user = Auth::user();
 
         $commentSearch = Comment::where('user_id',$user->id)->where('product_id',$request->product_id)->first();
