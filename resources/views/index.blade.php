@@ -131,9 +131,7 @@
 					  		 <img class="content-image img-fluid d-block mx-auto" src="{{$product->images->first()->path}}" alt="">
 						      <div class="content-details fadeIn-bottom">
 							        <div class="bottom d-flex align-items-center justify-content-center">
-										<a href="#"><span class="lnr lnr-heart"></span></a>
-										<a href="#"><span class="lnr lnr-layers"></span></a>
-										<a href="#"><span class="lnr lnr-cart"></span></a>
+									<a href="#" class="wishlist" data-id="{{$product->id}}"><span class="lnr lnr-heart"></span></a>
 										<a href="/{{$product->name}}"><span class="lnr lnr-frame-expand"></span></a>
 									</div>
 						      </div>
@@ -151,7 +149,6 @@
 
 			<!-- Start women-product Area -->
             @php
-                $products_col = \App\Product::all()->sortByDesc('create_at');
                 $products=collect();
                 $i=0;
                 foreach ($products_col as $product_obj){
@@ -177,9 +174,7 @@
 						  		 <img class="content-image img-fluid d-block mx-auto" src="{{$product->images->first()->path}}" alt="">
 						      <div class="content-details fadeIn-bottom">
 							        <div class="bottom d-flex align-items-center justify-content-center">
-										<a href="#"><span class="lnr lnr-heart"></span></a>
-										<a href="#"><span class="lnr lnr-layers"></span></a>
-										<a href="#"><span class="lnr lnr-cart"></span></a>
+									<a href="#" class="wishlist" data-id="{{$product->id}}"><span class="lnr lnr-heart"></span></a>
 										<a href="/{{$product->name}}"><span class="lnr lnr-frame-expand"></span></a>
 									</div>
 						      </div>

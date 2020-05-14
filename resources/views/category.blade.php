@@ -32,39 +32,22 @@
 				<div class="row">
 					<div class="col-xl-9 col-lg-8 col-md-7">
 						<!-- Start Filter Bar -->
-
-                        <div class="filter-bar d-flex flex-wrap align-items-center">
-                            <select>
-                                <option value="1">Default sorting</option>
-                                <option value="1">Default sorting</option>
-                                <option value="1">Default sorting</option>
-                            </select>
-                            <select>
-                                <option value="1">Default sorting</option>
-                                <option value="1">Default sorting</option>
-                                <option value="1">Default sorting</option>
-                            </select>
-                            <select>
-                                <option value="1">Default sorting</option>
-                                <option value="1">Default sorting</option>
-                                <option value="1">Default sorting</option>
-                            </select>
-                            <select>
-                                <option value="1">Default sorting</option>
-                                <option value="1">Default sorting</option>
-                                <option value="1">Default sorting</option>
-                            </select>
-                            <select>
-                                <option value="1">Default sorting</option>
-                                <option value="1">Default sorting</option>
-                                <option value="1">Default sorting</option>
-                            </select>
-                            <select>
-                                <option value="1">Default sorting</option>
-                                <option value="1">Default sorting</option>
-                                <option value="1">Default sorting</option>
-                            </select>
+                        <form>
+                            <div class="input-group-icon mt-10">
+                                <div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
+                                <div class="form-select" id="default-select">
+                                    <select>
+                                        <option value="1">City</option>
+                                        <option value="1">Dhaka</option>
+                                        <option value="1">Dilli</option>
+                                        <option value="1">Newyork</option>
+                                        <option value="1">Islamabad</option>
+                                    </select>
+                                </div>
+                            <input type="submit" value="submit" class="align-items-center">
                         </div>
+
+                        </form>
 						<div class="filter-bar d-flex flex-wrap align-items-center">
 							<a href="#" class="grid-btn active"><i class="fa fa-th" aria-hidden="true"></i></a>
 							<a href="#" class="list-btn"><i class="fa fa-th-list" aria-hidden="true"></i></a>
@@ -110,8 +93,6 @@
                                         <div class="content-details fadeIn-bottom">
                                             <div class="bottom d-flex align-items-center justify-content-center">
                                                 <a href="" class="wishlist" data-id="{{$product->id}}"><span class="lnr lnr-heart"></span></a>
-                                                <a href="#"><span class="lnr lnr-layers"></span></a>
-                                                <a href="#" class="carello" data-id="{{$product->id}}"><span class="lnr lnr-cart"></span></a>
                                                 <a href="/{{$product->name}}"><span class="lnr lnr-frame-expand"></span></a>
                                             </div>
                                         </div>
