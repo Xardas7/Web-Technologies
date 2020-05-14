@@ -27,8 +27,7 @@ class ShoppingCartController extends Controller
 
         $products = $user->shoppingCart->products;
 
-        return $products;
-        //return view('cart',['products'=>$products]);
+        return view('cart',['products'=>$products]);
     }
 
     public function store(Request $request){
