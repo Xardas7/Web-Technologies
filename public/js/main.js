@@ -297,20 +297,25 @@ $(document).ready(function(){
     function increaseValue(quantityAmount) {
         value = parseInt(quantityAmount.value, 10);
 
-        console.log(quantityAmount, quantityAmount.value);
+      
 
         value = isNaN(value) ? 0 : value;
-        value++;
+        ++value;
         quantityAmount.value = value;
+
+        console.log(quantityAmount, quantityAmount.value);
     }
 
     function decreaseValue(quantityAmount) {
         value = parseInt(quantityAmount.value, 10);
 
         value = isNaN(value) ? 0 : value;
-        if (value > 0) value--;
+        if (value > 0) --value;
 
         quantityAmount.value = value;
+
+        console.log(quantityAmount, quantityAmount.value);
+
     }
 
   init();
@@ -456,9 +461,9 @@ $(document).ready(function(){
       let products = $('div.cart-single-item');
             $.each(products,function(i,element){
               
-              let quantity = parseInt($(this).find('input.quantity-amount').val())
-              console.log(quantity)
               let price = parseFloat($(this).find('div.price').text())
+              let quantity = parseInt($(this).find('input.quantity-amount').val())
+              console.log(quantity,price)
               let total = price * quantity
               $(this).find('div.total').text(total)
 
