@@ -32,22 +32,6 @@
 				<div class="row">
 					<div class="col-xl-9 col-lg-8 col-md-7">
 						<!-- Start Filter Bar -->
-                        <form>
-                            <div class="input-group-icon mt-10">
-                                <div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
-                                <div class="form-select" id="default-select">
-                                    <select>
-                                        <option value="1">City</option>
-                                        <option value="1">Dhaka</option>
-                                        <option value="1">Dilli</option>
-                                        <option value="1">Newyork</option>
-                                        <option value="1">Islamabad</option>
-                                    </select>
-                                </div>
-                            <input type="submit" value="submit" class="align-items-center">
-                        </div>
-
-                        </form>
 						<div class="filter-bar d-flex flex-wrap align-items-center">
 							<a href="#" class="grid-btn active"><i class="fa fa-th" aria-hidden="true"></i></a>
 							<a href="#" class="list-btn"><i class="fa fa-th-list" aria-hidden="true"></i></a>
@@ -240,24 +224,24 @@
 						<div class="sidebar-filter mt-50">
 							<div class="top-filter-head">Product Filters</div>
 							<div class="common-filter">
-								<div class="head">Active Filters</div>
-								<ul>
-									<li class="filter-list"><i class="fa fa-window-close" aria-hidden="true"></i>Gionee (29)</li>
-									<li class="filter-list"><i class="fa fa-window-close" aria-hidden="true"></i>Black with red (09)</li>
-								</ul>
-							</div>
-							<div class="common-filter">
 								<div class="head">Brands</div>
-								<form action="#">
+                                @php
+                                    $producers=collect();
+                                    foreach($products as $product){
+                                        $producers->push($product->producer);
+                                    }
+                                @endphp
+                                <form action="#">
+                                    @csrf
 									<ul>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">Apple<span>(29)</span></label></li>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="asus" name="brand"><label for="asus">Asus<span>(29)</span></label></li>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="gionee" name="brand"><label for="gionee">Gionee<span>(19)</span></label></li>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="micromax" name="brand"><label for="micromax">Micromax<span>(19)</span></label></li>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="samsung" name="brand"><label for="samsung">Samsung<span>(19)</span></label></li>
+                                        @foreach($producers->unique('name') as $producer)
+										<li class="filter-list"><input class="pixel-radio" type="radio" name="brand"><label for="apple">{{$producer->name}}
+                                                <span>(29)</span></label></li>
+                                        @endforeach
 									</ul>
 								</form>
 							</div>
+                            <!--
 							<div class="common-filter">
 								<div class="head">Color</div>
 								<form action="#">
@@ -270,6 +254,7 @@
 									</ul>
 								</form>
 							</div>
+							-->
 							<div class="common-filter">
 								<div class="head">Price</div>
                                 <div class="price-range-area">
@@ -280,6 +265,7 @@
                                         <span>$</span><div id="upper-value"></div>
                                     </div>
                                 </div>
+                                <button class="submit-button" onsubmit="filter()">submit </button>
 							</div>
 						</div>
 					</div>

@@ -13,22 +13,18 @@ class ProductController extends Controller
 {
     public function index($gender)
     {
-        if($gender=='mens'){
-            $gender='male';
+        if ($gender == 'mens') {
+            $gender = 'male';
+        } elseif ($gender == 'womens') {
+            $gender = 'female';
+        } elseif ($gender == 'all') {
+            $gender = 'all';
+        } else {
+            abort(404, 'no category found');
         }
-        elseif ($gender=='womens'){
-            $gender='female';
-        }
-        elseif ($gender=='all'){
-            $gender='all';
-        }
-        else{
-            abort(404,'no category found');
-        }
-        if($gender=='all'){
-            $products=Product::all();
-        }
-        else {
+        if ($gender == 'all') {
+            $products = Product::all();
+        } else {
             $products_col = Product::all();
             $products = collect();
             foreach ($products_col as $product_obj) {
@@ -37,41 +33,41 @@ class ProductController extends Controller
                 }
             }
         }
-        $name=request('name');
-        $type=request('type');
-        $brand=request('brand');
-        $color=request('color');
-        $max_price=request('max_price');
-        $min_price=request('min_price');
-    if (!empty($name)) {
-        $products_all=collect();
-        foreach ($products as $product_obj){
-            if ($product_obj->category->name === $name) {
+        $name = request('name');
+        $type = request('type');
+        $brand = request('brand');
+        //$color=request('color');
+        $max_price = request('max_price');
+        $min_price = request('min_price');
+        if (!empty($name)) {
+            $products_all = collect();
+            foreach ($products as $product_obj) {
+                if ($product_obj->category->name === $name) {
 
-                $products_all->push($product_obj);
+                    $products_all->push($product_obj);
+                }
             }
+            $products = $products_all;
         }
-        $products=$products_all;
-    }
         if (!empty($type)) {
-            $products_all=collect();
-            foreach ($products as $product_obj){
+            $products_all = collect();
+            foreach ($products as $product_obj) {
                 if ($product_obj->category->type === $type) {
 
                     $products_all->push($product_obj);
                 }
             }
-            $products=$products_all;
+            $products = $products_all;
         }
         if (!empty($brand)) {
-            $products_all=collect();
-            foreach ($products as $product_obj){
-                if ($product_obj->category->brand === $brand) {
+            $products_all = collect();
+            foreach ($products as $product_obj) {
+                if ($product_obj->producer->name == $brand) {
 
                     $products_all->push($product_obj);
                 }
             }
-            $products=$products_all;
+            $products = $products_all;
         }/*
         if (!empty($color)) {
             $products_all=collect();
@@ -82,28 +78,27 @@ class ProductController extends Controller
                 }
             }
             $products=$products_all;
-        }
-        if (!empty($max_price)) {
-            $products_all=collect();
-            foreach ($products as $product_obj){
-                if ($product_obj->category->name === $name) {
-
-                    $products_all->push($product_obj);
-                }
-            }
-            $products=$products_all;
-        }
+        }*/
         if (!empty($min_price)) {
-            $products_all=collect();
-            foreach ($products as $product_obj){
-                if ($product_obj->category->name === $name) {
+            $products_all = collect();
+            foreach ($products as $product_obj) {
+                if ($product_obj->price >= $min_price) {
 
                     $products_all->push($product_obj);
                 }
             }
-            $products=$products_all;
+            $products = $products_all;
+        } if (!empty($max_price)) {
+            $products_all = collect();
+            foreach ($products as $product_obj) {
+                if ($product_obj->price <= $max_price) {
+
+                    $products_all->push($product_obj);
+                }
+            }
+            $products = $products_all;
         }
-*/
+
         $total=$products->count();
         $products = CollectionHelper::paginate($products, $total,12);
         return view('category',compact('products'));
