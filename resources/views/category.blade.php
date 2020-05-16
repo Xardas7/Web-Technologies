@@ -209,7 +209,8 @@
 
                                             @endphp
                                         @if($count_by_type) <!-- se non ci sono oggetti nella cateogira non mostra niente -->
-                                        <li class="main-nav-list child"><a href="{{Request::url()}}?name={{$category->name}}&type={{$type_category->type}}" target='_self'>
+                                        <li class="main-nav-list child">
+                                            <a href="{{Request::url()}}?name={{$category->name}}&type={{$type_category->type}}" target='_self'>
                                                 {{$type_category->type}}
                                                 <span class="number">
                                                     ({{$count_by_type}})
@@ -222,8 +223,21 @@
 							</ul>
 						</div>
 						<div class="sidebar-filter mt-50">
+                            @php
+                            @endphp
+                            <form action="{{Request::fullUrl()}}">
+                                @csrf
+
 							<div class="top-filter-head">Product Filters</div>
 							<div class="common-filter">
+                                <label class="head">Price</label>
+
+                                <br>
+                                min: <input type="text" name="min_price" value="{{request('min_price')}}">
+
+                                <br>
+                                max: <input type="text" name="max_price" value="{{request('max_price')}}">
+                                <br>
 								<div class="head">Brands</div>
                                 @php
                                     $producers=collect();
@@ -231,15 +245,12 @@
                                         $producers->push($product->producer);
                                     }
                                 @endphp
-                                <form action="#">
-                                    @csrf
 									<ul>
                                         @foreach($producers->unique('name') as $producer)
-										<li class="filter-list"><input class="pixel-radio" type="radio" name="brand"><label for="apple">{{$producer->name}}
-                                                <span>(29)</span></label></li>
+										<li class="filter-list">
+                                            <input class="pixel-radio" type="radio" name="brand" value="{{$producer->name}}"><label>{{$producer->name}}</label></li>
                                         @endforeach
 									</ul>
-								</form>
 							</div>
                             <!--
 							<div class="common-filter">
@@ -247,14 +258,14 @@
 								<form action="#">
 									<ul>
 										<li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">Black<span>(29)</span></label></li>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="balckleather" name="color"><label for="balckleather">Black Leather<span>(29)</span></label></li>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="blackred" name="color"><label for="blackred">Black with red<span>(19)</span></label></li>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="gold" name="color"><label for="gold">Gold<span>(19)</span></label></li>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="spacegrey" name="color"><label for="spacegrey">Spacegrey<span>(19)</span></label></li>
 									</ul>
 								</form>
 							</div>
 							-->
+                                <button class="genric-btn success-border circle arrow">find</button>
+                                <a href="{{Request::url()}}"> reset all </a>
+                            </form>
+                          <!--  <form action="URL::current()">
 							<div class="common-filter">
 								<div class="head">Price</div>
                                 <div class="price-range-area">
@@ -265,8 +276,9 @@
                                         <span>$</span><div id="upper-value"></div>
                                     </div>
                                 </div>
-                                <button class="submit-button" onsubmit="filter()">submit </button>
+                                <button>find </button>
 							</div>
+                            </form> -->
 						</div>
 					</div>
 				</div>
