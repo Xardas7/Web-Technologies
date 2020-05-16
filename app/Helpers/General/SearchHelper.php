@@ -12,7 +12,9 @@ class SearchHelper
     {
         $g = new GenderHelper();
         $gender=$g->transform($gender);
-
+        if ($gender=='unknown'){
+            abort(404);
+        }
         if ($gender == 'all') {
             $products = Product::all();
         } else {

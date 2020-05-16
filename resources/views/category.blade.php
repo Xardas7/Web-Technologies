@@ -33,20 +33,11 @@
 					<div class="col-xl-9 col-lg-8 col-md-7">
 						<!-- Start Filter Bar -->
 						<div class="filter-bar d-flex flex-wrap align-items-center">
-							<a href="#" class="grid-btn active"><i class="fa fa-th" aria-hidden="true"></i></a>
-							<a href="#" class="list-btn"><i class="fa fa-th-list" aria-hidden="true"></i></a>
 							<div class="sorting">
 								<select>
-									<option value="1">Default sorting</option>
-									<option value="1">Default sorting</option>
-									<option value="1">Default sorting</option>
-								</select>
-							</div>
-							<div class="sorting mr-auto">
-								<select>
-									<option value="1">Show 12</option>
-									<option value="1">Show 12</option>
-									<option value="1">Show 12</option>
+									<option value="1">Sorting by newest</option>
+									<option value="1">Sorting by price ↑</option>
+									<option value="1">Sorting by price ↓</option>
 								</select>
 							</div>
 							<div class="pagination">
@@ -92,13 +83,6 @@
 						<!-- End Best Seller -->
 						<!-- Start Filter Bar -->
 						<div class="filter-bar d-flex flex-wrap align-items-center">
-							<div class="sorting mr-auto">
-								<select>
-									<option value="1">Show 12</option>
-									<option value="1">Show 12</option>
-									<option value="1">Show 12</option>
-								</select>
-							</div>
                             <div class="pagination">
                                 @if(!($products->lastPage()<3))
                                 <a href="{{$products->previousPageUrl()}}" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
@@ -125,12 +109,13 @@
                                 if(strpos(Request::url(), "all-clothing")){
                                 $has_gender= 0;
                                 $current_gender=null;
+                                $url_gender='all';
                                 }
                                 else{
                                     $has_gender=1;
                                     $current_gender=$products->first()->category->gender;
                                     $g = new \App\Helpers\General\GenderHelper();
-                                    $url_gender=$g->transform($current_gender);
+                                    $url_gender=$g->re_transform($current_gender);
                                 }
                                 @endphp
                                 @foreach($all_categories= \App\Category::all()->unique('name') as $category )
