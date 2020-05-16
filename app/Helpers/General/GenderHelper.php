@@ -18,8 +18,6 @@ class GenderHelper
             $gender = 'female';
         } elseif ($gender == 'all') {
             $gender = 'all';
-        } else {
-            abort(404, 'no category found');
         }
         return $gender;
     }
