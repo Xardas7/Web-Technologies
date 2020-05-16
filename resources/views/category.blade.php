@@ -129,6 +129,16 @@
                                 else{
                                     $has_gender=1;
                                     $current_gender=$products->first()->category->gender;
+                                    $url_gender='';
+                                    if($current_gender=='female'){
+                                        $url_gender='womens';
+                                    }
+                                    elseif($current_gender=='male'){
+
+                                    }
+                                    else{
+
+                                    }
                                 }
                                 @endphp
                                 @foreach($all_categories= \App\Category::all()->unique('name') as $category )
@@ -210,7 +220,7 @@
                                             @endphp
                                         @if($count_by_type) <!-- se non ci sono oggetti nella cateogira non mostra niente -->
                                         <li class="main-nav-list child">
-                                            <a href="{{Request::url()}}?name={{$category->name}}&type={{$type_category->type}}" target='_self'>
+                                            <a href="/{{$current_gender}}-clothing/{{$category->name}}/{{$type_category->type}}" target='_self'>
                                                 {{$type_category->type}}
                                                 <span class="number">
                                                     ({{$count_by_type}})
@@ -262,7 +272,7 @@
 								</form>
 							</div>
 							-->
-                                <button class="genric-btn success-border circle arrow">find</button>
+                                <button class="genric-btn primary-border circle arrow">find</button>
                                 <a href="{{Request::url()}}"> reset all </a>
                             </form>
                           <!--  <form action="URL::current()">

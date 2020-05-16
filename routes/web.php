@@ -70,6 +70,8 @@ Route::get('/welcome', function(){
 });
 
 Route::get('/{gender}-clothing', 'ProductController@index')->name('product.index');
+Route::get('/{gender}-clothing/{name}', 'ProductController@index_name')->name('product.index_name');
+Route::get('/{gender}-clothing/{name}/{type}', 'ProductController@index_type')->name('product.index_name_type');
 Route::get('/login2', function(){
     return view('auth.userfaces');
 });
