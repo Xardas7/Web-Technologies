@@ -60,20 +60,24 @@
                 <div class="col-md-2 col-6">
                     <div class="price">{{ $product->price."€" }}</div>
                 </div>
-                <div class="col-md-2 col-6">
-                    <button class="product-item d-flex align-items-center">
-                        <img src="/img/bag.svg" alt="" style="width:60px; height:40px;">
-                    </button>
+                <div class="col-md-2 col-6 ">
+                        <a href="#">
+                        <img src="/img/bag.svg" alt="" style="width:55px; height:35px;">
+                        </a>
                 </div>
                 <div class="col-md-2 col-12">
-                    <button class="product-item d-flex align-items-center">
-                        <img src="/img/cancel.svg" alt="" style="width:60px; height:40px;">
-                    </button>
+                    <a href="#">
+                    <img src="/img/cancel.svg" alt="" style="width:55px; height:35px;">
+                    </a>
                 </div>
             </div>
     </div>
     @endforeach
 
+    <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
+        <a href="#" class="view-btn color-2"><span>Add All</span></a>
+        <a href="#" class="view-btn color-2"><span>Remove All</span></a>
+    </div>
 @endsection
 
 @section('js')

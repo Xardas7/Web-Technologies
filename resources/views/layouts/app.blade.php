@@ -119,7 +119,7 @@
                     <a class="navbar-brand" href="/cart">
                         <img src="/img/bag.svg" style="width:50px; height:30px;" alt="">
                     </a>
-                    <a class="navbar-brand" href="/whishlist">
+                    <a class="navbar-brand" href="/wishlist">
                         <img src="/img/heart.svg" style="width:50px; height:30px;"alt="">
                     </a>
                     @endauth
