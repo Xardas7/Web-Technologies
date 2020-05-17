@@ -115,12 +115,17 @@
                                 $current_gender=null;
                                 $url_gender='all';
                                 }
-                                else{
-                                    $has_gender=1;
-                                    $current_gender=$products->first()->category->gender;
-                                    $g = new \App\Helpers\General\GenderHelper();
-                                    $url_gender=$g->re_transform($current_gender);
-                                }
+                                if(strpos(Request::url(), "womens-clothing")){
+                                         $has_gender=1;
+                                         $current_gender='womens';
+                                    }
+                                    else{
+                                        $has_gender=1;
+                                        $current_gender='mens';
+                                        }
+                                     $g = new \App\Helpers\General\GenderHelper();
+                                         $url_gender=$g->re_transform($current_gender);
+
                                 @endphp
                                 @foreach($all_categories= \App\Category::all()->unique('name') as $category )
                                     @php
@@ -254,7 +259,7 @@
 							</div>
 							-->
                                 <button class="genric-btn primary-border circle arrow">find</button>
-                                <a href="{{Request::url()}}"> reset all </a>
+                                <a href="/{{$url_gender}}-clothing"> reset all </a>
                             </form>
                           <!--  <form action="URL::current()">
 							<div class="common-filter">
