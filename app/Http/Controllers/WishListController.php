@@ -6,6 +6,7 @@ use App\ShoppingCart;
 use App\WishList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Product;
 
 class WishListController extends Controller
 {
@@ -24,17 +25,12 @@ class WishListController extends Controller
         return redirect()->back();
     }
     public function index(){
-        $user = Auth::user();
-        $whislist = WishList::where('user_id',$user->id)->first();
-        if(!$whislist) {
-            //Se non esiste
-            $wishlist = WishList::create([
-                'user_id'=>$user->id
-            ]);
+        $user_id = Auth::user()->id;
+        $products = collect();
+        $wishes = WishList::where('user_id',$user_id)->get();
+        foreach ($wishes as $wish){
+        $products->push(Product::find($wish->product_id));
         }
-
-        $products = $user->shoppingCart->products;
-
-        return view('wishlist',compact('products'));
+     return view('wishlist',compact('products'));
     }
 }

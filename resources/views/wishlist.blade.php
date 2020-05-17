@@ -18,10 +18,10 @@
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
             <div class="col-first">
-                <h1>Shopping Cart</h1>
+                <h1>Wish List</h1>
                 <nav class="d-flex align-items-center justify-content-start">
-                    <a href="index.blade.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                    <a href="cart.blade.php">Shopping Cart</a>
+                    <a href="/">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                    <a href="/wishlist">Wish List</a>
                 </nav>
             </div>
         </div>
@@ -91,6 +91,5 @@
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/shoppingCart.js"></script>
 
 @endsection
