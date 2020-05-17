@@ -76,11 +76,14 @@ Route::get('/login2', function(){
     return view('auth.userfaces');
 });
 
-Route::get('{name}', 'ProductController@show')->name('product.show');
 
 Route::post('/comment', 'CommentController@store')->name('product.comment');
 
+Route::get('/wishlist', 'WishListController@index')->name('product.wishlist_index');
 Route::post('/wishlist', 'WishListController@store')->name('product.wishlist');
 
+
 Route::post('/cart', 'ShoppingCartController@store')->name('product.cart');
+
+Route::get('{name}', 'ProductController@show')->name('product.show');
 

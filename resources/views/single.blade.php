@@ -60,13 +60,13 @@
                                                 No category yet!
                                             @else
                                                 @if($product->category->gender=='male')
-                                                    <a href="/mens-clothing/?name={{$product->category->name}}&type={{$product->category->type}}">
+                                                    <a href="/mens-clothing/{{$product->category->name}}/{{$product->category->type}}">
                                            {{$product->category->name}}
                                                {{$product->category->type}}
                                                     </a>
                                                    @endif
                                                     @if($product->category->gender=='female')
-                                                        <a href="/womens-clothing/?name={{$product->category->name}}&type={{$product->category->type}}">
+                                                        <a href="/womens-clothing/{{$product->category->name}}/{{$product->category->type}}">
                                            {{$product->category->name}}
                                                             {{$product->category->type}}
                                                     </a>

@@ -47,8 +47,13 @@ class ProductController extends Controller
                 break;
             }
         }
-        $m = new MostSearchedHelper();
-        $m->increment($product);
-        return view('single', compact('product'));
+        if($product->name!=null) {
+            $m = new MostSearchedHelper();
+            $m->increment($product);
+            return view('single', compact('product'));
+        }
+        else{
+            abort(404);
+        }
     }
 }

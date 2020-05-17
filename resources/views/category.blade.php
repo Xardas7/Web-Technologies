@@ -73,8 +73,12 @@
                                         </div>
                                     </div>
                                     <div class="price">
-                                        <h5>{{$product->name}}</h5>
+                                        <div>
+                                            <h5>{{$product->name}}</h5>
+                                            <p id="description-tab"> {{$product->producer->name}}</p>
+                                        </div>
                                         <h3>{{$product->price}}€</h3>
+
                                     </div>
                                 </div>
                                 @endforeach
@@ -220,10 +224,10 @@
                                 <label class="head">Price</label>
 
                                 <br>
-                                min: <input type="text" name="min_price" value="{{request('min_price')}}">
+                                min: <input class="single-input-primary" type="text" name="min_price" value="{{request('min_price')}}">
 
                                 <br>
-                                max: <input type="text" name="max_price" value="{{request('max_price')}}">
+                                max: <input class="single-input-primary" type="text" name="max_price" value="{{request('max_price')}}">
                                 <br>
 								<div class="head">Brands</div>
                                 @php

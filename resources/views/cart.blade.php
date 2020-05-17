@@ -53,12 +53,12 @@
             <div class="row align-items-center">
                 <div class="col-md-6 col-12">
                     <div class="product-item d-flex align-items-center">
-                        <img src="img/ci1.jpg" class="img-fluid" alt="">
-                        <h6>{{ $product->name }}</h6>
+                        <img src="{{$product->images->first()->path}}" style="width:150px; height:104px;" class="img-fluid" alt="">
+                        <a href="/{{ $product->name }}"> <h6>{{ $product->name }}</h6> </a>
                     </div>
                 </div>
                 <div class="col-md-2 col-6">
-                    <div class="price">{{ $product->price."$" }}</div>
+                    <div class="price">{{ $product->price."€" }}</div>
                 </div>
                 <div class="col-md-2 col-6">
                     <div class="quantity-container d-flex align-items-center mt-15">
