@@ -30,6 +30,7 @@
 <!-- End Banner Area -->
 
 <!-- Start Cart Area -->
+
 <div class="container">
     <div class="cart-title">
         <div class="row">
@@ -46,15 +47,23 @@
                 <h6>Remove</h6>
             </div>
         </div>
-    </div>
 
+    </div>
+    @if($products->count() > 5 )
+        <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
+            <a href="#" class="view-btn color-2"><span>Add All</span></a>
+            <a href="#" class="view-btn color-2"><span>Remove All</span></a>
+        </div>
+    @endif
     @foreach ($products as $product)
         <div class="cart-single-item">
             <div class="row align-items-center">
                 <div class="col-md-6 col-12">
                     <div class="product-item d-flex align-items-center">
                         <img src="{{$product->images->first()->path}}" style="width:150px; height:104px;" class="img-fluid" alt="">
-                        <a href="/{{ $product->name }}"> <h6>{{ $product->name }}</h6> </a>
+                        <a href="/{{ $product->name }}">
+                            <h6>{{ $product->name }}</h6>
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-2 col-6">
