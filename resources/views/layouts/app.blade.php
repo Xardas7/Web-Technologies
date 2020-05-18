@@ -117,11 +117,10 @@
                     </a>
                     @auth
                     <a class="navbar-brand" href="/cart">
-                        <img src="/img/bag.svg" style="width:50px; height:30px;" alt="">
+                        <i class="fa fa-shopping-cart fa-2x"></i>
                     </a>
                     <a class="navbar-brand" href="/wishlist">
-                        <img src="/img/heart.svg" style="width:50px; height:30px;"alt="">
-                    </a>
+                        <i class="fa fa-heart fa-2x" style="color:red"></i>                    </a>
                     @endauth
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>

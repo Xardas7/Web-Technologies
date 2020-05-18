@@ -43,7 +43,7 @@
             <div class="col-md-2">
                 <h6>Add To Shopping Cart</h6>
             </div>
-            <div class="col-md-2 align-items-left">
+            <div class="col-md-1 align-items-left">
                 <h6>Remove</h6>
             </div>
         </div>
@@ -60,7 +60,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6 col-12">
                     <div class="product-item d-flex align-items-center">
-                        <img src="{{$product->images->first()->path}}" style="width:150px; height:104px;" class="img-fluid" alt="">
+                        <img src="{{$product->images->first()->path}}" style="width:150px; height:104px;" class="img-fluid" alt="" b>
                         <a href="/{{ $product->name }}">
                             <h6>{{ $product->name }}</h6>
                         </a>
@@ -71,12 +71,12 @@
                 </div>
                 <div class="col-md-2 col-6 ">
                         <a href="#">
-                        <img src="/img/bag.svg" alt="" style="width:55px; height:35px;">
+                            <i class="fa fa-shopping-cart fa-3x" style="color:black"></i>
                         </a>
                 </div>
                 <div class="col-md-2 col-12">
                     <a href="#">
-                    <img src="/img/cancel.svg" alt="" style="width:55px; height:35px;">
+                        <i class="fa fa-trash fa-3x" style="color: #f44a40;"></i>
                     </a>
                 </div>
             </div>
@@ -84,8 +84,8 @@
     @endforeach
 
     <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
-        <a href="#" class="view-btn color-2"><span>Add All</span></a>
-        <a href="#" class="view-btn color-2"><span>Remove All</span></a>
+        <a href="#" class="genric-btn success radius"><span>Add All</span></a>
+        <a href="#" class="genric-btn danger radius"><span>Remove All</span></a>
     </div>
 @endsection
 

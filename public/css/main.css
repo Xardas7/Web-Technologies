@@ -1014,6 +1014,7 @@ h1, h2, h3, h4, h5, h6 {
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+  margin-right: 50px;
 }
 
 /* line 73, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_elements.scss */
