@@ -75,7 +75,7 @@ class User extends Authenticatable
 
     // A user wishes x Products
     public function wishes(){
-        return $this->belongsToMany('App\Product','wish_lists')->withTimeStamps();
+        return $this->hasOne('App\WishList');
     }
 
     // Preferences

@@ -32,37 +32,12 @@
 				<div class="row">
 					<div class="col-xl-9 col-lg-8 col-md-7">
 						<!-- Start Filter Bar -->
-                        <form>
-                            <div class="input-group-icon mt-10">
-                                <div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
-                                <div class="form-select" id="default-select">
-                                    <select>
-                                        <option value="1">City</option>
-                                        <option value="1">Dhaka</option>
-                                        <option value="1">Dilli</option>
-                                        <option value="1">Newyork</option>
-                                        <option value="1">Islamabad</option>
-                                    </select>
-                                </div>
-                            <input type="submit" value="submit" class="align-items-center">
-                        </div>
-
-                        </form>
 						<div class="filter-bar d-flex flex-wrap align-items-center">
-							<a href="#" class="grid-btn active"><i class="fa fa-th" aria-hidden="true"></i></a>
-							<a href="#" class="list-btn"><i class="fa fa-th-list" aria-hidden="true"></i></a>
 							<div class="sorting">
 								<select>
-									<option value="1">Default sorting</option>
-									<option value="1">Default sorting</option>
-									<option value="1">Default sorting</option>
-								</select>
-							</div>
-							<div class="sorting mr-auto">
-								<select>
-									<option value="1">Show 12</option>
-									<option value="1">Show 12</option>
-									<option value="1">Show 12</option>
+									<option value="1">Sorting by newest</option>
+									<option value="1">Sorting by price ↑</option>
+									<option value="1">Sorting by price ↓</option>
 								</select>
 							</div>
 							<div class="pagination">
@@ -98,8 +73,12 @@
                                         </div>
                                     </div>
                                     <div class="price">
-                                        <h5>{{$product->name}}</h5>
+                                        <div>
+                                            <h5>{{$product->name}}</h5>
+                                            <p id="description-tab"> {{$product->producer->name}}</p>
+                                        </div>
                                         <h3>{{$product->price}}€</h3>
+
                                     </div>
                                 </div>
                                 @endforeach
@@ -108,13 +87,6 @@
 						<!-- End Best Seller -->
 						<!-- Start Filter Bar -->
 						<div class="filter-bar d-flex flex-wrap align-items-center">
-							<div class="sorting mr-auto">
-								<select>
-									<option value="1">Show 12</option>
-									<option value="1">Show 12</option>
-									<option value="1">Show 12</option>
-								</select>
-							</div>
                             <div class="pagination">
                                 @if(!($products->lastPage()<3))
                                 <a href="{{$products->previousPageUrl()}}" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
@@ -141,11 +113,19 @@
                                 if(strpos(Request::url(), "all-clothing")){
                                 $has_gender= 0;
                                 $current_gender=null;
+                                $url_gender='all';
                                 }
-                                else{
-                                    $has_gender=1;
-                                    $current_gender=$products->first()->category->gender;
-                                }
+                                if(strpos(Request::url(), "womens-clothing")){
+                                         $has_gender=1;
+                                         $current_gender='womens';
+                                    }
+                                    else{
+                                        $has_gender=1;
+                                        $current_gender='mens';
+                                        }
+                                     $g = new \App\Helpers\General\GenderHelper();
+                                         $url_gender=$g->re_transform($current_gender);
+
                                 @endphp
                                 @foreach($all_categories= \App\Category::all()->unique('name') as $category )
                                     @php
@@ -198,7 +178,7 @@
                                             }
                                             }
                                         @endphp
-                                        <li class="main-nav-list child"><a href="{{Request::url()}}?name={{$category->name}}" target='_self'>
+                                        <li class="main-nav-list child"><a href="/{{$url_gender}}-clothing/{{$category->name}}" target='_self'>
                                                 All {{$category->name}}
                                                 <span class="number">
                                                     ({{$count_by_name}})
@@ -225,7 +205,8 @@
 
                                             @endphp
                                         @if($count_by_type) <!-- se non ci sono oggetti nella cateogira non mostra niente -->
-                                        <li class="main-nav-list child"><a href="{{Request::url()}}?name={{$category->name}}&type={{$type_category->type}}" target='_self'>
+                                        <li class="main-nav-list child">
+                                            <a href="/{{$url_gender}}-clothing/{{$category->name}}/{{$type_category->type}}" target='_self'>
                                                 {{$type_category->type}}
                                                 <span class="number">
                                                     ({{$count_by_type}})
@@ -238,38 +219,49 @@
 							</ul>
 						</div>
 						<div class="sidebar-filter mt-50">
+                            @php
+                            @endphp
+                            <form action="{{Request::fullUrl()}}">
+                                @csrf
+
 							<div class="top-filter-head">Product Filters</div>
 							<div class="common-filter">
-								<div class="head">Active Filters</div>
-								<ul>
-									<li class="filter-list"><i class="fa fa-window-close" aria-hidden="true"></i>Gionee (29)</li>
-									<li class="filter-list"><i class="fa fa-window-close" aria-hidden="true"></i>Black with red (09)</li>
-								</ul>
-							</div>
-							<div class="common-filter">
+                                <label class="head">Price</label>
+
+                                <br>
+                                min: <input class="single-input-primary" type="text" name="min_price" value="{{request('min_price')}}">
+
+                                <br>
+                                max: <input class="single-input-primary" type="text" name="max_price" value="{{request('max_price')}}">
+                                <br>
 								<div class="head">Brands</div>
-								<form action="#">
+                                @php
+                                    $producers=collect();
+                                    foreach($products as $product){
+                                        $producers->push($product->producer);
+                                    }
+                                @endphp
 									<ul>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">Apple<span>(29)</span></label></li>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="asus" name="brand"><label for="asus">Asus<span>(29)</span></label></li>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="gionee" name="brand"><label for="gionee">Gionee<span>(19)</span></label></li>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="micromax" name="brand"><label for="micromax">Micromax<span>(19)</span></label></li>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="samsung" name="brand"><label for="samsung">Samsung<span>(19)</span></label></li>
+                                        @foreach($producers->unique('name') as $producer)
+										<li class="filter-list">
+                                            <input class="pixel-radio" type="radio" name="brand" value="{{$producer->name}}"><label>{{$producer->name}}</label></li>
+                                        @endforeach
 									</ul>
-								</form>
 							</div>
+                            <!--
 							<div class="common-filter">
 								<div class="head">Color</div>
 								<form action="#">
 									<ul>
 										<li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">Black<span>(29)</span></label></li>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="balckleather" name="color"><label for="balckleather">Black Leather<span>(29)</span></label></li>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="blackred" name="color"><label for="blackred">Black with red<span>(19)</span></label></li>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="gold" name="color"><label for="gold">Gold<span>(19)</span></label></li>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="spacegrey" name="color"><label for="spacegrey">Spacegrey<span>(19)</span></label></li>
 									</ul>
 								</form>
 							</div>
+							-->
+                                <button class="genric-btn primary-border circle arrow">find</button>
+                                <a href="/{{$url_gender}}-clothing"> reset all </a>
+                            </form>
+                          <!--  <form action="URL::current()">
 							<div class="common-filter">
 								<div class="head">Price</div>
                                 <div class="price-range-area">
@@ -280,7 +272,9 @@
                                         <span>$</span><div id="upper-value"></div>
                                     </div>
                                 </div>
+                                <button>find </button>
 							</div>
+                            </form> -->
 						</div>
 					</div>
 				</div>

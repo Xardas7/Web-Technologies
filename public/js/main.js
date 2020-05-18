@@ -224,14 +224,14 @@ $(document).ready(function(){
         noUiSlider.create(nonLinearSlider, {
             connect: true,
             behaviour: 'tap',
-            start: [ 500, 4000 ],
+            start: [ 50, 200 ],
             range: {
                 // Starting at 500, step the value by 500,
                 // until 4000 is reached. From there, step by 1000.
                 'min': [ 0 ],
-                '10%': [ 500, 500 ],
-                '50%': [ 4000, 1000 ],
-                'max': [ 10000 ]
+                '10%': [ 10, 50 ],
+                '50%': [ 200, 100 ],
+                'max': [ 400 ]
             }
         });
 
@@ -245,7 +245,11 @@ $(document).ready(function(){
         // from the left edge of the slider.
         nonLinearSlider.noUiSlider.on('update', function ( values, handle, unencoded, isTap, positions ) {
             nodes[handle].innerHTML = values[handle];
+        /*    function filer(){
+                url = window.location.href + '&min_price=' + nodes[0] + '&max_price=' + nodes[1];
+                $(location).attr("href", url); } */
         });
+
 
         }
 
@@ -279,12 +283,15 @@ $(document).ready(function(){
 
     var value,
         quantity = document.getElementsByClassName('quantity-container');
-
-    function createBindings(quantityContainer) {
+        function createBindings(quantityContainer) {
         var quantityAmount = quantityContainer.getElementsByClassName('quantity-amount')[0];
         var increase = quantityContainer.getElementsByClassName('increase')[0];
         var decrease = quantityContainer.getElementsByClassName('decrease')[0];
         increase.addEventListener('click', function () { increaseValue(quantityAmount); });
+        quantityAmount.addEventListener('input', function(){
+            calcolaPrezzo();
+            calcolaSubtotale();
+        });
         decrease.addEventListener('click', function () { decreaseValue(quantityAmount); });
     }
 
@@ -292,19 +299,20 @@ $(document).ready(function(){
         for (var i = 0; i < quantity.length; i++ ) {
             createBindings(quantity[i]);
         }
+        calcolaPrezzo();
+        calcolaSubtotale();
     };
 
     function increaseValue(quantityAmount) {
         value = parseInt(quantityAmount.value, 10);
 
-      
-
         quantity = isNaN(value) ? 0 : value;
-        ++quantity;
-        
+        quantity++;
+
         quantityAmount.value = quantity.toString();
 
-        console.log(quantityAmount, quantityAmount.value);
+        calcolaPrezzo();
+        calcolaSubtotale();
     }
 
     function decreaseValue(quantityAmount) {
@@ -315,8 +323,8 @@ $(document).ready(function(){
 
         quantityAmount.value = quantity.toString();
 
-        console.log(quantityAmount, quantityAmount.value);
-
+        calcolaPrezzo();
+        calcolaSubtotale();
     }
 
   init();
@@ -461,20 +469,31 @@ $(document).ready(function(){
     function calcolaPrezzo(){
       let products = $('div.cart-single-item');
             $.each(products,function(i,element){
-              
-              let price = parseFloat($(this).find('div.price').text())
-              let quantity = parseInt($(this).find('input.quantity-amount').val())
-              console.log(quantity,price)
-              let total = price * quantity
-              $(this).find('div.total').text(total)
 
+              let price = parseFloat($(this).find('div.price').text());
+              let quantity = parseInt($(this).find('input.quantity-amount').val());
+              let total = price * quantity;
+              let totalRounded = Math.round((total + Number.EPSILON) * 100) / 100;
+              if(isNaN(total)){
+                  totalRounded = 0;
+              }
+              $(this).find('div.total').text(totalRounded+"$");
 
             })
-
-  
     }
 
-     calcolaPrezzo();
+    function calcolaSubtotale(){
+        let products = $('div.cart-single-item');
+        let subtotal = 0;
+        $.each(products,function(i,element){
+            let total = parseFloat($(this).find('div.total').text());
+            subtotal += total;
+        })
+        let subtotalRounded = Math.round((subtotal + Number.EPSILON) * 100) / 100;
+        $('div.subtotal').text(subtotalRounded+"$");
+    }
+
+    /* calcolaPrezzo();
 
     $('.lnr.lnr-chevron-up').click(function(event){
      calcolaPrezzo();
@@ -482,9 +501,9 @@ $(document).ready(function(){
 
     $('.lnr.lnr-chevron-down').unbind().click(function(event){
       calcolaPrezzo();
-     })
-    
-    
+     })*/
+
+
 
 
 

@@ -53,16 +53,16 @@
             <div class="row align-items-center">
                 <div class="col-md-6 col-12">
                     <div class="product-item d-flex align-items-center">
-                        <img src="img/ci1.jpg" class="img-fluid" alt="">
-                        <h6>{{ $product->name }}</h6>
+                        <img src="{{$product->images->first()->path}}" style="width:150px; height:104px;" class="img-fluid" alt="">
+                        <a href="/{{ $product->name }}"> <h6>{{ $product->name }}</h6> </a>
                     </div>
                 </div>
                 <div class="col-md-2 col-6">
-                    <div class="price">{{ $product->price }}</div>
+                    <div class="price">{{ $product->price."€" }}</div>
                 </div>
                 <div class="col-md-2 col-6">
                     <div class="quantity-container d-flex align-items-center mt-15">
-                        <input type="text" class="quantity-amount" value={{ $product->details->quantity }} />
+                        <input type="number" class="quantity-amount" value={{ $product->details->quantity }} />
                         <div class="arrow-btn d-inline-flex flex-column">
                             <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
                             <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="col-md-2 col-12">
-                    <div class="total">{{ $product->price }}</div>
+                    <div class="total"></div>
                 </div>
             </div>
     </div>
@@ -88,7 +88,7 @@
     </div>
     <div class="subtotal-area d-flex align-items-center justify-content-end">
         <div class="title text-uppercase">Subtotal</div>
-        <div class="subtotal">$2160.00</div>
+        <div class="subtotal"></div>
     </div>
     <div class="shipping-area d-flex justify-content-end">
         <div class="tile text-uppercase">Shipping</div>

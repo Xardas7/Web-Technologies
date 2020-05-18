@@ -70,15 +70,20 @@ Route::get('/welcome', function(){
 });
 
 Route::get('/{gender}-clothing', 'ProductController@index')->name('product.index');
+Route::get('/{gender}-clothing/{name}', 'ProductController@index_name')->name('product.index_name');
+Route::get('/{gender}-clothing/{name}/{type}', 'ProductController@index_type')->name('product.index_name_type');
 Route::get('/login2', function(){
     return view('auth.userfaces');
 });
 
-Route::get('{name}', 'ProductController@show')->name('product.show');
 
 Route::post('/comment', 'CommentController@store')->name('product.comment');
 
+Route::get('/wishlist', 'WishListController@index')->name('product.wishlist_index');
 Route::post('/wishlist', 'WishListController@store')->name('product.wishlist');
 
+
 Route::post('/cart', 'ShoppingCartController@store')->name('product.cart');
+
+Route::get('{name}', 'ProductController@show')->name('product.show');
 

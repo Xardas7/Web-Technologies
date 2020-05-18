@@ -60,13 +60,13 @@
                                                 No category yet!
                                             @else
                                                 @if($product->category->gender=='male')
-                                                    <a href="/mens-clothing/?name={{$product->category->name}}&type={{$product->category->type}}">
+                                                    <a href="/mens-clothing/{{$product->category->name}}/{{$product->category->type}}">
                                            {{$product->category->name}}
                                                {{$product->category->type}}
                                                     </a>
                                                    @endif
                                                     @if($product->category->gender=='female')
-                                                        <a href="/womens-clothing/?name={{$product->category->name}}&type={{$product->category->type}}">
+                                                        <a href="/womens-clothing/{{$product->category->name}}/{{$product->category->type}}">
                                            {{$product->category->name}}
                                                             {{$product->category->type}}
                                                     </a>
@@ -95,8 +95,13 @@
 
                                        </div>
                                        <div class="d-flex mt-20">
+                                           @auth
                                            <a href="" class="view-btn color-2 addCart"><span>Add to Cart</span></a>
                                            <a href="#" class="like-btn"><span class="lnr lnr-heart"></span></a>
+                                           @else
+                                               <a href="/login" class="view-btn color-2"><span>Add to Cart</span></a>
+                                               <a href="/login" class="like-btn"><span class="lnr lnr-heart"></span></a>
+                                           @endauth
                                        </div>
                                    </div>
                                </div>
@@ -264,7 +269,7 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                {{-- @auth --}}
+                                @auth
                                 <div class="col-lg-6">
                                     <div class="add-review">
                                         <h3>Add a Review</h3>
@@ -287,7 +292,7 @@
                                         </form>
                                     </div>
                                 </div>
-                                {{-- @endauth --}}
+                                @endauth
                             </div>
                         </div>
                     </div>

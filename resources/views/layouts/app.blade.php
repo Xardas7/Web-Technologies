@@ -115,6 +115,14 @@
                     <a class="navbar-brand" href="/">
                         <img src="/img/logo.png" alt="">
                     </a>
+                    @auth
+                    <a class="navbar-brand" href="/cart">
+                        <img src="/img/bag.svg" style="width:50px; height:30px;" alt="">
+                    </a>
+                    <a class="navbar-brand" href="/wishlist">
+                        <img src="/img/heart.svg" style="width:50px; height:30px;"alt="">
+                    </a>
+                    @endauth
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -122,7 +130,7 @@
                         <ul class="navbar-nav">
                         @yield('navbar')
                             <!-- Dropdown -->
-                        
+
                             <li class="dropdown">
                                 <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                                     Pages
@@ -137,7 +145,7 @@
                                     <a class="dropdown-item" href="/elements">Elements</a>
                                 </div>
                             </li>
-                            
+
                         </ul>
                     </div>
                 </div>
