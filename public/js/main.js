@@ -480,7 +480,7 @@ $(document).ready(function(){
      calcolaPrezzo();
     })
 
-    $('.lnr.lnr-chevron-down').click(function(event){
+    $('.lnr.lnr-chevron-down').unbind().click(function(event){
       calcolaPrezzo();
      })
     
