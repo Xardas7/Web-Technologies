@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+{{-- 
 @section('css')
     <link rel="stylesheet" href="css/linearicons.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/magnific-popup.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
-@endsection
+@endsection --}}
 
 <!-- Start banner Area -->
 @section('content')

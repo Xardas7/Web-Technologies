@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('css')
+{{-- @section('css')
 			<link rel="stylesheet" href="css/linearicons.css">
 			<link rel="stylesheet" href="css/font-awesome.min.css">
 			<link rel="stylesheet" href="css/nice-select.css">
@@ -7,13 +7,9 @@
 		    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
 			<link rel="stylesheet" href="css/bootstrap.css">
 			<link rel="stylesheet" href="css/main.css">
-@endsection
-@section('navbar')
-    <li><a href="#home">Home</a></li>
-    <li><a href="#catagory">Category</a></li>
-    <li><a href="#men">Men</a></li>
-    <li><a href="#women">Women</a></li>
-    @endsection
+			<link rel="stylesheet" href="css/app.css">
+@endsection --}}
+
 @section('content')
 			<!-- start banner Area -->
 			<section class="banner-area relative" id="home">
