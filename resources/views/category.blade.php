@@ -117,11 +117,11 @@
                                 }
                                 if(strpos(Request::url(), "womens-clothing")){
                                          $has_gender=1;
-                                         $current_gender='womens';
+                                         $current_gender='female';
                                     }
                                     else{
                                         $has_gender=1;
-                                        $current_gender='mens';
+                                        $current_gender='male';
                                         }
                                      $g = new \App\Helpers\General\GenderHelper();
                                          $url_gender=$g->re_transform($current_gender);
