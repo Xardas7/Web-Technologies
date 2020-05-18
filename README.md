@@ -7,6 +7,20 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## How to install this project
+
+
+1) Clone Project
+2) Create a new Laravel Project - composer create-project laravel/laravel
+3) Put cloned project files in your project
+4) Install node.js
+5) Into your project directory run command: npm install && npm run dev
+6) Create Database and update settings in .env file
+7) Run command : php artisan migrate
+8) Run command : php artisan db:seed
+9) Run command : php artisan serve
+10) Go to the link
+11) Enjoy
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
