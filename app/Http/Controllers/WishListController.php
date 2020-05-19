@@ -49,20 +49,12 @@ class WishListController extends Controller
         $user_id = Auth::id();
         foreach($products_id as $product_id){
 
-           $product = WishList::where('user_id',$user_id)
+           $product = WishList::Where('user_id',$user_id)
                     ->where('product_id',$product_id);
-
+            
             $product->delete();
-
+                    
         }
-    }
-
-    public function addAll(Request $request){
-
-        $user = Auth::user();
-        $cart = $user->shoppingcart;
-        $products_id = $request->products_id;
-        $cart->products()->sync($products_id);
 
     }
 }

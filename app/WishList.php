@@ -10,6 +10,5 @@ class WishList extends Model
 
     public function products(){
         return $this->hasMany('App\Product');
-
     }
 }
