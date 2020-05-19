@@ -81,9 +81,9 @@ Route::post('/comment', 'CommentController@store')->name('product.comment');
 
 Route::get('/wishlist', 'WishListController@index')->name('wishlist.index');
 Route::post('/wishlist', 'WishListController@store')->name('wishlist.store');
-Route::get('/wishlist/delete/{id}', 'WishListController@delete')->name('wishlit.delete');
-Route::post('/wishlist/delete/all', 'WishListController@deleteAll')->name('wishlit.deleteAll');
-
+Route::get('/wishlist/delete/{id}', 'WishListController@delete')->name('wishlist.delete');
+Route::post('/wishlist/delete/all', 'WishListController@deleteAll')->name('wishlist.deleteAll');
+Route::post('/wishlist/add/all', 'WishListController@addAll')->name('wishlist.addAll');
 
 Route::post('/cart', 'ShoppingCartController@store')->name('cart.store');
 
