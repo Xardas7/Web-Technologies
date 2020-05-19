@@ -97,7 +97,7 @@
                                        <div class="d-flex mt-20">
                                            @auth
                                            <a href="" class="view-btn color-2 addCart"><span>Add to Cart</span></a>
-                                           <a href="#" class="like-btn"><span class="lnr lnr-heart"></span></a>
+                                           <a href="" class="like-btn"><span class="lnr lnr-heart"></span></a>
                                            @else
                                                <a href="/login" class="view-btn color-2"><span>Add to Cart</span></a>
                                                <a href="/login" class="like-btn"><span class="lnr lnr-heart"></span></a>
@@ -312,5 +312,7 @@
             <script src="/js/ion.rangeSlider.js"></script>
             <script src="/js/jquery.magnific-popup.min.js"></script>
             <script src="/js/owl.carousel.min.js"></script>
+            <script src="/js/custom.js"></script>
             <script src="/js/main.js"></script>
+
 @endsection

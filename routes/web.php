@@ -79,11 +79,13 @@ Route::get('/login2', function(){
 
 Route::post('/comment', 'CommentController@store')->name('product.comment');
 
-Route::get('/wishlist', 'WishListController@index')->name('product.wishlist_index');
-Route::post('/wishlist', 'WishListController@store')->name('product.wishlist');
+Route::get('/wishlist', 'WishListController@index')->name('wishlist.index');
+Route::post('/wishlist', 'WishListController@store')->name('wishlist.store');
+Route::get('/wishlist/delete/{id}', 'WishListController@delete')->name('wishlit.delete');
+Route::post('/wishlist/delete/all', 'WishListController@deleteAll')->name('wishlit.deleteAll');
 
 
-Route::post('/cart', 'ShoppingCartController@store')->name('product.cart');
+Route::post('/cart', 'ShoppingCartController@store')->name('cart.store');
 
 Route::get('{name}', 'ProductController@show')->name('product.show');
 

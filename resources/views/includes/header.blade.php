@@ -69,15 +69,18 @@
                    
                 </ul>
             
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="#" title="User">
                     <i class="fa fa-user fa-2x"></i>
+                    <h6>User</h6> 
                 </a>
 
-                <a class="navbar-brand" href="/cart">
+                <a class="navbar-brand" href="/cart" title="Shopping cart">
                     <i class="fa fa-shopping-cart fa-2x"></i>
+                    <h6>Shopping Cart</h6> 
                 </a>
-                <a class="navbar-brand" href="/wishlist">
+                <a class="navbar-brand" href="/wishlist" title="Wishlist">
                     <i class="fa fa-heart fa-2x" style="color:red;"></i>
+                    <h6>Wishlist</h6> 
                 </a>
 
                 @endauth

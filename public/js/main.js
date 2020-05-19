@@ -329,179 +329,37 @@ $(document).ready(function(){
 
   init();
 
+  function calcolaPrezzo(){
+    let products = $('div.cart-single-item');
+          $.each(products,function(i,element){
+
+            let price = parseFloat($(this).find('div.price').text());
+            let quantity = parseInt($(this).find('input.quantity-amount').val());
+            let total = price * quantity;
+            let totalRounded = Math.round((total + Number.EPSILON) * 100) / 100;
+            if(isNaN(total)){
+                totalRounded = 0;
+            }
+            $(this).find('div.total').text(totalRounded+"$");
+
+          })
+  }
+
+  function calcolaSubtotale(){
+      let products = $('div.cart-single-item');
+      let subtotal = 0;
+      $.each(products,function(i,element){
+          let total = parseFloat($(this).find('div.total').text());
+          subtotal += total;
+      })
+      let subtotalRounded = Math.round((subtotal + Number.EPSILON) * 100) / 100;
+      $('div.subtotal').text(subtotalRounded+"$");
+  }
+
 //------- End Quantity Increase & Decrease Value --------//
 
 
-//----- Ours scripts --//
 
-
-  var url = 'http://127.0.0.1:8000';
-
-
-  //------------------ ADD A PRODUCT TO SHOPPING CART --------------//
-
-
-
-  $('.view-btn.color-2.addCart,.carello').click(function(event){
-
-    event.preventDefault();
-    let product_id, quantity;
-    product_id = $('input[name="product_id"]').val();
-    quantity = $('#quantity').val();
-
-    if(!product_id && !quantity){
-      product_id = $(this).data('id')
-      quantity = 1
-    }
-
-
-    $.ajax({
-      url: '/cart',
-      type: 'POST',
-      data: {
-       product_id: product_id,
-        quantity: quantity
-      },
-      success: function(){
-        alert('Prodotto aggiunto al carello')
-      },
-      error: function(data){
-        console.log(data);
-      }
-
-    })
-
-  });
-
-  //------------- Stars -------------//
-
-  var stars = $('#commento i')
-  stars.css("cursor","pointer")
-  var classe = 5
-  stars.on("click",function(event){
-    event.preventDefault()
-    parent = stars.parent();
-    classe = parseInt(this.className.slice(11).trim())
-    console.log(classe)
-    switch(classe){
-
-        case 1:
-        parent.removeClass()
-        parent.addClass('total-star one-star d-flex align-items-center')
-        break
-
-        case 2:
-          parent.removeClass()
-          parent.addClass('total-star two-star d-flex align-items-center')
-          break
-        case 3:
-          parent.removeClass()
-          parent.addClass('total-star three-star d-flex align-items-center')
-          break
-        case 4:
-        parent.removeClass()
-        parent.addClass('total-star four-star d-flex align-items-center')
-          break
-        case 5:
-        parent.removeClass()
-        parent.addClass('total-star five-star d-flex align-items-center')
-          break
-    }
-
-    })
-
-    //----- SEND REVIEW AJAX ----//
-
-    $('#inviaCommento').on("click",function(event){
-      event.preventDefault();
-      let content = $('textarea[name="content"]').val()
-      let product_id = $('input[name="product_id"]').val();
-
-      $.ajax({
-        url: '/comment',
-        type: 'POST',
-        data:{
-          product_id: product_id,
-          content: content,
-          vote: classe
-        },
-        success: function(e){
-          location.reload()
-        },
-        error: function(e){
-          console.log(e)
-        }
-      })
-
-  })
-
-
-  //----- ADD WISHLIST ---//
-
-    $('a.like-btn,a.wishlist').on("click",function(event){
-      event.preventDefault()
-      let product_id = $('input[name="product_id"]').val();
-
-      if(!product_id){
-        product_id = $(this).data('id')
-      }
-      $.ajax({
-        url: '/wishlist',
-        type: 'POST',
-        data: {
-         product_id: product_id,
-        },
-        success: function(){
-          alert('Prodotto aggiunto ala wishlist')
-        },
-        error: function(data){
-          console.log(data);
-        }
-
-      })
-
-    })
-
-
-
-
-
-    function calcolaPrezzo(){
-      let products = $('div.cart-single-item');
-            $.each(products,function(i,element){
-
-              let price = parseFloat($(this).find('div.price').text());
-              let quantity = parseInt($(this).find('input.quantity-amount').val());
-              let total = price * quantity;
-              let totalRounded = Math.round((total + Number.EPSILON) * 100) / 100;
-              if(isNaN(total)){
-                  totalRounded = 0;
-              }
-              $(this).find('div.total').text(totalRounded+"$");
-
-            })
-    }
-
-    function calcolaSubtotale(){
-        let products = $('div.cart-single-item');
-        let subtotal = 0;
-        $.each(products,function(i,element){
-            let total = parseFloat($(this).find('div.total').text());
-            subtotal += total;
-        })
-        let subtotalRounded = Math.round((subtotal + Number.EPSILON) * 100) / 100;
-        $('div.subtotal').text(subtotalRounded+"$");
-    }
-
-    /* calcolaPrezzo();
-
-    $('.lnr.lnr-chevron-up').click(function(event){
-     calcolaPrezzo();
-    })
-
-    $('.lnr.lnr-chevron-down').unbind().click(function(event){
-      calcolaPrezzo();
-     })*/
 
 
 

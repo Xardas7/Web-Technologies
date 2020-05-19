@@ -56,7 +56,7 @@
         </div>
     @endif
     @foreach ($products as $product)
-        <div class="cart-single-item">
+        <div class="cart-single-item" >
             <div class="row align-items-center">
                 <div class="col-md-6 col-12">
                     <div class="product-item d-flex align-items-center">
@@ -70,12 +70,12 @@
                     <div class="price">{{ $product->price."€" }}</div>
                 </div>
                 <div class="col-md-2 col-6 ">
-                        <a href="#">
+                <a class="carello" href="#" data-id="{{ $product->id }}">
                             <i class="fa fa-shopping-cart fa-3x" style="color:black"></i>
                         </a>
                 </div>
                 <div class="col-md-2 col-12">
-                    <a href="#">
+                <a href="#" class="deleteProductWishList" data-id="{{ $product->id }}">
                         <i class="fa fa-trash fa-3x" style="color: #f44a40;"></i>
                     </a>
                 </div>
@@ -84,8 +84,8 @@
     @endforeach
 
     <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
-        <a href="#" class="genric-btn success radius"><span>Add All</span></a>
-        <a href="#" class="genric-btn danger radius"><span>Remove All</span></a>
+        <a href="#" class="genric-btn success radius add"><span>Add All</span></a>
+        <a href="#" class="genric-btn danger radius remove"><span>Remove All</span></a>
     </div>
 @endsection
 
@@ -99,6 +99,7 @@
     <script src="js/ion.rangeSlider.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
+    <script src="/js/custom.js"></script>
     <script src="js/main.js"></script>
 
 @endsection

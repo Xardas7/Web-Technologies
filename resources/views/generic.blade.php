@@ -153,5 +153,6 @@
 			<script src="js/owl.carousel.min.js"></script>
 			<script src="js/jquery.nice-select.min.js"></script>
 			<script src="js/jquery.magnific-popup.min.js"></script>
+			<script src="/js/custom.js"></script>
 			<script src="js/main.js"></script>
 	@endsection
