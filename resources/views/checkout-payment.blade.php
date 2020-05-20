@@ -30,7 +30,7 @@
     </section>
     <!-- End Banner Area -->
     <div class="container">
-        <form method="POST" action="/address" class="billing-form">
+        <form method="POST" action="/confirm" class="billing-form">
             @csrf
             <div class="row">
                 <div class="col-lg-8 col-md-6 order-wrapper mt-50">
@@ -89,12 +89,11 @@
                                 <input type="checkbox" class="pixel-checkbox" id="login-4">
                                 <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label>
                             </div>
-                            <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Checkout</span></button>
+                            <button class="view-btn color-2 w-100 mt-20"><span>Confirm and buy</span></button>
                         </div>
                     </div>
                 </div>
             </div>
-            <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Payment</span></button>
         </form>
     </div>
 @endsection
