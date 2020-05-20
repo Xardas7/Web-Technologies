@@ -68,6 +68,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/welcome', function(){
     return view('welcome');
 });
+Route::get('/paymetns', function(){
+    return view('checkout-payment');
+});
 
 Route::get('/{gender}-clothing', 'ProductController@index')->name('product.index');
 Route::get('/{gender}-clothing/{name}', 'ProductController@index_name')->name('product.index_name');
