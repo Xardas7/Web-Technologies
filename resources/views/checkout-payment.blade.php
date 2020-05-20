@@ -1,4 +1,3 @@
-<?php
 @extends('layouts.app')
 
 {{-- @section('css')
@@ -15,7 +14,21 @@
 
 
 @section('content')
-
+    <!-- Start Banner Area -->
+    <section class="banner-area organic-breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
+                <div class="col-first">
+                    <h1>Product Checkout</h1>
+                    <nav class="d-flex align-items-center justify-content-start">
+                        <a href="index.blade.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                        <a href="checkout.blade.php">Product Checkout</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Banner Area -->
     <div class="col-lg-4 col-md-6">
         <div class="order-wrapper mt-50">
             <h3 class="billing-title mb-10">Your Order</h3>
@@ -72,8 +85,6 @@
             </div>
         </div>
     </div>
-
-
 @endsection
 @section('js')
     <script src="js/vendor/jquery-2.2.4.min.js"></script>
