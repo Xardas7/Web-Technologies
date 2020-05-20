@@ -30,9 +30,13 @@
             </section>
             <!-- End Banner Area -->
             <!-- Start Checkout Area -->
+            @php
+                $user=Auth::user();
+                $address=$user->addresses->last()
+                @endphp
             <div class="container">
                 <div class="checkput-login">
-                    @if(Auth::user()->addresses->first() != null)
+                    @if($address != null)
                     <div class="top-title">
                         <p><a data-toggle="collapse" href="#checkout-login" aria-expanded="false" aria-controls="checkout-login">Ship to a different address?</a></p>
                     </div>
@@ -85,18 +89,26 @@
                                     <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Payment</span></button>
                                 </form>
                             </div>
-                            @if(Auth::user()->addresses->first() != null)
+                            @if($address != null)
                         </div>
                     </div>
                     <!-- End  New Billing Details Form -->
                     <div class="container">
                         <h3 class="billing-title mt-20 mb-10">Continue with saved address</h3>
                         <div class="container" style="text-align: center;">
-                            <form action="#" class="billing-form">
-                                        <h3 >Billing Details</h3>
-                                            hai un address ma lo faccio vedere dopo xD
-                                                <!--    -->
-                                                <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Payment</span></button>
+                            <form action="/payments" class="billing-form">
+                                <h3 >Billing Details</h3>
+                                <p></p>
+                                <p>
+                                    {{$user->name}}
+                                    {{$user->surname}}<br>
+                                    {{$address->address}}<br>
+                                    {{$address->address_additional}}<br>
+                                    {{$address->city}}
+                                    {{$address->postal_code}}<br>
+                                    {{$address->country}}<br>
+                                </p>
+                                <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Payment</span></button>
                             </form>
                     </div>
                 </div>
