@@ -87,5 +87,6 @@ Route::post('/wishlist/add/all', 'WishListController@addAll')->name('wishlist.ad
 
 Route::post('/cart', 'ShoppingCartController@store')->name('cart.store');
 
+Route::get('/orders','OrdersController@indexByUser');
 Route::get('{name}', 'ProductController@show')->name('product.show');
 

@@ -51,14 +51,14 @@
                     @auth
 
                 </ul>
-                        <li class="dropdown">
+                        <li class="dropdown" id="user-no-dot">
                                 <a class="navbar-brand" href="#" title="User">
                                     <i class="fa fa-user fa-2x"></i>
                                     <h6>User</h6>
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="/orders">
                                     My Orders
                                 </a>
                                 <a class="dropdown-item" href="#">
