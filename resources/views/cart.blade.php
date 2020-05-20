@@ -112,21 +112,6 @@
                 </li>
                 <li class="calculate">Calculate Shipping</li>
             </ul>
-            <div class="sorting">
-                <select>
-                    <option value="1">Bangladesh</option>
-                    <option value="1">India</option>
-                    <option value="1">Srilanka</option>
-                </select>
-            </div>
-            <div class="sorting mt-20">
-                <select>
-                    <option value="1">Select a State</option>
-                    <option value="1">Select a State</option>
-                    <option value="1">Select a State</option>
-                </select>
-            </div>
-            <input type="text" placeholder="Postcode/Zipcode" onfocus="this.placeholder=''" onblur="this.placeholder = 'Postcode/Zipcode'" required class="common-input mt-10">
             <button class="view-btn color-2 mt-10"><span>Update Details</span></button>
         </form>
 
