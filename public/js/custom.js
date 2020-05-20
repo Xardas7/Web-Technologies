@@ -4,6 +4,8 @@ $(document).ready(function(){
 
     //----- Ours scripts --//
 
+    
+
 
   var url = 'http://127.0.0.1:8000';
 
@@ -47,40 +49,50 @@ $(document).ready(function(){
     
   });
 
-  //--- Add all products to shopping cart ---//
+     //--- Add all products to shopping cart ---//
 
-  $('.remove').click(function(event){
+     $('.add').click(function(event){
 
-    event.preventDefault();
-    let products = $('.cart-single-item') // Tutti i prodotti
-    let ids = []                          // Gli ID dei prodotti
-
-    $.each(products,function(){
-       let children = $(this).find('.deleteProductWishList').data('id') // Prendo l'id del prodotto 
-       ids.push(children)                                               // Inserisco l'id del prodotto  nell'array
-    })
-    $.ajax({
-      url: '/wishlist/delete/all',
-      type: 'POST',
-      data: {
-        products_id: ids
-      },
-      success: function(res){
-        console.log(res)
-        $.each(products,function(){
-          let product = $(this)
-          product.fadeOut("normal",function(){
-            product.remove()
+      event.preventDefault();
+      let products = $('.cart-single-item') // Tutti i prodotti
+      let ids = []                          // Gli ID dei prodotti
+  
+      $.each(products,function(){
+         let children = $(this).find('.carello').data('id') // Prendo l'id del prodotto 
+         ids.push(children)                                               // Inserisco l'id del prodotto  nell'array
+      })
+      $.ajax({
+        url: '/wishlist/add/all',
+        type: 'POST',
+        data: {
+          products_id: ids
+        },
+        success: function(){
+          $.ajax({
+            url: '/wishlist/delete/all',
+            type: 'POST',
+            data: {
+              products_id: ids
+            },
+            success: function(res){
+              console.log(res)
+              $.each(products,function(){
+                let product = $(this)
+                product.fadeOut("normal",function(){
+                  product.remove()
+                })
+              })
+            },
+            error: function(err){
+              console.log(err)
+            }
           })
-        })
-      },
-      error: function(err){
-        console.log(err)
-      }
-    })
-
-
-
+        },
+        error: function(err){
+          console.log(err)
+        }
+      })
+  
   })
   //------------------------- WISHLIST -------------------//
 
@@ -131,9 +143,40 @@ $(document).ready(function(){
         }
 
       })
-
-
     })
+
+  // ---- Delete all products from wishlist ----//
+
+   $('.remove').click(function(event){
+
+    event.preventDefault();
+    let products = $('.cart-single-item') // Tutti i prodotti
+    let ids = []                          // Gli ID dei prodotti
+
+    $.each(products,function(){
+       let children = $(this).find('.deleteProductWishList').data('id') // Prendo l'id del prodotto 
+       ids.push(children)                                               // Inserisco l'id del prodotto  nell'array
+    })
+    $.ajax({
+      url: '/wishlist/delete/all',
+      type: 'POST',
+      data: {
+        products_id: ids
+      },
+      success: function(res){
+        console.log(res)
+        $.each(products,function(){
+          let product = $(this)
+          product.fadeOut("normal",function(){
+            product.remove()
+          })
+        })
+      },
+      error: function(err){
+        console.log(err)
+      }
+    })
+  })
 
   //------------- Stars -------------//
   

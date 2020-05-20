@@ -7,6 +7,7 @@ use App\WishList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Product;
+use App\ShoppingCartsHaveProduct;
 
 class WishListController extends Controller
 {
@@ -62,7 +63,25 @@ class WishListController extends Controller
         $user = Auth::user();
         $cart = $user->shoppingcart;
         $products_id = $request->products_id;
-        $cart->products()->sync($products_id);
+        foreach($products_id as $product_id){
+            //Controllo se nel carrello dell'utente quel prodotto è già presente
+            $shoppingcarthasproducts = ShoppingCartsHaveProduct::where('shoppingcart_id', $cart->id)
+                ->where('product_id', $product_id)
+                ->first();
+
+            if ($shoppingcarthasproducts) {
+                //Se il prodotto è già presente, ne aumento solo la quantità
+                $shoppingcarthasproducts->quantity += 1;
+                $shoppingcarthasproducts->save();
+            } else {
+                 $cart->products()->attach([
+                     $product_id => ['quantity' => 1]
+                 ]);
+            }
+        }
+
+        // $products_id = $request->products_id;
+        // $cart->products()->sync($products_id);
 
     }
 }
