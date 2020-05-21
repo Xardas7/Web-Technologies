@@ -44,8 +44,9 @@
                                 @if(!($products->lastPage()<3))
 								<a href="{{$products->previousPageUrl()}}" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
                                 @endif
+                                <!-- TO DO  &page or ?page for other filters-->
                             @for ($i = 1; $i<=$products->lastPage(); $i++)
-                               <a href="{{Request::url()}}?page={{$i}}"
+                               <a href="{{Request::fullUrl()}}?page={{$i}}"
                                    class="{{$products->currentPage() == $i ? 'active' : ''}}">{{$i}}</a>
 								    @if($i>3 && $i!=4 && $i<($products->lastPage())-1)
                                     <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
@@ -92,7 +93,7 @@
                                 <a href="{{$products->previousPageUrl()}}" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
                                 @endif
                                 @for ($i = 1; $i<=$products->lastPage(); $i++)
-                                    <a href="{{Request::url()}}?page={{$i}}"
+                                    <a href="{{Request::fullUrl()}}&page={{$i}}"
                                        class="{{$products->currentPage() == $i ? 'active' : ''}}">{{$i}}</a>
                                     @if($i>3 && $i!=4 && $i<($products->lastPage())-1)
                                         <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
@@ -115,14 +116,14 @@
                                 $current_gender=null;
                                 $url_gender='all';
                                 }
-                                if(strpos(Request::url(), "womens-clothing")){
+                                elseif(strpos(Request::url(), "womens-clothing")){
                                          $has_gender=1;
                                          $current_gender='female';
-                                    }
-                                    else{
+                                }
+                                elseif(strpos(Request::url(), "mens-clothing")){
                                         $has_gender=1;
                                         $current_gender='male';
-                                        }
+                                }
                                      $g = new \App\Helpers\General\GenderHelper();
                                          $url_gender=$g->re_transform($current_gender);
 
