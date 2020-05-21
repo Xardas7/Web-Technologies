@@ -32,29 +32,38 @@
 				<div class="row">
 					<div class="col-xl-9 col-lg-8 col-md-7">
 						<!-- Start Filter Bar -->
+                        @php
+                            //gestore url
+                            $url='';
+                               $brand = request('brand');
+                                 $max_price = request('max_price');
+                                 $min_price = request('min_price');
+                           /* if(strpos(Request::fullUrl(), "page=")){
+                                 $url= Request::url().'?min_price='.$min_price.'&max_price='.$max_price.'&brand='.$brand.'&';
+
+                            }
+                            else{ */
+                                 $url= Request::url().'?min_price='.$min_price.'&max_price='.$max_price.'&brand='.$brand.'&';
+                            //}
+
+                        @endphp
 						<div class="filter-bar d-flex flex-wrap align-items-center">
 							<div class="sorting">
 								<select>
-									<option value="1">Sorting by newest</option>
-									<option value="1">Sorting by price ↑</option>
-									<option value="1">Sorting by price ↓</option>
+                                    <option value="newst"> <a href="/">Sorting by newest</a></option>
+                                    <a><option value="price_up">Sorting by price ↑</option></a>
+                                    <a><option value="price_down">Sorting by price ↓</option></a>
 								</select>
 							</div>
 							<div class="pagination">
-                                @if(!($products->lastPage()<3))
-								<a href="{{$products->previousPageUrl()}}" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-                                @endif
                                 <!-- TO DO  &page or ?page for other filters-->
                             @for ($i = 1; $i<=$products->lastPage(); $i++)
-                               <a href="{{Request::fullUrl()}}?page={{$i}}"
+                               <a href="{{$url}}page={{$i}}"
                                    class="{{$products->currentPage() == $i ? 'active' : ''}}">{{$i}}</a>
 								    @if($i>3 && $i!=4 && $i<($products->lastPage())-1)
                                     <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
                                     @endif
                                 @endfor
-                                    @if(!($products->lastPage()<3))
-								<a href="{{$products->nextPageUrl()}}" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                                        @endif
 							</div>
 						</div>
 						<!-- End Filter Bar -->
@@ -89,19 +98,13 @@
 						<!-- Start Filter Bar -->
 						<div class="filter-bar d-flex flex-wrap align-items-center">
                             <div class="pagination">
-                                @if(!($products->lastPage()<3))
-                                <a href="{{$products->previousPageUrl()}}" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-                                @endif
                                 @for ($i = 1; $i<=$products->lastPage(); $i++)
-                                    <a href="{{Request::fullUrl()}}&page={{$i}}"
+                                    <a href="{{$url}}page={{$i}}"
                                        class="{{$products->currentPage() == $i ? 'active' : ''}}">{{$i}}</a>
                                     @if($i>3 && $i!=4 && $i<($products->lastPage())-1)
                                         <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
                                     @endif
                                 @endfor
-                                    @if(!($products->lastPage()<3))
-                                <a href="{{$products->nextPageUrl()}}" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                                        @endif
                             </div>
 						</div>
 						<!-- End Filter Bar -->
