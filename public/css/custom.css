@@ -12,6 +12,8 @@
     padding: 50px;
     padding-top: 0;
     padding-left: 0;
+    border: 1px solid #f41068;
+    border-radius: 20px;
 }
 
 .navbar-nav > li > a,
@@ -77,16 +79,49 @@ i{
     color: #f41068;
 }
 
+.row.justify-content-center.settings{
+    border: 1px solid #f41068;
+    border-radius: 20px;
+    /* background: rgb(255,228,225);
+background: linear-gradient(90deg, rgba(255,228,225,1) 35%, rgba(237,135,169,1) 100%, rgba(233,147,138,1) 100%); */
+}
+
+.nav.nav-pills.col-12{
+    border-bottom: 1px solid #f41068 ;
+}
+
 .nav-pills .nav-link{
     color: #f41068;
 }
 
 .nav-pills .nav-link.active{
     background-color: #f41068;
+    border-radius: 20px;
 }
 
 .nav-pills .nav-link:hover{
     background-color: #f41068;
+    border-radius: 20px;
     color: white;
 }
 
+.address{
+    height: 250px;
+}
+
+.btn.btn-success.btn-save{
+    background-color: #f41068;
+    border-color: #f41068;
+}
+
+.h-90{
+    height: 90%;
+}
+
+/* Colore del banner */
+
+/* {
+    background-image: -moz-linear-gradient(45deg, #f6463d 0%, #f6398d 45%, #f52cdc 100%);
+    background-image: -webkit-linear-gradient(45deg, #f6463d 0%, #f6398d 45%, #f52cdc 100%);
+    background-image: -ms-linear-gradient(45deg, #f6463d 0%, #f6398d 45%, #f52cdc 100%);
+  } */

@@ -28,17 +28,17 @@
 
 <!-- Start Align Area -->
 <div class="container">
-    <div class="row justify-content-center  border border-danger rounded">
+    <div class="row justify-content-center settings">
         <!-- Nav pills -->
-        <ul class="nav nav-pills col-12  text-center justify-content-around bg-light p-4 border rounded-pill"
+        <ul class="nav nav-pills col-12  text-center justify-content-around p-4"
             role="tablist">
-            <li class="nav-item col-3 p-0 border rounded">
+            <li class="nav-item col-3 p-0">
                 <a class="nav-link active" data-toggle="pill" href="#home">Profile</a>
             </li>
-            <li class="nav-item col-3 p-0 border rounded">
+            <li class="nav-item col-3 p-0">
                 <a class="nav-link" data-toggle="pill" href="#menu1">Addresses</a>
             </li>
-            <li class="nav-item col-3 p-0 border rounded">
+            <li class="nav-item col-3 p-0">
                 <a class="nav-link" data-toggle="pill" href="#menu2">Cards</a>
             </li>
         </ul>
@@ -56,9 +56,9 @@
                         <div class="form-group row justify-content-center">
                             <label class="col-2 col-form-label">First Name</label>
                             <div class="col-6">
-                                <input type="text" name="name" placeholder="First Name" 
-                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" required
-                                    class="single-input" value="{{$user->name}}">
+                                <input type="text" name="name" placeholder="First Name" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'First Name'" required class="single-input"
+                                    value="{{$user->name}}">
                             </div>
                         </div>
 
@@ -76,6 +76,15 @@
                             <div class="col-6">
                                 <input class="form-control" type="date" value="{{$user->birth_date}}"
                                     id="example-date-input">
+                            </div>
+                        </div>
+
+                        <div class="form-group row justify-content-center">
+                            <label class="col-2 col-form-label">Email</label>
+                            <div class="col-6">
+                                <input type="email" name="EMAIL" placeholder="Email address"
+                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required
+                                    class="single-input" value="{{$user->email}}">
                             </div>
                         </div>
 
@@ -98,14 +107,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row justify-content-center">
-                            <label class="col-2 col-form-label">Email</label>
-                            <div class="col-6">
-                                <input type="email" name="EMAIL" placeholder="Email address"
-                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required
-                                    class="single-input" value="{{$user->email}}">
-                            </div>
-                        </div>
+
 
                         <div class="form-group row justify-content-center">
                             <label class="col-2 col-form-label">City</label>
@@ -140,24 +142,90 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="text-center mt-30">
+                            <button class="btn btn-success btn-save" type="submit">Save</button>
+                        </div>
                     </form>
+                </div>
+            </div>
+
+            <div id="menu1" class="container tab-pane fade"><br>
+
+                <h3 class="text-center mt-50 mb-50">Your Adresses</h3>
+
+                <div class="addresses">
+
+                    <div class="row col-12 justify-content-around mb-50">
+
+                        <div class="address col-5 border border-dark rounded">
+                            <div class="h-100 p-3">
+
+                                <div class="h-90">
+                                    <i class="fas fa-map-marker-alt fa-2x" style="color:#f41068"></i>
+                                    <ul>
+                                        <li class="p-1">Bryant Sarabia</li>
+                                        <li class="p-1">Frazione Poggio Cono</li>
+                                        <li class="p-1">Teramo, 64100</li>
+                                        <li class="p-1">Italia</li>
+                                    </ul>
+                                </div>
+
+                                <div class="h-auto">
+
+                                    <span>
+                                        <a href="#">Modify</a>
+                                    </span>
+                                    &nbsp; | &nbsp;
+                                    <span>
+                                        <a href="#">Remove</a>
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="address col-5 border border-dark rounded">
+                            <div class="h-100 p-3">
+
+                                <div class="h-90">
+                                    <i class="fas fa-map-marker-alt fa-2x" style="color:#f41068"></i>
+                                    <ul>
+                                        <li class="p-1">Bryant Sarabia</li>
+                                        <li class="p-1">Frazione Poggio Cono</li>
+                                        <li class="p-1">Teramo, 64100</li>
+                                        <li class="p-1">Italia</li>
+                                    </ul>
+                                </div>
+
+                                <div class="h-auto">
+
+                                    <span>
+                                        <a href="#">Modify</a>
+                                    </span>
+                                    &nbsp; | &nbsp;
+                                    <span>
+                                        <a href="#">Remove</a>
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
 
             </div>
-        
-        <div id="menu1" class="container tab-pane fade"><br>
-            <h3>Menu 1</h3>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat.</p>
+
+
+            <div id="menu2" class="container tab-pane fade"><br>
+                <h3>Menu 2</h3>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem aperiam.</p>
+            </div>
         </div>
-        <div id="menu2" class="container tab-pane fade"><br>
-            <h3>Menu 2</h3>
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                totam rem aperiam.</p>
-        </div>
-    </div>
     </div>
     <!-- Navpills -->
 </div>
