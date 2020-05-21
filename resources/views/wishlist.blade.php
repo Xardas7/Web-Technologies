@@ -84,7 +84,7 @@
     @endforeach
 
     <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
-        <a href="#" class="genric-btn success radius add"><span>Add All</span></a>
+        <a href="#" class="genric-btn btn-success radius add"><span>Add All</span></a>
         <a href="#" class="genric-btn danger radius remove"><span>Remove All</span></a>
     </div>
 @endsection
