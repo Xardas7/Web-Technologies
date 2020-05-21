@@ -95,10 +95,11 @@
                     <!-- End  New Billing Details Form -->
                     <div class="container">
                         <h3 class="billing-title mt-20 mb-10">Continue with saved address</h3>
-                        <div class="container" style="text-align: center;">
-                            <form action="/payments" class="billing-form">
-                                <h3 >Billing Details</h3>
-                                <p></p>
+                        <div class="container">
+                            <form action="/payments" class="billing-form" >
+                                <div class="row">
+                            <div class="col-lg-6">
+                                <h4>shipping address</h4>
                                 <p>
                                     {{$user->name}}
                                     {{$user->surname}}<br>
@@ -108,6 +109,12 @@
                                     {{$address->postal_code}}<br>
                                     {{$address->country}}<br>
                                 </p>
+                            </div>
+                                <div class="col-lg-6">
+                                    <h4>billing address</h4>
+                                    equals to other
+                                </div>
+                                    </div>
                                 <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Payment</span></button>
                             </form>
                     </div>

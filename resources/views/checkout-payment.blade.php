@@ -30,7 +30,7 @@
     </section>
     <!-- End Banner Area -->
     <div class="container">
-        <form method="POST" action="/confirm" class="billing-form">
+        <form method="get" action="/confermation" class="billing-form">
             @csrf
             <div class="row">
                 <div class="col-lg-8 col-md-6 order-wrapper mt-50">
@@ -46,9 +46,44 @@
                    <hr/>
                     <div class="order-wrapper mt-50">
                         <div class="d-flex align-items-center">
-                            <input class="pixel-radio" type="radio" id="credit_card" name="brand">
-                            <label for="credit_card" class="bold-lable">Credit Card</label>
+                            DA FARE, BRYANT PLEASE SOLO TU CONOSCI JS ABBASTANZA DA RIUSCIRCI
+                            <!-- TODO
+
+                            idea sarebbe di mostrare se scegliere carta salvata o un form per una nuova pero si incasina tutto
+
+                            <p><a data-toggle="collapse" href="#checkout-card" aria-expanded="false" aria-controls="checkout-card">
+                                    <input class="pixel-radio" type="radio" id="credit_card" name="brand">
+                                    <label for="credit_card" class="bold-lable">Credit Card</label>
+                                </a></p>
+
+                            <div class="collapse" id="checkout-card">
+                                <input class="pixel-radio" type="radio" id="credit_card" name="brand">
+                                <label for="credit_card" class="bold-lable">Saved credit card</label>
+
+                                <p><a data-toggle="collapse" href="#checkout-newcard" aria-expanded="false" aria-controls="checkout-newcard">
+                                    <input class="pixel-radio" type="radio" id="credit_card" name="brand">
+                                    <label for="credit_card" class="bold-lable">New Credit Card</label>
+                                    </a></p>
+
+                                <div class="collapse" id="checkout-newcard">
+                                    <div class="col-lg-6">
+                                        <input type="text" name="last_name" placeholder="Last name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'name'" required class="common-input">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="text" name="last_name" placeholder="Last name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'credit cart number'" required class="common-input">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="text" name="last_name" placeholder="Last name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'date'" required class="common-input">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="text" name="last_name" placeholder="Last name*" onfocus="this.placeholder=''" onblur="this.placeholder = 'CV'" required class="common-input">
+                                    </div>
+                                </div>
+                            </div>
+                         END TODO  -->
                         </div>
+
+
                     </div>
                     <hr/>
                     <div class="order-wrapper mt-50">
@@ -67,22 +102,31 @@
                                 <div>Product</div>
                                 <div>Total</div>
                             </div>
+                            @php
+                                $products=Auth::user()->shoppingCart->products;
+                                $total=0;
+                            @endphp
+                            @foreach($products as $product)
                             <div class="list-row d-flex justify-content-between">
-                                <div>Pixelstore fresh Blackberry</div>
-                                <div>x 02</div>
-                                <div>$720.00</div>
+                                <div>{{$product->name}}</div>
+                                <div style="text-align: center">x {{$product->details->quantity}}</div>
+                                <div>{{$product->price}}€</div>
                             </div>
+                                @php
+                                $total+=$product->price;
+                                @endphp
+                            @endforeach
                             <div class="list-row d-flex justify-content-between">
                                 <h6>Subtotal</h6>
-                                <div>$2160.00</div>
+                                <div>{{$total}}€</div>
                             </div>
                             <div class="list-row d-flex justify-content-between">
                                 <h6>Shipping</h6>
-                                <div>Flat rate: $50.00</div>
+                                <div>Shipping cost: 10.00€</div>
                             </div>
                             <div class="list-row d-flex justify-content-between">
                                 <h6>Total</h6>
-                                <div class="total">$2210.00</div>
+                                <div class="total">{{$total+10}}€</div> <!-- totale + costi spedizione -->
                             </div>
                             <p class="payment-info">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
                             <div class="mt-20 d-flex align-items-start">
