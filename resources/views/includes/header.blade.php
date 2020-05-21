@@ -1,21 +1,21 @@
 <header class="default-header">
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light m-3">
+        <div class="container-fluid">
             <a class="navbar-brand" href="/">
-                <img src="/img/logo.png" alt="">
+                <img src="/img/logo.png" id="logo" alt="">
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse justify-content-end align-items-center row" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#catagory">Category</a></li>
-                    <li><a href="#men">Men</a></li>
-                    <li><a href="#women">Women</a></li>
+                    <li class="col"><a href="/">Home</a></li>
+                    <li class="col"><a href="#catagory">Category</a></li>
+                    <li class="col"><a href="/mens-clothing">Men</a></li>
+                    <li class="col"><a href="/womens-clothing">Women</a></li>
                     <!-- Dropdown -->
 
                     <li class="dropdown">
@@ -61,7 +61,7 @@
                                 <a class="dropdown-item" href="/orders">
                                     My Orders
                                 </a>
-                                <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ route('user.settings') }}">
                                     Settings
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -80,7 +80,7 @@
                     <h6>Shopping Cart</h6>
                 </a>
                 <a class="navbar-brand" href="/wishlist" title="Wishlist">
-                    <i class="fa fa-heart fa-2x" style="color:red;"></i>
+                    <i class="fa fa-heart fa-2x"></i>
                     <h6>Wishlist</h6>
                 </a>
 

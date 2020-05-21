@@ -93,4 +93,4 @@ Route::get('/orders','OrdersController@indexByUser');
 Route::get('{name}', 'ProductController@show')->name('product.show');
 
 
-Route::get('/user/settings','UserController@edit');
+Route::get('/user/settings','UserController@edit')->name('user.settings');
