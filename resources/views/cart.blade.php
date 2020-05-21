@@ -76,8 +76,11 @@
     </div>
     @endforeach
 
+    <div class="subtotal-area d-flex align-items-center justify-content-end">
+        <div class="title text-uppercase">Subtotal</div>
+        <div class="subtotal"></div>
+    </div>
     <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
-        <a href="#" class="view-btn color-2"><span>Update Cart</span></a>
         <div class="cuppon-wrap d-flex align-items-center flex-wrap">
             <div class="cupon-code">
                 <input type="text">
@@ -85,37 +88,12 @@
             </div>
             <a href="#" class="view-btn color-2 have-btn"><span>Have a Coupon?</span></a>
         </div>
-    </div>
-    <div class="subtotal-area d-flex align-items-center justify-content-end">
-        <div class="title text-uppercase">Subtotal</div>
-        <div class="subtotal"></div>
-    </div>
-    <div class="shipping-area d-flex justify-content-end">
-        <div class="tile text-uppercase">Shipping</div>
-        <form action="#" class="d-inline-flex flex-column align-items-end">
-            <ul class="d-flex flex-column align-items-end">
-                <li class="filter-list">
-                    <label for="flat-rate">Flat Rate:<span>$5.00</span></label>
-                    <input class="pixel-radio" type="radio" id="flat-rate" name="brand">
-                </li>
-                <li class="filter-list">
-                    <label for="free-shipping">Free Shipping</label>
-                    <input class="pixel-radio" type="radio" id="free-shipping" name="brand">
-                </li>
-                <li class="filter-list">
-                    <label for="flat-rate-2">Flat Rate:<span>$10.00</span></label>
-                    <input class="pixel-radio" type="radio" id="flat-rate-2" name="brand">
-                </li>
-                <li class="filter-list">
-                    <label for="local-delivery">Local Delivery:<span>$2.00</span></label>
-                    <input class="pixel-radio" type="radio" id="local-delivery" name="brand">
-                </li>
-                <li class="calculate">Calculate Shipping</li>
-            </ul>
-            <button class="view-btn color-2 mt-10"><span>Update Details</span></button>
-        </form>
+        <form method='GET' action="/checkout" class="d-inline-flex flex-column align-items-end">
 
+            <button class="view-btn color-2 mt-10"><span>Buy</span></button>
+        </form>
     </div>
+
 </div>
 <!-- End Cart Area -->
 @endsection
