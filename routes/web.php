@@ -71,6 +71,9 @@ Route::get('/home', function () {
 Route::get('/payments', function(){
     return view('checkout-payment');
 })->middleware('auth');
+Route::get('/confermation', function(){
+    return view('confermation');
+})->middleware('auth');
 
 Route::post('/address', 'AddressController@store');
 Route::post('/address', 'AddressController@store_from_checkout');
