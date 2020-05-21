@@ -3,7 +3,6 @@
     text-align: center;
 }
 
-<<<<<<< HEAD
 .generic-banner .height{
     height: 340px;
     margin-bottom: 40px;
@@ -31,7 +30,6 @@ label{
     color:#f66d9b;
 }
 
-=======
 #user-no-dot{
     list-style: none;
 }
@@ -39,4 +37,3 @@ label{
 .divide-from-top {
     margin-bottom: 50px;
 }
->>>>>>> 49833f8d214a61547fc3fa43bad3cda9bfcdb07a
