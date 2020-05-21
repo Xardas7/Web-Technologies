@@ -11,6 +11,11 @@ use App\ShoppingCartsHaveProduct;
 
 class WishListController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function store(Request $request){
         $user_id = Auth::id();
 

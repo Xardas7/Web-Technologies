@@ -18,7 +18,7 @@
                         <div class="col-first">
                             <h1>Shopping Cart</h1>
                              <nav class="d-flex align-items-center justify-content-start">
-                                <a href="../index.blade.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                <a href="../home.blade.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
                                 <a href="../cart.blade.php">Shopping Cart</a>
                             </nav>
                         </div>
@@ -37,13 +37,13 @@
                         <form action="{{ route('login') }}" method="POST">
 
                             @csrf
-                            
-                            <input type="text" 
+
+                            <input type="text"
                             name="email"
-                            placeholder="Email*" 
-                            onfocus="this.placeholder='Email'" 
-                            onblur="this.placeholder = 'Email*'" 
-                            required 
+                            placeholder="Email*"
+                            onfocus="this.placeholder='Email'"
+                            onblur="this.placeholder = 'Email*'"
+                            required
                             class="common-input mt-20">
 
                             @error('email')
@@ -51,12 +51,12 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                            
-                            <input type="password" 
-                            placeholder="Password*" 
+
+                            <input type="password"
+                            placeholder="Password*"
                             name="password"
-                            onfocus="this.placeholder=''" 
-                            onblur="this.placeholder = 'Password*'" 
+                            onfocus="this.placeholder=''"
+                            onblur="this.placeholder = 'Password*'"
                             required class="common-input mt-20">
 
                             @error('password')
@@ -65,23 +65,23 @@
                             </span>
                             @enderror
 
-                            
-                            
+
+
                             <button class="view-btn color-2 mt-20 w-100"><span>Login</span></button>
-                            
+
 							<div class="mt-20 d-flex align-items-center justify-content-between">
                                 <div class="d-flex align-items-center"><input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
-                                
+
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
-                              
-                                
+
+
                             </div>
-                            
+
 						</form>
 					</div>
                 </div>

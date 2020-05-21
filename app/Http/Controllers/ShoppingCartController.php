@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ShoppingCartController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function indexByUser(Request $request){
         //Estraggo le info dell'utente loggato
         $user = Auth::user();

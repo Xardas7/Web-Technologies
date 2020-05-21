@@ -21,7 +21,7 @@
                         <div class="col-first">
                             <h1>Product Checkout</h1>
                              <nav class="d-flex align-items-center justify-content-start">
-                                <a href="index.blade.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                <a href="home.blade.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
                                 <a href="checkout.blade.php">Product Checkout</a>
                             </nav>
                         </div>

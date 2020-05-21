@@ -17,7 +17,7 @@
                 <div class="col-first">
                     <h1>Shopping Cart</h1>
                     <nav class="d-flex align-items-center justify-content-start">
-                        <a href="../index.blade.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                        <a href="../home.blade.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
                         <a href="../cart.blade.php">Shopping Cart</a>
                     </nav>
                 </div>

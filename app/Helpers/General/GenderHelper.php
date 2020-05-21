@@ -24,8 +24,11 @@ class GenderHelper
             $gender = 'mens';
         } elseif ($gender == 'female') {
             $gender = 'womens';
-        } elseif ($gender == 'all') {
+        } elseif ($gender == null) {
             $gender = 'all';
+        }
+        else {
+            $gender='unknown';
         }
         return $gender;
     }

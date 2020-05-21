@@ -19,7 +19,7 @@
                         <div class="col-first">
                             <h1>Order Confermation</h1>
                              <nav class="d-flex align-items-center justify-content-start">
-                                <a href="index.blade.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                <a href="home.blade.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
                                 <a href="confermation.blade.php">Confermation</a>
                             </nav>
                         </div>
