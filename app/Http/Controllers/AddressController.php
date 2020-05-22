@@ -26,7 +26,34 @@ class AddressController extends Controller
                 'type' => 'both'
             ]);
         return $address;
+    }
+
+    public function edit($id){
+        $user = Auth::user();
+        $address = Address::find($id);
+
+        if($user->id != $address->user->id){
+            return "This is not your address";
+        } else {
+            return view('user.address-edit',[
+                'address' => $address
+            ]);
         }
+
+    }
+
+    public function update(Request $request, $id){
+        $user = Auth::user();
+        $address = Address::find($id);
+
+        if($user->id != $address->user->id){
+            return "This is not your address";
+        } else {
+            $address->update($request->all());
+            return redirect(route('user.settings'));
+        }
+    }
+    
     public function store_from_checkout(Request $request){
         $a=new AddressController();
         $data = $a->store($request);

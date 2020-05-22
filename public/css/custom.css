@@ -35,16 +35,27 @@ i{
     margin-left: 25px;
 }
 
-.single-input,.form-select .nice-select{
-    border: 1px solid rgba(0, 0, 0, 0.15);
+.single-input, input[type="date"],
+.form-select .nice-select, .form-control{
+    border: 1px solid #f66d9b;
     border-radius: 4px;
+    padding-left: 45px;
 }
 
 .single-input:focus,input[type="date"]:focus,
-.form-select .nice-select:focus{
-    border: 1px solid #f66d9b;
-    box-shadow:  0 0 2px #f66d9b;
+.form-select:focus, .nice-select:focus,
+.form-control:focus{
+    border: 1px solid #f41068;
+    box-shadow:  0 0 2px #f41068;
     transition: all  1s;
+}
+
+.form-select .nice-select .list{
+    border: 1px solid #f41068;
+    border-top: 0;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 }
 
 .col-form-label{
@@ -117,6 +128,13 @@ background: linear-gradient(90deg, rgba(255,228,225,1) 35%, rgba(237,135,169,1) 
 .h-90{
     height: 90%;
 }
+
+.input-group-icon .icon {
+    left: 35px;
+}
+
+
+
 
 /* Colore del banner */
 

@@ -24,17 +24,7 @@ class OrdersController extends Controller
         $orders = Order::paginate(30);
         return view('admin.ordersIndex', ['orders'=>$orders]);
     }
-
-    public function indexByUser(){
-        $user = Auth::user();
-        $orders = $user->orders;
-        foreach ($orders as $order){
-            $order['address'] = $order->address;
-            $order['products'] = $order->products;
-        }
-
-        return view('myorders', ['orders'=>$orders]);
-    }
+    
     /**
      * Show the form for creating a new resource.
      *

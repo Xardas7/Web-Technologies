@@ -50,12 +50,17 @@
             <div id="home" class="container tab-pane active">
                 <div class="section-top-border  ">
 
-                    <h3 class="text-center mb-50">My Information</h3>
+                    
+                    <h3 class="text-center mb-50 col-12">My Information</h3>
 
                     <form action="#">
-                        <div class="form-group row justify-content-center">
+                        @csrf
+                        <div class="form-group row justify-content-center p-1">
                             <label class="col-2 col-form-label">First Name</label>
-                            <div class="col-6">
+                            <div class="input-group-icon col-6">
+                                <div class="icon">
+                                    <i class="fas fa-caret-right"></i>                                
+                                </div>
                                 <input type="text" name="name" placeholder="First Name" onfocus="this.placeholder = ''"
                                     onblur="this.placeholder = 'First Name'" required class="single-input"
                                     value="{{$user->name}}">
@@ -64,7 +69,10 @@
 
                         <div class="form-group row justify-content-center">
                             <label class="col-2 col-form-label">Last Name</label>
-                            <div class="col-6">
+                            <div class="input-group-icon col-6">
+                                <div class="icon">
+                                    <i class="fas fa-caret-right" aria-hidden="true"></i>
+                                </div>
                                 <input type="text" name="last_name" placeholder="Last Name"
                                     onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" required
                                     class="single-input" value="{{$user->surname}}">
@@ -73,7 +81,10 @@
 
                         <div class="form-group row justify-content-center">
                             <label for="example-date-input" class="col-2 col-form-label">Birhtdate</label>
-                            <div class="col-6">
+                            <div class="input-group-icon col-6">
+                                <div class="icon">
+                                    <i class="fas fa-birthday-cake" aria-hidden="true"></i>
+                                </div>
                                 <input class="form-control" type="date" value="{{$user->birth_date}}"
                                     id="example-date-input">
                             </div>
@@ -81,7 +92,10 @@
 
                         <div class="form-group row justify-content-center">
                             <label class="col-2 col-form-label">Email</label>
-                            <div class="col-6">
+                            <div class="input-group-icon col-6">
+                                <div class="icon">
+                                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                                </div>
                                 <input type="email" name="EMAIL" placeholder="Email address"
                                     onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required
                                     class="single-input" value="{{$user->email}}">
@@ -107,41 +121,6 @@
                             </div>
                         </div>
 
-
-
-                        <div class="form-group row justify-content-center">
-                            <label class="col-2 col-form-label">City</label>
-                            <div class="input-group-icon col-6">
-                                <div class="icon">
-                                    <i class="fa fa-plane" aria-hidden="true"></i>
-                                </div>
-                                <div class="form-select" id="default-select">
-                                    <select>
-                                        <option value="1">City</option>
-                                        <option value="1">Dhaka</option>
-                                        <option value="1">Dilli</option>
-                                        <option value="1">Newyork</option>
-                                        <option value="1">Islamabad</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row justify-content-center">
-                            <label class="col-2 col-form-label">Country</label>
-                            <div class="input-group-icon col-6">
-                                <div class="icon"><i class="fa fa-globe" aria-hidden="true"></i></div>
-                                <div class="form-select" id="default-select">
-                                    <select>
-                                        <option value="1">Country</option>
-                                        <option value="1">Bangladesh</option>
-                                        <option value="1">India</option>
-                                        <option value="1">England</option>
-                                        <option value="1">Srilanka</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
                         <div class="text-center mt-30">
                             <button class="btn btn-success btn-save" type="submit">Save</button>
                         </div>
@@ -151,29 +130,33 @@
 
             <div id="menu1" class="container tab-pane fade"><br>
 
-                <h3 class="text-center mt-50 mb-50">Your Adresses</h3>
+                <h3 class="text-center mt-50 mb-50">My Adresses</h3>
 
                 <div class="addresses">
 
                     <div class="row col-12 justify-content-around mb-50">
 
+                        @foreach($addresses as $address)
                         <div class="address col-5 border border-dark rounded">
                             <div class="h-100 p-3">
 
                                 <div class="h-90">
                                     <i class="fas fa-map-marker-alt fa-2x" style="color:#f41068"></i>
                                     <ul>
-                                        <li class="p-1">Bryant Sarabia</li>
-                                        <li class="p-1">Frazione Poggio Cono</li>
-                                        <li class="p-1">Teramo, 64100</li>
-                                        <li class="p-1">Italia</li>
+                                    <li class="p-1">
+                                        {{ $address->user->name.' '.$address->user->surname }}
+                                    </li>
+                                        <li class="p-1">{{ $address->address }}</li>
+                                        <li class="p-1">{{ $address->address_additional }}</li>
+                                        <li class="p-1">{{ $address->city.', '.$address->postal_code }}</li>
+                                        <li class="p-1">{{ $address->country }}</li>
                                     </ul>
                                 </div>
 
                                 <div class="h-auto">
 
                                     <span>
-                                        <a href="#">Modify</a>
+                                    <a href="{{ route('address.edit',['id' => $address->id]) }}">Modify</a>
                                     </span>
                                     &nbsp; | &nbsp;
                                     <span>
@@ -184,34 +167,7 @@
 
                             </div>
                         </div>
-
-                        <div class="address col-5 border border-dark rounded">
-                            <div class="h-100 p-3">
-
-                                <div class="h-90">
-                                    <i class="fas fa-map-marker-alt fa-2x" style="color:#f41068"></i>
-                                    <ul>
-                                        <li class="p-1">Bryant Sarabia</li>
-                                        <li class="p-1">Frazione Poggio Cono</li>
-                                        <li class="p-1">Teramo, 64100</li>
-                                        <li class="p-1">Italia</li>
-                                    </ul>
-                                </div>
-
-                                <div class="h-auto">
-
-                                    <span>
-                                        <a href="#">Modify</a>
-                                    </span>
-                                    &nbsp; | &nbsp;
-                                    <span>
-                                        <a href="#">Remove</a>
-                                    </span>
-
-                                </div>
-
-                            </div>
-                        </div>
+                        @endforeach
 
                     </div>
                 </div>

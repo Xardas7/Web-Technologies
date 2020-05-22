@@ -13,23 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/prova',function(){
-//     $scarpe_sizes = App\Category::where('name','Abbigliamento')
-//     ->where('type','Giacche e cappotti')
-//     ->where('gender','female')
-//     ->first();
-//     $product = App\Product::find(1);
-//     $product->category()->associate($scarpe_sizes)->save();
-//     dd($scarpe_sizes);
-// });
-
-/*Route::get('/welcome', function(){
-    return view('welcome');
-});*/
-
-/*Route::get('/login2', function () {
-    return view('login');
-});*/
 Auth::routes();
 
 Route::options('/{path}', function(){
@@ -39,6 +22,10 @@ Route::options('/{path}', function(){
 Route::get('/', function () {
     return redirect()->route('home');
 });
+
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
 
 Route::get('/checkout', function () {
     return view('checkout');
@@ -64,9 +51,7 @@ Route::get('/elements', function () {
     return view('elements');
 });
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
+
 
 Route::get('/payments', function(){
     return view('checkout-payment');
@@ -75,30 +60,44 @@ Route::get('/confermation', function(){
     return view('confermation');
 })->middleware('auth');
 
-Route::post('/address', 'AddressController@store');
-Route::post('/address', 'AddressController@store_from_checkout');
 
-Route::post('/comment', 'CommentController@store')->name('product.comment');
+// ---------- Addresses -----------//
+Route::name('address.')->prefix('address')->group(function(){
+    Route::post('/', 'AddressController@store_from_checkout');
+    Route::post('/save', 'AddressController@store');
+    Route::get('/{id?}/edit','AddressController@edit')->name('edit');
+    Route::post('/{id}/update', 'AddressController@update')->name('update');
+});
 
-Route::get('/wishlist', 'WishListController@index')->name('wishlist.index');
-Route::post('/wishlist', 'WishListController@store')->name('wishlist.store');
-Route::get('/wishlist/delete/{id}', 'WishListController@delete')->name('wishlist.delete');
-Route::post('/wishlist/delete/all', 'WishListController@deleteAll')->name('wishlist.deleteAll');
-Route::post('/wishlist/add/all', 'WishListController@addAll')->name('wishlist.addAll');
+// ---------- Wishlist -----------//
+Route::name('wishlist')->prefix('wishlist')->group(function(){
+    Route::get('/', 'WishListController@index')->name('index');
+    Route::post('/', 'WishListController@store')->name('store');
+    Route::get('/delete/{id}', 'WishListController@delete')->name('delete');
+    Route::post('/delete/all', 'WishListController@deleteAll')->name('deleteAll');
+    Route::post('/add/all', 'WishListController@addAll')->name('addAll');
+});
+    
+// ---------- Shopping Cart -----------//
+Route::name('cart.')->prefix('cart')->group(function(){
+    Route::get('/', 'ShoppingCartController@indexByUser');
+    Route::post('/', 'ShoppingCartController@store')->name('store');
+});
 
-Route::get('/cart', 'ShoppingCartController@indexByUser');
-Route::post('/cart', 'ShoppingCartController@store')->name('cart.store');
+// ---------- Orders -----------//
+Route::name('order.')->prefix('order')->group(function(){
+});
 
-Route::get('/orders','OrdersController@indexByUser')->name('user.orders');
 
-Route::get('/user/settings','UserController@edit');
-
+// ---------- Products -----------//
 Route::get('/{gender}-clothing', 'ProductController@index')->name('product.index');
 Route::get('/{gender}-clothing/{name}', 'ProductController@index_name')->name('product.index_name');
 Route::get('/{gender}-clothing/{name}/{type}', 'ProductController@index_type')->name('product.index_name_type');
 Route::get('{name}', 'ProductController@show')->name('product.show');
-
+Route::post('/comment', 'CommentController@store')->name('product.comment');
 
 // -- USER -- //
-
-Route::get('/user/settings','UserController@edit')->name('user.settings');
+Route::name('user.')->prefix('user')->group(function(){
+Route::get('/settings','UserController@settings')->name('settings');
+Route::get('/orders','UserController@orders')->name('orders');
+});
