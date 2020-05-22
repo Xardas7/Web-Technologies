@@ -30,7 +30,24 @@
     </section>
     <!-- End Banner Area -->
     <div class="container">
-        <form method="get" action="/confermation" class="billing-form">
+        <div class="order-wrapper mt-20">
+            <div class="top-title">
+                <p>Have a coupon? <a data-toggle="collapse" href="#checkout-cupon" aria-expanded="false" aria-controls="checkout-cupon">Click here to enter your code</a></p>
+            </div>
+            <div class="collapse" id="checkout-cupon">
+                <div class="checkout-login-collapse d-flex flex-column">
+                    <form action="#" class="d-block">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <input type="text" placeholder="Enter coupon code" onfocus="this.placeholder=''" onblur="this.placeholder = 'Enter coupon code'" required class="common-input mt-10">
+                            </div>
+                        </div>
+                        <button class="view-btn color-2 mt-20"><span>Apply Coupon</span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <form method="post" action="/confermation" class="billing-form">
             @csrf
             <div class="row">
                 <div class="col-lg-8 col-md-6 order-wrapper mt-50">
@@ -38,7 +55,7 @@
                     <!--  start payment methods    -->
                         <div class="order-wrapper mt-50">
                         <div class="d-flex align-items-center">
-                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
+                            <input class="pixel-radio" type="radio" id="paypal" name="Paypal">
                             <label for="paypal" class="bold-lable">Paypal</label>
                         </div>
                         </div>
@@ -88,7 +105,7 @@
                     <hr/>
                     <div class="order-wrapper mt-50">
                         <div class="d-flex align-items-center">
-                            <input class="pixel-radio" type="radio" id="paypal" name="brand">
+                            <input class="pixel-radio" type="radio" id="paypal" name="at_delivery">
                             <label for="paypal" class="bold-lable">Pay at delivery</label>
                         </div>
                     </div>
@@ -139,6 +156,7 @@
                 </div>
             </div>
         </form>
+
     </div>
 @endsection
 @section('js')

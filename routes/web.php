@@ -35,9 +35,7 @@ Route::get('/category', function () {
     return view('category');
 });
 
-Route::get('/confermation', function () {
-    return view('confermation');
-})->middleware('auth');
+Route::post('/confermation', 'OrdersController@store')->middleware('auth');
 
 Route::get('/tracking', function () {
     return view('tracking');
@@ -55,9 +53,6 @@ Route::get('/elements', function () {
 
 Route::get('/payments', function(){
     return view('checkout-payment');
-})->middleware('auth');
-Route::get('/confermation', function(){
-    return view('confermation');
 })->middleware('auth');
 
 
