@@ -48,16 +48,18 @@ class UserController extends Controller
             $exp = $card->exp_date;
             $card->exp_date = substr($exp, 0, strlen($exp)-3);
         }
-        $address_array = (array) DB::table('addresses')
-                                ->where('user_id',$user->id)
-                                ->where(function($query){
-                                    $query->where('type','=','billing')
-                                          ->orWhere('type','=','both');
-                                })
-                                ->first();
-
-        if(!empty($address_array)){
-         $billing_address = Address::where('id',$address_array['id'])->first();
+        // $address_array = (array) DB::table('addresses')
+        //                         ->where('user_id',$user->id)
+        //                         ->where(function($query){
+        //                             $query->where('type','=','billing')
+        //                                   ->orWhere('type','=','both');
+        //                         })
+        //                         ->first();
+        $billing_address = Address::where('type','!=','delivery')
+                                    ->where('user_id',$user->id)
+                                    ->first();
+    
+        if($billing_address){
             $address_owner = $billing_address->user;
             return view('user.settings',compact('user','addresses','cards','billing_address','address_owner'));
         }
