@@ -7,11 +7,12 @@
 <body>
 
     <div id="app">
-        
+
+
         @include('includes.header')
-        
+
         <main class="py-4">
-            
+
             @yield('content')
 
             @include('includes.mostSearch')
@@ -22,5 +23,8 @@
     @include('includes.footer')
     <!-- Scripts -->
     @yield('js');
+    @include('sweetalert::alert')
+
 </body>
+
 </html>

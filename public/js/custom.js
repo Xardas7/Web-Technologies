@@ -33,6 +33,7 @@ $(document).ready(function(){
     $.ajax({
       url: '/cart',
       type: 'POST',
+      contentType: 'application/json',
       data: {
        product_id: product_id,
         quantity: quantity
@@ -238,7 +239,25 @@ $(document).ready(function(){
 
   })
 
+ /*------------- ADDRESSES --------------------*/
 
+ $('.address_remove').click(function(event){
+    event.preventDefault();
+    let address_id = $(this).data('id');
+    let parent = $(this).parents('div.address');
+    $.ajax({
+      type: "DELETE",
+      url: `/address/${address_id}/delete`,
+      success: function (response) {
+        parent.fadeOut("normal",function(){
+          parent.remove();
+        });
+      },
+      error: function(e){
+        console.log(e)
+      }
+    });
+ });
 
 
 
