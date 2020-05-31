@@ -1,3 +1,7 @@
+/* .collapse{
+    z-index: 100;
+} */
+
 .navbar-brand{
     margin-left: 21px;
     text-align: center;
@@ -119,7 +123,7 @@ background: linear-gradient(90deg, rgba(255,228,225,1) 35%, rgba(237,135,169,1) 
 }
 
 .address{
-    height: 250px;
+    height: 300px;
     border: 1px solid #f41068;
     border-radius: 10px;
 }
@@ -166,8 +170,13 @@ background: linear-gradient(90deg, rgba(255,228,225,1) 35%, rgba(237,135,169,1) 
 
 .user-card{
     height: 40px;
+}
+
+.user-card:last-child{
     margin-bottom: 80px;
 }
+
+
 
 
 

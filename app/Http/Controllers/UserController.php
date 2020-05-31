@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\User;
+use App\Address;
 Use Alert;
 
 
@@ -39,8 +41,29 @@ class UserController extends Controller
     public function settings(){
         $user = Auth::user();
         $addresses = $user->addresses;
-        return view('user.settings',compact('user','addresses'));
-    }
+        $cards = $user->cards;
+        foreach($cards as $card){
+            $number = $card->card_number;
+            $card->card_number = substr($number,strlen($number)-4);
+            $exp = $card->exp_date;
+            $card->exp_date = substr($exp, 0, strlen($exp)-3);
+        }
+        $address_array = (array) DB::table('addresses')
+                                ->where('user_id',$user->id)
+                                ->where(function($query){
+                                    $query->where('type','=','billing')
+                                          ->orWhere('type','=','both');
+                                })
+                                ->first();
+
+        if(!empty($address_array)){
+         $billing_address = Address::where('id',$address_array['id'])->first();
+            $address_owner = $billing_address->user;
+            return view('user.settings',compact('user','addresses','cards','billing_address','address_owner'));
+        }
+
+        return view('user.settings',compact('user','addresses','cards'));
+     }
     //-- Orders --//
 
     public function orders(){

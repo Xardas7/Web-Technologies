@@ -95,7 +95,12 @@ Route::post('/comment', 'CommentController@store')->name('product.comment');
 
 // -- USER -- //
 Route::name('user.')->prefix('user')->group(function(){
-Route::post('/update/{id}', 'UserController@update')->name('update');
-Route::get('/settings','UserController@settings')->name('settings');
-Route::get('/orders','UserController@orders')->name('orders');
+    Route::post('/update/{id}', 'UserController@update')->name('update');
+    Route::get('/settings','UserController@settings')->name('settings');
+    Route::get('/orders','UserController@orders')->name('orders');
+});
+
+// -- CARDS -- //
+Route::name('card.')->prefix('card')->group(function(){
+    Route::get('/create', 'CardController@create')->name('create');
 });
