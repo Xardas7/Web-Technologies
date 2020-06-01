@@ -40,4 +40,33 @@ class CardController extends Controller
         return redirect()->route('user.settings');
 
     }
+
+    public function edit(){
+        return view('card.edit');
+    }
+
+    public function update(Request $request, $id){
+
+        $card = Card::find($id);
+        if($card->user->id != Auth::id()){
+            alert()->error('Error','This card does not belong to you!')
+            ->animation('animate__bounce','animate__hinge')
+            ->autoClose(3000)
+            ->timerProgressBar();
+            return back();
+        }
+
+        $card->update($request->all);
+        
+        alert()->success('Profile updated','Your profile has been updated')
+        ->toToast()
+        ->animation('animate__backInRight','animate__backOutRight')
+        ->autoClose(3000)
+        ->timerProgressBar();
+
+    }
+
+    public function delete(){
+
+    }
 }

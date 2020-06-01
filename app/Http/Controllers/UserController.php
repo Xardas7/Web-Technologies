@@ -24,9 +24,7 @@ class UserController extends Controller
         ->animation('animate__bounce','animate__hinge')
         ->autoClose(3000)
         ->timerProgressBar();
-            return back()->withErrors([
-                'error' => 'This is not your account'
-            ]);
+            return back();
         }
 
         $user = User::find($id);

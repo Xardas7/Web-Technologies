@@ -189,6 +189,20 @@ background: linear-gradient(90deg, rgba(255,228,225,1) 35%, rgba(237,135,169,1) 
 
 
 
+.quantity-container .quantity-amount,
+.quantity-container .arrow-btn{
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+}
+
+.quantity-container .arrow-btn{
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+
 /* Colore del banner */
 
 /* {

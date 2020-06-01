@@ -85,18 +85,18 @@
                                        <p class="content">{{$product->description}}</p>
                                    </div>
                                    <div >
-                                       <div class="quantity-container d-flex align-items-center mt-15">
-                                           Quantity:
-                                           <input type="text" class="rounded quantity-amount ml-15" id="quantity" value="1" />
-                                           <div class="arrow-btn d-inline-flex flex-column">
+                                       <div class="quantity-container row align-items-center mt-15">
+                                           <div class="col-2">Quantity:</div>
+                                           <input type="text" class=" col-1 form-control quantity-amount ml-15" id="quantity" value="1" />
+                                           <div class="arrow-btn d-inline-flex flex-column col-1">
                                                <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
                                                <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
                                            </div>
-
                                        </div>
-                                       <div class="d-flex align-items-center mt-15">
-                                           Choose a size:
-                                           <select class="form-control border-light ml-15 col-2">
+
+                                       <div class="row align-items-center mt-15">
+                                           <div class="col-2">Size:</div>  
+                                           <select class="form-control ml-15 col-2">
                                                @foreach($sizes as $size)
                                                    <option value={{$size->size}}>{{$size->size}}</option>
                                                @endforeach
