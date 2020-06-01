@@ -94,6 +94,14 @@
                                            </div>
 
                                        </div>
+                                       <div class="quantity-container d-flex align-items-center mt-15">
+                                           Choose a size:
+                                           <select class="ml-15">
+                                               @foreach($sizes as $size)
+                                                   <option value={{$size->size}}>{{$size->size}}</option>
+                                               @endforeach
+                                           </select>
+                                       </div>
                                        <div class="d-flex mt-20">
                                            @auth
                                            <a href="" class="view-btn color-2 addCart"><span>Add to Cart</span></a>

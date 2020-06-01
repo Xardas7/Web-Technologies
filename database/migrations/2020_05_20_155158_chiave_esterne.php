@@ -57,9 +57,9 @@ class ChiaveEsterne extends Migration
             $table0->foreign('card_id')->references('id')
                 ->on('cards')->onDelete('cascade'); });
 
-                Schema::table('orders', function(Blueprint $table0) {
-                    $table0->foreign('address_id')->references('id')
-                        ->on('addresses')->onDelete('cascade'); });
+        /*Schema::table('orders', function(Blueprint $table0) {
+            $table0->foreign('address_id')->references('id')
+                ->on('addresses')->onDelete('cascade'); });*/
 
         Schema::table('preferences', function(Blueprint $table0) {
             $table0->foreign('user_id')->references('id')
