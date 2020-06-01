@@ -41,27 +41,27 @@ $(document).ready(function(){
   $('.view-btn.color-2.addCart,.carello').click(function(event){
 
     event.preventDefault();
-    let product_id, quantity;
+    let product_id, quantity,size;
 
     product_id = $('input[name="product_id"]').val();
     quantity = $('#quantity').val();
+    size = $('#size').val();
 
     if(!product_id && !quantity){
       product_id = $(this).data('id')
       quantity = 1
     }
-
-
+    console.log(size);
     $.ajax({
-      url: '/cart',
+      url: '/cart/add',
       type: 'POST',
-      contentType: 'application/json',
       data: {
-       product_id: product_id,
-        quantity: quantity
+        product_id: product_id,
+        quantity: quantity,
+        size: size
       },
-      success: function(){
-        alert('Prodotto aggiunto al carello')
+      success: function(data){
+        alert('Prodotto aggiunto al carello');
       },
       error: function(data){
         console.log(data);

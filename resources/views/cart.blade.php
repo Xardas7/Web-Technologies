@@ -33,52 +33,68 @@
 <div class="container">
     <div class="cart-title">
         <div class="row">
-            <div class="col-md-6">
-                <h6 class="ml-15">Product</h6>
+            <div class="col-md-2 offset-1">
+                <h6 class="ml-15">PRODUCT</h6>
+            </div>
+            <div class="col-md-2 offset-1">
+                <h6 class="ml-15">SIZE</h6>
             </div>
             <div class="col-md-2">
-                <h6>Price</h6>
+                <h6>PRICE</h6>
             </div>
             <div class="col-md-2">
-                <h6>Quantity</h6>
+                <h6>QUANTITY</h6>
             </div>
             <div class="col-md-2">
-                <h6>Total</h6>
+                <h6>TOTAL</h6>
             </div>
         </div>
     </div>
 
     @foreach ($products as $product)
-        <div class="cart-single-item">
-            <div class="row align-items-center">
-                <div class="col-md-6 col-12">
-                    <div class="product-item d-flex align-items-center">
-                        <img src="{{$product->images->first()->path}}" style="width:150px; height:104px;" class="img-fluid" alt="">
-                        <a href="/{{ $product->name }}"> <h6>{{ $product->name }}</h6> </a>
-                    </div>
-                </div>
-                <div class="col-md-2 col-6">
-                    <div class="price">{{ $product->price."€" }}</div>
-                </div>
-                <div class="col-md-2 col-6">
-                    <div class="quantity-container d-flex align-items-center mt-15">
-                        <input type="number" class="quantity-amount" value={{ $product->details->quantity }} />
-                        <div class="arrow-btn d-inline-flex flex-column">
-                            <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
-                            <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-12">
-                    <div class="total"></div>
+    <div class="cart-single-item">
+        <div class="row align-items-center">
+            <div class="col-md-4 col-12">
+                <div class="product-item d-flex align-items-center">
+                    <img src="{{$product->images->first()->path}}" style="width:150px; height:104px;" class="img-fluid"
+                        alt="">
+                    <a href="/{{ $product->name }}">
+                        <h6>{{ $product->name }}</h6>
+                    </a>
                 </div>
             </div>
+            
+            <div class="col-md-2 col-6">
+                <div class="size">{{ $product->details->size}}</div>
+            </div>
+
+            <div class="col-md-2 col-6">
+                <div class="price">{{ $product->price."€" }}</div>
+            </div>
+
+            <div class="col-md-2 col-6 p-1">
+                <div class="quantity-container d-flex align-items-center mt-15">
+                    <input type="number" class="quantity-amount" value={{ $product->details->quantity }} />
+                    <div class="arrow-btn d-inline-flex flex-column">
+                        <button class="increase arrow" type="button" title="Increase Quantity"><span
+                                class="lnr lnr-chevron-up"></span></button>
+                        <button class="decrease arrow" type="button" title="Decrease Quantity"><span
+                                class="lnr lnr-chevron-down"></span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-12 p-1">
+                <div class="total"></div>
+            </div>
+
+        </div>
     </div>
     @endforeach
 
-    <div class="subtotal-area d-flex align-items-center justify-content-end">
-        <div class="title text-uppercase">Subtotal</div>
-        <div class="subtotal"></div>
+    <div class="row subtotal-area d-flex align-items-center justify-content-end">
+        <div class="col-2 title text-uppercase">Subtotal</div>
+        <div class="col-2 subtotal"></div>
     </div>
     <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
         <div class="cuppon-wrap d-flex align-items-center flex-wrap">
@@ -99,17 +115,19 @@
 @endsection
 
 @section('js')
-    <script src="js/vendor/jquery-2.2.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="js/vendor/bootstrap.min.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    <script src="js/ion.rangeSlider.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="/js/custom.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/shoppingCart.js"></script>
+<script src="js/vendor/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
+</script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="js/jquery.ajaxchimp.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.sticky.js"></script>
+<script src="js/ion.rangeSlider.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="/js/custom.js"></script>
+<script src="js/main.js"></script>
+<script src="js/shoppingCart.js"></script>
 
 @endsection

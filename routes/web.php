@@ -77,8 +77,8 @@ Route::name('wishlist.')->prefix('wishlist')->group(function(){
 
 // ---------- Shopping Cart -----------//
 Route::name('cart.')->prefix('cart')->group(function(){
-    Route::get('/', 'ShoppingCartController@indexByUser');
-    Route::post('/', 'ShoppingCartController@store')->name('store');
+    Route::get('', 'ShoppingCartController@indexByUser');
+    Route::post('/add', 'ShoppingCartController@store')->name('store');
 });
 
 // ---------- Orders -----------//

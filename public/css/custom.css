@@ -202,6 +202,22 @@ background: linear-gradient(90deg, rgba(255,228,225,1) 35%, rgba(237,135,169,1) 
     border-bottom-left-radius: 0;
 }
 
+.ml-15{
+    margin-left: 0;
+}
+
+.size{
+    color: #222222;
+}
+
+.subtotal-area .subtotal{
+    margin-left: 0;
+}
+
+.cupon-area{
+    padding-right: 50px;
+    padding-left: 35px;
+}
 
 /* Colore del banner */
 
