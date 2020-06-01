@@ -8,7 +8,7 @@ class Card extends Model
 {
 
     protected $hidden = [
-        'cvv'
+        //'cvv'
     ];
 
     public function user(){
