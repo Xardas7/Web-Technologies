@@ -72,8 +72,8 @@
                     <div class="icon">
                         <i class="fas fa-caret-right"></i>
                     </div>
-                    <input type="number" name="cvv" placeholder="cvv" onfocus="this.placeholder=''"
-                        onblur="this.placeholder = 'cvv'" required class="single-input" min="100" max="999" value="">
+                    <input type="number" name="cvv" placeholder="CVV" onfocus="this.placeholder=''"
+                        onblur="this.placeholder = 'CVV'" required class="single-input" min="100" max="999" value="">
                 </div>
             </div>
 

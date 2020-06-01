@@ -3,8 +3,9 @@
 
 <div class="row  justify-content-center">
 
-  <div class="row w-75 align-items-center">
+  @if (empty($cards))
 
+  <div class="row w-75 align-items-center">
     <div class="col-5 mb-10">
       <h4>Your credit or debit cards</h3>
     </div>
@@ -14,25 +15,27 @@
     </div>
   </div>
 
-   @foreach($cards as $card)
+  @endif
+
+
+  @foreach($cards as $card)
 
   <div class="user-card row w-75 border bg-light align-items-center">
-  <a class="col-12" data-toggle="collapse" href="{{'#card-'.$card->id}}" role="button" aria-expanded="false"
-  aria-controls="{{'card-'.$card->id}}">
+    <a class="col-12" data-toggle="collapse" href="{{'#card-'.$card->id}}" role="button" aria-expanded="false"
+      aria-controls="{{'card-'.$card->id}}">
 
       <div class="row align-items-center">
         <div class="col-3">
-          <div  class="card-type">
+          <div class="card-type">
             @if(strtolower($card->type) == 'visa')
-              <i class="fab fa-cc-visa fa-2x" style="color: black;"></i>
-              <span>{{' '.$card->type}}</span>
+            <i class="fab fa-cc-visa fa-2x" style="color: black;"></i>
+            <span>{{strtoupper($card->type)}}</span>
             @else
-              <i class="fab fa-cc-mastercard fa-2x"  style="color: black;"></i>
-              <span>{{' '.$card->type}}</span>
+            <i class="fab fa-cc-mastercard fa-2x" style="color: black;"></i>
+            <span>{{strtoupper($card->type)}}</span>
             @endif
           </div>
         </div>
-
         <div class="col-5">
           <span>
             {{'Ends with '.$card->card_number}}
@@ -54,7 +57,7 @@
     </a>
 
 
-  <div class="collapse w-100" id="{{'card-'.$card->id}}" style="z-index:1">
+    <div class="collapse w-100" id="{{'card-'.$card->id}}" style="z-index:1">
       <div class="card card-body">
 
         <div class="row">
@@ -73,20 +76,20 @@
         <div class="row">
 
           <div class="col-4">
-           <span>{{$card->name.' '.$card->surname}}</span> 
+            <span>{{$card->name.' '.$card->surname}}</span>
           </div>
 
           <div class="col-4 offset-4 text-left">
 
             @if(isset($address_owner))
-               <span>
+            <span>
               {{$address_owner->name.' '.$address_owner->surname}}
-                  {{$billing_address->address.' '.$billing_address->address_additional.' '.$billing_address->city.', '.$billing_address->postal_code.' '.$billing_address->country}}
+              {{$billing_address->address.' '.$billing_address->address_additional.' '.$billing_address->city.', '.$billing_address->postal_code.' '.$billing_address->country}}
             </span>
             @else
-              <span>You have not billing address</span> 
+            <span>You have not billing address</span>
             @endif
-            
+
           </div>
 
         </div>
@@ -94,23 +97,48 @@
         <div class="row mt-2">
 
           <div class="col-2 offset-8">
-          <a href="#" class="card-link genric-btn danger radius small" data-id="{{ $card->id }}">Delete</a>
+            <a href="#" class="card-link genric-btn danger radius small card_remove" data-id="{{ $card->id }}">Delete</a>
           </div>
 
           <div class="col-2">
-          <a href="#" class="card-link genric-btn primary radius small" data-id="{{ $card->id }}">Modify</a>
+            <a href="{{ route('card.edit',['id' => $card->id]) }}" class="card-link genric-btn primary radius small">
+              Modify
+            </a>
           </div>
-          
+
         </div>
-        
+
 
       </div>
     </div>
-  
+
   </div>
-@endforeach
+  @endforeach
+
+  @if($cards->isEmpty())
+
+  <div class="card col-6 text-center mb-40 p-0">
+    <div class="card-header">
+      Featured
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">
+        You haven't added any card yet.</h5>
+      <p class="card-text">Click under to add a card</p>
+      <a href="{{ route('card.create') }}" class="genric-btn primary circle arrow">
+        Add
+        <span class="lnr lnr-arrow-right"></span>
+      </a>
+    </div>
+    <div class="card-footer custom">
+      Shop
+    </div>
+  </div>
+
+  @else
+  <div class="row col-12 justify-content-end">
+    <a href="{{ route('card.create') }}" class="btn btn-success btn-save">Add</a>
+  </div>
+  @endif
 </div>
 
-<div class="row col-12 justify-content-end">
-  <a href="{{ route('card.create') }}" class="btn btn-success btn-save">Add</a>
-  </div>

@@ -41,13 +41,32 @@ class CardController extends Controller
 
     }
 
-    public function edit(){
-        return view('card.edit');
+    public function edit($id){
+
+        $user = Auth::user();
+        $card = Card::find($id);
+        if($user->id != $card->user->id){
+            alert()->error('Error','This card does not belong to you!')
+            ->animation('animate__bounce','animate__hinge')
+            ->autoClose(3000)
+            ->timerProgressBar();
+            return back();
+        }
+
+        $exp_date = $card->exp_date;
+        $exp_date = \DateTime::createFromFormat('Y-m-d', $exp_date);
+        $exp_date = $exp_date->format('Y-m');
+        $exp_date = str_replace('/','-',$exp_date);
+        $card->exp_date = $exp_date;
+        
+        return view('user.card.edit',compact('card'));
+
     }
 
     public function update(Request $request, $id){
 
         $card = Card::find($id);
+
         if($card->user->id != Auth::id()){
             alert()->error('Error','This card does not belong to you!')
             ->animation('animate__bounce','animate__hinge')
@@ -56,7 +75,14 @@ class CardController extends Controller
             return back();
         }
 
-        $card->update($request->all);
+        $exp_date = $request->exp_date;
+        $exp_date = str_replace('/','-',$exp_date);
+        $exp_date = \DateTime::createFromFormat('Y-m', $exp_date);
+        $exp_date = $exp_date->format('Y-m-t');
+        
+        $card->fill($request->all());
+        $card->exp_date = $exp_date;
+        $card->update();        
         
         alert()->success('Profile updated','Your profile has been updated')
         ->toToast()
@@ -64,9 +90,17 @@ class CardController extends Controller
         ->autoClose(3000)
         ->timerProgressBar();
 
+        return redirect()->route('user.settings');
+
     }
 
-    public function delete(){
-
+    public function delete($id){
+        $card = Card::find($id);
+        if(Auth::id() != $card->user->id){
+            return back()->withErrors([
+                'notOwner' => 'This address does not belongs to you'
+            ]);
+        }
+        $card->delete();
     }
 }

@@ -282,6 +282,27 @@ $(document).ready(function(){
  });
 
 
+ /*------------ CARDS ------------ */
+
+ 
+ $('.card_remove').click(function(event){
+   event.preventDefault();
+   let card_id = $(this).data('id');
+   let container = $(this).parents('div.user-card')
+   
+   $.ajax({
+    type: "DELETE",
+    url: `/card/${card_id}/delete`,
+    success: function () {
+      container.fadeOut("normal",function(){
+        container.remove();
+      });
+    },
+    error: function(e){
+      console.log(e)
+    }
+  });
+ })
 
     /* calcolaPrezzo();
 
