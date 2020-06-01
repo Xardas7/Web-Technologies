@@ -59,13 +59,15 @@ Route::get('/payments', function(){
 // ---------- Addresses -----------//
 Route::name('address.')->prefix('address')->group(function(){
     Route::post('/', 'AddressController@store_from_checkout');
-    Route::post('/save', 'AddressController@store');
-    Route::get('/{id?}/edit','AddressController@edit')->name('edit');
+    Route::get('/create', 'AddressController@create')->name('create');
+    Route::post('/save', 'AddressController@store')->name('store');
+    Route::get('/{id}/edit','AddressController@edit')->name('edit');
     Route::post('/{id}/update', 'AddressController@update')->name('update');
+    Route::delete('/{id}/delete', 'AddressController@delete')->name('delete');
 });
 
 // ---------- Wishlist -----------//
-Route::name('wishlist')->prefix('wishlist')->group(function(){
+Route::name('wishlist.')->prefix('wishlist')->group(function(){
     Route::get('/', 'WishListController@index')->name('index');
     Route::post('/', 'WishListController@store')->name('store');
     Route::get('/delete/{id}', 'WishListController@delete')->name('delete');
@@ -93,6 +95,12 @@ Route::get('{name}', 'ProductController@show')->name('product.show');
 
 // -- USER -- //
 Route::name('user.')->prefix('user')->group(function(){
-Route::get('/settings','UserController@settings')->name('settings');
-Route::get('/orders','UserController@orders')->name('orders');
+    Route::post('/update/{id}', 'UserController@update')->name('update');
+    Route::get('/settings','UserController@settings')->name('settings');
+    Route::get('/orders','UserController@orders')->name('orders');
+});
+
+// -- CARDS -- //
+Route::name('card.')->prefix('card')->group(function(){
+    Route::get('/create', 'CardController@create')->name('create');
 });

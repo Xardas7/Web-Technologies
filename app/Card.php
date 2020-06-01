@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Card extends Model
 {
+
+    protected $hidden = [
+        'cvv'
+    ];
+
     public function user(){
         return $this->belongsTo('App\User');
     }

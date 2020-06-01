@@ -1,3 +1,7 @@
+/* .collapse{
+    z-index: 100;
+} */
+
 .navbar-brand{
     margin-left: 21px;
     text-align: center;
@@ -36,7 +40,7 @@ i{
 }
 
 .single-input, input[type="date"],
-.form-select .nice-select, .form-control{
+.form-select .nice-select, .form-control.padding{
     border: 1px solid #f66d9b;
     border-radius: 4px;
     padding-left: 45px;
@@ -44,7 +48,7 @@ i{
 
 .single-input:focus,input[type="date"]:focus,
 .form-select:focus, .nice-select:focus,
-.form-control:focus{
+.form-control:focus, .common-input:focus{
     border: 1px solid #f41068;
     box-shadow:  0 0 2px #f41068;
     transition: all  1s;
@@ -57,6 +61,8 @@ i{
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
 }
+
+
 
 .col-form-label{
     color:#f41068;
@@ -117,7 +123,9 @@ background: linear-gradient(90deg, rgba(255,228,225,1) 35%, rgba(237,135,169,1) 
 }
 
 .address{
-    height: 250px;
+    height: 300px;
+    border: 1px solid #f41068;
+    border-radius: 10px;
 }
 
 .btn.btn-success.btn-save{
@@ -132,6 +140,42 @@ background: linear-gradient(90deg, rgba(255,228,225,1) 35%, rgba(237,135,169,1) 
 .input-group-icon .icon {
     left: 35px;
 }
+
+.card-header{
+    background: #f41068;
+    color: white;
+}
+
+.card-title{
+    color: #f41068;
+}
+
+.card-footer.custom{
+    background: #f41068;
+    color: white;
+}
+
+.genric-btn.primary.circle.arrow{
+    margin: 0px;
+}
+
+.genric-btn.primary.circle.arrow:hover{
+    background: #f41068;
+    color: white;
+}
+
+.section-top-border{
+    padding: 40px;
+}
+
+.user-card{
+    height: 40px;
+}
+
+.user-card:last-child{
+    margin-bottom: 80px;
+}
+
 
 
 

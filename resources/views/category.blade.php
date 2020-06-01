@@ -49,7 +49,7 @@
                         @endphp
 						<div class="filter-bar d-flex flex-wrap align-items-center">
 							<div class="sorting">
-								<select>
+								<select class="form-control">
                                     <option value="newst"> <a href="/">Sorting by newest</a></option>
                                     <a><option value="price_up">Sorting by price ↑</option></a>
                                     <a><option value="price_down">Sorting by price ↓</option></a>
