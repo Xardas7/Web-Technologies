@@ -72,7 +72,7 @@ Route::name('wishlist')->prefix('wishlist')->group(function(){
     Route::post('/delete/all', 'WishListController@deleteAll')->name('deleteAll');
     Route::post('/add/all', 'WishListController@addAll')->name('addAll');
 });
-    
+
 // ---------- Shopping Cart -----------//
 Route::name('cart.')->prefix('cart')->group(function(){
     Route::get('/', 'ShoppingCartController@indexByUser');
@@ -88,8 +88,8 @@ Route::name('order.')->prefix('order')->group(function(){
 Route::get('/{gender}-clothing', 'ProductController@index')->name('product.index');
 Route::get('/{gender}-clothing/{name}', 'ProductController@index_name')->name('product.index_name');
 Route::get('/{gender}-clothing/{name}/{type}', 'ProductController@index_type')->name('product.index_name_type');
-Route::get('{name}', 'ProductController@show')->name('product.show');
 Route::post('/comment', 'CommentController@store')->name('product.comment');
+Route::get('{name}', 'ProductController@show')->name('product.show');
 
 // -- USER -- //
 Route::name('user.')->prefix('user')->group(function(){

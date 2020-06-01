@@ -47,10 +47,11 @@ class ProductController extends Controller
                 break;
             }
         }
+        $sizes = $product->category->sizes;
         if($product->name!=null) {
             $m = new MostSearchedHelper();
             $m->increment($product);
-            return view('single', compact('product'));
+            return view('single', ['product' => $product, 'sizes' => $sizes]);
         }
         else{
             abort(404);
