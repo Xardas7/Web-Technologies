@@ -87,16 +87,16 @@
                                    <div >
                                        <div class="quantity-container d-flex align-items-center mt-15">
                                            Quantity:
-                                           <input type="text" class="quantity-amount ml-15" id="quantity" value="1" />
+                                           <input type="text" class="rounded quantity-amount ml-15" id="quantity" value="1" />
                                            <div class="arrow-btn d-inline-flex flex-column">
                                                <button class="increase arrow" type="button" title="Increase Quantity"><span class="lnr lnr-chevron-up"></span></button>
                                                <button class="decrease arrow" type="button" title="Decrease Quantity"><span class="lnr lnr-chevron-down"></span></button>
                                            </div>
 
                                        </div>
-                                       <div class="quantity-container d-flex align-items-center mt-15">
+                                       <div class="d-flex align-items-center mt-15">
                                            Choose a size:
-                                           <select class="ml-15">
+                                           <select class="form-control border-light ml-15 col-2">
                                                @foreach($sizes as $size)
                                                    <option value={{$size->size}}>{{$size->size}}</option>
                                                @endforeach
