@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Card extends Model
 {
 
+    protected $fillable = ['user_id','type','card_number','name','surname','exp_date','cvv'];
+
     protected $hidden = [
         'cvv'
     ];

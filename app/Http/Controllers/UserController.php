@@ -20,6 +20,10 @@ class UserController extends Controller
     public function update(Request $request, $id){
 
         if(Auth::id() != $id){
+        alert()->error('Error','This is not your account!')
+        ->animation('animate__bounce','animate__hinge')
+        ->autoClose(3000)
+        ->timerProgressBar();
             return back()->withErrors([
                 'error' => 'This is not your account'
             ]);
@@ -48,13 +52,7 @@ class UserController extends Controller
             $exp = $card->exp_date;
             $card->exp_date = substr($exp, 0, strlen($exp)-3);
         }
-        // $address_array = (array) DB::table('addresses')
-        //                         ->where('user_id',$user->id)
-        //                         ->where(function($query){
-        //                             $query->where('type','=','billing')
-        //                                   ->orWhere('type','=','both');
-        //                         })
-        //                         ->first();
+      
         $billing_address = Address::where('type','!=','delivery')
                                     ->where('user_id',$user->id)
                                     ->first();

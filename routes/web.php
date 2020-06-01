@@ -103,4 +103,5 @@ Route::name('user.')->prefix('user')->group(function(){
 // -- CARDS -- //
 Route::name('card.')->prefix('card')->group(function(){
     Route::get('/create', 'CardController@create')->name('create');
+    Route::post('/save', 'CardController@store')->name('store');
 });

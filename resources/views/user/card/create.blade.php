@@ -27,15 +27,15 @@
             <h3 class="mb-10 mt-50">My Card</h3>
         </div>
 
-        <form class="col-6 p-5" action="#" method="POST">
+        <form class="col-6 p-5" action="{{ route('card.store') }}" method="POST">
             @csrf
             <div class="form-group row justify-content-center">
                 <label class="col-2 col-form-label">Number</label>
                 <div class="input-group-icon col-10">
                     <div class="icon">
-                        <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+                        <i class="far fa-credit-card"></i>
                     </div>
-                    <input type="text" name="card_number" placeholder="Card number" onfocus="this.placeholder = ''"
+                    <input type="number" name="card_number" placeholder="Card number" onfocus="this.placeholder = ''"
                         onblur="this.placeholder = 'Card number'" required class="single-input" value="">
                 </div>
             </div>
@@ -44,39 +44,58 @@
                 <label for="example-date-input" class="col-2 col-form-label">Exp Date</label>
                 <div class="input-group-icon col-10">
                     <div class="icon">
-                        <i class="fas fa-birthday-cake" aria-hidden="true"></i>
+                        <i class="far fa-calendar-alt"></i>
                     </div>
-                    <input class="form-control" name="exp_date" type="date"
-                        id="datepicker" required>
+                    <input class="single-input" name="exp_date" type="text" placeholder="Example: 2020/04"
+                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Example: 2020/04'"  maxlength="7" required>
                 </div>
             </div>
-
-
-            <div class="form-group row justify-content-center">
-                <label class="col-2 col-form-label">CVV</label>
-                <div class="input-group-icon col-10">
-                    <div class="icon">
-                        <i class="fas fa-city" aria-hidden="true"></i>
-                    </div>
-                    <input type="number" name="cvv" placeholder="cvv" onfocus="this.placeholder=''"
-                        onblur="this.placeholder = 'cvv'" required class="single-input" value="">
-                </div>
-            </div>
-
-            
 
             <div class="form-group row justify-content-center">
                 <label class="col-2 col-form-label">Type</label>
                 <div class="input-group-icon col-10">
                     <div class="icon">
-                        <i class="fas fa-venus-mars" aria-hidden="true"></i>
+                        <i class="fas fa-credit-card"></i>
                     </div>
-                        <select class="form-control padding" name="type">
-                            <option value="visa" >Visa
-                            </option>
-                            <option value="mastercard">Mastercard
-                            </option>
-                        </select>
+                    <select class="form-control padding" name="type">
+                        <option value="visa">Visa
+                        </option>
+                        <option value="mastercard">Mastercard
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <label class="col-2 col-form-label">CVV</label>
+                <div class="input-group-icon col-10">
+                    <div class="icon">
+                        <i class="fas fa-caret-right"></i>
+                    </div>
+                    <input type="number" name="cvv" placeholder="cvv" onfocus="this.placeholder=''"
+                        onblur="this.placeholder = 'cvv'" required class="single-input" min="100" max="999" value="">
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center p-1">
+                <label class="col-2 col-form-label">Name</label>
+                <div class="input-group-icon col-10">
+                    <div class="icon">
+                        <i class="fas fa-caret-right"></i>
+                    </div>
+                    <input type="text" name="name" placeholder="First Name" onfocus="this.placeholder = ''"
+                        onblur="this.placeholder = 'First Name'" required class="single-input" value="">
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-center">
+                <label class="col-2 col-form-label">Surname</label>
+                <div class="input-group-icon col-10">
+                    <div class="icon">
+                        <i class="fas fa-caret-right" aria-hidden="true"></i>
+                    </div>
+                    <input type="text" name="surname" placeholder="Last Name" onfocus="this.placeholder = ''"
+                        onblur="this.placeholder = 'Last Name'" required class="single-input" value="">
                 </div>
             </div>
 

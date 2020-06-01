@@ -20,14 +20,20 @@
   <a class="col-12" data-toggle="collapse" href="{{'#card-'.$card->id}}" role="button" aria-expanded="false"
   aria-controls="{{'card-'.$card->id}}">
 
-      <div class="row">
-        <div class="col-2">
-          <span>
-            ICON
-          </span>
+      <div class="row align-items-center">
+        <div class="col-3">
+          <div  class="card-type">
+            @if(strtolower($card->type) == 'visa')
+              <i class="fab fa-cc-visa fa-2x" style="color: black;"></i>
+              <span>{{' '.$card->type}}</span>
+            @else
+              <i class="fab fa-cc-mastercard fa-2x"  style="color: black;"></i>
+              <span>{{' '.$card->type}}</span>
+            @endif
+          </div>
         </div>
 
-        <div class="col-6">
+        <div class="col-5">
           <span>
             {{'Ends with '.$card->card_number}}
           </span>
