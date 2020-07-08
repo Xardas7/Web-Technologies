@@ -85,7 +85,7 @@
                             </span></div>
                     </div>
                     <div class="middle">
-                        <p class="content">{{$product->description}}</p>
+                        <p class="content">{!! $product->description !!}</p>
                     </div>
                     <div>
                         <div class="quantity-container row align-items-center mt-15">
@@ -148,7 +148,7 @@
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="description">
             <div class="description">
-                {{$product->description}}
+                {!! $product->description !!}
             </div>
         </div>
         <div class="tab-pane fade" id="specification" role="tabpanel" aria-labelledby="specification">
