@@ -36,20 +36,23 @@
 					<h3 class="billing-title mt-20 pl-15">Order Info</h3>
 					<table class="order-rable">
 						<tr>
-							<td>Order number</td>
-							<td>: 60235</td>
+							<td>Order number:</td>
+							<td> {{ $order->id }}</td>
 						</tr>
 						<tr>
-							<td>Date</td>
-							<td>: Oct 03, 2017</td>
+							<td>Date:</td>
+							<td> {{ $order->created_at }}</td>
 						</tr>
 						<tr>
-							<td>Total</td>
-							<td>: USD 2210</td>
+							<td>Total:</td>
+							<td> {{ $order->amount }}€</td>
 						</tr>
 						<tr>
-							<td>Payment method</td>
-							<td>: Check payments</td>
+							<td>Payment method:</td>
+							<td> @if($order->card_id)
+                                    Credit Card
+                                @endif
+                            </td>
 						</tr>
 					</table>
 				</div>
@@ -57,20 +60,20 @@
 					<h3 class="billing-title mt-20 pl-15">Billing Address</h3>
 					<table class="order-rable">
 						<tr>
-							<td>Street</td>
-							<td>: 56/8 panthapath</td>
+							<td>Street:</td>
+							<td> {{ $billing_address->address . ', ' . $billing_address-> address_additional }}</td>
 						</tr>
 						<tr>
-							<td>City</td>
-							<td>: Dhaka</td>
+							<td>City:</td>
+							<td> {{ $billing_address->city }}</td>
 						</tr>
 						<tr>
-							<td>Country</td>
-							<td>: Bangladesh</td>
+							<td>Country:</td>
+							<td> {{ $billing_address->country }}</td>
 						</tr>
 						<tr>
-							<td>Postcode</td>
-							<td>: 1205</td>
+							<td>Postcode:</td>
+							<td> {{ $billing_address->postal_code }}</td>
 						</tr>
 					</table>
 				</div>
@@ -78,20 +81,20 @@
 					<h3 class="billing-title mt-20 pl-15">Shipping Address</h3>
 					<table class="order-rable">
 						<tr>
-							<td>Street</td>
-							<td>: 56/8 panthapath</td>
+							<td>Street:</td>
+							<td> {{ $shipping_address->address . ', ' . $shipping_address-> address_additional }}</td>
 						</tr>
 						<tr>
-							<td>City</td>
-							<td>: Dhaka</td>
+							<td>City:</td>
+							<td> {{ $shipping_address->city }}</td>
 						</tr>
 						<tr>
-							<td>Country</td>
-							<td>: Bangladesh</td>
+							<td>Country:</td>
+							<td> {{ $shipping_address->country }}</td>
 						</tr>
 						<tr>
-							<td>Postcode</td>
-							<td>: 1205</td>
+							<td>Postcode:</td>
+							<td> {{ $shipping_address->postal_code }}</td>
 						</tr>
 					</table>
 				</div>
@@ -108,34 +111,27 @@
 							<div class="order-list">
 								<div class="list-row d-flex justify-content-between">
 									<div>Product</div>
+                                    <div>Quantity</div>
 									<div>Total</div>
 								</div>
+                                @foreach($order_details as $order_product)
 								<div class="list-row d-flex justify-content-between">
-									<div>Pixelstore fresh Blackberry</div>
-									<div>x 02</div>
-									<div>$720.00</div>
+									<div>{{ App\Product::find($order_product->product_id)->name }}</div>
+									<div>x {{ $order_product->quantity }}</div>
+									<div>{{ App\Product::find($order_product->product_id)->price * $order_product->quantity }}€</div>
 								</div>
-								<div class="list-row d-flex justify-content-between">
-									<div>Pixelstore fresh Blackberry</div>
-									<div>x 02</div>
-									<div>$720.00</div>
-								</div>
-								<div class="list-row d-flex justify-content-between">
-									<div>Pixelstore fresh Blackberry</div>
-									<div>x 02</div>
-									<div>$720.00</div>
-								</div>
+                                @endforeach
 								<div class="list-row d-flex justify-content-between">
 									<h6>Subtotal</h6>
-									<div>$2160.00</div>
+									<div>{{ $order->amount - 10 }}€</div>
 								</div>
 								<div class="list-row d-flex justify-content-between">
 									<h6>Shipping</h6>
-									<div>Flat rate: $50.00</div>
+									<div>Flat rate: 10.00€</div>
 								</div>
 								<div class="list-row border-bottom-0 d-flex justify-content-between">
 									<h6>Total</h6>
-									<div class="total">$2210.00</div>
+									<div class="total">{{ $order->amount }}€</div>
 								</div>
 							</div>
 						</div>

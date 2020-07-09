@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <form method="post" action="/confermation" class="billing-form">
+        <form id="checkout" method="POST" action="/confermation" class="billing-form">
             @csrf
             <div class="row">
                 <div class="col-lg-8 col-md-6 order-wrapper mt-50">
@@ -63,6 +63,14 @@
                    <hr/>
                     <div class="order-wrapper mt-50">
                         <div class="d-flex align-items-center">
+                            @if($cards)
+                                <label>Scegli la carta: </label>
+                                <select id="card" class="form-control ml-15 col-2" name="card" required>
+                                    @foreach($cards as $card)
+                                        <option value={{ $card->id }}>{{ preg_replace("/(.{4}$)(*SKIP)(*F)|(.)/","*",$card->card_number) }}</option>
+                                    @endforeach
+                                </select>
+                            @endif
                             DA FARE, BRYANT PLEASE SOLO TU CONOSCI JS ABBASTANZA DA RIUSCIRCI
                             <!-- TODO
 
@@ -99,8 +107,6 @@
                             </div>
                          END TODO  -->
                         </div>
-
-
                     </div>
                     <hr/>
                     <div class="order-wrapper mt-50">
@@ -108,6 +114,9 @@
                             <input class="pixel-radio" type="radio" id="paypal" name="at_delivery">
                             <label for="paypal" class="bold-lable">Pay at delivery</label>
                         </div>
+                    </div>
+                    <div class="container">
+
                     </div>
                     <!--- end payment methods -->
                 </div>
@@ -119,10 +128,6 @@
                                 <div>Product</div>
                                 <div>Total</div>
                             </div>
-                            @php
-                                $products=Auth::user()->shoppingCart->products;
-                                $total=0;
-                            @endphp
                             @foreach($products as $product)
                             <div class="list-row d-flex justify-content-between">
                                 <div>{{$product->name}}</div>
@@ -130,7 +135,9 @@
                                 <div>{{$product->price}}€</div>
                             </div>
                                 @php
-                                $total+=$product->price;
+                                    $total=0;
+                                    foreach ($products as $product)
+                                    $total+=$product->price * $product->details->quantity;
                                 @endphp
                             @endforeach
                             <div class="list-row d-flex justify-content-between">
@@ -143,11 +150,12 @@
                             </div>
                             <div class="list-row d-flex justify-content-between">
                                 <h6>Total</h6>
-                                <div class="total">{{$total+10}}€</div> <!-- totale + costi spedizione -->
+                                <div class="total">{{$total+=10}}€</div> <!-- totale + costi spedizione -->
                             </div>
                             <p class="payment-info">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
                             <div class="mt-20 d-flex align-items-start">
-                                <input type="checkbox" class="pixel-checkbox" id="login-4">
+                                <input type="hidden" value="{{$total}}" name="amount">
+                                <input type="checkbox" class="pixel-checkbox" id="login-4" value="true" name="">
                                 <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label>
                             </div>
                             <button class="view-btn color-2 w-100 mt-20"><span>Confirm and buy</span></button>

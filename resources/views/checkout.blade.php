@@ -76,6 +76,15 @@
                                                 <div class="col-lg-12">
                                                     <input type="text" name="postal_code" placeholder="Postcode/ZIP" onfocus="this.placeholder=''" onblur="this.placeholder = 'Postcode/ZIP'" class="common-input">
                                                 </div>
+                                                <div class="mt-20 mb-10 col-lg-12">
+                                                    <h5>For what should we use this address?</h5>
+                                                    <input type="radio" id="shipping" name="type" value="shipping">
+                                                    <label for="shipping">Shipping only</label><br>
+                                                    <input type="radio" id="billing" name="type" value="billing">
+                                                    <label for="billing">Billing only</label><br>
+                                                    <input type="radio" id="both" name="type" value="both">
+                                                    <label for="both">Both</label>
+                                                </div>
                                             </div>
                                             <!-- Potra servire per fatturazione/spedizione -->
                                           <!--  <div class="mt-20">

@@ -1,5 +1,7 @@
 <?php
 
+use App\Card;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,9 +53,7 @@ Route::get('/elements', function () {
 
 
 
-Route::get('/payments', function(){
-    return view('checkout-payment');
-})->middleware('auth');
+Route::get('/payments', 'OrdersController@payment_checkout')->middleware('auth');
 
 
 // ---------- Addresses -----------//
@@ -85,14 +85,6 @@ Route::name('cart.')->prefix('cart')->group(function(){
 Route::name('order.')->prefix('order')->group(function(){
 });
 
-
-// ---------- Products -----------//
-Route::get('/{gender}-clothing', 'ProductController@index')->name('product.index');
-Route::get('/{gender}-clothing/{name}', 'ProductController@index_name')->name('product.index_name');
-Route::get('/{gender}-clothing/{name}/{type}', 'ProductController@index_type')->name('product.index_name_type');
-Route::post('/comment', 'CommentController@store')->name('product.comment');
-Route::get('{name}', 'ProductController@show')->name('product.show');
-
 // -- USER -- //
 Route::name('user.')->prefix('user')->group(function(){
     Route::post('/update/{id}', 'UserController@update')->name('update');
@@ -101,10 +93,17 @@ Route::name('user.')->prefix('user')->group(function(){
 });
 
 // -- CARDS -- //
-Route::name('card.')->prefix('card')->group(function(){
+Route::name('card.')->prefix('card')->group(function() {
     Route::get('/create', 'CardController@create')->name('create');
     Route::post('/save', 'CardController@store')->name('store');
     Route::get('/{id}/edit', 'CardController@edit')->name('edit');
     Route::post('/{id}/update', 'CardController@update')->name('update');
     Route::delete('/{id}/delete', 'CardController@delete')->name('delete');
 });
+// ---------- Products -----------//
+    Route::get('/{gender}-clothing', 'ProductController@index')->name('product.index');
+    Route::get('/{gender}-clothing/{name}', 'ProductController@index_name')->name('product.index_name');
+    Route::get('/{gender}-clothing/{name}/{type}', 'ProductController@index_type')->name('product.index_name_type');
+    Route::post('/comment', 'CommentController@store')->name('product.comment');
+    //Route::get('{name}', 'ProductController@show')->name('product.show');
+

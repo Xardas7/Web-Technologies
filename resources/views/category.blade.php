@@ -218,7 +218,6 @@
                                             @endif
                                         @endforeach
                                     </ul>
-								</li>
                                 @endforeach
 							</ul>
 						</div>

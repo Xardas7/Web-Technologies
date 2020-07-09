@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Address;
 use App\Card;
 use App\Order;
+use App\OrdersHaveProduct;
+use App\ShoppingCartsHaveProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,7 +27,7 @@ class OrdersController extends Controller
         $orders = Order::paginate(30);
         return view('admin.ordersIndex', ['orders'=>$orders]);
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -47,33 +50,57 @@ class OrdersController extends Controller
     {
         $user = Auth::user();
 
-        $cards = $user->cards;
-        $chosenCard = null;
-
-        foreach($cards as $card){
-            if($card->card_number == $request->cardNumber AND $card->cvv == $request->cvvNumber){
-                $chosenCard = $card;
-            }
-        }
-
-        if($chosenCard == null) {
-            $chosenCard = $user->cards()->create([
-                'type' => $request->type,
-                'card_number' => $request->cardNumber,
-                'name' => $request->name,
-                'surname' => $request->surname,
-                'exp_date' => $request->exp_date,
-                'cvv' => $request->cvv
+//        $cards = $user->cards;
+//        $chosenCard = null;
+//
+//        foreach($cards as $card){
+//            if($card->card_number == $request->cardNumber AND $card->cvv == $request->cvvNumber){
+//                $chosenCard = $card;
+//            }
+//        }
+//
+//        if($chosenCard == null) {
+//            $chosenCard = $user->cards()->create([
+//                'type' => $request->type,
+//                'card_number' => $request->cardNumber,
+//                'name' => $request->name,
+//                'surname' => $request->surname,
+//                'exp_date' => $request->exp_date,
+//                'cvv' => $request->cvv
+//            ]);
+//        }
+        $address_id = Address::where('user_id',$user->id)->first()->id;
+        if($request->card) {
+            $order = Order::create([
+                'user_id' => $user->id,
+                'billing_address_id' => $address_id,
+                'shipping_address_id' => $address_id,
+                'coupon_id' => $request->coupon_id,
+                'card_id' => $request->card,
+                'amount' => $request->amount,
+                'state' => 'in progress'
             ]);
-        }
 
-        $order = Order::create([
-            'user_id' => $user->id,
-            'address_id' => $request->address_id,
-            'coupon_id' => $request->coupon_id,
-            'card_id' => $chosenCard->id,
-            'amount' => $request->amount
-        ]);
+            $products=ShoppingCartsHaveProduct::where('shoppingcart_id',Auth::user()->shoppingCart->id)->get();
+            foreach($products as $product){
+                $orderDetails = OrdersHaveProduct::create([
+                    'order_id' => $order->id,
+                    'product_id' => $product->product_id,
+                    'quantity' => $product->quantity,
+                    'size' => $product->size
+                ]);
+                $product->delete();
+            }
+
+            $order_details = OrdersHaveProduct::where('order_id',$order->id)->get();
+            //($order_details);
+            $shipping_details = Address::find($order->shipping_address_id);
+            $billing_details = Address::find($order->billing_address_id);
+        } else redirect()->back()->with(['error' => 'Invalid Card']);
+        return view('confermation', [  'order' => $order,
+                                            'order_details' => $order_details,
+                                            'shipping_address' => $shipping_details,
+                                            'billing_address' => $billing_details]);
     }
 
     /**
@@ -121,5 +148,11 @@ class OrdersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function payment_checkout(){
+        $cards = Auth::user()->cards;
+        $products=Auth::user()->shoppingCart->products;
+        return view('checkout-payment', ['cards'=> $cards, 'products' => $products]);
     }
 }

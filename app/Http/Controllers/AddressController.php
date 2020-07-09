@@ -69,7 +69,7 @@ class AddressController extends Controller
         ->autoClose(3000)
         ->timerProgressBar();
             return redirect(route('user.settings'));
-        
+
     }
 
     public function delete($id){
@@ -81,7 +81,7 @@ class AddressController extends Controller
         }
         $address->delete();
     }
-    
+
     public function store_from_checkout(Request $request){
         $a = new AddressController();
         $data = $a->store($request);

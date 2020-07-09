@@ -1,5 +1,5 @@
 @extends('layouts.app')
-{{-- 
+{{--
 @section('css')
     <link rel="stylesheet" href="css/linearicons.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
@@ -108,8 +108,6 @@
 </div>
 <br>
 
-
-</div>
 <!-- End Align Area -->
 @endsection
 

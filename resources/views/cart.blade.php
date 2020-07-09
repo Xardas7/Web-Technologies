@@ -56,14 +56,14 @@
         <div class="row align-items-center">
             <div class="col-md-4 col-12">
                 <div class="product-item d-flex align-items-center">
-                    <img src="{{$product->images->first()->path}}" style="width:150px; height:104px;" class="img-fluid"
+                    <img src="{{$product->images->first()->path}}" style="width:150px;;" class="img-fluid"
                         alt="">
                     <a href="/{{ $product->name }}">
                         <h6>{{ $product->name }}</h6>
                     </a>
                 </div>
             </div>
-            
+
             <div class="col-md-2 col-6">
                 <div class="size">{{ $product->details->size}}</div>
             </div>

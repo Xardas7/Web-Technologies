@@ -35,11 +35,11 @@ class UserController extends Controller
         ->animation('animate__backInRight','animate__backOutRight')
         ->autoClose(3000)
         ->timerProgressBar();
-        
+
         return redirect()->back();
     }
 
-    
+
     public function settings(){
         $user = Auth::user();
         $addresses = $user->addresses;
@@ -50,11 +50,11 @@ class UserController extends Controller
             $exp = $card->exp_date;
             $card->exp_date = substr($exp, 0, strlen($exp)-3);
         }
-      
+
         $billing_address = Address::where('type','!=','delivery')
                                     ->where('user_id',$user->id)
                                     ->first();
-    
+
         if($billing_address){
             $address_owner = $billing_address->user;
             return view('user.settings',compact('user','addresses','cards','billing_address','address_owner'));
@@ -68,11 +68,12 @@ class UserController extends Controller
 
         $user = Auth::user();
         $orders = $user->orders;
+        dd($orders);
         foreach ($orders as $order){
             $order['address'] = $order->address;
             $order['products'] = $order->products;
         }
-        return view('myorders', ['orders'=>$orders]);
+       // return view('myorders', ['orders'=>$orders]);
     }
 
 }
