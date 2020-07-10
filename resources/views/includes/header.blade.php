@@ -13,7 +13,7 @@
             <div class="collapse navbar-collapse justify-content-end align-items-center row" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="col"><a href="/">Home</a></li>
-                    <li class="col"><a href="#catagory">Category</a></li>
+                    <li class="col"><a href="/all-clothing">All</a></li>
                     <li class="col"><a href="/mens-clothing">Men</a></li>
                     <li class="col"><a href="/womens-clothing">Women</a></li>
                     <!-- Dropdown -->
@@ -58,7 +58,7 @@
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/orders">
+                                <a class="dropdown-item" href="/user/orders">
                                     My Orders
                                 </a>
                             <a class="dropdown-item" href="{{ route('user.settings') }}">

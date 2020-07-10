@@ -105,5 +105,5 @@ Route::name('card.')->prefix('card')->group(function() {
     Route::get('/{gender}-clothing/{name}', 'ProductController@index_name')->name('product.index_name');
     Route::get('/{gender}-clothing/{name}/{type}', 'ProductController@index_type')->name('product.index_name_type');
     Route::post('/comment', 'CommentController@store')->name('product.comment');
-    //Route::get('{name}', 'ProductController@show')->name('product.show');
+    Route::get('{name}', 'ProductController@show')->name('product.show');
 

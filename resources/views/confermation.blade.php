@@ -117,7 +117,7 @@
                                 @foreach($order_details as $order_product)
 								<div class="list-row d-flex justify-content-between">
 									<div>{{ App\Product::find($order_product->product_id)->name }}</div>
-									<div>x {{ $order_product->quantity }}</div>
+									<div>x{{ $order_product->quantity }}</div>
 									<div>{{ App\Product::find($order_product->product_id)->price * $order_product->quantity }}€</div>
 								</div>
                                 @endforeach

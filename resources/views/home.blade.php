@@ -24,7 +24,7 @@
 								It’s Happening <br>
 								this Season!
 							</h1>
-							<button class="primary-btn text-uppercase"><a href="#">Purchase Now</a></button>
+							<button class="primary-btn text-uppercase"><a href="/all-clothing">Purchase Now</a></button>
 						</div>
 					</div>
 				</div>
@@ -51,7 +51,7 @@
 									      <div class="content-overlay"></div>
 									  		 <img class="content-image img-fluid d-block mx-auto" src="/img/c1.jpg" alt="">
 									      <div class="content-details fadeIn-bottom">
-									        <h3 class="content-title">Product for Women</h3>
+									        <h3 class="content-title">Women</h3>
 									      </div>
 									    </a>
 									</div>
@@ -62,14 +62,14 @@
 									      <div class="content-overlay"></div>
 									  		 <img class="content-image img-fluid d-block mx-auto" src="/img/c2.jpg" alt="">
 									      <div class="content-details fadeIn-bottom">
-									        <h3 class="content-title">All Product</h3>
+									        <h3 class="content-title">All Products</h3>
 									      </div>
 									    </a>
 									</div>
 								</div>
 								<div class="col-lg-12">
 									<div class="content">
-										<a href="#" target="_blank">
+										<a href="">
 									      <div class="content-overlay"></div>
 									  		 <img class="content-image img-fluid d-block mx-auto" src="/img/c3.jpg" alt="">
 									      <div class="content-details fadeIn-bottom">
@@ -86,7 +86,7 @@
 						      <div class="content-overlay"></div>
 						  		 <img class="content-image img-fluid d-block mx-auto" src="/img/c4.jpg" alt="">
 						      <div class="content-details fadeIn-bottom">
-						        <h3 class="content-title">Product For Men</h3>
+						        <h3 class="content-title">Men</h3>
 						      </div>
 						    </a>
 						  </div>

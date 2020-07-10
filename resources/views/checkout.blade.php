@@ -108,7 +108,7 @@
                             <form action="/payments" class="billing-form" >
                                 <div class="row">
                             <div class="col-lg-6">
-                                <h4>shipping address</h4>
+                                <h4>Shipping address</h4>
                                 <p>
                                     {{$user->name}}
                                     {{$user->surname}}<br>
@@ -120,8 +120,8 @@
                                 </p>
                             </div>
                                 <div class="col-lg-6">
-                                    <h4>billing address</h4>
-                                    equals to other
+                                    <h4>Billing address</h4>
+                                    Same as shipping address
                                 </div>
                                     </div>
                                 <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Payment</span></button>

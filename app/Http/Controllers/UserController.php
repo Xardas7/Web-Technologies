@@ -68,12 +68,11 @@ class UserController extends Controller
 
         $user = Auth::user();
         $orders = $user->orders;
-        dd($orders);
         foreach ($orders as $order){
-            $order['address'] = $order->address;
+            $order['address'] = Address::find($order->shipping_address_id);
             $order['products'] = $order->products;
         }
-       // return view('myorders', ['orders'=>$orders]);
+       return view('myorders', ['orders'=>$orders]);
     }
 
 }

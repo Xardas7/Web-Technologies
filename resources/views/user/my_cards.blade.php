@@ -124,7 +124,7 @@
     <div class="card-body">
       <h5 class="card-title">
         You haven't added any card yet.</h5>
-      <p class="card-text">Click under to add a card</p>
+      <p class="card-text">Click below to add a card</p>
       <a href="{{ route('card.create') }}" class="genric-btn primary circle arrow">
         Add
         <span class="lnr lnr-arrow-right"></span>

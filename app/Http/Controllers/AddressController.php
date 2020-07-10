@@ -19,9 +19,9 @@ class AddressController extends Controller
     }
 
     public function store(Request $request){
-
+        dd($request);
         $user = Auth::user();
-        $user->addresses()->create([
+        $address = $user->addresses()->create([
         'country' => $request->country,
         'city' => $request->city,
         'address' => $request->address,
@@ -29,6 +29,10 @@ class AddressController extends Controller
         'postal_code' => $request->postal_code,
         'type' => $request->type
         ]);
+        if($request->default){
+            $user->default_address = $address->id;
+            $user->save();
+        }
 
         alert()->success('Address','The address has been added')
         ->toToast()
@@ -63,6 +67,10 @@ class AddressController extends Controller
 
         $input = $request->all();
         $address->update($input);
+        if($request->default){
+            $user->default_address = $address->id;
+            $user->save();
+        }
         alert()->success('Address','Address Updated')
         ->toToast()
         ->animation('animate__backInRight','animate__backOutRight')

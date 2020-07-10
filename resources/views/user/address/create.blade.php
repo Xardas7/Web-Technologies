@@ -1,5 +1,5 @@
 @extends('layouts.app')
-{{-- 
+{{--
 @section('css')
     <link rel="stylesheet" href="css/linearicons.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
@@ -69,9 +69,9 @@
                             </option>
                             <option value="both">
                                 Both
-                            </option>                                    
+                            </option>
                     </select>
-                        
+
                 </div>
             </div>
 
@@ -110,6 +110,13 @@
                     </div>
                     <input type="text" name="country" placeholder="" onfocus="this.placeholder=''"
                         onblur="this.placeholder = ''" required class="single-input" value="">
+                </div>
+                <div class="switch-wrap d-flex justify-content-between single-element-widget" style="margin: 20px">
+                    <div class="primary-checkbox">
+                        <input type="checkbox" id="primary-checkbox" name="default" checked="">
+                        <label for="primary-checkbox"></label>
+                    </div>
+                    <p style="margin-left: 10px">Set as default</p>
                 </div>
             </div>
 

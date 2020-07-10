@@ -59,7 +59,7 @@
             <div class="card-body">
                 <h5 class="card-title">
                     You haven't added any addresses yet.</h5>
-                <p class="card-text">Click under to add an address</p>
+                <p class="card-text">Click below to add an address</p>
                 <a href="{{ route('address.create') }}" class="genric-btn primary circle arrow">
                     Add
                     <span class="lnr lnr-arrow-right"></span>
@@ -69,7 +69,7 @@
                 Shop
             </div>
         </div>
-        
+
         @else
         <div class="row col-12 justify-content-end">
         <a href="{{ route('address.create') }}" class="btn btn-success btn-save">Add</a>

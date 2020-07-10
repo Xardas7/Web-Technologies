@@ -20,8 +20,13 @@
                              <nav class="d-flex align-items-center justify-content-start">
                                 <a href="/">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
                                 <a href="{{Request::url()}}">@if(!empty($products->first()))
-                                    {{$products->first()->category->name}} Category</a>
-                                 @endif
+                                        @if(strpos(Request::url(), '/womens')) Women
+                                        @elseif(strpos(Request::url(), '/mens')) Men
+                                        @else All
+
+                                        @endif
+                                        @endif
+                                    {{$products->first()->category->name}}</a>
                             </nav>
                         </div>
                     </div>

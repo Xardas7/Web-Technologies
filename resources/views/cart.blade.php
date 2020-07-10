@@ -31,6 +31,11 @@
 
 <!-- Start Cart Area -->
 <div class="container">
+    @if(count($products) == 0)
+        <div class="container">
+            <p class="text-center">Your shopping cart is empty!</p>
+        </div>
+    @else
     <div class="cart-title">
         <div class="row">
             <div class="col-md-2 offset-1">
@@ -50,6 +55,7 @@
             </div>
         </div>
     </div>
+
 
     @foreach ($products as $product)
     <div class="cart-single-item">
@@ -109,7 +115,7 @@
             <button class="view-btn color-2 mt-10"><span>Buy</span></button>
         </form>
     </div>
-
+    @endif
 </div>
 <!-- End Cart Area -->
 @endsection
