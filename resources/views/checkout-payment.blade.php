@@ -55,23 +55,105 @@
                     <!--  start payment methods    -->
                         <div class="order-wrapper mt-50">
                         <div class="d-flex align-items-center">
-                            <input class="pixel-radio" type="radio" id="paypal" name="Paypal">
-                            <label for="paypal" class="bold-lable">Paypal</label>
-                        </div>
-                        </div>
-                    <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
-                   <hr/>
-                    <div class="order-wrapper mt-50">
-                        <div class="d-flex align-items-center">
-                            @if($cards)
-                                <label>Scegli la carta: </label>
-                                <select id="card" class="form-control ml-15 col-2" name="card" required>
+                                <input class="pixel-radio" type="radio" id="card" name="payment" value="card" checked>
+                                <label for="card" class="bold-lable col-3">Credit card</label>
+                            <div class="col-4">
+                                <select id="cards" class="form-control ml-15 " name="card" required>
+                                    @if($cards)
                                     @foreach($cards as $card)
                                         <option value={{ $card->id }}>{{ preg_replace("/(.{4}$)(*SKIP)(*F)|(.)/","*",$card->card_number) }}</option>
                                     @endforeach
+                                    @endif
                                 </select>
-                            @endif
-                            DA FARE, BRYANT PLEASE SOLO TU CONOSCI JS ABBASTANZA DA RIUSCIRCI
+                            </div>
+                            <button class="view-btn color-2 col-4" data-toggle="collapse" href="#insert-card" aria-expanded="false" aria-controls="checkout-cupon"><span>Insert card</span></button>
+                        </div>
+                        </div>
+                    <div class="collapse" id="insert-card" style="">
+                        <div class="checkout-login-collapse d-flex flex-column">
+                            <form id="form1" class="col-6 p-5" action="/card/save" method="POST">
+                                <input form="add-card" type="hidden" name="_token" value="DvKSczZWKst3PuBHwZdwODMKTUvxh1u4yMcNCWTp">            <div class="form-group row justify-content-center">
+                                    <label class="col-2 col-form-label">Number</label>
+                                    <div class="input-group-icon col-10">
+                                        <div class="icon">
+                                            <i class="far fa-credit-card"></i>
+                                        </div>
+                                        <input form="add-card" type="number" name="card_number" placeholder="Card number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Card number'" required="" class="single-input" value="">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row justify-content-center">
+                                    <label for="example-date-input" class="col-2 col-form-label">Exp Date</label>
+                                    <div class="input-group-icon col-10">
+                                        <div class="icon">
+                                            <i class="far fa-calendar-alt"></i>
+                                        </div>
+                                        <input form="add-card" class="single-input" name="exp_date" type="text" placeholder="Example: 2020/04" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Example: 2020/04'" maxlength="7" required="">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row justify-content-center">
+                                    <label class="col-2 col-form-label">Type</label>
+                                    <div class="input-group-icon col-10">
+                                        <div class="icon">
+                                            <i class="fas fa-credit-card"></i>
+                                        </div>
+                                        <select form="add-card" class="form-control padding" name="type">
+                                            <option value="visa">Visa
+                                            </option>
+                                            <option value="mastercard">Mastercard
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row justify-content-center">
+                                    <label class="col-2 col-form-label">CVV</label>
+                                    <div class="input-group-icon col-10">
+                                        <div class="icon">
+                                            <i class="fas fa-caret-right"></i>
+                                        </div>
+                                        <input form="add-card" type="number" name="cvv" placeholder="CVV" onfocus="this.placeholder=''" onblur="this.placeholder = 'CVV'" required="" class="single-input" min="100" max="999" value="">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row justify-content-center p-1">
+                                    <label class="col-2 col-form-label">Name</label>
+                                    <div class="input-group-icon col-10">
+                                        <div class="icon">
+                                            <i class="fas fa-caret-right"></i>
+                                        </div>
+                                        <input form="add-card" type="text" name="name" placeholder="First Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" required="" class="single-input" value="">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row justify-content-center">
+                                    <label class="col-2 col-form-label">Surname</label>
+                                    <div class="input-group-icon col-10">
+                                        <div class="icon">
+                                            <i class="fas fa-caret-right" aria-hidden="true"></i>
+                                        </div>
+                                        <input form="add-card" type="text" name="surname" placeholder="Last Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" required="" class="single-input" value="">
+                                    </div>
+                                </div>
+
+                                <div class="text-center mt-30">
+                                    <button class="btn btn-success btn-save" type="submit" form="form1">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                        <hr/>
+
+                        <div class="order-wrapper mt-50">
+                        <div class="d-flex align-items-center">
+                            <input class="pixel-radio" type="radio" id="paypal" name="payment" value="paypal">
+                            <label for="paypal" class="bold-lable">Paypal</label>
+                        </div>
+                        </div>
+                        <p class="payment-info">Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</p>
+                   <hr/>
+
                             <!-- TODO
 
                             idea sarebbe di mostrare se scegliere carta salvata o un form per una nuova pero si incasina tutto
@@ -106,13 +188,11 @@
                                 </div>
                             </div>
                          END TODO  -->
-                        </div>
-                    </div>
-                    <hr/>
+
                     <div class="order-wrapper mt-50">
                         <div class="d-flex align-items-center">
-                            <input class="pixel-radio" type="radio" id="paypal" name="at_delivery">
-                            <label for="paypal" class="bold-lable">Pay at delivery</label>
+                            <input class="pixel-radio" type="radio" id="delivery" name="payment" value="delivery">
+                            <label for="delivery" class="bold-lable">Pay at delivery</label>
                         </div>
                     </div>
                     <div class="container">
@@ -155,7 +235,7 @@
                             <p class="payment-info">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
                             <div class="mt-20 d-flex align-items-start">
                                 <input type="hidden" value="{{$total}}" name="amount">
-                                <input type="checkbox" class="pixel-checkbox" id="login-4" value="true" name="">
+                                <input type="checkbox" class="pixel-checkbox" id="login-4" value="true" name="" required>
                                 <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms & conditions*</a></label>
                             </div>
                             <button class="view-btn color-2 w-100 mt-20"><span>Confirm and buy</span></button>

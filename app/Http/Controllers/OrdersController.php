@@ -70,7 +70,7 @@ class OrdersController extends Controller
 //            ]);
 //        }
         $address_id = Address::where('user_id',$user->id)->first()->id;
-        if($request->card) {
+        if($request->payment == 'card' AND $request->card) {
             $order = Order::create([
                 'user_id' => $user->id,
                 'billing_address_id' => $address_id,
@@ -96,7 +96,20 @@ class OrdersController extends Controller
             //($order_details);
             $shipping_details = Address::find($order->shipping_address_id);
             $billing_details = Address::find($order->billing_address_id);
-        } else redirect()->back()->with(['error' => 'Invalid Card']);
+        } elseif($request->payment == 'paypal'){
+            /**
+             *
+             * DA FARE*
+             *
+             */
+        } elseif($request->payment == 'delivery'){
+            /**
+             *
+             * DA FARE*
+             *
+             */
+        }
+        else redirect()->back()->with(['error' => 'Invalid Card']);
         return view('confermation', [  'order' => $order,
                                             'order_details' => $order_details,
                                             'shipping_address' => $shipping_details,

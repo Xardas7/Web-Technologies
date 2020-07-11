@@ -129,7 +129,7 @@
 									<h6>Shipping</h6>
 									<div>Flat rate: 10.00€</div>
 								</div>
-								<div class="list-row border-bottom-0 d-flex justify-content-between">
+								<div class="list-row d-flex justify-content-between">
 									<h6>Total</h6>
 									<div class="total">{{ $order->amount }}€</div>
 								</div>
