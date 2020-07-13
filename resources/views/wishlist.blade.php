@@ -37,13 +37,13 @@
             <div class="col-md-6">
                 <h6 class="ml-15">Product</h6>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <h6>Price</h6>
             </div>
-            <div class="col-md-2">
+            {{-- <div class="col-md-2">
                 <h6>Add To Shopping Cart</h6>
-            </div>
-            <div class="col-md-1 align-items-left">
+            </div> --}}
+            <div class="col-md-1">
                 <h6>Remove</h6>
             </div>
         </div>
@@ -66,15 +66,15 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-2 col-6">
+                <div class="col-md-4 col-6">
                     <div class="price">{{ $product->price."€" }}</div>
                 </div>
-                <div class="col-md-2 col-6 ">
+                {{-- <div class="col-md-2 col-6 ">
                 <a class="carello" href="#" data-id="{{ $product->id }}">
                             <i class="fa fa-shopping-cart fa-3x" style="color:black"></i>
                         </a>
-                </div>
-                <div class="col-md-2 col-12">
+                </div> --}}
+                <div class="col-md-1 col-12">
                 <a href="#" class="deleteProductWishList" data-id="{{ $product->id }}">
                         <i class="fa fa-trash fa-3x" style="color: #f44a40;"></i>
                     </a>
@@ -83,8 +83,8 @@
     </div>
     @endforeach
 
-    <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
-        <a href="#" class="genric-btn btn-success radius add"><span>Add All</span></a>
+    <div class="cupon-area d-flex align-items-center justify-content-end flex-wrap">
+        {{-- <a href="#" class="genric-btn btn-success radius add"><span>Add All</span></a> --}}
         <a href="#" class="genric-btn danger radius remove"><span>Remove All</span></a>
     </div>
 @endsection

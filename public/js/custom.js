@@ -43,87 +43,87 @@ $(document).ready(function(){
 
   //------ ADD A PRODUCT TO SHOPPING CART -----//
 
-  $('.view-btn.color-2.addCart,.carello').click(function(event){
+  // $('.view-btn.color-2.addCart,.carello').click(function(event){
 
-    event.preventDefault();
-    let product_id, quantity,size;
+  //   event.preventDefault();
+  //   let product_id, quantity,size;
 
-    product_id = $('input[name="product_id"]').val();
-    quantity = $('#quantity').val();
-    size = $('#size').val();
+  //   product_id = $('input[name="product_id"]').val();
+  //   quantity = $('#quantity').val();
+  //   size = $('#size').val();
 
-    if(!product_id && !quantity){
-      product_id = $(this).data('id')
-      quantity = 1
-    }
-    console.log(size);
-    $.ajax({
-      url: '/cart/add',
-      type: 'POST',
-      data: {
-        product_id: product_id,
-        quantity: quantity,
-        size: size
-      },
-      success: function(data){
-        Toast.fire({
-          type: 'success',
-          title: 'Product added to the cart'
-      });
-      },
-      error: function(data){
-        console.log(data);
-      }
+  //   if(!product_id && !quantity){
+  //     product_id = $(this).data('id')
+  //     quantity = 1
+  //   }
+  //   console.log(size);
+  //   $.ajax({
+  //     url: '/cart/add',
+  //     type: 'POST',
+  //     data: {
+  //       product_id: product_id,
+  //       quantity: quantity,
+  //       size: size
+  //     },
+  //     success: function(data){
+  //       Toast.fire({
+  //         type: 'success',
+  //         title: 'Product added to the cart'
+  //     });
+  //     },
+  //     error: function(data){
+  //       console.log(data);
+  //     }
       
-    })
+  //   })
     
-  });
+  // });
 
      //--- Add all products to shopping cart ---//
 
-     $('.add').click(function(event){
+  //    $('.add').click(function(event){
 
-      event.preventDefault();
-      let products = $('.cart-single-item') // Tutti i prodotti
-      let ids = []                          // Gli ID dei prodotti
+  //     event.preventDefault();
+  //     let products = $('.cart-single-item') // Tutti i prodotti
+  //     let ids = []                          // Gli ID dei prodotti
   
-      $.each(products,function(){
-         let children = $(this).find('.carello').data('id') // Prendo l'id del prodotto 
-         ids.push(children)                                               // Inserisco l'id del prodotto  nell'array
-      })
-      $.ajax({
-        url: '/wishlist/add/all',
-        type: 'POST',
-        data: {
-          products_id: ids
-        },
-        success: function(){
-          $.ajax({
-            url: '/wishlist/delete/all',
-            type: 'POST',
-            data: {
-              products_id: ids
-            },
-            success: function(res){
-              console.log(res)
-              $.each(products,function(){
-                let product = $(this)
-                product.fadeOut("normal",function(){
-                  product.remove()
-                })
-              })
-            },
-            error: function(err){
-              console.log(err)
-            }
-          })
-        },
-        error: function(err){
-          console.log(err)
-        }
-      })
+  //     $.each(products,function(){
+  //        let children = $(this).find('.carello').data('id') // Prendo l'id del prodotto 
+  //        ids.push(children)                                               // Inserisco l'id del prodotto  nell'array
+  //     })
+  //     $.ajax({
+  //       url: '/wishlist/add/all',
+  //       type: 'POST',
+  //       data: {
+  //         products_id: ids
+  //       },
+  //       success: function(){
+  //         $.ajax({
+  //           url: '/wishlist/delete/all',
+  //           type: 'POST',
+  //           data: {
+  //             products_id: ids
+  //           },
+  //           success: function(res){
+  //             console.log(res)
+  //             $.each(products,function(){
+  //               let product = $(this)
+  //               product.fadeOut("normal",function(){
+  //                 product.remove()
+  //               })
+  //             })
+  //           },
+  //           error: function(err){
+  //             console.log(err)
+  //           }
+  //         })
+  //       },
+  //       error: function(err){
+  //         console.log(err)
+  //       }
+  //     })
   
-  })
+  // })
   //------------------------- WISHLIST -------------------//
 
 
