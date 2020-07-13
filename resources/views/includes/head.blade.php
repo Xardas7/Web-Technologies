@@ -25,5 +25,10 @@
     <link rel="stylesheet" href="{{ asset('css/nouislider.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+      <!-- Swal -->
+      <link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">
+
+      <!-- Toastr -->
+      <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
 
 </head>

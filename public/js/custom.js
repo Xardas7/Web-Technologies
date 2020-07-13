@@ -9,7 +9,12 @@ $(document).ready(function(){
 
   var url = 'http://127.0.0.1:8000';
 
-
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 6000
+});
 
     // Disable scroll when focused on a number input.
     $('form').on('focus', 'input[type=number]', function(e) {
@@ -61,7 +66,10 @@ $(document).ready(function(){
         size: size
       },
       success: function(data){
-        alert('Prodotto aggiunto al carello');
+        Toast.fire({
+          type: 'success',
+          title: 'Product added to the cart'
+      });
       },
       error: function(data){
         console.log(data);
@@ -135,7 +143,10 @@ $(document).ready(function(){
          product_id: product_id,
         },
         success: function(){
-          alert('Prodotto aggiunto alla wishlist')
+          Toast.fire({
+            type: 'success',
+            title: 'Product added to the wishlist'
+        });
         },
         error: function(data){
           console.log(data);
@@ -302,6 +313,44 @@ $(document).ready(function(){
       console.log(e)
     }
   });
+ })
+
+ $('#addCardModalForm').on('submit',function(event){
+  event.preventDefault()
+
+  let card_number = $("input[name=card_number]").val();
+  let exp_date = $("input[name=exp_date]").val();
+  let type = $("select[name=type]").val();
+  let cvv = $("input[name=cvv]").val();
+  let name = $("input[name=name]").val();
+  let surname = $("input[name=surname]").val();
+  $.ajax({
+    url: '/card/save',
+    type: 'POST',
+    data:{
+      type: type,
+      card_number: card_number,
+      name: name,
+      surname: surname,
+      exp_date: exp_date ,
+      cvv:  cvv,
+      ajax: true
+    },
+    success: function(data){
+      $('#addCardModal').modal('hide');
+      $('#cards').append(
+        `<option value="${data.id}" selected>${data.card_number}</option>`
+      )
+      Toast.fire({
+        type: 'success',
+        title: 'Card saved'
+    });
+    },
+    error: function(e){
+      console.log(e)
+    }
+  })
+
  })
 
     /* calcolaPrezzo();

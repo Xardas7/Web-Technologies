@@ -24,6 +24,10 @@
     <!-- Scripts -->
     @yield('js');
     @include('sweetalert::alert')
+      <!-- Swal js -->
+  <script src="{{ asset('js/sweetalert2.min.js')}}"></script>
+  <!-- Toastr js -->
+  <script src="{{ asset('js/toastr.min.js')}}"></script>
 
 </body>
 

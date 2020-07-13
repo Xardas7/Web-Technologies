@@ -176,5 +176,7 @@ class StaticSeeder extends Seeder{
         foreach($images as $image){
             DB::table('images')->insert($image);
         }
+
+        
     }
 }

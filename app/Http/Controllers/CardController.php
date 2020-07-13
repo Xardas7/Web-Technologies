@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Card;
 use Carbon\Carbon;
 
 class CardController extends Controller
 {
     public function create(){
+       
         return view('user.card.create');
+
     }
 
     public function store(Request $request){
@@ -31,13 +34,21 @@ class CardController extends Controller
             'cvv'         => $request->cvv
         ]);
 
+      
+
+       if(!$request->ajax){
         alert()->success('Card saved','Your card has been saved')
         ->toToast()
         ->animation('animate__backInRight','animate__backOutRight')
         ->autoClose(3000)
         ->timerProgressBar();
-
-        return redirect()->route('user.settings');
+            return redirect()->route('user.settings');
+       } else {
+           $card->card_number =  preg_replace("/(.{4}$)(*SKIP)(*F)|(.)/","*",$card->card_number);
+           return $card;
+       }
+        
+        
 
     }
 
