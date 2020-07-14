@@ -25,7 +25,9 @@
                 <span class="icon-bar"></span></button>
             <a class="nav-brand" href="/"><img src="{{ asset('favicon.ico')}}" alt=""></a>
         </div>
+
     </div><!-- /.container-fluid -->
+
 </nav>
 
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar" style="color: white">

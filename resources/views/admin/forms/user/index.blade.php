@@ -71,15 +71,7 @@
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    @if($user->parties->first() == null)
-                        No party
-                    @else
-                        <select class="form-control">
-                            @foreach($user->parties as $party)
-                            <option>{{$party->name}}</option>
-                            @endforeach
-                        </select>
-                    @endif
+
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
@@ -100,31 +92,7 @@
                 </div>
             </div><div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    @if($user->participates->first() ==null)
-                        <p style="color: red">no party</p>
-                    @else
-                    <form  id='leave-form-{{$id}}' action="/admin/user/leaveparty" method="POST">
-                        @csrf
-                        <select class="form-control" name="party">
-                            @foreach($user->participates as $party)
-                                <option value="{{$party->id}}">{{$party->name}}</option>
-                            @endforeach
-                        </select>
-                        <input name="id" value="{{$user->id}}" hidden >
-                        <em onclick="leaveFunc{{$id}}()" class="fa fa-xl fa-times color-red" style="cursor: pointer" ></em>
 
-                        <script>
-                            function leaveFunc{{$id}}() {
-                                var x = confirm('Do you really want to leave this party ?')
-                                if (x == true) {
-                                    document.getElementById('leave-form-{{$id}}').submit();
-                                }
-                            }
-                        </script>
-                        <input name="id" value="{{$user->id}}" hidden >
-                        <input name="code" id="party_code{{$id}}" hidden>
-                    </form>
-                        @endif
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
