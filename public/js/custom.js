@@ -4,8 +4,8 @@ $(document).ready(function(){
 
     //----- Ours scripts --//
 
-   
-  
+
+
 
   var url = 'http://127.0.0.1:8000';
 
@@ -32,8 +32,8 @@ $(document).ready(function(){
     $('form').on('keydown', 'input[type=number]', function(e) {
         if ( e.which == 38 || e.which == 40 )
             e.preventDefault();
-    });  
-      
+    });
+
 
 
 // ------------------- SHOPPING CART------------------------- //
@@ -43,41 +43,41 @@ $(document).ready(function(){
 
   //------ ADD A PRODUCT TO SHOPPING CART -----//
 
-  // $('.view-btn.color-2.addCart,.carello').click(function(event){
+  $('.view-btn.color-2.addCart,.carello').click(function(event){
 
-  //   event.preventDefault();
-  //   let product_id, quantity,size;
+    event.preventDefault();
+    let product_id, quantity,size;
 
-  //   product_id = $('input[name="product_id"]').val();
-  //   quantity = $('#quantity').val();
-  //   size = $('#size').val();
+    product_id = $('input[name="product_id"]').val();
+    quantity = $('#quantity').val();
+    size = $('#size').val();
 
-  //   if(!product_id && !quantity){
-  //     product_id = $(this).data('id')
-  //     quantity = 1
-  //   }
-  //   console.log(size);
-  //   $.ajax({
-  //     url: '/cart/add',
-  //     type: 'POST',
-  //     data: {
-  //       product_id: product_id,
-  //       quantity: quantity,
-  //       size: size
-  //     },
-  //     success: function(data){
-  //       Toast.fire({
-  //         type: 'success',
-  //         title: 'Product added to the cart'
-  //     });
-  //     },
-  //     error: function(data){
-  //       console.log(data);
-  //     }
-      
-  //   })
-    
-  // });
+    if(!product_id && !quantity){
+      product_id = $(this).data('id')
+      quantity = 1
+    }
+    console.log(size);
+    $.ajax({
+      url: '/cart/add',
+      type: 'POST',
+      data: {
+        product_id: product_id,
+        quantity: quantity,
+        size: size
+      },
+      success: function(data){
+        Toast.fire({
+          type: 'success',
+          title: 'Product added to the cart'
+      });
+      },
+      error: function(data){
+        console.log(data);
+      }
+
+    })
+
+  });
 
      //--- Add all products to shopping cart ---//
 
@@ -86,9 +86,9 @@ $(document).ready(function(){
   //     event.preventDefault();
   //     let products = $('.cart-single-item') // Tutti i prodotti
   //     let ids = []                          // Gli ID dei prodotti
-  
+
   //     $.each(products,function(){
-  //        let children = $(this).find('.carello').data('id') // Prendo l'id del prodotto 
+  //        let children = $(this).find('.carello').data('id') // Prendo l'id del prodotto
   //        ids.push(children)                                               // Inserisco l'id del prodotto  nell'array
   //     })
   //     $.ajax({
@@ -122,7 +122,7 @@ $(document).ready(function(){
   //         console.log(err)
   //       }
   //     })
-  
+
   // })
   //------------------------- WISHLIST -------------------//
 
@@ -187,7 +187,7 @@ $(document).ready(function(){
     let ids = []                          // Gli ID dei prodotti
 
     $.each(products,function(){
-       let children = $(this).find('.deleteProductWishList').data('id') // Prendo l'id del prodotto 
+       let children = $(this).find('.deleteProductWishList').data('id') // Prendo l'id del prodotto
        ids.push(children)                                               // Inserisco l'id del prodotto  nell'array
     })
     $.ajax({
@@ -212,7 +212,7 @@ $(document).ready(function(){
   })
 
   //------------- Stars -------------//
-  
+
   var stars = $('#commento i')
   stars.css("cursor","pointer")
   var classe = 5
@@ -295,12 +295,12 @@ $(document).ready(function(){
 
  /*------------ CARDS ------------ */
 
- 
+
  $('.card_remove').click(function(event){
    event.preventDefault();
    let card_id = $(this).data('id');
    let container = $(this).parents('div.user-card')
-   
+
    $.ajax({
     type: "DELETE",
     url: `/card/${card_id}/delete`,

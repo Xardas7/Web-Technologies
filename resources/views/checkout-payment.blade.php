@@ -61,6 +61,9 @@
                         <label for="card" class="bold-lable col-3">Credit card</label>
                         <div class="col-4">
                             <select id="cards" class="form-control ml-15 " name="card" required>
+                                @php
+                                    $cards = Auth::user()->cards;
+                                @endphp
                                 @if($cards)
                                 @foreach($cards as $card)
                                 <option value={{ $card->id }}>

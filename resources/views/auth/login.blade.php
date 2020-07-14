@@ -16,10 +16,10 @@
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                         <div class="col-first">
-                            <h1>Shopping Cart</h1>
+                            <h1>Login</h1>
                              <nav class="d-flex align-items-center justify-content-start">
-                                <a href="../home.blade.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="../cart.blade.php">Shopping Cart</a>
+                                <a href="/home">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                <a href="/login">Login</a>
                             </nav>
                         </div>
                     </div>

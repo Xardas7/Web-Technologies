@@ -16,10 +16,10 @@
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
                         <div class="col-first">
-                            <h1>Shopping Cart</h1>
+                            <h1>Register</h1>
                              <nav class="d-flex align-items-center justify-content-start">
-                                <a href="../home.blade.php">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="../cart.blade.php">Shopping Cart</a>
+                                <a href="/home">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                <a href="/register">Register</a>
                             </nav>
                         </div>
                     </div>
@@ -29,62 +29,62 @@
 
 		<!-- Start My Account -->
 		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="login-form">
-						<h3 class="billing-title text-center">Login</h3>
-						<p class="text-center mt-80 mb-40">Welcome back! Sign in to your account </p>
-                        <form action="{{ route('login') }}" method="POST">
+			<div class="row justify-content-center">
+{{--				<div class="col-md-6">--}}
+{{--					<div class="login-form">--}}
+{{--						<h3 class="billing-title text-center">Login</h3>--}}
+{{--						<p class="text-center mt-80 mb-40">Welcome back! Sign in to your account </p>--}}
+{{--                        <form action="{{ route('login') }}" method="POST">--}}
 
-                            @csrf
+{{--                            @csrf--}}
 
-                            <input type="text"
-                            name="email"
-                            placeholder="Email*"
-                            onfocus="this.placeholder='Email'"
-                            onblur="this.placeholder = 'Email*'"
-                            required
-                            class="common-input mt-20">
+{{--                            <input type="text"--}}
+{{--                            name="email"--}}
+{{--                            placeholder="Email*"--}}
+{{--                            onfocus="this.placeholder='Email'"--}}
+{{--                            onblur="this.placeholder = 'Email*'"--}}
+{{--                            required--}}
+{{--                            class="common-input mt-20">--}}
 
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+{{--                            @error('email')--}}
+{{--                            <span class="invalid-feedback" role="alert">--}}
+{{--                                <strong>{{ $message }}</strong>--}}
+{{--                            </span>--}}
+{{--                            @enderror--}}
 
-                            <input type="password"
-                            placeholder="Password*"
-                            name="password"
-                            onfocus="this.placeholder=''"
-                            onblur="this.placeholder = 'Password*'"
-                            required class="common-input mt-20">
+{{--                            <input type="password"--}}
+{{--                            placeholder="Password*"--}}
+{{--                            name="password"--}}
+{{--                            onfocus="this.placeholder=''"--}}
+{{--                            onblur="this.placeholder = 'Password*'"--}}
+{{--                            required class="common-input mt-20">--}}
 
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-
-
-
-                            <button class="view-btn color-2 mt-20 w-100"><span>Login</span></button>
-
-							<div class="mt-20 d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center"><input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>
+{{--                            @error('password')--}}
+{{--                            <span class="invalid-feedback" role="alert">--}}
+{{--                                <strong>{{ $message }}</strong>--}}
+{{--                            </span>--}}
+{{--                            @enderror--}}
 
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+
+{{--                            <button class="view-btn color-2 mt-20 w-100"><span>Login</span></button>--}}
+
+{{--							<div class="mt-20 d-flex align-items-center justify-content-between">--}}
+{{--                                <div class="d-flex align-items-center"><input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} class="pixel-checkbox" id="login-1"><label for="login-1">Remember me</label></div>--}}
 
 
-                            </div>
+{{--                                @if (Route::has('password.request'))--}}
+{{--                                    <a class="btn btn-link" href="{{ route('password.request') }}">--}}
+{{--                                        {{ __('Forgot Your Password?') }}--}}
+{{--                                    </a>--}}
+{{--                                @endif--}}
 
-						</form>
-					</div>
-                </div>
+
+{{--                            </div>--}}
+
+{{--						</form>--}}
+{{--					</div>--}}
+{{--                </div>--}}
 
                 {{-- REGISTER --}}
 

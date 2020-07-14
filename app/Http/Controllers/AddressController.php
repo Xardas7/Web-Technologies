@@ -92,7 +92,9 @@ class AddressController extends Controller
     public function store_from_checkout(Request $request){
         $a = new AddressController();
         $data = $a->store($request);
-        return view('/checkout-payment',compact('data'));
+        $cards = Auth::user()->cards;
+        $products=Auth::user()->shoppingCart->products;
+        return view('/checkout-payment',['cards'=> $cards, 'products' => $products]);
     }
 
 }
