@@ -233,7 +233,7 @@
                                                 @if($count_by_type ) <!-- se non ci sono oggetti nella cateogira non mostra niente -->
                                                 <li class="main-nav-list child">
                                                     <a href="/{{$url_gender}}-clothing/{{$category->name}}/{{$type_category->type}}" target='_self'>
-                                                        {{$type_category->type}}
+                                                        {{$type_category->type}} {{$type_category->gender}}
                                                         <span class="number">
                                                     ({{$count_by_type}})
                                                 </span></a></li>
