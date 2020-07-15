@@ -136,119 +136,95 @@
                                          $url_gender=$g->re_transform($current_gender);
 
                                 @endphp
-                                @foreach($all_categories= \App\Category::all()->unique('name') as $category )
-                                    @php
-                                        $all_products = \App\Product::all();
-                                        $products_by_name = collect();
-                                        if($has_gender){
-                                        foreach ($all_products as $single_product){
-                                            if($single_product->category->name == $category->name and $single_product->category->gender==$current_gender){
-                                                $products_by_name->push($single_product);
-                                            }
-                                            //tutti products con nome della categoria
-                                            $count_by_name = $products_by_name->count();
-                                        }
-                                        }
-                                        else{
-                                            foreach ($all_products as $single_product){
-                                            if($single_product->category->name == $category->name){
-                                                $products_by_name->push($single_product);
-                                            }
-                                            //tutti products con nome della categoria
-                                            $count_by_name = $products_by_name->count();
-                                        }
-                                        }
-                                    @endphp
-                                    @if($count_by_name)
-                                    <li class="main-nav-list"><a data-toggle="collapse" href="#{{$category->name}}" aria-expanded="false" aria-controls="{{$category->name}}"><span class="lnr lnr-arrow-right"></span>{{$category->name}}
-                                            <span class="number">
-                                                ({{$count_by_name}})
-                                        </span></a>
-                                    </li>
-                                    @endif
-									<ul class="collapse" id="{{$category->name}}"aria-expanded="false" aria-controls="{{$category->name}}">
+									<ul class="collapse" id="{{$macro_category->name}}"aria-expanded="false" aria-controls="{{$macro_category->name}}">
                                         <!--      -->
-                                        @php
-                                            $products_by_type = collect();
-                                            if($has_gender){
-                                                foreach ($all_products as $single_product){
-                                                if($single_product->category->type == $category->type and $single_product->category->gender==$current_gender){
-                                                    $products_by_type->push($single_product);
+{{--                                        @php--}}
+{{--                                            $products_by_type = collect();--}}
+{{--                                            if($has_gender){--}}
+{{--                                                foreach ($all_products as $single_product){--}}
+{{--                                                if($single_product->category->type == $category->type and $single_product->category->gender==$current_gender){--}}
+{{--                                                    $products_by_type->push($single_product);--}}
 
-                                                }
-                                            }
-                                                }
-                                            else{
-                                            foreach ($all_products as $single_product){
-                                                if($single_product->category->type == $category->type){
-                                                    $products_by_type->push($single_product);
+{{--                                                }--}}
+{{--                                            }--}}
+{{--                                                }--}}
+{{--                                            else{--}}
+{{--                                            foreach ($all_products as $single_product){--}}
+{{--                                                if($single_product->category->type == $category->type){--}}
+{{--                                                    $products_by_type->push($single_product);--}}
 
-                                                }
-                                            }
-                                            }
-                                        @endphp
-                                        <li class="main-nav-list child"><a href="/{{$url_gender}}-clothing/{{$category->name}}" target='_self'>
-                                                All {{$category->name}}
+{{--                                                }--}}
+{{--                                            }--}}
+{{--                                            }--}}
+{{--                                        @endphp--}}
+                                        <li class="main-nav-list child"><a href="/{{ $url_gender }}-clothing/{{$macro_category->name}}" target='_self'>
+                                                All {{$macro_category->name}}
                                                 <span class="number">
-                                                    ({{$count_by_name}})
+                                                    ({{$macro_category->count}})
                                                 </span></a></li>
-                                      @if($has_gender)
-                                        @foreach( $types=\App\Category::all()->where('name',$category->name)->where('gender',$current_gender) as $type_category)
-                                            @php
-                                                $products_by_type = collect();
-                                                foreach ($all_products as $single_product){
-                                                    if($single_product->category->type == $type_category->type and $single_product->category->gender==$current_gender){
-                                                        $products_by_type->push($single_product);
-                                                    }
-                                                    $count_by_type = $products_by_type->count();
-                                                }
+{{--                                      @if($has_gender)--}}
+{{--                                        @foreach( $types=\App\Category::all()->where('name',$category->name)->where('gender',$current_gender) as $type_category)--}}
+{{--                                            @php--}}
+{{--                                                $products_by_type = collect();--}}
+{{--                                                foreach ($all_products as $single_product){--}}
+{{--                                                    if($single_product->category->type == $type_category->type and $single_product->category->gender==$current_gender){--}}
+{{--                                                        $products_by_type->push($single_product);--}}
+{{--                                                    }--}}
+{{--                                                    $count_by_type = $products_by_type->count();--}}
+{{--                                                }--}}
 
-                                            @endphp
+{{--                                            @endphp--}}
 
-                                        @if($count_by_type ) <!-- se non ci sono oggetti nella cateogira non mostra niente -->
+{{--                                        @if($count_by_type ) <!-- se non ci sono oggetti nella cateogira non mostra niente -->--}}
+                                        @foreach($macro_category->sub_categories as $category)
+                                            @if($category->count)
                                         <li class="main-nav-list child">
-                                            <a href="/{{$url_gender}}-clothing/{{$category->name}}/{{$type_category->type}}" target='_self'>
-                                                {{$type_category->type}}
+                                            <a href="/{{$url_gender}}-clothing/{{$category->name}}/{{$category->type}}" target='_self'>
+                                                {{$category->type}}
                                                 <span class="number">
-                                                    ({{$count_by_type}})
+                                                    ({{$category->count}})
                                                 </span></a></li>
                                             @endif
-
                                         @endforeach
-                                        @else
-                                            @foreach( $types=\App\Category::all()->where('name',$category->name) as $type_category)
-                                                @php
-                                                    $products_by_type = collect();
+                                        @endif
+                                        @endforeach
+{{--                                            @endif--}}
 
-                                                        foreach ($all_products as $single_product){
-                                                        if($single_product->category->type == $type_category->type){
-                                                            $products_by_type->push($single_product);
-                                                        }
-                                                        $count_by_type = $products_by_type->count();
-                                                    }
-                                                    $looked=collect();
-                                                    $looked->push($type_category->type);
-                                                @endphp
+{{--                                        @endforeach--}}
+{{--                                        @else--}}
+{{--                                            @foreach( $types=\App\Category::all()->where('name',$category->name) as $type_category)--}}
+{{--                                                @php--}}
+{{--                                                    $products_by_type = collect();--}}
 
-                                                @if($count_by_type ) <!-- se non ci sono oggetti nella cateogira non mostra niente -->
-                                                <li class="main-nav-list child">
-                                                    <a href="/{{$url_gender}}-clothing/{{$category->name}}/{{$type_category->type}}" target='_self'>
-                                                        {{$type_category->type}} {{$type_category->gender}}
-                                                        <span class="number">
-                                                    ({{$count_by_type}})
-                                                </span></a></li>
-                                                @endif
+{{--                                                        foreach ($all_products as $single_product){--}}
+{{--                                                        if($single_product->category->type == $type_category->type){--}}
+{{--                                                            $products_by_type->push($single_product);--}}
+{{--                                                        }--}}
+{{--                                                        $count_by_type = $products_by_type->count();--}}
+{{--                                                    }--}}
+{{--                                                    $looked=collect();--}}
+{{--                                                    $looked->push($type_category->type);--}}
+{{--                                                @endphp--}}
 
-                                            @endforeach
-                                          @endif
+{{--                                                @if($count_by_type ) <!-- se non ci sono oggetti nella cateogira non mostra niente -->--}}
+{{--                                                <li class="main-nav-list child">--}}
+{{--                                                    <a href="/{{$url_gender}}-clothing/{{$category->name}}/{{$type_category->type}}" target='_self'>--}}
+{{--                                                        {{$type_category->type}} {{$type_category->gender}}--}}
+{{--                                                        <span class="number">--}}
+{{--                                                    ({{$count_by_type}})--}}
+{{--                                                </span></a></li>--}}
+{{--                                                @endif--}}
+
+{{--                                            @endforeach--}}
+{{--                                          @endif--}}
                                     </ul>
 
-                                @endforeach
+{{--                                @endforeach--}}
 							</ul>
 						</div>
 						<div class="sidebar-filter mt-50">
-                            @php
-                            @endphp
+{{--                            @php--}}
+{{--                            @endphp--}}
                             <form action="{{Request::fullUrl()}}">
                                 @csrf
 
@@ -307,9 +283,6 @@
 					</div>
 				</div>
 			</div>
-            @foreach($types=\App\Category::all()->where('name','Abbigliamento')->where('gender',$current_gender) as $type_category)
-                {{$type_category->type}}
-            @endforeach
 
     @endsection
 
