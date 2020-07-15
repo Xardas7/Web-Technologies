@@ -2505,7 +2505,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 768px) {
   /* line 157, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
   .dropdown .dropdown-menu {
-    display: hidden;
+    display: none;
     opacity: 0;
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
@@ -3868,7 +3868,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* line 1250, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_home.scss */
 .quick-view-carousel-details .owl-controls .owl-dots .owl-dot:nth-child(1) {
-  background: url(../img/ob1.jpg);
+  background: url(../img/c1.jpg);
   margin-left: 0;
 }
 
@@ -6629,7 +6629,7 @@ label {
 
 /* line 1603, /Applications/MAMP/htdocs/1.monthy projects/29.Shop/scss/theme/_common.scss */
 .sidebar-filter .common-filter {
-  border-bottom: 1px solid #eee;
+  /* border-bottom: 1px solid #eee; */
   padding-bottom: 25px;
 }
 

@@ -204,10 +204,10 @@ $(document).ready(function(){
 
 
 
-      $('.quick-view-carousel-details').owlCarousel({
-          loop: true,
-          dots: true,
+      $('.owl-carousel').owlCarousel({
           items: 1,
+          dots: true,
+          loop: true,
       })
 
 

@@ -32,7 +32,7 @@
     <div class="product-quick-view">
         <div class="row align-items-center">
             <div class="col-lg-6">
-                <div class="quick-view-carousel-details">
+                <div class="owl-carousel owl-theme">
                     @if($product==null ))
                     @else
                     @if($product->images==null )
@@ -132,58 +132,58 @@
     <div class="details-tab-navigation d-flex justify-content-center mt-30">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li>
-                <a class="nav-link" id="description-tab" data-toggle="tab" href="#description" role="tab"
-                    aria-controls="description" aria-expanded="true">Description</a>
+                <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab"
+                    aria-controls="description" aria-expanded="true" aria-selected="true">Description</a>
             </li>
             <li>
                 <a class="nav-link" id="specification-tab" data-toggle="tab" href="#specification" role="tab"
-                    aria-controls="specification">Specification</a>
+                    aria-controls="specification" aria-selected="false">Specification</a>
             </li>
             <li>
-                <a class="nav-link active" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab"
-                    aria-controls="reviews">Reviews</a>
+                <a class="nav-link " id="reviews-tab" data-toggle="tab" href="#reviews" role="tab"
+                    aria-controls="reviews" aria-selected="false">Reviews</a>
             </li>
         </ul>
     </div>
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="description">
+        <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
             <div class="description">
                 {!! $product->description !!}
             </div>
         </div>
-        <div class="tab-pane fade" id="specification" role="tabpanel" aria-labelledby="specification">
+        <div class="tab-pane fade" id="specification" role="tabpanel" aria-labelledby="specification-tab">
             <div class="specification-table">
-                @if($product->detail==null)
+                @if($product->details ==null)
                 nothing here
                 @else
                 <div class="single-row">
                     <span>Material</span>
-                    <span>{{$product->detail->material}}</span>
+                    <span>{{$product->details->material}}</span>
                 </div>
                 <div class="single-row">
                     <span>Composition</span>
-                    <span>{{$product->detail->composition}}</span>
+                    <span>{{$product->details->composition}}</span>
                 </div>
                 <div class="single-row">
                     <span>Width</span>
-                    <span>{{$product->detail->width}}</span>
+                    <span>{{$product->details->width}}</span>
                 </div>
                 <div class="single-row">
                     <span>Height</span>
-                    <span>{{$product->detail->height}}</span>
+                    <span>{{$product->details->height}}</span>
                 </div>
                 <div class="single-row">
                     <span>Depth</span>
-                    <span>{{$product->detail->depth}}</span>
+                    <span>{{$product->details->depth}}</span>
                 </div>
                 <div class="single-row">
                     <span>Weight</span>
-                    <span>{{$product->detail->weight}}</span>
+                    <span>{{$product->details->weight}}</span>
                 </div>
             </div>
             @endif
         </div>
-        <div class="tab-pane fade show active" id="reviews" role="tabpanel" aria-labelledby="reviews">
+        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
             <div class="review-wrapper">
                 <div class="row">
                     <div @auth class="col-lg-6" @endauth>
@@ -340,7 +340,7 @@
 <script src="/js/jquery.sticky.js"></script>
 <script src="/js/ion.rangeSlider.js"></script>
 <script src="/js/jquery.magnific-popup.min.js"></script>
-<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/owl.carousel.js"></script>
 <script src="/js/custom.js"></script>
 <script src="/js/main.js"></script>
 
