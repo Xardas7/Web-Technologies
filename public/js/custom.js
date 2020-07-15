@@ -182,6 +182,8 @@ $(document).ready(function(){
 
    $('.remove').click(function(event){
 
+    var button = $(this);
+
     event.preventDefault();
     let products = $('.cart-single-item') // Tutti i prodotti
     let ids = []                          // Gli ID dei prodotti
@@ -204,6 +206,7 @@ $(document).ready(function(){
             product.remove()
           })
         })
+        button.remove();
       },
       error: function(err){
         console.log(err)

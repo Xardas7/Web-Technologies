@@ -162,6 +162,8 @@ background: linear-gradient(90deg, rgba(255,228,225,1) 35%, rgba(237,135,169,1) 
     color: white;
 }
 
+
+
 .genric-btn.primary.circle.arrow{
     margin: 0px;
 }
@@ -218,6 +220,27 @@ background: linear-gradient(90deg, rgba(255,228,225,1) 35%, rgba(237,135,169,1) 
     padding-right: 50px;
     padding-left: 35px;
 }
+
+.cart-single-item .product-item h6 {
+    font-size: 18px;
+  font-weight: 500;
+  color: #222222;
+  transition: 0.3s ease-in-out;
+
+  }
+
+
+  .fa.fa-trash.fa-3x{
+      transition: 0.3s ease-in-out;
+  }
+
+  .fa.fa-trash.fa-3x:hover{
+    transform: scale(1.1,1.1);
+}
+
+  .cart-single-item .product-item h6:hover {
+    transform: scale(1.1,1.1);
+  }
 
 /* Colore del banner */
 
