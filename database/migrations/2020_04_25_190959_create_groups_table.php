@@ -11,24 +11,24 @@ class CreateGroupsTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('groups', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->unique();
-            $table->timestamps();
-        });
-    }
+    // public function up()
+    // {
+    //     Schema::create('groups', function (Blueprint $table) {
+    //         $table->id();
+    //         $table->string('name')->unique();
+    //         $table->timestamps();
+    //     });
+    // }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('groups');
-        Schema::enableForeignKeyConstraints();
-    }
+    // /**
+    //  * Reverse the migrations.
+    //  *
+    //  * @return void
+    //  */
+    // public function down()
+    // {
+    //     Schema::disableForeignKeyConstraints();
+    //     Schema::dropIfExists('groups');
+    //     Schema::enableForeignKeyConstraints();
+    // }
 }

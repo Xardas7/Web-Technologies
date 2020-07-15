@@ -11,25 +11,25 @@ class CreateUserHasGroupsTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('user_has_groups', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('group_id');
-            $table->timestamps();
-        });
-    }
+    // public function up()
+    // {
+    //     Schema::create('user_has_groups', function (Blueprint $table) {
+    //         $table->id();
+    //         $table->unsignedBigInteger('user_id');
+    //         $table->unsignedBigInteger('group_id');
+    //         $table->timestamps();
+    //     });
+    // }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('user_has_groups');
-        Schema::enableForeignKeyConstraints();
-    }
+    // /**
+    //  * Reverse the migrations.
+    //  *
+    //  * @return void
+    //  */
+    // public function down()
+    // {
+    //     Schema::disableForeignKeyConstraints();
+    //     Schema::dropIfExists('user_has_groups');
+    //     Schema::enableForeignKeyConstraints();
+    // }
 }

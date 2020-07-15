@@ -13,21 +13,21 @@ class ChiaveEsterne extends Migration
      */
     public function up()
     {
-        Schema::table('user_has_groups', function(Blueprint $table0) {
-            $table0->foreign('user_id')->references('id')
-                ->on('users')->onDelete('cascade'); });
+        // Schema::table('user_has_groups', function(Blueprint $table0) {
+        //     $table0->foreign('user_id')->references('id')
+        //         ->on('users')->onDelete('cascade'); });
 
-        Schema::table('user_has_groups', function(Blueprint $table0) {
-            $table0->foreign('group_id')->references('id')
-                ->on('groups')->onDelete('cascade'); });
+        // Schema::table('user_has_groups', function(Blueprint $table0) {
+        //     $table0->foreign('group_id')->references('id')
+        //         ->on('groups')->onDelete('cascade'); });
 
-        Schema::table('group_has_services', function(Blueprint $table0) {
-            $table0->foreign('group_id')->references('id')
-                ->on('groups')->onDelete('cascade'); });
+        // Schema::table('group_has_services', function(Blueprint $table0) {
+        //     $table0->foreign('group_id')->references('id')
+        //         ->on('groups')->onDelete('cascade'); });
 
-        Schema::table('group_has_services', function(Blueprint $table0) {
-            $table0->foreign('service_id')->references('id')
-                ->on('services')->onDelete('cascade'); });
+        // Schema::table('group_has_services', function(Blueprint $table0) {
+        //     $table0->foreign('service_id')->references('id')
+        //         ->on('services')->onDelete('cascade'); });
 
         Schema::table('avatars', function(Blueprint $table0) {
             $table0->foreign('user_id')->references('id')
