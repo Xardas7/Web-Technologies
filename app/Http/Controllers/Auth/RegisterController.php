@@ -72,8 +72,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        $group = Group::where('name','buyer')->first();
-        $newUser->groups()->save($group);
+       $newUser->assignRole('customer');
         return $newUser;
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\Access\Authorizable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
@@ -103,7 +104,7 @@ class User extends Authenticatable
     }
     // Address
     public function address(){
-        return $this->belongsTo('App\Address','default_id');
+        return $this->belongsTo('App\Address','default_address');
     }
 
     // public function isAdmin(){
