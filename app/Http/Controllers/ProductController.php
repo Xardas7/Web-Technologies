@@ -7,6 +7,7 @@ use App\Helpers\General\CollectionHelper;
 use App\Helpers\General\SearchHelper;
 use App\Helpers\General\MostSearchedHelper;
 use App\Helpers\General\FilterHelper;
+use App\Producer;
 use Illuminate\Http\Request;
 use App\Product;
 
@@ -47,12 +48,13 @@ class ProductController extends Controller
             }
         }
 
-
-        //dd($macro_categories);
         $p = new SearchHelper();
         $products = $p->search_by_gender($gender);
         $products = $p->paginate($products);
-        return view('category', ['products' => $products, 'macro_categories' => $macro_categories]);
+        $error = null;
+        $producers = Producer::all();
+        if(count($products) == 0){ $error = 'There\'s nothing here';}
+        return view('category', ['products' => $products, 'macro_categories' => $macro_categories, 'error' => $error, 'producers' => $producers]);
     }
     public function index_name($gender, $name)
     {
@@ -93,7 +95,10 @@ class ProductController extends Controller
         $products = $p->search_by_gender($gender);
         $products = $p->search_by_name($name, $products);
         $products = $p->paginate($products);
-        return view('category', ['products' => $products, 'macro_categories' => $macro_categories]);
+        $error = null;
+        $producers = Producer::all();
+        if(count($products) == 0){ $error = 'There\'s nothing here';}
+        return view('category', ['products' => $products, 'macro_categories' => $macro_categories, 'producers' => $producers, 'error' => $error]);
     }
 
     public function index_type($gender, $name, $type)
@@ -136,7 +141,10 @@ class ProductController extends Controller
         $products = $p->search_by_name($name, $products);
         $products = $p->search_by_type($type, $products);
         $products = $p->paginate($products);
-        return view('category', ['products' => $products, 'macro_categories' => $macro_categories]);
+        $error = null;
+        $producers = Producer::all();
+        if(count($products) == 0){ $error = 'There\'s nothing here';}
+        return view('category', ['products' => $products, 'macro_categories' => $macro_categories, 'producers' => $producers, 'error' => $error]);
     }
 
     public function show($name)
