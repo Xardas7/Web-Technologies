@@ -49,12 +49,7 @@
         </div>
 
     </div>
-    @if($products->count() > 5 )
-        <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
-            <a href="#" class="view-btn color-2"><span>Add All</span></a>
-            <a href="#" class="view-btn color-2"><span>Remove All</span></a>
-        </div>
-    @endif
+
     @foreach ($products as $product)
         <div class="cart-single-item" >
             <div class="row align-items-center">
@@ -67,7 +62,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-6">
-                    <div class="price">{{ $product->price."€" }}</div>
+                    <h6 class="price">{{ $product->price."€" }}</h6>
                 </div>
                 {{-- <div class="col-md-2 col-6 ">
                 <a class="carello" href="#" data-id="{{ $product->id }}">
@@ -83,10 +78,12 @@
     </div>
     @endforeach
 
+    @if($products->count() > 0)
     <div class="cupon-area d-flex align-items-center justify-content-end flex-wrap">
         {{-- <a href="#" class="genric-btn btn-success radius add"><span>Add All</span></a> --}}
         <a href="#" class="genric-btn danger radius remove"><span>Remove All</span></a>
     </div>
+    @endif
 @endsection
 
 @section('js')
