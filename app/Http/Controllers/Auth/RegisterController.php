@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\group;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -65,11 +66,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $newUser = User::create([
             'name' => $data['name'],
             'surname' =>$data ['surname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        $group = Group::where('name','buyer')->first();
+        $newUser->groups()->save($group);
+        return $newUser;
     }
 }

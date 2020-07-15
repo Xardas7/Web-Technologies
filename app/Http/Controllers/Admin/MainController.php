@@ -26,7 +26,7 @@ class MainController extends Controller
         if ($me==null){
             abort('401', 'Unauthorized');
         }
-        if ($me->id != 51){
+        if (!$me->isAdmin()){
             abort('401', 'Unauthorized');
         }
     }

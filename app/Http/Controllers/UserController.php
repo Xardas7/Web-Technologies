@@ -74,5 +74,4 @@ class UserController extends Controller
         }
        return view('myorders', ['orders'=>$orders]);
     }
-
 }

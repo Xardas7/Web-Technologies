@@ -103,4 +103,13 @@ class User extends Authenticatable
     public function address(){
         return $this->belongsTo('App\Address','default_id');
     }
+
+    public function isAdmin(){
+        foreach($this->groups as $group){
+            if($group->name == 'admin'){
+                return true;
+            }
+        }
+        return false;
+    }
 }
