@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class StaticSeeder extends Seeder{
     /**
@@ -176,6 +178,35 @@ class StaticSeeder extends Seeder{
         foreach($images as $image){
             DB::table('images')->insert($image);
         }
+
+
+        $role1 = Role::create(['name' => 'admin']);
+        $role2 = Role::create(['name' => 'customer']);
+        $role3 = Role::create(['name' => 'seller']);
+
+        $permission1 = Permission::create(['name' => 'can write']);
+        $permission2 = Permission::create(['name' => 'can read']);
+        $permission3 = Permission::create(['name' => 'can sell']);
+        $permission4 = Permission::create(['name' => 'can vote']);
+        $permission5 = Permission::create(['name' => 'can comment']);
+        $permission6 = Permission::create(['name' => 'can buy']);
+        $permission7 = Permission::create(['name' => 'all']);
+
+        /* Admin */
+        $role1->givePermissionTo($permission7);
+
+        /* Customer */
+        $role2->givePermissionTo($permission4);
+        $role2->givePermissionTo($permission5);
+        $role2->givePermissionTo($permission6);
+
+        /* Seller */
+
+        $role3->givePermissionTo($permission3);
+        $role3->givePermissionTo($permission5);
+
+
+
 
         
     }

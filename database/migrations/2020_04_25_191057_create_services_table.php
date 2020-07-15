@@ -11,24 +11,24 @@ class CreateServicesTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('services', function (Blueprint $table) {
-            $table->id();
-            $table->string('permission')->unique();
-            $table->timestamps();
-        });
-    }
+    // public function up()
+    // {
+    //     Schema::create('services', function (Blueprint $table) {
+    //         $table->id();
+    //         $table->string('permission')->unique();
+    //         $table->timestamps();
+    //     });
+    // }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('services');
-        Schema::enableForeignKeyConstraints();
-    }
+    // /**
+    //  * Reverse the migrations.
+    //  *
+    //  * @return void
+    //  */
+    // public function down()
+    // {
+    //     Schema::disableForeignKeyConstraints();
+    //     Schema::dropIfExists('services');
+    //     Schema::enableForeignKeyConstraints();
+    // }
 }
