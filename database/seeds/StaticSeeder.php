@@ -69,7 +69,7 @@ class StaticSeeder extends Seeder{
             ['category_id' => 35, 'producer_id' => 23, 'code' => $codes[44], 'name' => 'SCHEME - Shorts', 'price' => 58.00, 'description' => '<b>Details</b><br>Pattern: Plain'],
             ['category_id' => 35, 'producer_id' => 23, 'code' => $codes[45], 'name' => 'SHHYARD SLIM FIT - Chinos - dark sapphire', 'price' => 54.99, 'description' => '<b>Details</b><br>Rise: Normal<br>Fastening: Concealed fly<br>Pockets: Back pocket, side pockets<br>Pattern: Plain'],
             ['category_id' => 35, 'producer_id' => 24, 'code' => $codes[46], 'name' => 'M NSW NIKE AIR PANT FLC - Tracksuit bottoms', 'price' => 54.99, 'description' => '<b>Details</b><br>Rise: High<br>Pockets: Back pocket, side pockets<br>Pattern: Print<br>Details: Elasticated waist'],
-            ['category_id' => 35, 'producer_id' => 24, 'code' => $codes[47], 'name' => 'ROVIC ZIP 3D STRAIGHT TAPERED - Cargo trousers', 'price' => 89.99, 'description' => '<b>Details</b><br>Rise: Normal<br>Fastening: Concealed fly<br>Pockets: Cargo pockets, back pocket, side pockets<br>Pattern: Plain'],
+            ['category_id' => 35, 'producer_id' => 24, 'code' => $codes[47], 'name' => 'ROVIC ZIP 3D STRAIGHT TAPERED - Cargo trousers', 'price' => 89.99, 'description' => '<b>Details</b>br>Rise: Normal<br>Fastening: Concealed fly<br>Pockets: Cargo pockets, back pocket, side pockets<br>Pattern: Plain'],
         ];
 
         foreach ($products as $product) {
@@ -208,6 +208,6 @@ class StaticSeeder extends Seeder{
 
 
 
-        
+
     }
 }

@@ -134,10 +134,11 @@
                                 }
                                      $g = new \App\Helpers\General\GenderHelper();
                                          $url_gender=$g->re_transform($current_gender);
-
                                 @endphp
+                                @foreach($macro_categories as $macro_category)
+                                    @if($macro_category->count)
+                                    <li class="main-nav-list"><a data-toggle="collapse" href="#{{$macro_category->name}}" aria-expanded="false" aria-controls="{{$macro_category->name}}"><span class="lnr lnr-arrow-right"></span>{{$macro_category->name}}
 									<ul class="collapse" id="{{$macro_category->name}}"aria-expanded="false" aria-controls="{{$macro_category->name}}">
-                                        <!--      -->
 {{--                                        @php--}}
 {{--                                            $products_by_type = collect();--}}
 {{--                                            if($has_gender){--}}

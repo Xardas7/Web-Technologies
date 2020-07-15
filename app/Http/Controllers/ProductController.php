@@ -48,7 +48,7 @@ class ProductController extends Controller
         }
 
 
-//        dd($macro_categories);
+        //dd($macro_categories);
         $p = new SearchHelper();
         $products = $p->search_by_gender($gender);
         $products = $p->paginate($products);

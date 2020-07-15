@@ -7,27 +7,14 @@ use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['role:admin']);
+    }
+
     function index(){
         $a= new MainController;
-        $a->verify();
         return view('admin.index');
     }
 
-    /**
-     * party controllers
-     */
-
-
-    /**
-     * verify if is a admin
-     */
-    function verify(){
-        $me = Auth::user();
-        if ($me==null){
-            abort('401', 'Unauthorized');
-        }
-        if (!$me->isAdmin()){
-            abort('401', 'Unauthorized');
-        }
-    }
 }
