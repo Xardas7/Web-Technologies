@@ -5,6 +5,7 @@ use Faker\Factory as Faker;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Carbon\Carbon;
 
 class StaticSeeder extends Seeder{
     /**
@@ -75,6 +76,8 @@ class StaticSeeder extends Seeder{
         foreach ($products as $product) {
             DB::table('products')->insert($product);
         }
+
+        DB::table('products')->where('id','!=',0)->update(['created_at' => Carbon::now()]);
 
             $images = [
                 ['path' => '/images/products/01-1.webp', 'product_id' => 1],

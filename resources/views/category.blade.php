@@ -54,11 +54,16 @@
                         @endphp
 						<div class="filter-bar d-flex flex-wrap align-items-center">
 							<div class="sorting">
-								<select class="form-control">
-                                    <option value="newst"> <a href="/">Sorting by newest</a></option>
-                                    <a><option value="price_up">Sorting by price ↑</option></a>
-                                    <a><option value="price_down">Sorting by price ↓</option></a>
-								</select>
+                                <div class="dropdown show">
+                                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Sort by
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                      <a class="dropdown-item" href="#">Sorting by newest</a>
+                                      <a class="dropdown-item" href="{{ Request::url().'?orderBy=price&asc' }}">Sorting by price ↑</a>
+                                      <a class="dropdown-item" href="{{ Request::url().'?orderBy=price&desc' }}">Sorting by price ↓</a>
+                                    </div>
+                                  </div>
 							</div>
 							<div class="pagination">
                                 <!-- TO DO  &page or ?page for other filters-->
