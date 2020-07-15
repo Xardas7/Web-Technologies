@@ -19,14 +19,14 @@
                             <h1>Shop Category page</h1>
                              <nav class="d-flex align-items-center justify-content-start">
                                 <a href="/">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="{{Request::url()}}">@if(!empty($products->first()))
+                                <a href="{{Request::url()}}">@if(!$error)
                                         @if(strpos(Request::url(), '/womens')) Women
                                         @elseif(strpos(Request::url(), '/mens')) Men
                                         @else All
 
                                         @endif
                                         @endif
-                                    {{$products->first()->category->name}}</a>
+                                    @if($error) Empty @else {{$products->first()->category->name}} @endif</a>
                             </nav>
                         </div>
                     </div>
@@ -35,6 +35,11 @@
             <!-- End Banner Area -->
 			<div class="container">
 				<div class="row">
+                    @if($error)
+                        <div class="col-xl-9 col-lg-8 col-md-7">
+                            <p class="text-center">{{ $error }}</p>
+                        </div>
+                    @else
 					<div class="col-xl-9 col-lg-8 col-md-7">
 						<!-- Start Filter Bar -->
                         @php
@@ -62,6 +67,7 @@
 							</div>
 							<div class="pagination">
                                 <!-- TO DO  &page or ?page for other filters-->
+                                @if(!$error)
                             @for ($i = 1; $i<=$products->lastPage(); $i++)
                                <a href="{{$url}}page={{$i}}"
                                    class="{{$products->currentPage() == $i ? 'active' : ''}}">{{$i}}</a>
@@ -69,6 +75,7 @@
                                     <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
                                     @endif
                                 @endfor
+                                @endif
 							</div>
 						</div>
 						<!-- End Filter Bar -->
@@ -103,6 +110,7 @@
 						<!-- Start Filter Bar -->
 						<div class="filter-bar d-flex flex-wrap align-items-center">
                             <div class="pagination">
+                                @if(!$error)
                                 @for ($i = 1; $i<=$products->lastPage(); $i++)
                                     <a href="{{$url}}page={{$i}}"
                                        class="{{$products->currentPage() == $i ? 'active' : ''}}">{{$i}}</a>
@@ -110,10 +118,12 @@
                                         <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
                                     @endif
                                 @endfor
+                                @endif
                             </div>
 						</div>
 						<!-- End Filter Bar -->
 					</div>
+                    @endif
 					<div class="col-xl-3 col-lg-4 col-md-5">
 						<div class="sidebar-categories">
 							<div class="head">Browse Categories</div>
@@ -137,46 +147,20 @@
                                 @endphp
                                 @foreach($macro_categories as $macro_category)
                                     @if($macro_category->count)
-                                    <li class="main-nav-list"><a data-toggle="collapse" href="#{{$macro_category->name}}" aria-expanded="false" aria-controls="{{$macro_category->name}}"><span class="lnr lnr-arrow-right"></span>{{$macro_category->name}}
+                                        <li class="main-nav-list">
+                                            <a data-toggle="collapse" href="#{{$macro_category->name}}" aria-expanded="false" aria-controls="{{$macro_category->name}}">
+                                                <span class="lnr lnr-arrow-right">
+                                                </span>
+                                                {{$macro_category->name}}
+                                            </a>
 									<ul class="collapse" id="{{$macro_category->name}}"aria-expanded="false" aria-controls="{{$macro_category->name}}">
-{{--                                        @php--}}
-{{--                                            $products_by_type = collect();--}}
-{{--                                            if($has_gender){--}}
-{{--                                                foreach ($all_products as $single_product){--}}
-{{--                                                if($single_product->category->type == $category->type and $single_product->category->gender==$current_gender){--}}
-{{--                                                    $products_by_type->push($single_product);--}}
-
-{{--                                                }--}}
-{{--                                            }--}}
-{{--                                                }--}}
-{{--                                            else{--}}
-{{--                                            foreach ($all_products as $single_product){--}}
-{{--                                                if($single_product->category->type == $category->type){--}}
-{{--                                                    $products_by_type->push($single_product);--}}
-
-{{--                                                }--}}
-{{--                                            }--}}
-{{--                                            }--}}
-{{--                                        @endphp--}}
                                         <li class="main-nav-list child"><a href="/{{ $url_gender }}-clothing/{{$macro_category->name}}" target='_self'>
                                                 All {{$macro_category->name}}
                                                 <span class="number">
                                                     ({{$macro_category->count}})
-                                                </span></a></li>
-{{--                                      @if($has_gender)--}}
-{{--                                        @foreach( $types=\App\Category::all()->where('name',$category->name)->where('gender',$current_gender) as $type_category)--}}
-{{--                                            @php--}}
-{{--                                                $products_by_type = collect();--}}
-{{--                                                foreach ($all_products as $single_product){--}}
-{{--                                                    if($single_product->category->type == $type_category->type and $single_product->category->gender==$current_gender){--}}
-{{--                                                        $products_by_type->push($single_product);--}}
-{{--                                                    }--}}
-{{--                                                    $count_by_type = $products_by_type->count();--}}
-{{--                                                }--}}
-
-{{--                                            @endphp--}}
-
-{{--                                        @if($count_by_type ) <!-- se non ci sono oggetti nella cateogira non mostra niente -->--}}
+                                                </span>
+                                            </a>
+                                        </li>
                                         @foreach($macro_category->sub_categories as $category)
                                             @if($category->count)
                                         <li class="main-nav-list child">
@@ -184,48 +168,17 @@
                                                 {{$category->type}}
                                                 <span class="number">
                                                     ({{$category->count}})
-                                                </span></a></li>
+                                                </span>
+                                            </a>
+                                        </li>
                                             @endif
                                         @endforeach
                                         @endif
                                         @endforeach
-{{--                                            @endif--}}
-
-{{--                                        @endforeach--}}
-{{--                                        @else--}}
-{{--                                            @foreach( $types=\App\Category::all()->where('name',$category->name) as $type_category)--}}
-{{--                                                @php--}}
-{{--                                                    $products_by_type = collect();--}}
-
-{{--                                                        foreach ($all_products as $single_product){--}}
-{{--                                                        if($single_product->category->type == $type_category->type){--}}
-{{--                                                            $products_by_type->push($single_product);--}}
-{{--                                                        }--}}
-{{--                                                        $count_by_type = $products_by_type->count();--}}
-{{--                                                    }--}}
-{{--                                                    $looked=collect();--}}
-{{--                                                    $looked->push($type_category->type);--}}
-{{--                                                @endphp--}}
-
-{{--                                                @if($count_by_type ) <!-- se non ci sono oggetti nella cateogira non mostra niente -->--}}
-{{--                                                <li class="main-nav-list child">--}}
-{{--                                                    <a href="/{{$url_gender}}-clothing/{{$category->name}}/{{$type_category->type}}" target='_self'>--}}
-{{--                                                        {{$type_category->type}} {{$type_category->gender}}--}}
-{{--                                                        <span class="number">--}}
-{{--                                                    ({{$count_by_type}})--}}
-{{--                                                </span></a></li>--}}
-{{--                                                @endif--}}
-
-{{--                                            @endforeach--}}
-{{--                                          @endif--}}
                                     </ul>
-
-{{--                                @endforeach--}}
 							</ul>
 						</div>
 						<div class="sidebar-filter mt-50">
-{{--                            @php--}}
-{{--                            @endphp--}}
                             <form action="{{Request::fullUrl()}}">
                                 @csrf
 
@@ -234,52 +187,24 @@
                                 <label class="head">Price</label>
 
                                 <br>
-                                min: <input class="single-input-primary" type="text" name="min_price" value="{{request('min_price')}}">
+                                Min: <input class="single-input-primary" type="text" name="min_price" value="{{request('min_price')}}">
 
                                 <br>
-                                max: <input class="single-input-primary" type="text" name="max_price" value="{{request('max_price')}}">
+                                Max: <input class="single-input-primary" type="text" name="max_price" value="{{request('max_price')}}">
                                 <br>
 								<div class="head">Brands</div>
-                                @php
-                                    $producers=collect();
-                                    foreach($products as $product){
-                                        $producers->push($product->producer);
-                                    }
-                                @endphp
 									<ul>
                                         @foreach($producers->unique('name') as $producer)
-										<li class="filter-list">
-                                            <input class="pixel-radio" type="radio" name="brand" value="{{$producer->name}}"><label>{{$producer->name}}</label></li>
+                                            @if(count($producer->products) != 0)
+										        <li class="filter-list">
+                                                <input class="pixel-radio" type="radio" name="brand" value="{{$producer->name}}"><label>{{$producer->name}}</label></li>
+                                            @endif
                                         @endforeach
 									</ul>
 							</div>
-                            <!--
-							<div class="common-filter">
-								<div class="head">Color</div>
-								<form action="#">
-									<ul>
-										<li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">Black<span>(29)</span></label></li>
-									</ul>
-								</form>
-							</div>
-							-->
-                                <button class="genric-btn primary-border circle arrow">find</button>
-                                <a href="/{{$url_gender}}-clothing"> reset all </a>
+                                <button class="genric-btn primary-border circle arrow">Find</button>
+                                <a href="/{{$url_gender}}-clothing"> Reset filters </a>
                             </form>
-                          <!--  <form action="URL::current()">
-							<div class="common-filter">
-								<div class="head">Price</div>
-                                <div class="price-range-area">
-                                    <div id="price-range"></div>
-                                    <div class="value-wrapper d-flex">
-                                        <div class="price">Price:</div>
-                                        <span>$</span><div id="lower-value"></div> <div class="to">to</div>
-                                        <span>$</span><div id="upper-value"></div>
-                                    </div>
-                                </div>
-                                <button>find </button>
-							</div>
-                            </form> -->
 						</div>
 					</div>
 				</div>
