@@ -1,10 +1,10 @@
-@extends('admin.forms.product.resources.views.admin.app')
+@extends('admin.app')
 
 @section('section')
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">All users</h1>
+            <h1 class="page-header">All proudcts</h1>
         </div>
     </div>
     @if (\Session::has('success'))
@@ -18,27 +18,32 @@
         <div class="row">
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
+                    Code
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
+                <div class="panel panel-teal panel-widget border-right">
                     Name
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    Email
+                    Category
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                        Parties created
+                    Producer
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    Join Party
+                    Price
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    Leave Party
+                    Avaiability
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
@@ -61,40 +66,39 @@
         <div class="row">
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-
+                    {{$product->code}}
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-
+                    {{$product->name}}
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-
+                    {{$product->category->type}}
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
-                <div class="panel panel-teal panel-widget border-right" style="color: green">
-                    <form  id='joinparty-form-{{$id}}' action="/admin/user/joinparty" method="POST">
-                        @csrf
-                        <em onclick="insertFunc{{$id}}()" class="fa fa-xl fa-plus color-green" style="cursor: pointer" ></em>
-                        <script>
-                            function insertFunc{{$id}}() {
-                                var x = prompt('please enter party code');
-                                    document.getElementById("party_code{{$id}}").value = x;
-                                    document.getElementById('joinparty-form-{{$id}}').submit();
-                            }
-                        </script>
-                        <input name="id" value="{{$product->id}}" hidden >
-                        <input name="code" id="party_code{{$id}}" hidden>
-                    </form>
-                </div>
-            </div><div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-
+                    {{$product->producer->name}}
                 </div>
             </div>
+            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
+                <div class="panel panel-teal panel-widget border-right">
+                    {{$product->price}}
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
+                <div class="panel panel-teal panel-widget border-right">
+                    @if($product->detail==null)
+                      <p style="color: red">not avaiable</p>
+                    @else
+                        {{$product->detail->quantity}}
+                    @endif
+                </div>
+            </div>
+
             <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                       <a href="/admin/user/{{$id}}/edit"> <i class="fa fa-xl fa-edit"></i> </a>
@@ -108,12 +112,12 @@
                         can't delete
                         </p>
                     @else
-                    <form id="delete-form-{{$id}}"method="POST" action="/admin/user/delete">
+                    <form id="delete-form-{{$id}}"method="POST" action="/admin/product/delete">
                         @csrf
                         <em onclick="deleteFunc{{$id}}()" class="fa fa-xl fa-user-times color-red" style="cursor: pointer" ></em>
                         <script>
                             function deleteFunc{{$id}}() {
-                                var x = confirm('Do you really want to delete {{$product->email}} user ?')
+                                var x = confirm('Do you really want to delete {{$product->code}} user ?')
                                 if(x == true){
                                     document.getElementById('delete-form-{{$id}}').submit(); }
                             }

@@ -76,12 +76,12 @@ Route::get('/admin/product/{id}/edit','Admin\ProductsController@edit');
 /**
  * Admin address
  */
-Route::get('/admin/addresses','Admin\AddresssController@index')->name('admin.address.index');
-Route::post('/admin/address/delete','Admin\AddresssController@delete');
-Route::get('/admin/address/new','Admin\AddresssController@create');
-Route::post('/admin/address/store','Admin\AddresssController@store')->name('admin.address.store');;
-Route::post('/admin/address/update','Admin\AddresssController@update')->name('admin.address.update');
-Route::get('/admin/address/{id}/edit','Admin\AddresssController@edit');
+Route::get('/admin/addresses','Admin\AddressesController@index')->name('admin.address.index');
+Route::post('/admin/address/delete','Admin\AddressesController@delete');
+Route::get('/admin/address/new','Admin\AddressesController@create');
+Route::post('/admin/address/store','Admin\AddressesController@store')->name('admin.address.store');;
+Route::post('/admin/address/update','Admin\AddressesController@update')->name('admin.address.update');
+Route::get('/admin/address/{id}/edit','Admin\AddressesController@edit');
 
 
 /**

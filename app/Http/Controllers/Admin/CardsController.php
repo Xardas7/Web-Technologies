@@ -3,14 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Party;
-use App\Track;
+use App\Card;
 use App\User;
-use App\UserParticipatesParty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class VotesController extends Controller
+class CardsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,18 +17,14 @@ class VotesController extends Controller
      */
     public function index()
     {
-        $a= new MainController;
-        $a->verify();
-        if(request('email')!=null) {
+        if (request('email') != null) {
             $key = request('email');
             $key = User::where('email', $key)->first()->id;
-            $votes = UserParticipatesParty::where('user_id',$key)->where('vote', '<>', null)->get();
-            return view('admin.forms.vote.index',compact('votes'));
-        }
-        else {
-            $votes = UserParticipatesParty::where('vote', '<>', null)->get();
-
-            return view('admin.forms.vote.index', compact('votes'));
+            $cards=Card::where('user_id',$key)->get();
+            return view('admin.forms.card.index', compact('cards'));
+        } else {
+            $cards=Card::all();
+            return view('admin.forms.card.index', compact('cards'));
         }
     }
 
@@ -41,8 +35,6 @@ class VotesController extends Controller
      */
     public function create()
     {
-        $a= new MainController;
-        $a->verify();
         return view('admin.forms.vote.create');
     }
 

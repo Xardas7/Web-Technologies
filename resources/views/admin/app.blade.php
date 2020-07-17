@@ -125,7 +125,7 @@
                 <li><a class="" href="/admin/order/new">
                         <span class="fa fa-arrow-right">&nbsp;</span> New order
                     </a></li>
-                <li><a class="" href="/admin/order">
+                <li><a class="" href="/admin/orders">
                         <span class="fa fa-arrow-right">&nbsp;</span> All orders
                     </a></li>
                 <li>
