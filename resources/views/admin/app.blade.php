@@ -131,6 +131,19 @@
                 <li>
             </ul>
         </li>
+        <li class="{{(Request::getPathInfo() ==='/admin/order/new' or Request::getPathInfo() === '/admin/orders') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-6" style="color: white">
+                <em class="fa fa-navicon">&nbsp;</em> Other <span data-toggle="collapse" href="#sub-item-6" class="icon pull-right"><em class="fa fa-plus"></em></span>
+            </a>
+            <ul class="children collapse" id="sub-item-6">
+                <li><a class="" href="/admin/order/new">
+                        <span class="fa fa-arrow-right">&nbsp;</span> Cupons
+                    </a></li>
+                <li><a class="" href="/admin/orders">
+                        <span class="fa fa-arrow-right">&nbsp;</span> Sellers
+                    </a></li>
+                <li>
+            </ul>
+        </li>
         <li>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf

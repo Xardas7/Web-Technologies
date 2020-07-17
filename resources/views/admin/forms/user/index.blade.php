@@ -72,7 +72,7 @@
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    {{$user->name}}
+                    {{$user->surname}}
                 </div>
             </div>
 
