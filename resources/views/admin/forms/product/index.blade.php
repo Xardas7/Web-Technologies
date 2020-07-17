@@ -53,20 +53,20 @@
             </div>
         </div>
     </div>
-    @foreach($users as $user)
+    @foreach($products as $product)
         @php
-        $id= $user->id;
+        $id= $product->id;
         @endphp
     <div class="panel panel-container">
         <div class="row">
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                   {{$user->name}}
+
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    {{$user->email}}
+
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
@@ -86,7 +86,7 @@
                                     document.getElementById('joinparty-form-{{$id}}').submit();
                             }
                         </script>
-                        <input name="id" value="{{$user->id}}" hidden >
+                        <input name="id" value="{{$product->id}}" hidden >
                         <input name="code" id="party_code{{$id}}" hidden>
                     </form>
                 </div>
@@ -113,12 +113,12 @@
                         <em onclick="deleteFunc{{$id}}()" class="fa fa-xl fa-user-times color-red" style="cursor: pointer" ></em>
                         <script>
                             function deleteFunc{{$id}}() {
-                                var x = confirm('Do you really want to delete {{$user->email}} user ?')
+                                var x = confirm('Do you really want to delete {{$product->email}} user ?')
                                 if(x == true){
                                     document.getElementById('delete-form-{{$id}}').submit(); }
                             }
                         </script>
-                        <input name="id" value="{{$user->id}}" hidden >
+                        <input name="id" value="{{$product->id}}" hidden >
                     @endif
                         @if ($errors->any())
                             <div class="alert alert-danger">

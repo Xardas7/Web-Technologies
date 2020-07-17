@@ -63,18 +63,16 @@ Route::post('/admin/user/delete','Admin\UsersController@delete');
 Route::get('/admin/user/new','Admin\UsersController@create');
 Route::post('/admin/user/store','Admin\UsersController@store');
 Route::post('/admin/user/update','Admin\UsersController@update');
-Route::post('/admin/user/joinparty','Admin\UsersController@joinparty');
-Route::post('/admin/user/leaveparty','Admin\UsersController@leaveparty');
 Route::get('/admin/user/{id}/edit','Admin\UsersController@edit');
 /**
- * Admin party
+ * Admin product
  */
-Route::get('/admin/parties','Admin\PartiesController@index')->name('admin.party.index');
-Route::post('/admin/party/delete','Admin\PartiesController@delete');
-Route::get('/admin/party/new','Admin\PartiesController@create');
-Route::post('/admin/party/store','Admin\PartiesController@store')->name('admin.party.store');;
-Route::post('/admin/party/update','Admin\PartiesController@update')->name('admin.party.update');
-Route::get('/admin/party/{id}/edit','Admin\PartiesController@edit');
+Route::get('/admin/products','Admin\ProductsController@index')->name('admin.product.index');
+Route::post('/admin/product/delete','Admin\ProductsController@delete');
+Route::get('/admin/product/new','Admin\ProductsController@create');
+Route::post('/admin/product/store','Admin\ProductsController@store')->name('admin.product.store');;
+Route::post('/admin/product/update','Admin\ProductsController@update')->name('admin.product.update');
+Route::get('/admin/product/{id}/edit','Admin\ProductsController@edit');
 /**
  * Admin address
  */
