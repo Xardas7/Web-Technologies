@@ -42,26 +42,26 @@
         <div class="clear"></div>
     </div>
     <div class="divider"></div>
-    @if(!empty($users) or !empty($parties)or !empty($bans) or !empty($kicks)or !empty($votes))
+    @if(!empty($users) or !empty($products)or !empty($adresses) or !empty($cards)or !empty($orders))
     <form role="search">
         <div class="form-group">
             @if(!empty($users))
             <input type="text" class="form-control" placeholder="Search by email" name="email">
                 <input type="submit" hidden>
             @endif
-                @if(!empty($parties))
+                @if(!empty($products))
                 <input type="text" class="form-control" placeholder="Search by name" name="name">
                 <input type="submit" hidden>
                 @endif
-                @if(!empty($bans))
+                @if(!empty($addresses))
                     <input type="text" class="form-control" placeholder="Search by email" name="email">
                     <input type="submit" hidden>
                 @endif
-                @if(!empty($kicks))
+                @if(!empty($cards))
                     <input type="text" class="form-control" placeholder="Search by email" name="email">
                     <input type="submit" hidden>
                 @endif
-                @if(!empty($votes))
+                @if(!empty($orders))
                     <input type="text" class="form-control" placeholder="Search by email" name="email">
                     <input type="submit" hidden>
                 @endif
@@ -75,63 +75,60 @@
             </a>
             <ul class="children collapse" id="sub-item-1">
                 <li><a class="" href="/admin/user/new">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Add a new user
+                        <span class="fa fa-arrow-right">&nbsp;</span> New user
                     </a></li>
                 <li><a class="" href="/admin/users">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Show all users
+                        <span class="fa fa-arrow-right">&nbsp;</span> All users
                     </a></li>
             </ul>
         </li>
-        <li class="{{(Request::getPathInfo() ==='/admin/party/new' or Request::getPathInfo() === '/admin/parties') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-2" style="color: white">
-                <em class="fa fa-navicon">&nbsp;</em> Parties<span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
+        <li class="{{(Request::getPathInfo() ==='/admin/product/new' or Request::getPathInfo() === '/admin/products') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-2" style="color: white">
+                <em class="fa fa-navicon">&nbsp;</em> Products<span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
             <ul class="children collapse" id="sub-item-2">
-                <li><a class="" href="/admin/party/new">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Create a new party
+                <li><a class="" href="/admin/product/new">
+                        <span class="fa fa-arrow-right">&nbsp;</span> New product
                     </a></li>
-                <li><a class="" href="/admin/parties">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Show all parties
+                <li><a class="" href="/admin/products">
+                        <span class="fa fa-arrow-right">&nbsp;</span> All products
                     </a></li>
             </ul>
         </li>
-        <li class="{{(Request::getPathInfo() ==='/admin/vote/new' or Request::getPathInfo() === '/admin/votes') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-3" style="color: white">
-                <em class="fa fa-navicon">&nbsp;</em> Votes <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
+        <li class="{{(Request::getPathInfo() ==='/admin/address/new' or Request::getPathInfo() === '/admin/addresses') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-3" style="color: white">
+                <em class="fa fa-navicon">&nbsp;</em> Addresses <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
             <ul class="children collapse" id="sub-item-3">
-                <li><a class="" href="/admin/vote/new">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Create a new vote
+                <li><a class="" href="/admin/address/new">
+                        <span class="fa fa-arrow-right">&nbsp;</span> New address
                     </a></li>
-                <li><a class="" href="/admin/votes">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Show all votes
+                <li><a class="" href="/admin/addresses">
+                        <span class="fa fa-arrow-right">&nbsp;</span> All addresses
                     </a></li>
             </ul>
         </li>
-        <li class="{{(Request::getPathInfo() ==='/admin/kick/new' or Request::getPathInfo() === '/admin/kicks') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-4" style="color: white">
-                <em class="fa fa-navicon">&nbsp;</em> Kicks <span data-toggle="collapse" href="#sub-item-4" class="icon pull-right"><em class="fa fa-plus"></em></span>
+        <li class="{{(Request::getPathInfo() ==='/admin/card/new' or Request::getPathInfo() === '/admin/card') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-4" style="color: white">
+                <em class="fa fa-navicon">&nbsp;</em> Carts <span data-toggle="collapse" href="#sub-item-4" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
             <ul class="children collapse" id="sub-item-4">
-                <li><a class="" href="/admin/kick/new">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Create a new kick
+                <li><a class="" href="/admin/card/new">
+                        <span class="fa fa-arrow-right">&nbsp;</span> New cart
                     </a></li>
-                <li><a class="" href="/admin/kicks">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Show all kicks
+                <li><a class="" href="/admin/cards">
+                        <span class="fa fa-arrow-right">&nbsp;</span> All carts
                     </a></li>
             </ul>
         </li>
-        <li class="{{(Request::getPathInfo() ==='/admin/ban/new' or Request::getPathInfo() === '/admin/bans') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-5" style="color: white">
-                <em class="fa fa-navicon">&nbsp;</em> Bans <span data-toggle="collapse" href="#sub-item-5" class="icon pull-right"><em class="fa fa-plus"></em></span>
+        <li class="{{(Request::getPathInfo() ==='/admin/order/new' or Request::getPathInfo() === '/admin/orders') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-5" style="color: white">
+                <em class="fa fa-navicon">&nbsp;</em> Orders <span data-toggle="collapse" href="#sub-item-5" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
             <ul class="children collapse" id="sub-item-5">
-                <li><a class="" href="/admin/ban/new">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Create a new ban
+                <li><a class="" href="/admin/order/new">
+                        <span class="fa fa-arrow-right">&nbsp;</span> New order
                     </a></li>
-                <li><a class="" href="/admin/bans">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Show all bans
+                <li><a class="" href="/admin/order">
+                        <span class="fa fa-arrow-right">&nbsp;</span> All orders
                     </a></li>
                 <li>
-                <a class="" href="/admin/totalban">
-                    <span class="fa fa-arrow-right">&nbsp;</span> Show all totally bans
-                </a></li>
             </ul>
         </li>
         <li>

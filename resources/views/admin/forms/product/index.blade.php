@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('admin.forms.product.resources.views.admin.app')
 
 @section('section')
 
@@ -16,11 +16,6 @@
     @endif
     <div class="panel panel-container" style="background-color: #F1F4F7">
         <div class="row">
-            <div class="col-xs-6 col-md-3 col-lg-4 no-padding">
-                <div class="panel panel-teal panel-widget border-right">
-                    Email
-                </div>
-            </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                     Name
@@ -28,18 +23,22 @@
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    Surname
+                    Email
                 </div>
             </div>
-
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    Adresses
+                        Parties created
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    Carts
+                    Join Party
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
+                <div class="panel panel-teal panel-widget border-right">
+                    Leave Party
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
@@ -60,11 +59,6 @@
         @endphp
     <div class="panel panel-container">
         <div class="row">
-            <div class="col-xs-6 col-md-3 col-lg-4 no-padding">
-                <div class="panel panel-teal panel-widget border-right">
-                    {{$user->email}}
-                </div>
-            </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                    {{$user->name}}
@@ -72,25 +66,40 @@
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    {{$user->name}}
+                    {{$user->email}}
                 </div>
             </div>
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
+                <div class="panel panel-teal panel-widget border-right">
 
-        <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
-            <div class="panel panel-teal panel-widget border-right">
-                <a href="/admin/user/{{$id}}/edit" style="color: yellow"> <i class="fa fa-xl fa-map-marker "></i> </a>
+                </div>
             </div>
-        </div>
-        <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
-            <div class="panel panel-teal panel-widget border-right">
-                <a href="/admin/user/{{$id}}/edit" style="color: green"> <i class="fa fa-xl fa-credit-card color-green"></i> </a>
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
+                <div class="panel panel-teal panel-widget border-right" style="color: green">
+                    <form  id='joinparty-form-{{$id}}' action="/admin/user/joinparty" method="POST">
+                        @csrf
+                        <em onclick="insertFunc{{$id}}()" class="fa fa-xl fa-plus color-green" style="cursor: pointer" ></em>
+                        <script>
+                            function insertFunc{{$id}}() {
+                                var x = prompt('please enter party code');
+                                    document.getElementById("party_code{{$id}}").value = x;
+                                    document.getElementById('joinparty-form-{{$id}}').submit();
+                            }
+                        </script>
+                        <input name="id" value="{{$user->id}}" hidden >
+                        <input name="code" id="party_code{{$id}}" hidden>
+                    </form>
+                </div>
+            </div><div class="col-xs-6 col-md-3 col-lg-2 no-padding">
+                <div class="panel panel-teal panel-widget border-right">
+
+                </div>
             </div>
-        </div>
-        <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
-            <div class="panel panel-teal panel-widget border-right">
-                <a href="/admin/user/{{$id}}/edit"> <i class="fa fa-xl fa-edit"></i> </a>
+            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
+                <div class="panel panel-teal panel-widget border-right">
+                      <a href="/admin/user/{{$id}}/edit"> <i class="fa fa-xl fa-edit"></i> </a>
+                </div>
             </div>
-        </div>
 
             <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">

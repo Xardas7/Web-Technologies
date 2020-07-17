@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('admin.forms.product.resources.views.admin.app')
 
 @section('section')
 
@@ -15,41 +15,18 @@
         @csrf
         <input name="id" value="{{$user->id}}" hidden>
         <div class="form-group">
-            <label>Email</label>
-            <input class="form-control" value="{{$user->email}}" name="email" >
-        </div>
-        <div class="form-group">
             <label>Name</label>
             <input class="form-control" value="{{$user->name}}" name="name" >
         </div>
         <div class="form-group">
-            <label>Surname</label>
-            <input class="form-control" value="{{$user->surname}}" name="surname" >
-        </div>
-        <div class="form-group">
-            <label >Birthdate</label>
-                <input class="form-control" name="birth_date" type="date" value="{{$user->birth_date}}"
-                       id="example-date-input">
-        </div>
-
-        <div class="form-group">
-            <label>Sex</label>
-                <select class="form-control padding" name="sex">
-                    <option value="male" {{$user->sex == 'male' ? 'selected' : ''}}>Male
-                    </option>
-                    <option value="female" {{$user->sex == 'female' ? 'selected' : ''}}>Female
-                    </option>
-                    <option value="undefined" {{$user->sex == 'undefined' ? 'selected' : ''}}>
-                        Undefined</option>
-                </select>
+            <label>Email</label>
+            <input class="form-control" value="{{$user->email}}" name="email" >
         </div>
         <div class="form-group">
             <label>Password</label>
             <input type="password" class="form-control" value="passwordnoncambiata" name="password" >
         </div>
-
-
-        <input value="{{$user->email}}" name="old_email" hidden>
+    <input value="{{$user->email}}" name="old_email" hidden>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>

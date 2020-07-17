@@ -76,38 +76,34 @@ Route::post('/admin/party/store','Admin\PartiesController@store')->name('admin.p
 Route::post('/admin/party/update','Admin\PartiesController@update')->name('admin.party.update');
 Route::get('/admin/party/{id}/edit','Admin\PartiesController@edit');
 /**
- * Admin bans
+ * Admin address
  */
-Route::get('/admin/bans','Admin\BansController@index')->name('admin.ban.index');
-Route::post('/admin/ban/delete','Admin\BansController@delete');
-Route::get('/admin/ban/new','Admin\BansController@create');
-Route::post('/admin/ban/store','Admin\BansController@store')->name('admin.ban.store');;
-Route::post('/admin/ban/update','Admin\BansController@update')->name('admin.ban.update');
-Route::get('/admin/ban/{id}/edit','Admin\BansController@edit');
-
-Route::get('/admin/totalban','Admin\BansController@indextotalban');
-Route::post('/admin/totalban/store','Admin\BansController@totalban');
-Route::post('/admin/totalban/delete','Admin\BansController@totalunban');
+Route::get('/admin/addresses','Admin\AddresssController@index')->name('admin.address.index');
+Route::post('/admin/address/delete','Admin\AddresssController@delete');
+Route::get('/admin/address/new','Admin\AddresssController@create');
+Route::post('/admin/address/store','Admin\AddresssController@store')->name('admin.address.store');;
+Route::post('/admin/address/update','Admin\AddresssController@update')->name('admin.address.update');
+Route::get('/admin/address/{id}/edit','Admin\AddresssController@edit');
 
 
 /**
- * Admin votes
+ * Admin cards
  */
-Route::get('/admin/votes','Admin\VotesController@index')->name('admin.vote.index');
-Route::post('/admin/vote/delete','Admin\VotesController@delete');
-Route::get('/admin/vote/new','Admin\VotesController@create');
-Route::post('/admin/vote/store','Admin\VotesController@store')->name('admin.vote.store');;
-Route::post('/admin/vote/update','Admin\VotesController@update')->name('admin.vote.update');
-Route::get('/admin/vote/{id}/edit','Admin\VotesController@edit');
+Route::get('/admin/cards','Admin\CardsController@index')->name('admin.card.index');
+Route::post('/admin/card/delete','Admin\CardsController@delete');
+Route::get('/admin/card/new','Admin\CardsController@create');
+Route::post('/admin/card/store','Admin\CardsController@store')->name('admin.card.store');;
+Route::post('/admin/card/update','Admin\CardsController@update')->name('admin.card.update');
+Route::get('/admin/card/{id}/edit','Admin\CardsController@edit');
 /**
- * Admin kicks
+ * Admin orders
  */
-Route::get('/admin/kicks','Admin\KicksController@index')->name('admin.kick.index');
-Route::post('/admin/kick/delete','Admin\KicksController@delete');
-Route::get('/admin/kick/new','Admin\KicksController@create');
-Route::post('/admin/kick/store','Admin\KicksController@store')->name('admin.kick.store');;
-Route::post('/admin/kick/update','Admin\KicksController@update')->name('admin.kick.update');
-Route::get('/admin/kick/{id}/edit','Admin\KicksController@edit');
+Route::get('/admin/orders','Admin\OrdersController@index')->name('admin.order.index');
+Route::post('/admin/order/delete','Admin\OrdersController@delete');
+Route::get('/admin/order/new','Admin\OrdersController@create');
+Route::post('/admin/order/store','Admin\OrdersController@store')->name('admin.order.store');;
+Route::post('/admin/order/update','Admin\OrdersController@update')->name('admin.order.update');
+Route::get('/admin/order/{id}/edit','Admin\OrdersController@edit');
 
 /**
  * Other admin routs
