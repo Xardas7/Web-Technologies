@@ -103,6 +103,11 @@ i{
     color: #f41068;
 }
 
+.brand_name:hover{
+    cursor: default;
+    font-weight: 600;
+}
+
 
 /* #logo{
     -webkit-filter: invert(100%);

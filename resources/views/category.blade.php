@@ -208,7 +208,7 @@
                             @if(count($producer->products) != 0)
                             <div class="switch-wrap d-flex justify-content-between">
 
-                                    <p>{{$producer->name}}</p>
+                                    <p class="brand_name">{{$producer->name}}</p>
                                     <div class="primary-radio">
                                         <input type="checkbox" id="{{$producer->name}}" name="brand"
                                             value="{{$producer->name}}">
