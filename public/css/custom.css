@@ -5,6 +5,10 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
     margin: 0;
 }
 
+html{
+    height: 100%;
+}
+
 input[type="number"] {
     -moz-appearance: textfield;
 }
@@ -93,8 +97,15 @@ i{
     transition: .3s ease-in-out;
 }
 
+.single-product:hover h5, .single-product:hover  h3 {
+    transition: .3s ease-in-out;
+}
 
-.dropdown:hover > a > i,  .icon-navbar:hover {
+.single-product:hover h5, .single-product:hover  h3 {
+    color: #f41068;
+}
+
+.dropdown:hover > a > i,  .icon-navbar:hover{
     color: #f41068;
 }
 
@@ -112,6 +123,15 @@ i{
 .section-gap{
     position: relative;
     bottom: -22px;
+}
+
+.content-details{
+    width:50%;
+}
+
+.organic-breadcrumb{
+    margin-bottom: 50px;
+    margin-top: 66px;
 }
 
 

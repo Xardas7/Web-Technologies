@@ -122,20 +122,22 @@
                              @endphp
                         @foreach($products as $product)
 						<div class="col-lg-3 col-md-6 single-product">
-						  <div class="content">
-					      	<div class="content-overlay"></div>
-					  		 <img class="content-image img-fluid d-block mx-auto" src="{{$product->images->first()->path}}" alt="">
-						      <div class="content-details fadeIn-bottom">
-							        <div class="bottom d-flex align-items-center justify-content-center">
-									<a href="#" class="wishlist" data-id="{{$product->id}}"><span class="lnr lnr-heart"></span></a>
-										<a href="/{{$product->name}}"><span class="lnr lnr-frame-expand"></span></a>
-									</div>
-						      </div>
-						  </div>
-						    <div class="price">
-						  		<h5 class="text-white">{{$product->name}}</h5>
-						  		<h3 class="text-white">{{$product->price}}€</h3>
-						    </div>
+							<a class="content" href="/{{$product->name}}">
+								<div class="content-overlay"></div>
+								<img class="content-image img-fluid d-block mx-auto"
+									src="{{$product->images->first()->path}}" alt="">
+	
+							</a>
+							<div class="price">
+								<div>
+									<a href="/{{$product->name}}" class="product_name">
+										<h5 class="text-white">{{$product->name}}</h5>
+									</a>
+									<p class="text-white" id="description-tab"> {{$product->producer->name}}</p>
+								</div>
+								<h3 class="text-white">{{$product->price}}€</h3>
+	
+							</div>
 						</div>
                         @endforeach
 					</div>
@@ -165,20 +167,22 @@
 					<div class="row">
                         @foreach($products as $product)
 						<div class="col-lg-3 col-md-6 single-product">
-						  <div class="content">
-						      <div class="content-overlay"></div>
-						  		 <img class="content-image img-fluid d-block mx-auto" src="{{$product->images->first()->path}}" alt="">
-						      <div class="content-details fadeIn-bottom">
-							        <div class="bottom d-flex align-items-center justify-content-center">
-									<a href="#" class="wishlist" data-id="{{$product->id}}"><span class="lnr lnr-heart"></span></a>
-										<a href="/{{$product->name}}"><span class="lnr lnr-frame-expand"></span></a>
-									</div>
-						      </div>
-						  </div>
-						  <div class="price">
-						  		<h5>{{$product->name}}</h5>
-						  		<h3>{{$product->price}}€</h3>
-						   </div>
+							<a class="content" href="/{{$product->name}}">
+								<div class="content-overlay"></div>
+								<img class="content-image img-fluid d-block mx-auto"
+									src="{{$product->images->first()->path}}" alt="">
+	
+							</a>
+							<div class="price">
+								<div>
+									<a href="/{{$product->name}}" class="product_name">
+										<h5>{{$product->name}}</h5>
+									</a>
+									<p id="description-tab"> {{$product->producer->name}}</p>
+								</div>
+								<h3>{{$product->price}}€</h3>
+	
+							</div>
 						</div>
                         @endforeach
 					</div>
