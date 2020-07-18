@@ -31,7 +31,7 @@ input[type="number"] {
 .navbar-nav > li > a > h6,
 .navbar-brand > h6,
 i{
-    color:rgb(230, 230, 230)
+    color:#343a40;
 }
 
 .navbar-nav > li > a,
@@ -85,18 +85,33 @@ i{
 }
 
 .default-header{
-    background-color: #333;
+    background-color: #f8f9fa;
     color: white;
 }
 
-#logo{
+.dropdown:hover > a > i, .icon-navbar {
+    transition: .3s ease-in-out;
+}
+
+
+.dropdown:hover > a > i,  .icon-navbar:hover {
+    color: #f41068;
+}
+
+
+/* #logo{
     -webkit-filter: invert(100%);
     filter: invert(100%);
-}
+} */
 
 .dropdown-item{
     font-weight: 600;
     text-transform: uppercase;
+}
+
+.section-gap{
+    position: relative;
+    bottom: -22px;
 }
 
 

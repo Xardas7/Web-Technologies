@@ -53,7 +53,7 @@
                 </ul>
                         <li class="dropdown" id="user-no-dot">
                                 <a class="navbar-brand" href="#" title="User">
-                                    <i class="fa fa-user fa-2x"></i>
+                                    <i class="fa fa-user fa-2x icon-navbar"></i>
                                     <h6>User</h6>
                             </a>
 
@@ -76,11 +76,11 @@
                         </li>
 
                 <a class="navbar-brand" href="/cart" title="Shopping cart">
-                    <i class="fa fa-shopping-cart fa-2x"></i>
+                    <i class="fa fa-shopping-cart fa-2x icon-navbar"></i>
                     <h6>Shopping Cart</h6>
                 </a>
                 <a class="navbar-brand" href="/wishlist" title="Wishlist">
-                    <i class="fa fa-heart fa-2x"></i>
+                    <i class="fa fa-heart fa-2x icon-navbar"></i>
                     <h6>Wishlist</h6>
                 </a>
 
