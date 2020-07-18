@@ -117,20 +117,16 @@
             </div>
             <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    <a href="/admin/user/{{$id}}/edit"> <i class="fa fa-xl fa-edit"></i> </a>
+                    <a href="/admin/address/{{$id}}/edit"> <i class="fa fa-xl fa-edit"></i> </a>
                 </div>
             </div>
 
             <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    @if($id == 1)
-                        <p style="color: red">
-                            can't delete
-                        </p>
-                    @else
-                        <form id="delete-form-{{$id}}"method="POST" action="/admin/product/delete">
+
+                        <form id="delete-form-{{$id}}"method="POST" action="/admin/address/delete">
                             @csrf
-                            <em onclick="deleteFunc{{$id}}()" class="fa fa-xl fa-user-times color-red" style="cursor: pointer" ></em>
+                            <em onclick="deleteFunc{{$id}}()" class="fa fa-xl fa-times color-red" style="cursor: pointer" ></em>
                             <script>
                                 function deleteFunc{{$id}}() {
                                     var x = confirm('Do you really want to delete {{$address->address}} user ?')
@@ -139,7 +135,7 @@
                                 }
                             </script>
                             <input name="id" value="{{$address->id}}" hidden >
-                            @endif
+
                             @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>

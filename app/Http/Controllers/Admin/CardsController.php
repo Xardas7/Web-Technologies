@@ -35,7 +35,7 @@ class CardsController extends Controller
      */
     public function create()
     {
-        return view('admin.forms.vote.create');
+        return view('admin.forms.card.create');
     }
 
     /**
@@ -46,39 +46,38 @@ class CardsController extends Controller
      */
     public function store(Request $request)
     {
-        $user=User::where('email',$request->email)->first();
-        if($user==null)
-        {
-            return redirect()->back()->withErrors(['this email doesn\'t exist']);
-        }
-        $x=Party::where('code',$request->code)->first();
-        if($x == null) {
-            return redirect()->back()->withErrors(['Party doesn\'t exist']);
-        }
-        $party=UserParticipatesParty::where('user_id',$user->id)->where('party_id',$x->id)->first();
-        if($party == null) {
-            return redirect()->back()->withErrors(['User not partecipate in this party']);
-        }
-        if($party->vote==false) {
-            $party->vote = $request->track_id;
-            $track_to_vote = $request->track_id;
 
-            $track = Track::find($track_to_vote);
-            if($track == null)
-            {
-                return redirect()->back()->withErrors(['this track doesnt exist']);
-            }
+        if (!filter_var($request->email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format";
+            return \Redirect::back()->withErrors([$emailErr]);
+        }
+        if (!User::where('email',$request->email)->first()) {
+            $emailErr = "no user found";
+            return \Redirect::back()->withErrors([$emailErr]);
+        }
+        $exp_date = $request->exp_date;
+        $exp_date = str_replace('/','-',$exp_date);
+        $exp_date = \DateTime::createFromFormat('Y-m', $exp_date);
+        $exp_date = $exp_date->format('Y-m-t');
+        $user=User::where('email',$request['email'])->first()->id;
+        $card= new Card();
+        $card->user_id=$user;
+        $card->type=$request['type'];
+        $card->card_number=$request['card_number'];
+        $card->name=$request['name'];
+        $card->surname=$request['surname'];
+        $card->exp_date=$exp_date;
+        $card->cvv=$request['cvv'];
+        $card->save();
+        return redirect()->route('admin.cards.index')->with('success', 'Address '. $request->address.' added successfully!');
 
-            $track->votes = $track->vote + 1;
-            $party->save();
-            $track->save();
-            return redirect()->route('admin.vote.index')->with('success', 'track voted!');
-        }
-        else{
-            return redirect()->back()->withErrors(['you have already voted!']);
-        }
     }
+    protected function edit($id)
+    {
+        $card= Card::findOrFail($id);
+        return view('admin.forms.card.edit',compact('card'));
 
+    }
     /**
      * Show the form for editing the specified resource.
      *

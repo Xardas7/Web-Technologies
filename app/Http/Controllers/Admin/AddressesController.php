@@ -34,7 +34,7 @@ class AddressesController extends Controller
      */
     public function create()
     {
-        return view('admin.forms.ban.create');
+        return view('admin.forms.address.create');
     }
 
     /**
@@ -45,10 +45,32 @@ class AddressesController extends Controller
      */
     public function store(Request $request)
     {
-            return redirect()->route('admin.ban.index')->with('success', 'User '. $request->banned.' banned by '.$request->user.' successfully!');
-            return redirect()->back()->withErrors(['user already banned']);
+        $user=User::where('email',$request['email'])->first()->id;
+        if (!filter_var($request->email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format";
+            return \Redirect::back()->withErrors([$emailErr]);
         }
+        if (!User::where('email',$request->email)->first()) {
+            $emailErr = "no user found";
+            return \Redirect::back()->withErrors([$emailErr]);
+        }
+        $address= new Address();
+        $address->user_id=$user;
+        $address->country=$request['country'];
+        $address->city=$request['city'];
+        $address->address=$request['address'];
+        $address->address_additional=$request['address_additional'];
+        $address->postal_code=$request['postal_code'];
+        $address->type=$request['type'];
+        $address->save();
+            return redirect()->route('admin.address.index')->with('success', 'Address '. $request->address.' added successfully!');
+        }
+    protected function edit($id)
+    {
+        $address= Address::findOrFail($id);
+        return view('admin.forms.address.edit',compact('address'));
 
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -58,6 +80,16 @@ class AddressesController extends Controller
      */
     public function update(Request $request)
     {
+            $address= Address::findOrFail($request['address_id']);
+        $address->country=$request['country'];
+        $address->city=$request['city'];
+        $address->address=$request['address'];
+        $address->address_additional=$request['address_additional'];
+        $address->postal_code=$request['postal_code'];
+        $address->type=$request['type'];
+        $address->updated_at=date('Y-m-d');
+        $address->save();
+        return redirect()->route('admin.address.index')->with('success', 'Address '. $request->address.' updated successfully!');
 
     }
     /**
@@ -68,11 +100,9 @@ class AddressesController extends Controller
      */
     public function delete(Request $request)
     {
-        $a= new MainController;
-        $a->verify();
-        $user=UserBanUser::findOrFail($request->id);
-        $user->delete();
-        return back()->with('success', 'Ban deleted!');
+        $address=Address::findOrFail($request->id);
+        $address->delete();
+        return back()->with('success', 'Address deleted!');
     }
 
 

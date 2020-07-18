@@ -73,6 +73,7 @@ Route::get('/admin/product/new','Admin\ProductsController@create');
 Route::post('/admin/product/store','Admin\ProductsController@store')->name('admin.product.store');;
 Route::post('/admin/product/update','Admin\ProductsController@update')->name('admin.product.update');
 Route::get('/admin/product/{id}/edit','Admin\ProductsController@edit');
+Route::get('/admin/product/{id}/details','Admin\ProductsController@details');
 /**
  * Admin address
  */

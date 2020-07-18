@@ -16,7 +16,7 @@
     @endif
     <div class="panel panel-container" style="background-color: #F1F4F7">
         <div class="row">
-            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                     User Email
                 </div>
@@ -26,7 +26,7 @@
                     Number
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                     Name
                 </div>
@@ -65,7 +65,7 @@
     @endphp
     <div class="panel panel-container">
         <div class="row">
-            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                     {{$card->user->email}}
                 </div>
@@ -75,7 +75,7 @@
                     {{$card->card_number}}
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                     {{$card->name}}
                 </div>
