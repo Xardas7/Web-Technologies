@@ -19,15 +19,15 @@ class ProductController extends Controller
         switch ($gender) {
             case 'mens':
                 $categories = Category::where('gender','male')->get();
-                $category_name = 'Men';
+                $category_name = 'Men Products';
             break;
             case 'womens':
                 $categories = Category::where('gender','female')->get();
-                $category_name = 'Women';
+                $category_name = 'Women Products';
             break;
             default:
                 $categories = Category::distinct()->get();
-                $category_name = 'All';
+                $category_name = 'All Products';
         }
 
         foreach($categories as $category){

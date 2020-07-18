@@ -19,14 +19,9 @@
                             <h1>{{ $category_name }}</h1>
                              <nav class="d-flex align-items-center justify-content-start">
                                 <a href="/">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="{{Request::url()}}">@if(!$error)
-                                        @if(strpos(Request::url(), '/womens')) Women
-                                        @elseif(strpos(Request::url(), '/mens')) Men
-                                        @else All
-
-                                        @endif
-                                        @endif
-                                    @if($error) Ops, there's nothing here! @endif</a>
+                                <a href="{{Request::url()}}">
+                                    {{ $category_name }}
+                                </a>
                             </nav>
                         </div>
                     </div>
