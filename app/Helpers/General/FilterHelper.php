@@ -14,6 +14,7 @@ class FilterHelper
         $brand = request('brand');
         $max_price = request('max_price');
         $min_price = request('min_price');
+        $order_by = request('order_by');
         if (!empty($brand)) {
             $products_all = collect();
             foreach ($products as $product_obj) {
@@ -43,6 +44,17 @@ class FilterHelper
                 }
             }
             $products = $products_all;
+        }
+        if (!empty($order_by)) {
+            if ($order_by == 'asc') {
+                $products = $products->sortBy('price');
+            }
+            if ($order_by == 'desc') {
+                $products = $products->sortByDesc('price');
+            }
+            if ($order_by == 'date') {
+                $products = $products->sortByDesc('created_at');
+            }
         }
         return $products;
     }
