@@ -11,7 +11,7 @@ class CategorySeeder extends Seeder
      * @return void
      */
 
-    
+
     public function run()
     {
 
@@ -20,369 +20,369 @@ class CategorySeeder extends Seeder
 
         // Abbigliamento
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'female',
-            'type' =>'Giacche e cappotti'
+            'type' =>'Jackets and coats'
         ])->sizes()->sync($abbigliamento_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'female',
-            'type' => 'Gonne'
+            'type' => 'Skirts'
         ])->sizes()->sync($abbigliamento_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'female',
             'type' => 'Jeans'
         ])->sizes()->sync($abbigliamento_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'female',
-            'type' => 'Lingerie e intimo'
+            'type' => 'Lingerie and underwear'
         ])->sizes()->sync($abbigliamento_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'female',
-            'type' => 'Maglioni e Felpe'
+            'type' => 'Jumpers and sweatshirts'
         ])->sizes()->sync($abbigliamento_sizes);
 
 
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'female',
-            'type' => 'Pantaloncini'
+            'type' => 'Shorts'
         ])->sizes()->sync($abbigliamento_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'female',
-            'type' => 'Pantaloni'
+            'type' => 'Trousers'
         ])->sizes()->sync($abbigliamento_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'female',
-            'type' => 'Pigiami e Camicie da notte'
+            'type' => 'Pyjamas'
         ])->sizes()->sync($abbigliamento_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'female',
-            'type' =>'Top, T-Shirt e Bluse'
+            'type' =>'Tops, T-Shirts and blouses'
         ])->sizes()->sync($abbigliamento_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'female',
-            'type' =>'Vestiti'
+            'type' =>'Dresses'
         ])->sizes()->sync($abbigliamento_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'female',
-            'type' =>'Tutto'
+            'type' =>'All'
         ])->sizes()->sync($abbigliamento_sizes);
 
 
         // Scarpe
         factory(App\Category::class)->create([
-            'name' => 'Scarpe',
+            'name' => 'Shoes',
             'gender' => 'female',
-            'type' => 'Mary Jane Basse'
+            'type' => 'Flat Mary Janes'
         ])->sizes()->sync($scarpe_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Scarpe',
+            'name' => 'Shoes',
             'gender' => 'female',
-            'type' =>'Scarpe basse'
+            'type' =>'Flat shoes'
         ])->sizes()->sync($scarpe_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Scarpe',
+            'name' => 'Shoes',
             'gender' => 'female',
-            'type' => 'Scarpe col tacco'
+            'type' => 'Heeled shoes'
         ])->sizes()->sync($scarpe_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Scarpe',
+            'name' => 'Shoes',
             'gender' => 'female',
-            'type' => 'Scarpe sportive'
+            'type' => 'Trainers'
         ])->sizes()->sync($scarpe_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Scarpe',
+            'name' => 'Shoes',
             'gender' => 'female',
-            'type' =>'Sneaker'
+            'type' =>'Sneakers'
         ])->sizes()->sync($scarpe_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Scarpe',
+            'name' => 'Shoes',
             'gender' => 'female',
-            'type' =>'Stivali'
+            'type' =>'Boots'
         ])->sizes()->sync($scarpe_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Scarpe',
+            'name' => 'Shoes',
             'gender' => 'female',
-            'type' => 'Zoccoli e sabot'
+            'type' => 'Sabots'
         ])->sizes()->sync($scarpe_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Scarpe',
+            'name' => 'Shoes',
             'gender' => 'female',
-            'type' => 'Tutto'
+            'type' => 'All'
         ])->sizes()->sync($scarpe_sizes);
 
-        // Borse      
+        // Borse
 
         factory(App\Category::class)->create([
-            'name' => 'Borse',
+            'name' => 'Bags',
             'gender' => 'female',
-            'type' => 'Borse a mano'
+            'type' => 'Handbags'
         ]);
 
         factory(App\Category::class)->create([
-            'name' => 'Borse',
+            'name' => 'Bags',
             'gender' => 'female',
-            'type' =>'Borse a spalla'
+            'type' =>'Shoulder bags'
         ]);
 
         factory(App\Category::class)->create([
-            'name' => 'Borse',
+            'name' => 'Bags',
             'gender' => 'female',
-            'type' => 'Borse a tracolla'
+            'type' => 'Tote bags'
         ]);
 
         factory(App\Category::class)->create([
-            'name' => 'Borse',
+            'name' => 'Bags',
             'gender' => 'female',
-            'type' => 'Portafogli e Porta documenti'
+            'type' => 'Wallets and briefcases'
         ]);
 
         // Accessori
         factory(App\Category::class)->create([
-            'name' => 'Accessori',
+            'name' => 'Accessories',
             'gender' => 'female',
-            'type' => 'Cinture'
+            'type' => 'Belts'
         ]);
 
         factory(App\Category::class)->create([
-            'name' => 'Accessori',
+            'name' => 'Accessories',
             'gender' => 'female',
-            'type' => 'Occhiali da sole'
+            'type' => 'Sunglasses'
         ]);
 
         factory(App\Category::class)->create([
-            'name' => 'Accessori',
+            'name' => 'Accessories',
             'gender' => 'female',
-            'type' => 'Sciarpe e stole'
+            'type' => 'Scarfs'
         ]);
-        
+
         // Gioielli
         factory(App\Category::class)->create([
-            'name' => 'Gioielli',
+            'name' => 'Jewellery',
             'gender' => 'female',
             'type' => 'Bracciali'
         ]);
 
         factory(App\Category::class)->create([
-            'name' => 'Gioielli',
+            'name' => 'Jewellery',
             'gender' => 'female',
-            'type' => 'Anelli'
+            'type' => 'Rings'
         ]);
 
         factory(App\Category::class)->create([
-            'name' => 'Gioielli',
+            'name' => 'Jewellery',
             'gender' => 'female',
-            'type' => 'Collane'
+            'type' => 'Necklaces'
         ]);
 
         factory(App\Category::class)->create([
-            'name' => 'Gioielli',
+            'name' => 'Jewellery',
             'gender' => 'female',
-            'type' =>'Orecchini'
+            'type' =>'Earrings'
         ]);
         /* ---------------------------------- MALE ---------------------------------*/
 
-        // Abbigliamento 
+        // Abbigliamento
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'male',
-            'type' => 'Felpe'
+            'type' => 'Sweatshirts'
         ])->sizes()->sync($abbigliamento_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'male',
-            'type' => 'Giacche e cappotti'
+            'type' => 'Jackets and coats'
         ])->sizes()->sync($abbigliamento_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'male',
             'type' =>'Jeans'
         ])->sizes()->sync($abbigliamento_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'male',
-            'type' => 'Pantaloncini'
+            'type' => 'Shorts'
         ])->sizes()->sync($abbigliamento_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'male',
-            'type' =>'Pantaloni'
+            'type' =>'Trousers'
         ])->sizes()->sync($abbigliamento_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'male',
-            'type' => 'Pigiami e Abbigliamento da notte'
+            'type' => 'Pyjamas'
         ])->sizes()->sync($abbigliamento_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'male',
-            'type' =>'T-Shirt, Polo e Camicie'
+            'type' =>'T-Shirts, polos and shirts'
         ])->sizes()->sync($abbigliamento_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Abbigliamento',
+            'name' => 'Clothing',
             'gender' => 'male',
-            'type' => 'Tutto'
+            'type' => 'All'
         ])->sizes()->sync($abbigliamento_sizes);
 
-        //Scarpe 
+        //Scarpe
 
         factory(App\Category::class)->create([
-            'name' => 'Scarpe',
+            'name' => 'Shoes',
             'gender' => 'male',
-            'type' =>'Mocassini'
+            'type' =>'Mocassins'
         ])->sizes()->sync($scarpe_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Scarpe',
+            'name' => 'Shoes',
             'gender' => 'male',
-            'type' => 'Monk Strap'
+            'type' => 'Monk Straps'
         ])->sizes()->sync($scarpe_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Scarpe',
+            'name' => 'Shoes',
             'gender' => 'male',
-            'type' => 'Stivali'
+            'type' => 'Boots'
         ])->sizes()->sync($scarpe_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Scarpe',
+            'name' => 'Shoes',
             'gender' => 'male',
-            'type' => 'Scarpe da barca'
+            'type' => 'Boat shoes'
         ])->sizes()->sync($scarpe_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Scarpe',
+            'name' => 'Shoes',
             'gender' => 'male',
-            'type' => 'Scarpe sportive'
+            'type' => 'Trainers'
         ])->sizes()->sync($scarpe_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Scarpe',
+            'name' => 'Shoes',
             'gender' => 'male',
-            'type' => 'Scarpe stringate basse'
+            'type' => 'English shoes'
         ])->sizes()->sync($scarpe_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Scarpe',
+            'name' => 'Shoes',
             'gender' => 'male',
-            'type' => 'Sneaker'
+            'type' => 'Sneakers'
         ])->sizes()->sync($scarpe_sizes);
 
         factory(App\Category::class)->create([
-            'name' => 'Scarpe',
+            'name' => 'Shoes',
             'gender' => 'male',
-            'type' => 'Tutto'
+            'type' => 'All'
         ])->sizes()->sync($scarpe_sizes);
 
 
-        //Accessori 
+        //Accessori
         factory(App\Category::class)->create([
-            'name' => 'Accessori',
+            'name' => 'Accessories',
             'gender' => 'male',
-            'type' => 'Occhiali da sole'
+            'type' => 'Sunglasses'
         ]);
 
         factory(App\Category::class)->create([
-            'name' => 'Accessori',
+            'name' => 'Accessories',
             'gender' => 'male',
-            'type' => 'Cinture'
+            'type' => 'Belts'
         ]);
-        
+
 
         // Orologi
         factory(App\Category::class)->create([
-            'name' => 'Orologi',
+            'name' => 'Watches',
             'gender' => 'male',
-            'type' =>'Orologi analogici'
+            'type' =>'Analog watches'
         ]);
 
         factory(App\Category::class)->create([
-            'name' => 'Orologi',
+            'name' => 'Watches',
             'gender' => 'male',
-            'type' =>'Orologi con cinturino in pelle'
+            'type' =>'Leather strap watches'
         ]);
 
         factory(App\Category::class)->create([
-            'name' => 'Orologi',
+            'name' => 'Watches',
             'gender' => 'male',
-            'type' => 'Orologi con cronografo'
+            'type' => 'Chronograph watches'
         ]);
 
         factory(App\Category::class)->create([
-            'name' => 'Orologi',
+            'name' => 'Watches',
             'gender' => 'male',
-            'type' => 'Orologi svizzeri e di lusso'
+            'type' => 'Swiss and luxury watches'
         ]);
 
-        // Gioielli 
+        // Gioielli
         factory(App\Category::class)->create([
-            'name' => 'Gioielli',
+            'name' => 'Jewellery',
             'gender' => 'male',
-            'type' => 'Anelli'
+            'type' => 'Rings'
         ]);
 
         // Borse
 
         factory(App\Category::class)->create([
-            'name' => 'Borse',
+            'name' => 'Bags',
             'gender' => 'male',
-            'type' => 'Borse a spalla'
-        ]);
-        
-        factory(App\Category::class)->create([
-            'name' => 'Borse',
-            'gender' => 'male',
-            'type' => 'Borse da lavoro'
+            'type' => 'Shoulder bags'
         ]);
 
         factory(App\Category::class)->create([
-            'name' => 'Borse',
+            'name' => 'Bags',
             'gender' => 'male',
-            'type' => 'Borse organizer'
-        ]);
-        
-        factory(App\Category::class)->create([
-            'name' => 'Borse',
-            'gender' => 'male',
-            'type' => 'Portafogli e Porta documenti'
+            'type' => 'Work bags'
         ]);
 
         factory(App\Category::class)->create([
-            'name' => 'Borse',
+            'name' => 'Bags',
             'gender' => 'male',
-            'type' => 'Zaini'
+            'type' => 'Bag organizers'
+        ]);
+
+        factory(App\Category::class)->create([
+            'name' => 'Bags',
+            'gender' => 'male',
+            'type' => 'Wallets and briefcases'
+        ]);
+
+        factory(App\Category::class)->create([
+            'name' => 'Bags',
+            'gender' => 'male',
+            'type' => 'Backpack'
         ]);
     }
 }

@@ -15,15 +15,19 @@ use App\Product;
 class ProductController extends Controller
 {
     public function index($gender){
+        $category_name = null;
         switch ($gender) {
             case 'mens':
                 $categories = Category::where('gender','male')->get();
+                $category_name = 'Men Products';
             break;
             case 'womens':
                 $categories = Category::where('gender','female')->get();
+                $category_name = 'Women Products';
             break;
             default:
                 $categories = Category::distinct()->get();
+                $category_name = 'All Products';
         }
 
         foreach($categories as $category){
@@ -54,20 +58,33 @@ class ProductController extends Controller
         $error = null;
         $producers = Producer::all();
         if(count($products) == 0){ $error = 'There\'s nothing here';}
-        return view('category', ['products' => $products, 'macro_categories' => $macro_categories, 'error' => $error, 'producers' => $producers]);
+        return view('category', [
+            'products' => $products,
+            'macro_categories' => $macro_categories,
+            'error' => $error,
+            'producers' => $producers,
+            'category_name' => $category_name
+        ]);
     }
+
     public function index_name($gender, $name)
     {
+        $category_name = null;
         switch ($gender) {
             case 'mens':
                 $categories = Category::where('gender','male')->get();
+                $category_name = 'Men';
                 break;
             case 'womens':
                 $categories = Category::where('gender','female')->get();
+                $category_name = 'Women';
                 break;
             default:
                 $categories = Category::distinct()->get();
+                $category_name = 'All';
         }
+
+        $category_name .= ' '.ucfirst($name);
 
         foreach($categories as $category){
             $category['count'] = count($category->products);
@@ -98,21 +115,33 @@ class ProductController extends Controller
         $error = null;
         $producers = Producer::all();
         if(count($products) == 0){ $error = 'There\'s nothing here';}
-        return view('category', ['products' => $products, 'macro_categories' => $macro_categories, 'producers' => $producers, 'error' => $error]);
+        return view('category', [
+            'products' => $products,
+            'macro_categories' => $macro_categories,
+            'producers' => $producers,
+            'error' => $error,
+            'category_name' => $category_name
+        ]);
     }
 
     public function index_type($gender, $name, $type)
     {
+        $category_name = null;
         switch ($gender) {
             case 'mens':
                 $categories = Category::where('gender','male')->get();
+                $category_name = 'Men';
                 break;
             case 'womens':
                 $categories = Category::where('gender','female')->get();
+                $category_name = 'Women';
                 break;
             default:
                 $categories = Category::distinct()->get();
+                $category_name = 'All';
         }
+
+        $category_name .= ' '.ucfirst($type);
 
         foreach($categories as $category){
             $category['count'] = count($category->products);
@@ -120,7 +149,6 @@ class ProductController extends Controller
                 $category['gender'] == 'Men';
             } else $category['gender'] == 'Women';
         }
-
         $macro_categories= Category::all()->unique('name');
 
         foreach($macro_categories as $macro_category){
@@ -144,7 +172,13 @@ class ProductController extends Controller
         $error = null;
         $producers = Producer::all();
         if(count($products) == 0){ $error = 'There\'s nothing here';}
-        return view('category', ['products' => $products, 'macro_categories' => $macro_categories, 'producers' => $producers, 'error' => $error]);
+        return view('category', [
+            'products' => $products,
+            'macro_categories' => $macro_categories,
+            'producers' => $producers,
+            'error' => $error,
+            'category_name' => $category_name
+        ]);
     }
 
     public function show($name)

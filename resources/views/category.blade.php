@@ -11,22 +11,17 @@
 @endsection --}}
 
 @section('content')
-<!-- Start Banner Area -->
-<section class="banner-area organic-breadcrumb">
+ <!-- Start Banner Area -->
+ <section class="banner-area organic-breadcrumb">
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
-            <div class="col-first">
-                <h1>Shop Category page</h1>
-                <nav class="d-flex align-items-center justify-content-start">
+            <div class="col-">
+                <h1>{{ $category_name }}</h1>
+                 <nav class="d-flex align-items-center justify-content-start">
                     <a href="/">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                    <a href="{{Request::url()}}">@if(!$error)
-                        @if(strpos(Request::url(), '/womens')) Women
-                        @elseif(strpos(Request::url(), '/mens')) Men
-                        @else All
-
-                        @endif
-                        @endif
-                        @if($error) Empty @else {{$products->first()->category->name}} @endif</a>
+                    <a href="{{Request::url()}}">
+                        {{ $category_name }}
+                    </a>
                 </nav>
             </div>
         </div>
