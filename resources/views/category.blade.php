@@ -116,8 +116,6 @@
                                 <p id="description-tab"> {{$product->producer->name}}</p>
                             </div>
                             <h3>{{$product->price}}€</h3>
-
->>>>>>> eaeb59f2876aaaac8c25e26f6805beb1ab91a272
                         </div>
                     </div>
                     @endforeach
