@@ -93,8 +93,15 @@ i{
     transition: .3s ease-in-out;
 }
 
+.single-product:hover h5, .single-product:hover  h3 {
+    transition: .3s ease-in-out;
+}
 
-.dropdown:hover > a > i,  .icon-navbar:hover {
+.single-product:hover h5, .single-product:hover  h3 {
+    color: #f41068;
+}
+
+.dropdown:hover > a > i,  .icon-navbar:hover{
     color: #f41068;
 }
 
@@ -113,6 +120,11 @@ i{
     position: relative;
     bottom: -22px;
 }
+
+.content-details{
+    width:50%;
+}
+
 
 
 .dropdown-item:hover{

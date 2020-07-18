@@ -154,7 +154,7 @@ $(document).ready(function(){
 
      if(document.getElementById("js-countdown")){
 
-        var countdown = new Date("October 17, 2018");
+        var countdown = new Date("October 17, 2020");
 
         function getRemainingTime(endtime) {
             var milliseconds = Date.parse(endtime) - Date.parse(new Date());

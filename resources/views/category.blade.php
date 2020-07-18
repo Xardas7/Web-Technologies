@@ -89,19 +89,14 @@
 							<div class="row">
                                 @foreach($products as $product)
                             <div class="col-xl-4 col-lg-6 col-md-12 col-sm-6 single-product" >
-                                    <div class="content">
+                                    <a class="content" href="/{{$product->name}}">
                                         <div class="content-overlay"></div>
                                         <img class="content-image img-fluid d-block mx-auto" src="{{$product->images->first()->path}}" alt="">
-                                        <div class="content-details fadeIn-bottom">
-                                            <div class="bottom d-flex align-items-center justify-content-center">
-                                                <a href="" class="wishlist" data-id="{{$product->id}}"><span class="lnr lnr-heart"></span></a>
-                                                <a href="/{{$product->name}}"><span class="lnr lnr-frame-expand"></span></a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                       
+                                    </a>
                                     <div class="price">
                                         <div>
-                                            <h5>{{$product->name}}</h5>
+                                            <a href="/{{$product->name}}" class="product_name"><h5>{{$product->name}}</h5></a>
                                             <p id="description-tab"> {{$product->producer->name}}</p>
                                         </div>
                                         <h3>{{$product->price}}€</h3>
