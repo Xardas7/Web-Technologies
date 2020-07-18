@@ -275,9 +275,13 @@ $(document).ready(function(){
         },
         success: function(e){
           location.reload()
+          
         },
-        error: function(e){
-          console.log(e)
+        error: function(e){     
+            Toast.fire({
+              type: 'error',
+              title: e.responseJSON.message
+            })
         }
       })
 
@@ -358,7 +362,10 @@ $(document).ready(function(){
     });
     },
     error: function(e){
-      console.log(e)
+      Toast.fire({
+        type: 'error',
+        title: e.responseJSON.message
+      })
     }
   })
 

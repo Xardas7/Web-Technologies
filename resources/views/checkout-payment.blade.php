@@ -54,6 +54,15 @@
         <div class="row">
             <div class="col-lg-8 col-md-6 order-wrapper mt-50">
                 <h3 class="billing-title mt-20 mb-10">Payment Type</h3>
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 <!--  start payment methods    -->
                 <div class="order-wrapper mt-50">
                     <div class="d-flex align-items-center">

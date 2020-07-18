@@ -109,7 +109,7 @@
                                 @endforeach
                             </select>
                             @else
-                                This product has an unique size
+                            This product has an unique size
                             @endif
                         </div>
                         <div class="d-flex mt-20">
@@ -317,6 +317,15 @@
                                 <button type="submit" class="view-btn color-2" id="inviaCommento"><span>Submit
                                         Now</span></button>
                             </form>
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
                         </div>
                     </div>
                     @endauth

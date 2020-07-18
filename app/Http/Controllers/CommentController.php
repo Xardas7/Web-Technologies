@@ -20,6 +20,14 @@ class CommentController extends Controller
 
     public function store(Request $request)
     {
+
+        $validate = $request->validate([
+            'content' => 'string',
+            'product_id' => 'integer',
+            'vote' => 'integer',
+        ]);
+
+
         $user = Auth::user();
 
         $commentSearch = Comment::where('user_id',$user->id)->where('product_id',$request->product_id)->first();

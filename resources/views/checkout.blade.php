@@ -52,6 +52,15 @@ $address=$user->addresses->last()
                         <div class="row">
                             <div class="col-lg-8 col-md-6">
                                 <h3 class="billing-title mt-20 mb-10">Update your address</h3>
+                                @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @endif
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <input type="text" name="name" placeholder="First name*"
@@ -63,11 +72,7 @@ $address=$user->addresses->last()
                                             onfocus="this.placeholder=''" onblur="this.placeholder = 'Last name*'"
                                             required class="common-input">
                                     </div>
-                                    <div class="col-lg-6">
-                                        <input type="text" name="phone_number" placeholder="Phone number*"
-                                            onfocus="this.placeholder=''" onblur="this.placeholder = 'Phone number*'"
-                                            required class="common-input">
-                                    </div>
+                                    
                                     <div class="col-lg-12">
                                         <input type="text" name="address" placeholder="Address line 01*"
                                             onfocus="this.placeholder=''" onblur="this.placeholder = 'Address line 01*'"
@@ -76,7 +81,7 @@ $address=$user->addresses->last()
                                     <div class="col-lg-12">
                                         <input type="text" name="address_additional" placeholder="Address line 02*"
                                             onfocus="this.placeholder=''" onblur="this.placeholder = 'Address line 02*'"
-                                            required class="common-input">
+                                            class="common-input">
                                     </div>
                                     <div class="col-lg-12">
                                         <input type="text" name="city" placeholder="Town/City*"

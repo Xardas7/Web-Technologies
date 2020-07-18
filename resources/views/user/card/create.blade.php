@@ -21,6 +21,15 @@
 
 <!-- Start Align Area -->
 <div class="container">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div class="row justify-content-center settings">
 
         <div class="row col-12 justify-content-center">
@@ -47,7 +56,8 @@
                         <i class="far fa-calendar-alt"></i>
                     </div>
                     <input class="single-input" name="exp_date" type="text" placeholder="Example: 2020/04"
-                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Example: 2020/04'"  maxlength="7" required>
+                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Example: 2020/04'" maxlength="7"
+                        required>
                 </div>
             </div>
 

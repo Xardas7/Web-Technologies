@@ -18,12 +18,24 @@ class CardController extends Controller
 
     public function store(Request $request){
 
-        $user = Auth::user();
 
         $exp_date = $request->exp_date;
         $exp_date = str_replace('/','-',$exp_date);
         $exp_date = \DateTime::createFromFormat('Y-m', $exp_date);
         $exp_date = $exp_date->format('Y-m-t');
+
+        $validate = $request->validate([
+            'type' => 'in:visa,mastercard',
+            'card_number' => 'integer',
+            'name' => 'string',
+            'surname' => 'string',
+            'exp_date' => 'string',
+            'cvv' => 'digits_between:3,3',
+        ]);
+
+        $user = Auth::user();
+
+    
 
         $card = $user->cards()->create([
             'type'        => $request->type,
@@ -75,6 +87,15 @@ class CardController extends Controller
     }
 
     public function update(Request $request, $id){
+
+        $validate = $request->validate([
+            'type' => 'in:visa,mastercard',
+            'card_number' => 'integer',
+            'name' => 'string',
+            'surname' => 'string',
+            'exp_date' => 'string',
+            'cvv' => 'digits_between:3,3',
+        ]);
 
         $card = Card::find($id);
 
