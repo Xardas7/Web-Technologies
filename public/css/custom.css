@@ -276,6 +276,8 @@ background: linear-gradient(90deg, rgba(255,228,225,1) 35%, rgba(237,135,169,1) 
 
   .cart-single-item .product-item h6:hover {
     transform: scale(1.1,1.1);
+    color: #f41068;
+
   }
 
 /* Colore del banner */
@@ -285,3 +287,4 @@ background: linear-gradient(90deg, rgba(255,228,225,1) 35%, rgba(237,135,169,1) 
     background-image: -webkit-linear-gradient(45deg, #f6463d 0%, #f6398d 45%, #f52cdc 100%);
     background-image: -ms-linear-gradient(45deg, #f6463d 0%, #f6398d 45%, #f52cdc 100%);
   } */
+  
