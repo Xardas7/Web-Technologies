@@ -15,13 +15,28 @@
             <section class="banner-area organic-breadcrumb">
                 <div class="container">
                     <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
-                        <div class="col-first">
+                        <div class="col-">
                             <h1>{{ $category_name }}</h1>
                              <nav class="d-flex align-items-center justify-content-start">
                                 <a href="/">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <a href="{{Request::url()}}">
-                                    {{ $category_name }}
-                                </a>
+                                 @if(!($display_name AND $display_type))
+                                 <a href="{{Request::url()}}">
+                                     {{ $category_name }}
+                                 </a>
+                                 @elseif($display_name AND !($display_type))
+                                 <a href="{{Request::url()}}">
+                                     {{ $display_name }}
+                                 </a>
+                                 @elseif($display_name AND $display_type)
+                                 <a href="{{$display_link}}">
+                                     {{ $display_name }}
+                                     <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                 </a>
+                                 <a href="{{Request::url()}}">
+                                     {{ $display_type }}
+                                 </a>
+
+                                @endif
                             </nav>
                         </div>
                     </div>

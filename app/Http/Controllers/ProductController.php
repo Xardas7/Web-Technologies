@@ -16,14 +16,16 @@ class ProductController extends Controller
 {
     public function index($gender){
         $category_name = null;
+        $display_name = null;
+        $display_type = null;
         switch ($gender) {
             case 'mens':
                 $categories = Category::where('gender','male')->get();
-                $category_name = 'Men Products';
+                $category_name = 'Menswear';
             break;
             case 'womens':
                 $categories = Category::where('gender','female')->get();
-                $category_name = 'Women Products';
+                $category_name = 'Women\'s shoes, fashion & accessories';
             break;
             default:
                 $categories = Category::distinct()->get();
@@ -63,28 +65,35 @@ class ProductController extends Controller
             'macro_categories' => $macro_categories,
             'error' => $error,
             'producers' => $producers,
-            'category_name' => $category_name
+            'category_name' => $category_name,
+            'display_name' => $display_name,
+            'display_type' => $display_type
         ]);
     }
 
     public function index_name($gender, $name)
     {
         $category_name = null;
+        $display_name = null;
+        $display_type = null;
         switch ($gender) {
             case 'mens':
-                $categories = Category::where('gender','male')->get();
-                $category_name = 'Men';
+                $categories = Category::where('gender', 'male')->get();
+                $category_name = 'Men\'s';
+                $display_name = $category_name . ' ' . ucfirst($name);
                 break;
             case 'womens':
-                $categories = Category::where('gender','female')->get();
-                $category_name = 'Women';
+                $categories = Category::where('gender', 'female')->get();
+                $category_name = 'Women\'s';
+                $display_name = $category_name . ' ' . ucfirst($name);
                 break;
             default:
                 $categories = Category::distinct()->get();
                 $category_name = 'All';
+                $display_name = $category_name . ' ' . ucfirst($name);
         }
 
-        $category_name .= ' '.ucfirst($name);
+        $category_name .= ' '.ucwords($name);
 
         foreach($categories as $category){
             $category['count'] = count($category->products);
@@ -120,28 +129,37 @@ class ProductController extends Controller
             'macro_categories' => $macro_categories,
             'producers' => $producers,
             'error' => $error,
-            'category_name' => $category_name
+            'category_name' => $category_name,
+            'display_name' => $display_name,
+            'display_type' => $display_type
         ]);
     }
 
     public function index_type($gender, $name, $type)
     {
-        $category_name = null;
+        $display_type = ucwords($type);
+
         switch ($gender) {
             case 'mens':
                 $categories = Category::where('gender','male')->get();
-                $category_name = 'Men';
+                $category_name = 'Men\'s';
+                $display_name = $category_name.' '.ucfirst($name);
+                $display_link = '/mens-clothing/'.$name;
                 break;
             case 'womens':
                 $categories = Category::where('gender','female')->get();
-                $category_name = 'Women';
+                $category_name = 'Women\'s';
+                $display_name = $category_name.' '.ucfirst($name);
+                $display_link = '/womens-clothing/'.$name;
                 break;
             default:
                 $categories = Category::distinct()->get();
                 $category_name = 'All';
+                $display_name = $category_name.' '.ucfirst($name);
+                $display_link = '/all-clothing/'.$name;
         }
 
-        $category_name .= ' '.ucfirst($type);
+        $category_name .= ' '.ucwords($type);
 
         foreach($categories as $category){
             $category['count'] = count($category->products);
@@ -177,7 +195,10 @@ class ProductController extends Controller
             'macro_categories' => $macro_categories,
             'producers' => $producers,
             'error' => $error,
-            'category_name' => $category_name
+            'category_name' => $category_name,
+            'display_name' => $display_name,
+            'display_type' => $display_type,
+            'display_link' => $display_link
         ]);
     }
 
