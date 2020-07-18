@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             ProducerSeeder::class,
             StaticSeeder::class,
             UserSeeder::class,
+            DetailsSeeder::class,
             CommentSeeder::class
         ]);
     }
