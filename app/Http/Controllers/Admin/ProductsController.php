@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Product;
+use App\Detail;
 class ProductsController extends Controller
 {
 
@@ -53,15 +54,6 @@ class ProductsController extends Controller
     }
     protected function update(Request $request)
     {
-        if (!filter_var($request->email, FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "Invalid email format";
-            return \Redirect::back()->withErrors([$emailErr]);
-        }
-        if ($request->old_email != $request->email){
-            if (User::where('email', $request->email)->first()) {
-                $emailErr = "this mail is already used";
-                return \Redirect::back()->withErrors([$emailErr]);
-            }}
 
         $user= User::findOrFail($request->id);
         $user->name=$request['name'];
@@ -81,17 +73,23 @@ class ProductsController extends Controller
 
     protected function edit($id)
     {
-        $user= User::findOrFail($id);
-        return view('admin.forms.user.edit',compact('user'));
+        $product= Product::findOrFail($id);
+        return view('admin.forms.product.edit',compact('product'));
+
+    }
+    protected function details($id)
+    {
+        $details= Detail::where('product_id',$id)->get();
+        return view('admin.forms.product.details',compact('details'));
 
     }
 
     protected function delete(Request $request)
     {
-        $user=User::findOrFail($request->id);
-        $email=$user->email;
-        $user->delete();
-        return back()->with('success', 'User '. $email.' deleted!');
+        $product=Product::findOrFail($request->id);
+        $code=$product->code;
+        $product->delete();
+        return back()->with('success', 'Product '. $code.' deleted!');
     }
 
 }

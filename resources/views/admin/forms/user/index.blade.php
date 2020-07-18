@@ -78,12 +78,12 @@
 
         <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
             <div class="panel panel-teal panel-widget border-right">
-                <a href="/admin/user/{{$id}}/edit" style="color: yellow"> <i class="fa fa-xl fa-map-marker "></i> </a>
+                <a href="/admin/addresses?email={{$user->email}}" style="color: yellow"> <i class="fa fa-xl fa-map-marker "></i> </a>
             </div>
         </div>
         <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
             <div class="panel panel-teal panel-widget border-right">
-                <a href="/admin/user/{{$id}}/edit" style="color: green"> <i class="fa fa-xl fa-credit-card color-green"></i> </a>
+                <a href="/admin/cards?email={{$user->email}}" style="color: green"> <i class="fa fa-xl fa-credit-card color-green"></i> </a>
             </div>
         </div>
         <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
@@ -94,11 +94,7 @@
 
             <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    @if($id == 1)
-                        <p style="color: red">
-                        can't delete
-                        </p>
-                    @else
+
                     <form id="delete-form-{{$id}}"method="POST" action="/admin/user/delete">
                         @csrf
                         <em onclick="deleteFunc{{$id}}()" class="fa fa-xl fa-user-times color-red" style="cursor: pointer" ></em>
@@ -110,7 +106,7 @@
                             }
                         </script>
                         <input name="id" value="{{$user->id}}" hidden >
-                    @endif
+
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>

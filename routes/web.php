@@ -73,6 +73,7 @@ Route::get('/admin/product/new','Admin\ProductsController@create');
 Route::post('/admin/product/store','Admin\ProductsController@store')->name('admin.product.store');;
 Route::post('/admin/product/update','Admin\ProductsController@update')->name('admin.product.update');
 Route::get('/admin/product/{id}/edit','Admin\ProductsController@edit');
+Route::get('/admin/product/{id}/details','Admin\ProductsController@details');
 /**
  * Admin address
  */
@@ -174,6 +175,7 @@ Route::name('card.')->prefix('card')->group(function() {
     Route::delete('/{id}/delete', 'CardController@delete')->name('delete');
 });
 // ---------- Products -----------//
+
     Route::get('/{gender}-clothing', 'ProductController@index')->name('product.index');
     Route::get('/{gender}-clothing/{name}', 'ProductController@index_name')->name('product.index_name');
     Route::get('/{gender}-clothing/{name}/{type}', 'ProductController@index_type')->name('product.index_name_type');

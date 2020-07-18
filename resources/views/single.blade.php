@@ -77,10 +77,10 @@
                                 @endif
                             </span></div>
                         <div class="available">Availibility: <span>
-                                @if($product->detail==null)
-                                not avaiable
+                                @if($product->details==null)
+                                Not Available
                                 @else
-                                {{$product->detail->quantity}} pieces
+                                In Stock
                                 @endif
                             </span></div>
                     </div>

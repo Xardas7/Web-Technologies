@@ -75,10 +75,10 @@
                             Sort by
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="#">Sorting by newest</a>
-                            <a class="dropdown-item" href="{{ Request::url().'?orderBy=price&asc' }}">Sorting by price
+                            <a class="dropdown-item" href="{{ Request::url().'?order_by=date' }}">Sorting by newest</a>
+                            <a class="dropdown-item" href="{{ Request::url().'?order_by=asc' }}">Sorting by price
                                 ↑</a>
-                            <a class="dropdown-item" href="{{ Request::url().'?orderBy=price&desc' }}">Sorting by price
+                            <a class="dropdown-item" href="{{ Request::url().'?order_by=desc' }}">Sorting by price
                                 ↓</a>
                         </div>
                     </div>
