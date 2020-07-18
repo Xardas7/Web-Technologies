@@ -5,6 +5,10 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
     margin: 0;
 }
 
+html{
+    height: 100%;
+}
+
 input[type="number"] {
     -moz-appearance: textfield;
 }
@@ -125,6 +129,9 @@ i{
     width:50%;
 }
 
+.organic-breadcrumb{
+    margin-bottom: 50px;
+}
 
 
 .dropdown-item:hover{
