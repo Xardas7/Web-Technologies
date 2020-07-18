@@ -20,6 +20,15 @@
 
 <!-- Start Align Area -->
 <div class="container">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div class="row justify-content-center settings">
 
         <div class="row col-12 justify-content-center">
@@ -96,7 +105,7 @@
             </div>
 
             <div class="form-group row justify-content-center">
-                <label class="col-2 col-form-label">City</label>
+                <label class="col-2 col-form-label">Postal Code</label>
                 <div class="input-group-icon col-10">
                     <div class="icon">
                         <i class="fas fa-map-marked-alt" aria-hidden="true"></i>

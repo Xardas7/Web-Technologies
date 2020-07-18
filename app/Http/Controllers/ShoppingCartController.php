@@ -70,15 +70,11 @@ class ShoppingCartController extends Controller
 
             if ($shoppingcarthasproducts) {
                 //Se il prodotto è già presente, ne aumento solo la quantità
-                $product->details->quantity -= $quantity;
-                $product->details->save();
                 $shoppingcarthasproducts->quantity += $quantity;
                 $shoppingcarthasproducts->save();
 
             } else {
                 //Altrimenti, lo inserisco
-                $product->details->quantity -= $quantity;
-                $product->details->save();
                 $cart->products()->attach($product->id,[
                     'quantity' => $quantity,
                     'size' => $size

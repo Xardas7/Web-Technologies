@@ -129,7 +129,7 @@ class ChiaveEsterne extends Migration
 
         Schema::table('users', function(Blueprint $table0) {
             $table0->foreign('default_address')->references('id')
-                ->on('addresses')->onDelete('cascade'); });
+                ->on('addresses')->onDelete('set null'); });
 
         Schema::table('images', function(Blueprint $table0) {
             $table0->foreign('product_id')->references('id')

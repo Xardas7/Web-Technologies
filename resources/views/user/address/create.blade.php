@@ -21,11 +21,23 @@
 
 <!-- Start Align Area -->
 <div class="container">
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <div class="row justify-content-center settings">
 
         <div class="row col-12 justify-content-center">
             <h3 class="mb-10 mt-50">My address</h3>
         </div>
+
 
         <form class="col-6 p-5" action="{{ route('address.store') }}" method="POST">
             @csrf
@@ -60,24 +72,20 @@
                     <div class="icon" aria-hidden="true">
                         <i class="fas fa-truck"></i>
                     </div>
-                        <select class="form-control padding" name="type">
-                            <option value="billing" selected>
-                                Billing
-                            </option>
-                            <option value="delivery">
-                                Shipping
-                            </option>
-                            <option value="both">
-                                Both
-                            </option>
+                    <select class="form-control padding" name="type">
+                        <option value="billing" selected>
+                            Billing
+                        </option>
+                        <option value="delivery">
+                            Shipping
+                        </option>
+                        <option value="both">
+                            Both
+                        </option>
                     </select>
 
                 </div>
             </div>
-
-
-
-
 
             <div class="form-group row justify-content-center">
                 <label class="col-2 col-form-label">City</label>
@@ -91,7 +99,7 @@
             </div>
 
             <div class="form-group row justify-content-center">
-                <label class="col-2 col-form-label">City</label>
+                <label class="col-2 col-form-label">Postal Code</label>
                 <div class="input-group-icon col-10">
                     <div class="icon">
                         <i class="fas fa-map-marked-alt" aria-hidden="true"></i>
@@ -125,7 +133,10 @@
             </div>
         </form>
 
+
+
     </div>
+    
 </div>
 <br>
 

@@ -19,6 +19,17 @@ class AddressController extends Controller
     }
 
     public function store(Request $request){
+
+
+        $validate = $request->validate([
+            'country' => 'string',
+            'city' => 'string',
+            'address' => 'string',
+            'address_additional' => 'nullable|string',
+            'postal_code' => 'integer',
+            'type' => 'in:billing,delivery,both',
+        ]);
+
         $user = Auth::user();
         $address = $user->addresses()->create([
         'country' => $request->country,
@@ -57,6 +68,16 @@ class AddressController extends Controller
     }
 
     public function update(Request $request, $id){
+
+        $validate = $request->validate([
+            'country' => 'string',
+            'city' => 'string',
+            'address' => 'string',
+            'address_additional' => 'nullable|string',
+            'postal_code' => 'integer',
+            'type' => 'in:billing,delivery,both',
+        ]);
+        
         $user = Auth::user();
         $address = Address::find($id);
 

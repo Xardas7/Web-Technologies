@@ -32,7 +32,16 @@
 			<div class="row justify-content-center">
 				<div class="col-md-6">
 					<div class="login-form">
-						<h3 class="billing-title text-center">Login</h3>
+                        <h3 class="billing-title text-center">Login</h3>
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
 						<p class="text-center mt-80 mb-40">Welcome back! Sign in to your account </p>
                         <form action="{{ route('login') }}" method="POST">
 
@@ -83,7 +92,8 @@
                             </div>
 
 						</form>
-					</div>
+                    </div>
+                    
                 </div>
 			</div>
 		</div>
