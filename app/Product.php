@@ -26,7 +26,7 @@ class Product extends Model
         return $this->belongsToMany('App\User','wish_lists')->orderBy('id');
     }
 
-    public function detail(){
+    public function details(){
         return $this->hasOne('App\Detail');
     }
 

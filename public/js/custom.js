@@ -66,10 +66,18 @@ $(document).ready(function(){
         size: size
       },
       success: function(data){
-        Toast.fire({
+        if(data.message){
+          Toast.fire({
+            type: 'error',
+            title: data.message
+        });
+        } else {
+           Toast.fire({
           type: 'success',
           title: 'Product added to the cart'
       });
+        }
+       
       },
       error: function(data){
         console.log(data);

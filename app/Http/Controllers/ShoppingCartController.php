@@ -39,7 +39,15 @@ class ShoppingCartController extends Controller
         //Estraggo le info dell'utente loggato
         $user = Auth::user();
 
-        $product_id = $request->product_id;
+        $product = Product::find($request->product_id);
+
+        if($product->details->quantity == 0){
+            return response()->json([
+                'message' => 'Product not available'
+            ]);
+        }
+
+
         $quantity = $request->quantity;
         $size = $request->size;
 
@@ -56,18 +64,22 @@ class ShoppingCartController extends Controller
 
             //Controllo se nel carrello dell'utente quel prodotto è già presente
             $shoppingcarthasproducts = ShoppingCartsHaveProduct::where('shoppingcart_id', $cart->id)
-                ->where('product_id', $product_id)
+                ->where('product_id', $product->id)
                 ->where('size',$size)
                 ->first();
 
             if ($shoppingcarthasproducts) {
                 //Se il prodotto è già presente, ne aumento solo la quantità
+                $product->details->quantity -= $quantity;
+                $product->details->save();
                 $shoppingcarthasproducts->quantity += $quantity;
                 $shoppingcarthasproducts->save();
 
             } else {
                 //Altrimenti, lo inserisco
-                $cart->products()->attach($product_id,[
+                $product->details->quantity -= $quantity;
+                $product->details->save();
+                $cart->products()->attach($product->id,[
                     'quantity' => $quantity,
                     'size' => $size
                 ]);
