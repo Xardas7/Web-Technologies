@@ -11,13 +11,13 @@
 @endsection --}}
 
 @section('content')
- <!-- Start Banner Area -->
- <section class="banner-area organic-breadcrumb">
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center">
             <div class="col-">
                 <h1>{{ $category_name }}</h1>
-                 <nav class="d-flex align-items-center justify-content-start">
+                <nav class="d-flex align-items-center justify-content-start">
                     <a href="/">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
                     <a href="{{Request::url()}}">
                         {{ $category_name }}
@@ -189,29 +189,41 @@
 
                     <div class="top-filter-head">Product Filters</div>
                     <div class="common-filter">
-                        <label class="head">Price</label>
+                        <h5 class="text-center mt-2 mb-2">Price</h5>
 
-                        <br>
-                        Min: <input class="single-input-primary" type="text" name="min_price"
-                            value="{{request('min_price')}}">
+                        <div class="form-group row">
+                            <label for="min_price" class="col-sm-2 col-form-label col-form-label-sm">Min:</label>
+                            <input class="col-sm-10 single-input" type="text" name="min_price"
+                                value="{{request('min_price')}}">
+                        </div>
 
-                        <br>
-                        Max: <input class="single-input-primary" type="text" name="max_price"
-                            value="{{request('max_price')}}">
-                        <br>
-                        <div class="head">Brands</div>
-                        <ul>
+                        <div class="form-group row">
+                            <label for="max_price" class="col-sm-2 col-form-label col-form-label-sm">Max:</label>
+                            <input class="col-sm-10 single-input" type="text" name="max_price"
+                                value="{{request('max_price')}}">
+                        </div>
+
+                        <h5 class="text-center mt-2 mb-2">Brands</h5>
                             @foreach($producers->unique('name') as $producer)
                             @if(count($producer->products) != 0)
-                            <li class="filter-list">
-                                <input class="pixel-radio" type="radio" name="brand"
-                                    value="{{$producer->name}}"><label>{{$producer->name}}</label></li>
+                            <div class="switch-wrap d-flex justify-content-between">
+
+                                    <p>{{$producer->name}}</p>
+                                    <div class="primary-radio">
+                                        <input type="checkbox" id="{{$producer->name}}" name="brand"
+                                            value="{{$producer->name}}">
+                                        <label for="{{$producer->name}}"></label>
+                                    </div>
+                            </div>
+
                             @endif
                             @endforeach
-                        </ul>
                     </div>
-                    <button class="genric-btn primary-border circle arrow">Find</button>
-                    <a href="/{{$url_gender}}-clothing"> Reset filters </a>
+                    <div class="row">
+                        <button class="col genric-btn primary circle mr-0">Find</button>
+                        <a class="col genric-btn danger circle ml-1 mr-0" href="/{{$url_gender}}-clothing"> Reset filters </a>
+                    </div>
+
                 </form>
             </div>
         </div>

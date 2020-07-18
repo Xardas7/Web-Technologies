@@ -93,19 +93,13 @@ i{
     color: white;
 }
 
-.dropdown:hover > a > i, .icon-navbar {
+.dropdown:hover > a > i, .icon-navbar, .single-product:hover h5, .single-product:hover  h3, .brand_name {
     transition: .3s ease-in-out;
 }
 
-.single-product:hover h5, .single-product:hover  h3 {
-    transition: .3s ease-in-out;
-}
 
-.single-product:hover h5, .single-product:hover  h3 {
-    color: #f41068;
-}
-
-.dropdown:hover > a > i,  .icon-navbar:hover{
+.dropdown:hover > a > i,  .icon-navbar:hover, 
+.single-product:hover h5, .single-product:hover  h3, .brand_name:hover{
     color: #f41068;
 }
 
@@ -142,6 +136,7 @@ i{
 .row.justify-content-center.settings{
     border: 1px solid #f41068;
     border-radius: 20px;
+    box-shadow: 0 0 10px  #f41068;
     /* background: rgb(255,228,225);
 background: linear-gradient(90deg, rgba(255,228,225,1) 35%, rgba(237,135,169,1) 100%, rgba(233,147,138,1) 100%); */
 }

@@ -234,7 +234,7 @@
 
 									<div class="countdown-label text" id="second-countdown">Seconds</div>
 								</div>
-								<a href="#" class="view-btn primary-btn2"><span>Shop Now</span></a>
+								<a href="/all-clothing" class="view-btn primary-btn2"><span>Shop Now</span></a>
 								<img src="img/cd.png" class="img-fluid cd-img" alt="">
 							</div>
 						</div>
