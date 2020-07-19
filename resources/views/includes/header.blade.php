@@ -18,20 +18,6 @@
                     <li class="col"><a href="/womens-clothing">Women</a></li>
                     <!-- Dropdown -->
 
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                            Pages
-                        </a>
-
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/cart">Cart</a>
-                            <a class="dropdown-item" href="/checkout">Checkout</a>
-                            <a class="dropdown-item" href="/confermation">Confermation</a>
-                            <a class="dropdown-item" href="/tracking">Tracking</a>
-                            <a class="dropdown-item" href="/generic">Generic</a>
-                            <a class="dropdown-item" href="/elements">Elements</a>
-                        </div>
-                    </li>
                     @guest
                     <li>
                         <a href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -79,7 +65,8 @@
                     <i class="fa fa-shopping-cart fa-2x icon-navbar"></i>
                     <h6>SHOPPING CART</h6>
                 </a>
-                <a class="navbar-brand" href="/wishlist" title="Wishlist">
+
+                <a class="navbar-brand icon-navbar" href="/wishlist" title="Wishlist">
                     <i class="fa fa-heart fa-2x icon-navbar"></i>
                     <h6>WISHLIST</h6>
                 </a>
