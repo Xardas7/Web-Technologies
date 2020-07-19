@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">All Cards</h1>
+            <h1 class="page-header">All Categories</h1>
         </div>
     </div>
     @if (\Session::has('success'))
@@ -18,99 +18,69 @@
         <div class="row">
             <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    User Email
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
-                <div class="panel panel-teal panel-widget border-right">
-                    Number
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
-                <div class="panel panel-teal panel-widget border-right">
                     Name
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    Surname
+                    Gender
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                     Type
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
-                <div class="panel panel-teal panel-widget border-right">
-                    Exp Date
-                </div>
-            </div>
 
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                     Edit
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                     Delete
                 </div>
             </div>
         </div>
     </div>
-    @if($cards->first()==null)
-       <h2 style="text-align: center"> No cards found! </h2>
+    @if($categories->isEmpty())
+       <h2 style="text-align: center"> No categories found! </h2>
     @else
-    @foreach($cards as $card)
+    @foreach($categories as $category)
         @php
-        $id= $card->id;
-    @endphp
+        $id= $category->id;
+        @endphp
     <div class="panel panel-container">
         <div class="row">
             <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    {{$card->user->email}}
+                    {{$category->name}}
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    {{$card->card_number}}
+                    {{$category->gender}}
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    {{$card->name}}
+                    {{$category->type}}
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    {{$card->surname}}
+                    <a href="/admin/category/{{$id}}/edit"> <i class="fa fa-xl fa-edit"></i> </a>
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    {{$card->type}}
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
-                <div class="panel panel-teal panel-widget border-right">
-                    {{$card->exp_date}}
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
-                <div class="panel panel-teal panel-widget border-right">
-                    <a href="/admin/card/{{$id}}/edit"> <i class="fa fa-xl fa-edit"></i> </a>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
-                <div class="panel panel-teal panel-widget border-right">
-                    <form id="delete-form-{{$id}}"method="POST" action="/admin/card/delete">
+                    <form id="delete-form-{{$id}}"method="POST" action="/admin/category/delete">
                         @csrf
                         <em class="fa fa-xl fa-times color-red" style="cursor: pointer;" onclick="deleteFunc{{$id}}()" ></em>
                         <script>
                             function deleteFunc{{$id}}() {
-                                var x = confirm('Do you really want to delete this card ?')
+                                var x = confirm('Do you really want to delete this category ?')
                                 if(x == true){
                                     document.getElementById('delete-form-{{$id}}').submit(); }
                             }

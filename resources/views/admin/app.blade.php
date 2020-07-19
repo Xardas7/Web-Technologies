@@ -111,7 +111,7 @@
                 <li><a class="" href="/admin/category/new">
                         <span class="fa fa-arrow-right">&nbsp;</span> New category
                     </a></li>
-                <li><a class="" href="/admin/categories/new">
+                <li><a class="" href="/admin/categories">
                         <span class="fa fa-arrow-right">&nbsp;</span> All categories
                     </a></li>
             </ul>

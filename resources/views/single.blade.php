@@ -19,7 +19,7 @@
                 <h1>{{$product->name}}</h1>
                 <nav class="d-flex align-items-center justify-content-start">
                     <a href="/">Home<i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                    <a href="/products">Enjoy our products</a>
+                    <a href="/products">{{$product->name}}</a>
                 </nav>
             </div>
         </div>
@@ -77,7 +77,7 @@
                                 @endif
                             </span></div>
                         <div class="available">Availibility: <span>
-                                @if($product->details==null)
+                                @if($product->details->quantity==0)
                                 Not Available
                                 @else
                                 In Stock
@@ -286,9 +286,9 @@
                                         </div>
                                         <div class="d-flex inline-flex">
                                             <small>{{count($comment->likes)}}</small>
-                                            <div class="ml-2"><i class="far fa-thumbs-up {{$comment->likes()->where('user_id', Auth::id())->first() != null ? 'dislike-button' : 'like-button'}}" data-id="{{$comment->id}}"></i></div> 
+                                            <div class="ml-2"><i class="far fa-thumbs-up {{$comment->likes()->where('user_id', Auth::id())->first() != null ? 'dislike-button' : 'like-button'}}" data-id="{{$comment->id}}"></i></div>
                                         </div>
-                                    
+
                                     </div>
                                 </div>
                                 <p class="user-comment">
