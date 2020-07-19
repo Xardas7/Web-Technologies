@@ -161,6 +161,9 @@ Route::name('cart.')->prefix('cart')->group(function(){
 Route::name('order.')->prefix('order')->group(function(){
 });
 
+// -- Coupons -- //
+    Route::get('/coupon/{code}', 'OrdersController@verify_coupon');
+
 // -- USER -- //
 Route::name('user.')->prefix('user')->group(function(){
     Route::post('/update/{id}', 'UserController@update')->name('update');
