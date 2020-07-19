@@ -36,14 +36,13 @@ class ShoppingCartController extends Controller
 
 
     public function store(Request $request){
-        //Estraggo le info dell'utente loggato
-
         $validate = $request->validate([
             'product_id' => 'integer',
             'quantity' => 'integer',
             'size' => 'alpha_num',
         ]);
 
+        //Estraggo le info dell'utente loggato
         $user = Auth::user();
 
         $product = Product::find($request->product_id);
@@ -63,6 +62,7 @@ class ShoppingCartController extends Controller
 
         $quantity = $request->quantity;
         $size = $request->size;
+        $amount = $product->price * $quantity;
 
         //Estraggo le info del carrello dell'utente loggato
         $cart = ShoppingCart::where('user_id',$user->id)->first();
@@ -85,7 +85,6 @@ class ShoppingCartController extends Controller
                 //Se il prodotto è già presente, ne aumento solo la quantità
                 $shoppingcarthasproducts->quantity += $quantity;
                 $shoppingcarthasproducts->save();
-
             } else {
                 //Altrimenti, lo inserisco
                 $cart->products()->attach($product->id,[
@@ -93,9 +92,11 @@ class ShoppingCartController extends Controller
                     'size' => $size
                 ]);
             }
+        $cart->amount += $amount;
+        $cart->save();
     }
 
-    
+
     public function refresh_quantity(Request $request){
 
 

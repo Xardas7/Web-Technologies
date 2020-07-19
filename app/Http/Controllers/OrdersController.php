@@ -52,14 +52,22 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
+
         $validate = $request->validate([
             'card' => 'integer',
-            'coupon_id' => 'integer',
-            'amount' => 'regex:/[0-9]+\.[0-9]*/i',
+            'coupon_code' => 'string',
             'payment' => 'in:card,paypal,delivery'
         ]);
 
         $user = Auth::user();
+
+        $coupon_code = $request->coupon_code;
+        $coupon_value = $this->verify_coupon($coupon_code);
+        $amount = $user->shoppingCart->amount;
+        if($coupon_value['validity']=='valid') {
+            $coupon = Coupon::where('code',$coupon_code)->first();
+            $amount = $amount * $coupon->amount;
+        }
 
         $address = Address::where('user_id',$user->id)->first();
         if($request->payment == 'card' AND $request->card) {
@@ -68,9 +76,9 @@ class OrdersController extends Controller
                 'billing_address_id' => $address->id,
                 'shipping_address_id' => $address->id,
                 'shipping_address' => $address->address.", ".$address->city.", ".$address->country,
-                'coupon_id' => $request->coupon_id,
+                'coupon_id' => $coupon->id,
                 'card_id' => $request->card,
-                'amount' => $request->amount,
+                'amount' => $amount,
                 'state' => 'in progress'
             ]);
 
@@ -86,6 +94,8 @@ class OrdersController extends Controller
                     'size' => $product->details->size
                 ]);
                 $user->shoppingCart->products()->detach($product->id);
+                $user->shoppingCart->amount = 0;
+                $user->shoppingCart->save();
                 $product_real = Product::find($product->id);
                 $product_real->details->quantity -= $product->details->quantity;
                 $product_real->details->save();
@@ -175,9 +185,22 @@ class OrdersController extends Controller
     }
 
     public function payment_checkout(){
+        $discount_value = null;
+        $coupon_code = null;
         $cards = Auth::user()->cards;
         $products=Auth::user()->shoppingCart->products;
-        return view('checkout-payment', ['cards'=> $cards, 'products' => $products]);
+        return view('checkout-payment', ['cards'=> $cards, 'products' => $products, 'discount_value' => $discount_value, 'coupon'=>$coupon_code]);
+    }
+
+    public function payment_checkout_with_coupon(Request $request){
+        $discount_value = null;
+        $discount = $this->verify_coupon($request->coupon);
+        if($discount['validity'] == 'valid'){
+            $discount_value = $discount['discount'];
+        }
+        $cards = Auth::user()->cards;
+        $products=Auth::user()->shoppingCart->products;
+        return view('checkout-payment', ['cards'=> $cards, 'products' => $products, 'discount_value' => $discount_value, 'coupon'=>$request->coupon]);
     }
 
     public function verify_coupon($coupon_code){

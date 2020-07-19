@@ -162,7 +162,7 @@ Route::name('order.')->prefix('order')->group(function(){
 });
 
 // -- Coupons -- //
-    Route::get('/coupon/{code}', 'OrdersController@verify_coupon');
+    Route::get('/coupon', 'OrdersController@payment_checkout_with_coupon');
 
 // -- USER -- //
 Route::name('user.')->prefix('user')->group(function(){
