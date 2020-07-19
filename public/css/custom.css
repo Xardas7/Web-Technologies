@@ -280,6 +280,15 @@ background: linear-gradient(90deg, rgba(255,228,225,1) 35%, rgba(237,135,169,1) 
 
   }
 
+  .quantity-container .arrow-btn {
+    padding: 1px 0 2px 0;
+  }
+
+  .col-1.form-control.quantity-amount.ml-15{
+    flex: 0 0 10.33333%;
+    max-width: 10.33333%;
+}
+
 /* Colore del banner */
 
 /* {

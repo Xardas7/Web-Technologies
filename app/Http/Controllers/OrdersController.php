@@ -48,8 +48,17 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        $user = Auth::user();
 
+
+        $validate = $request->validate([
+            'card' => 'integer',
+            'coupon_id' => 'integer',
+            'amount' => 'regex:/[0-9]+\.[0-9]*/i',
+            'payment' => 'in:card,paypal,delivery'
+        ]);
+
+
+        $user = Auth::user();
 //        $cards = $user->cards;
 //        $chosenCard = null;
 //
@@ -81,13 +90,12 @@ class OrdersController extends Controller
                 'state' => 'in progress'
             ]);
 
-            $products=ShoppingCartsHaveProduct::where('shoppingcart_id',Auth::user()->shoppingCart->id)->get();
-            foreach($products as $product){
+            foreach($user->shoppingCart->products as $product){
                 $orderDetails = OrdersHaveProduct::create([
                     'order_id' => $order->id,
-                    'product_id' => $product->product_id,
-                    'quantity' => $product->quantity,
-                    'size' => $product->size
+                    'product_id' => $product->details->product_id,
+                    'quantity' => $product->details->quantity,
+                    'size' => $product->details->size
                 ]);
                 $product->delete();
             }

@@ -37,6 +37,13 @@ class ShoppingCartController extends Controller
 
     public function store(Request $request){
         //Estraggo le info dell'utente loggato
+
+        $validate = $request->validate([
+            'product_id' => 'integer',
+            'quantity' => 'integer',
+            'size' => 'alpha_num',
+        ]);
+
         $user = Auth::user();
 
         $product = Product::find($request->product_id);
