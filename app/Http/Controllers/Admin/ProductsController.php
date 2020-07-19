@@ -94,6 +94,12 @@ class ProductsController extends Controller
                     ]);
                     }
         }
+        
+        alert()->success('Product','Product added succesfully')
+        ->toToast()
+        ->animation('animate__backInRight','animate__backOutRight')
+        ->autoClose(3000)
+        ->timerProgressBar();
         return redirect()->back();
            
             // $product->images()->updateOrCreate(
