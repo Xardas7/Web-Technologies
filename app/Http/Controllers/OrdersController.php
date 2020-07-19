@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Address;
 use App\Card;
+use App\Coupon;
 use App\Order;
 use App\Product;
 use App\OrdersHaveProduct;
 use App\ShoppingCartsHaveProduct;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\UnauthorizedException;
 
 class OrdersController extends Controller
 {
@@ -49,8 +52,6 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $validate = $request->validate([
             'card' => 'integer',
             'coupon_id' => 'integer',
@@ -58,27 +59,8 @@ class OrdersController extends Controller
             'payment' => 'in:card,paypal,delivery'
         ]);
 
-
         $user = Auth::user();
-//        $cards = $user->cards;
-//        $chosenCard = null;
-//
-//        foreach($cards as $card){
-//            if($card->card_number == $request->cardNumber AND $card->cvv == $request->cvvNumber){
-//                $chosenCard = $card;
-//            }
-//        }
-//
-//        if($chosenCard == null) {
-//            $chosenCard = $user->cards()->create([
-//                'type' => $request->type,
-//                'card_number' => $request->cardNumber,
-//                'name' => $request->name,
-//                'surname' => $request->surname,
-//                'exp_date' => $request->exp_date,
-//                'cvv' => $request->cvv
-//            ]);
-//        }
+
         $address = Address::where('user_id',$user->id)->first();
         if($request->payment == 'card' AND $request->card) {
             $order = Order::create([
@@ -127,15 +109,22 @@ class OrdersController extends Controller
 
     public function confermation($order_id){
         $order = Order::findOrFail($order_id);
+        if($order->user_id != Auth::id()){
+            $error='Oops, something went wrong!';
+            return view('confermation', [
+                'error' => $error
+            ]);
+        }
         $order_details = OrdersHaveProduct::where('order_id',$order->id)->get();
-        $shipping_details = Address::find($order->shipping_address_id);
-        $billing_details = Address::find($order->billing_address_id);
+        $shipping_details = Address::findOrFail($order->shipping_address_id);
+        $billing_details = Address::findOrFail($order->billing_address_id);
 
         return view('confermation', [
             'order' => $order,
             'order_details' => $order_details,
             'shipping_address' => $shipping_details,
-            'billing_address' => $billing_details]);
+            'billing_address' => $billing_details,
+            'error' => $error = null]);
     }
 
     /**
@@ -189,6 +178,23 @@ class OrdersController extends Controller
         $cards = Auth::user()->cards;
         $products=Auth::user()->shoppingCart->products;
         return view('checkout-payment', ['cards'=> $cards, 'products' => $products]);
+    }
+
+    public function verify_coupon($coupon_code){
+        $coupon = Coupon::where('code', $coupon_code)->first();
+        $validity = false;
+        $discount = null;
+        if($coupon){
+            if($coupon->exp_date > Carbon::now()) {
+                $validity = 'valid';
+                $discount = $coupon->amount;
+            } else {
+                $validity = 'expired';
+            }
+        } else {
+            $validity = 'invalid';
+        }
+        return ['validity' => $validity, 'discount' => $discount];
     }
 
 }
