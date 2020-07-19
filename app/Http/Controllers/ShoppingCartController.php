@@ -122,4 +122,14 @@ class ShoppingCartController extends Controller
 
 
     }
+
+    public function deleteProduct($id){
+
+        $user = Auth::user();
+
+        $user->shoppingCart->products()->where('product_id',$id)->delete();
+
+    }
+
+
 }

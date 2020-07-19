@@ -77,4 +77,12 @@ class OrdersController extends Controller
     {
 
     }
+
+    public function products($id){
+        $order = Order::find($id);
+        $products = $order->products;
+        return view('admin.forms.orders.products',compact('products'));
+
+
+    }
 }
