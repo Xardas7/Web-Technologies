@@ -113,6 +113,14 @@ Route::post('/admin/coupon/store','Admin\CouponsController@store');
 Route::post('/admin/coupon/update','Admin\CouponsController@update');
 Route::get('/admin/coupon/{id}/edit','Admin\CouponsController@edit');
 
+
+Route::get('/admin/producers','Admin\ProducersController@index')->name('admin.producer.index');
+Route::post('/admin/producer/delete','Admin\ProducersController@delete');
+Route::get('/admin/producer/new','Admin\ProducersController@create');
+Route::post('/admin/producer/store','Admin\ProducersController@store');
+Route::post('/admin/producer/update','Admin\ProducersController@update');
+Route::get('/admin/producer/{id}/edit','Admin\ProducersController@edit');
+
 /**
  * Other admin routs
  */

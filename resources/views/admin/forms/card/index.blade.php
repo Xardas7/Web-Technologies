@@ -59,6 +59,9 @@
             </div>
         </div>
     </div>
+    @if($cards->first()==null)
+       <h2 style="text-align: center"> No cards found! </h2>
+    @else
     @foreach($cards as $card)
         @php
         $id= $card->id;
@@ -120,4 +123,5 @@
     </div>
 
     @endforeach
+    @endif
 @endsection
