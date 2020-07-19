@@ -17,6 +17,9 @@ class CreateOrdersHaveProductsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('product_id');
+            $table->text('product_name');
+            $table->text('product_details');
+            $table->text('product_price');
             $table->unsignedInteger('quantity');
             $table->string('size');
             $table->timestamps();

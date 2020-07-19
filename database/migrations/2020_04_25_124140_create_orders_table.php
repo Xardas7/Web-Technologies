@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('billing_address_id');
             $table->unsignedBigInteger('shipping_address_id');
+            $table->text('shipping_address');
             $table->unsignedBigInteger('coupon_id')->nullable();
             $table->unsignedBigInteger('card_id');
             $table->string('track')->nullable();
