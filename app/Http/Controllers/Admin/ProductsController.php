@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Product;
+use App\Producer;
+use App\Category;
 use App\Detail;
 use Illuminate\Support\Facades\Storage;
 
@@ -33,29 +35,61 @@ class ProductsController extends Controller
     }
 
     function create(){
-        return view('admin.forms.product.create');
+        $producers = Producer::all();
+        $categories_female = Category::distinct()->select('name')->where('gender','female')->get();
+        $categories_male = Category::distinct()->select('name')->where('gender','male')->get();
+        $categories_type_male = Category::where('gender','male')->get();
+        $categories_type_female = Category::where('gender','female')->get();
+
+        return view('admin.forms.product.create',compact('producers','categories_female','categories_male', 'categories_type_female', 'categories_type_male'));
     }
 
     protected function store(Request $request)
     {
         $validate = $request->validate([
             'images[]' => 'mimes:jpeg,jpg,png,svg,webp',
-
+            'producer_id' => 'integer',
+            'category_id' => 'integer',
+            'name' => 'unique:products|string',
+            'price' => 'integer',
+            'description' => 'string',
+            'material' => 'string',
+            'composition' => 'string',
+            'quantity' => 'integer',
+            'width' => 'integer',
+            'depth' => 'integer',
+            'weight' => 'integer',
+            'code' => 'alpha_num',
         ]);
 
-        /* logica creazione prodotto */
+        $product = Product::create([
+            'category_id' => $request->category_type,
+            'producer_id' => $request->producer_id,
+            'code' => $request->code,
+            'name' => $request->name,
+            'price' => $request->price,
+            'description' => $request->description,
+        ]);
 
-        /*
-        .
-        .
-        . 
-        */
+        $product->details()->create([
+            'material' => $request->material,
+            'composition' => $request->composition,
+            'quantity' => $request->quantity,
+            'width' => $request->width,
+            'weight' => $request->weight,
+            'depth' => $request->depth,
+        ]);
+
 
         if($request->hasFile('images')){
             foreach($request->images as $image){
                     $fileClientName = $image->getClientOriginalName();
                     $path = $image->storeAs('products', $fileClientName);   
                     }
+
+        $product->images()->create([
+            'path' => $path
+        ]);
 
         /* Qui devi collegare ogni path al prodotto, esempio
              $product->images()->Create([

@@ -6,50 +6,91 @@
         <div class="col-lg-12">
             <h1 class="page-header">Add a Product</h1>
         </div>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
     </div>
     <hr/>
 
     <div class="panel panel-default">
         <div class="panel-body">
+            
                 <form method="POST" action="/admin/product/store" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label>Producer</label>
-                        <input type="text" class="form-control" placeholder="Producer" name="producer">
+                        <select name="producer_id" id="producers" class="form-control">
+                            @foreach($producers as $producer)
+                        <option value="{{$producer->id}}">{{$producer->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Category Name</label>
-                        <input type="text" class="form-control" placeholder="Category Name" name="category_name">
+                        <select name="category_name" id="categories" class="form-control" required>
+                            <optgroup label="Female">
+                            @foreach($categories_female as $category)
+                            <option value="{{\App\Category::where('name',$category->name)->where('gender','female')->first()->id}}"> {{$category->name}}</option>
+                              @endforeach
+                            </optgroup>
+                            <optgroup label="Male">
+                                @foreach($categories_male as $category)
+                            <option value="{{\App\Category::where('name',$category->name)->where('gender','male')->first()->id}}"> {{$category->name}}</option>
+                              @endforeach
+                            </optgroup>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Category Type</label>
-                        <input type="text" class="form-control" placeholder="Category Type" name="category_type">
+                        <select name="category_type" id="categories" class="form-control" required>
+                            <optgroup label="Female">
+                            @foreach($categories_type_female as $category)
+                            <option value="{{$category->id}}"> {{$category->type}}</option>
+                              @endforeach
+                            </optgroup>
+                            <optgroup label="Male">
+                                @foreach($categories_type_male as $category)
+                                <option value="{{$category->id}}"> {{$category->type}}</option>
+                                @endforeach
+                            </optgroup>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text"class="form-control" placeholder="Name" name="name">
+                        <input type="text"class="form-control" placeholder="Name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Code</label>
+                        <input type="text"class="form-control" placeholder="Code" name="code" required>
                     </div>
                     <div class="form-group">
                         <label>Price</label>
-                        <input class="form-control" type="text" placeholder="Price" name="price">
+                        <input class="form-control" type="text" placeholder="Price" name="price" required>
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <input class="form-control" type="text" placeholder="Description" name="description">
+                        <textarea class="form-control" placeholder="Description" name="description" required>
+                        </textarea>
                     </div>
                     <hr>
                     <h2>Details</h2>
                     <div class="form-group">
                         <label>Material</label>
-                        <input class="form-control" type="text"placeholder="Material" name="material">
+                        <input class="form-control" type="text"placeholder="Material" name="material" required>
                     </div>
                     <div class="form-group">
                         <label>Composition</label>
-                        <input class="form-control"type="text" placeholder="Composition" name="composition">
+                        <input class="form-control"type="text" placeholder="Composition" name="composition" required>
                     </div>
                     <div class="form-group">
                         <label>Quantity</label>
-                        <input class="form-control"type="text" placeholder="Quantity" name="quantity">
+                        <input class="form-control"type="number" placeholder="Quantity" name="quantity" min="1" required>
                     </div>
                     <div class="form-group">
                         <label>Width</label>
