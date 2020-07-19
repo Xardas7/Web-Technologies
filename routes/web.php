@@ -53,7 +53,18 @@ Route::get('/elements', function () {
 /**
  * Admin routes
  */
-Route::get('/admin','Admin\MainController@index');
+Route::get('/admin','Admin\MainController@admin');
+
+/**
+ * Producer
+ */
+Route::get('/dashboard','Admin\MainProducerController@dashboard');
+Route::get('/dashboard/product/new','Admin\MainProducerController@create');
+Route::post('/dashboard/product/delete','Admin\MainProducerController@delete');
+Route::post('/dashboard/product/store','Admin\MainProducerController@store');
+Route::post('/dashboard/product/update','Admin\MainProducerController@update');
+Route::get('/dashboard/product/{id}/edit','Admin\MainProducerController@edit');
+Route::get('/dashboard/product/{id}/details','Admin\MainProducerController@details');
 /**
  * Admin users
  */
@@ -71,7 +82,7 @@ Route::get('/admin/products','Admin\ProductsController@index')->name('admin.prod
 Route::post('/admin/product/delete','Admin\ProductsController@delete');
 Route::get('/admin/product/new','Admin\ProductsController@create')->name('product.create');
 Route::post('/admin/product/store','Admin\ProductsController@store')->name('admin.product.store');;
-Route::post('/admin/product/update','Admin\ProductsController@update')->name('admin.product.update');
+Route::post('/admin/product/{id}/update','Admin\ProductsController@update')->name('admin.product.update');
 Route::get('/admin/product/{id}/edit','Admin\ProductsController@edit');
 Route::get('/admin/product/{id}/details','Admin\ProductsController@details');
 /**

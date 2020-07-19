@@ -50,7 +50,7 @@
                 <input type="submit" hidden>
             @endif
                 @if(!empty($products))
-                <input type="text" class="form-control" placeholder="Search by name" name="name">
+                <input type="text" class="form-control" placeholder="Search by code" name="code">
                 <input type="submit" hidden>
                 @endif
                 @if(!empty($addresses))
@@ -65,10 +65,20 @@
                     <input type="text" class="form-control" placeholder="Search by email" name="email">
                     <input type="submit" hidden>
                 @endif
+                @if(!empty($coupons))
+                    <input type="text" class="form-control" placeholder="Search by code" name="code">
+                    <input type="submit" hidden>
+                @endif
+                @if(!empty($producers))
+                    <input type="text" class="form-control" placeholder="Search by name" name="name">
+                    <input type="submit" hidden>
+                @endif
         </div>
     </form>
     @endif
+
     <ul class="nav menu" >
+        @can('all')
         <li class="{{Request::getPathInfo() === '/admin' ? 'active' : 'parent'}}"><a href="/admin"  style="color: white"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
         <li class="{{(Request::getPathInfo() ==='/admin/user/new' or Request::getPathInfo() === '/admin/users') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-1" style="color: white">
                 <em class="fa fa-navicon">&nbsp;</em> Users<span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
@@ -156,6 +166,18 @@
                 <li>
             </ul>
         </li>
+            @endcan
+        @can('product manage')
+                <li><a class="" href="/dashboard/product/new" style="color: white">
+                        <span class="fa fa-arrow-right">&nbsp;</span> New product
+                    </a></li>
+                <li><a class="" href="/dashboard/" style="color: white">
+                        <span class="fa fa-arrow-right">&nbsp;</span> All products
+                    </a></li>
+                <li><a class="" href="/dashboard/" style="color: white">
+                        <span class="fa fa-arrow-right">&nbsp;</span> Update Account
+                    </a></li>
+            @endcan
         <li>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
