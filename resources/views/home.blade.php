@@ -176,7 +176,7 @@
 							<div class="price">
 								<div>
 									<a href="/{{$product->name}}" class="product_name">
-										<h5>{{$product->name}}  {{$product->images->first()}}</h5>
+										<h5>{{$product->name}}</h5>
 									</a>
 									<p id="description-tab"> {{$product->producer->name}}</p>
 								</div>
