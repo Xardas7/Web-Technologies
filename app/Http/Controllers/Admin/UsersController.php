@@ -14,7 +14,10 @@ class UsersController extends Controller
     /**
      * user controllers
      */
-
+    public function __construct()
+    {
+        $this->middleware(['role:admin']);
+    }
     function index(){
         if(request('email')!=null) {
             $key = request('email');
@@ -43,10 +46,17 @@ class UsersController extends Controller
         }
         $user= new User();
         $user->name=$request['name'];
+        $user->surname=$request['surname'];
         $user->email=$request['email'];
         $user->email_verified_at = date('Y-m-d');
         $user->password= Hash::make($request['password']);
         $user->save();
+        if($request->role=='admin'){
+            $user->assignRole('admin');
+        }
+        if($request->role=='producer'){
+            $user->assignRole('producer');
+        }
         return redirect()->route('users.index')->with('success', 'User '. $request->email.' created!');
 
     }
@@ -74,6 +84,9 @@ class UsersController extends Controller
         }
 
         $user->save();
+        if($request->ruole == 'admin'){
+            $user->assignRole('admin');
+        }
         return redirect()->route('users.index')->with('success', 'User '. $request->email.' updated!');
 
     }

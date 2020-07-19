@@ -56,9 +56,12 @@ class ProductController extends Controller
 
         $p = new SearchHelper();
         $products = $p->search_by_gender($gender);
+        $producers = collect();
+        foreach($products as $product){
+            $producers->push($product->producer);
+        }
         $products = $p->paginate($products);
         $error = null;
-        $producers = Producer::all();
         if(count($products) == 0){ $error = 'There\'s nothing here';}
         return view('category', [
             'products' => $products,
@@ -120,9 +123,12 @@ class ProductController extends Controller
         $p = new SearchHelper();
         $products = $p->search_by_gender($gender);
         $products = $p->search_by_name($name, $products);
+        $producers = collect();
+        foreach($products as $product){
+            $producers->push($product->producer);
+        }
         $products = $p->paginate($products);
         $error = null;
-        $producers = Producer::all();
         if(count($products) == 0){ $error = 'There\'s nothing here';}
         return view('category', [
             'products' => $products,
@@ -186,9 +192,12 @@ class ProductController extends Controller
         $products = $p->search_by_gender($gender);
         $products = $p->search_by_name($name, $products);
         $products = $p->search_by_type($type, $products);
+        $producers = collect();
+        foreach($products as $product){
+            $producers->push($product->producer);
+        }
         $products = $p->paginate($products);
         $error = null;
-        $producers = Producer::all();
         if(count($products) == 0){ $error = 'There\'s nothing here';}
         return view('category', [
             'products' => $products,

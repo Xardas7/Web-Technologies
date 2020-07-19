@@ -98,7 +98,7 @@ i{
 }
 
 
-.dropdown:hover > a > i,  .icon-navbar:hover, 
+.dropdown:hover > a > i,  .icon-navbar:hover,
 .single-product:hover h5, .single-product:hover  h3, .brand_name:hover{
     color: #f41068;
 }
@@ -130,7 +130,7 @@ i{
 
 .organic-breadcrumb{
     margin-bottom: 50px;
-    margin-top: 66px;
+    margin-top: 50px;
 }
 
 
@@ -320,4 +320,3 @@ background: linear-gradient(90deg, rgba(255,228,225,1) 35%, rgba(237,135,169,1) 
     background-image: -webkit-linear-gradient(45deg, #f6463d 0%, #f6398d 45%, #f52cdc 100%);
     background-image: -ms-linear-gradient(45deg, #f6463d 0%, #f6398d 45%, #f52cdc 100%);
   } */
-  

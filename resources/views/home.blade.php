@@ -38,7 +38,7 @@
 						<div class="menu-content pb-40">
 							<div class="title text-center">
 								<h1 class="mb-10">Shop for Different Categories</h1>
-								<p>Who are in extremely love with eco friendly system.</p>
+								<p> </p>
 							</div>
 						</div>
 					</div>
@@ -104,7 +104,7 @@
 						<div class="menu-content pb-40">
 							<div class="title text-center">
 								<h1 class="text-white mb-10">New realeased Products for Men</h1>
-								<p class="text-white">Who are in extremely love with eco friendly system.</p>
+								<p class="text-white"> </p>
 							</div>
 						</div>
 					</div>
@@ -126,7 +126,7 @@
 								<div class="content-overlay"></div>
 								<img class="content-image img-fluid d-block mx-auto"
 									src="{{ Storage::exists($product->images->first()->path) ? asset("storage/".$product->images->first()->path) :  $product->images->first()->path}}" alt="">
-	
+
 							</a>
 							<div class="price">
 								<div>
@@ -136,7 +136,7 @@
 									<p class="text-white" id="description-tab"> {{$product->producer->name}}</p>
 								</div>
 								<h3 class="text-white">{{$product->price}}€</h3>
-	
+
 							</div>
 						</div>
                         @endforeach
@@ -161,7 +161,7 @@
 					<div class="countdown-content pb-40">
 						<div class="title text-center">
 							<h1 class="mb-10">New realeased Products for Women</h1>
-						<p>Who are in extremely love with eco friendly system.</p>
+							<p> </p>
 						</div>
 					</div>
 					<div class="row">
@@ -171,7 +171,7 @@
 								<div class="content-overlay"></div>
 								<img class="content-image img-fluid d-block mx-auto"
 									src="{{ Storage::exists($product->images->first()->path) ? asset("storage/".$product->images->first()->path) :  $product->images->first()->path}}" alt="">
-	
+
 							</a>
 							<div class="price">
 								<div>
@@ -181,7 +181,7 @@
 									<p id="description-tab"> {{$product->producer->name}}</p>
 								</div>
 								<h3>{{$product->price}}€</h3>
-	
+
 							</div>
 						</div>
                         @endforeach
@@ -196,7 +196,7 @@
 					<div class="countdown-content">
 						<div class="title text-center">
 							<h1 class="mb-10">Exclusive Hot Deal Ends in:</h1>
-							<p>Who are in extremely love with eco friendly system.</p>
+							<p> </p>
 						</div>
 					</div>
 					<div class="row">

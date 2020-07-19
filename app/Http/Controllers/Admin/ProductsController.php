@@ -22,9 +22,12 @@ class ProductsController extends Controller
     /**
      * user controllers
      */
-
+    public function __construct()
+    {
+        $this->middleware(['role:admin']);
+    }
     function index(){
-        if(request('email')!=null) {
+        if(request('code')!=null) {
             $key = request('code');
             $products = Product::where('code', $key)->get();
             return view('admin.forms.product.index',compact('products'));
@@ -87,14 +90,14 @@ class ProductsController extends Controller
             $files = $request->file('images');
             foreach($files as $image){
                     $fileClientName = $image->getClientOriginalName();
-                    $path = $image->storeAs('products', $fileClientName);  
+                    $path = $image->storeAs('products', $fileClientName);
                       $image = Image::create([
                     'product_id' => $product->id,
                     'path' => $path
                     ]);
                     }
         }
-        
+
         alert()->success('Product','Product added succesfully')
         ->toToast()
         ->animation('animate__backInRight','animate__backOutRight')
@@ -102,7 +105,7 @@ class ProductsController extends Controller
         ->timerProgressBar();
         session()->flash('message', 'Product was created!');
         return redirect()->route('product.create');
-           
+
             // $product->images()->updateOrCreate(
             //     ['product_id' => $product->id],
             //     ['path' => $path]

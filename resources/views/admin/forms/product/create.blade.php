@@ -25,7 +25,7 @@
 
     <div class="panel panel-default">
         <div class="panel-body">
-            
+            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
                 <form method="POST" action="/admin/product/store" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
@@ -36,6 +36,10 @@
                             @endforeach
                         </select>
                     </div>
+
+                    @else
+                        <form method="POST" action="/dashboard/product/store" enctype="multipart/form-data">
+                            @endif
                     <div class="form-group">
                         <label>Category Name</label>
                         <select name="category_name" id="categories" class="form-control" required>
