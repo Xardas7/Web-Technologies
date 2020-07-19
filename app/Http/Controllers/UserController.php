@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\OrdersHaveProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\User;
@@ -28,7 +29,8 @@ class UserController extends Controller
             'surname' => 'required|string',
             'birth_date' => 'required|date_format:Y-m-d',
             'email' => 'required|email|unique:users',
-            'sex' => 'required|in:male,female,undefined'
+            'sex' => 'required|in:male,female,undefined',
+            'avatar' => 'nullable|mimes:jpeg,jpg,png,svg,webp'
         ]);  
         } else {
             $validate = $request->validate([
@@ -36,7 +38,8 @@ class UserController extends Controller
                 'surname' => 'required|string',
                 'birth_date' => 'required|date_format:Y-m-d',
                 'email' => 'required|email',
-                'sex' => 'required|in:male,female,undefined'
+                'sex' => 'required|in:male,female,undefined',
+                'avatar' => 'nullable|mimes:jpeg,jpg,png,svg,webp'
             ]); 
         }
 
@@ -50,7 +53,19 @@ class UserController extends Controller
             return back();
         }
 
-        $user->update($request->all());
+        if($request->has('avatar')){
+
+            $fileClientName = $request->file('avatar')->getClientOriginalName();
+            $path = $request->file('avatar')->storeAs(
+                'avatars', $fileClientName
+            );     
+            $user->avatar()->updateOrCreate(
+                ['user_id' => $user->id],
+                ['path' => $path]
+            );
+    
+        }
+        
 
         alert()->success('Profile updated','Your profile has been updated')
         ->toToast()

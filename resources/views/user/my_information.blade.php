@@ -10,7 +10,7 @@
 </div>
 @endif
 <div class="row justify-content-center">
-    <form class="col-8" action="{{ route('user.update',['id' => $user->id]) }}" method="POST">
+    <form class="col-8" action="{{ route('user.update',['id' => $user->id]) }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group row justify-content-center p-1">
         <label class="col-2 col-form-label">First Name</label>
@@ -70,6 +70,13 @@
                     <option value="undefined" {{$user->sex == 'undefined' ? 'selected' : ''}}>
                         Undefined</option>
                 </select>
+        </div>
+    </div>
+
+    <div class="form-group row justify-content-center">
+        <label class="col-2 col-form-label" for="avatar">Avatar</label>
+        <div class="input-group-icon col-6">
+            <input type="file" name="avatar" id="avatar">
         </div>
     </div>
 

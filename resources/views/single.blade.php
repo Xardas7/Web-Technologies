@@ -273,7 +273,7 @@
                             @foreach($product->comments as $comment)
                             <div class="single-comment">
                                 <div class="user-details d-flex align-items-center">
-                                    <img src="https://www.croptecshow.com/wp-content/uploads/2017/04/guest-avatar-250x250px.png"
+                                <img src="{{ Storage::exists($comment->user->avatar->path) ? asset("storage/".$comment->user->avatar->path) :  "/images/default-avatar/guest-avatar.png"}}"
                                         class="img-fluid" alt="">
                                     <div class="user-name">
                                         <h5>{{$comment->user->name}} {{$comment->user->surname}}</h5>
