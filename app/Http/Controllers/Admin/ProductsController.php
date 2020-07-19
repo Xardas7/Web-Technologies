@@ -52,9 +52,9 @@ class ProductsController extends Controller
         $validate = $request->validate([
             'images[]' => 'mimes:jpeg,jpg,png,svg,webp',
             'producer_id' => 'integer',
-            'category_id' => 'integer',
+            'category_type' => 'integer',
             'name' => 'unique:products|string',
-            'description' => 'string',
+            'description' => 'nullable|string',
             'material' => 'string',
             'composition' => 'nullable|string',
             'quantity' => 'integer',
@@ -109,29 +109,85 @@ class ProductsController extends Controller
             // );
 
     }
-    protected function update(Request $request)
+    protected function update(Request $request,$id)
     {
 
-        $user= User::findOrFail($request->id);
-        $user->name=$request['name'];
-        $user->email=$request['email'];
-        $user->surname=$request['surname'];
-        $user->birth_date=$request['birth_date'];
-        $user->sex=$request['sex'];
-        if($request->password != 'passwordnoncambiata'){
-            $user->password = Hash::make($request['password']);
+        $validate = $request->validate([
+            'images[]' => 'nullable|mimes:jpeg,jpg,png,svg,webp',
+            'producer_id' => 'integer',
+            'category_id' => 'integer',
+            'name' => 'string',
+            'description' => 'nullable|string',
+            'material' => 'string',
+            'composition' => 'nullable|string',
+            'quantity' => 'integer',
+            'width' => 'nullable|integer',
+            'depth' => 'nullable|integer',
+            'weight' => 'nullable|integer',
+            'code' => 'alpha_num',
+        ]);
 
+        $product = Product::find($id);
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->code = $request->code;
+        $product->price = $request->price;
+        $product->category_id = $request->category_type;
+        $product->producer_id = $request->producer_id;
+        $product->save();
+
+
+
+        $product->details()->updateOrCreate(
+            ['product_id' => $product->id],
+            [
+            'material' => $request->material,
+            'composition' => $request->composition,
+            'quantity' => $request->quantity,
+            'width' => $request->width,
+            'weight' => $request->weight,
+            'depth' => $request->depth,
+        ]);
+
+
+        if($request->hasFile('images')){
+            $files = $request->file('images');
+            foreach($files as $image){
+                    $fileClientName = $image->getClientOriginalName();
+                    $path = $image->storeAs('products', $fileClientName);  
+                      $image = Image::create([
+                    'product_id' => $product->id,
+                    'path' => $path
+                    ]);
+                    }
         }
+        
+        alert()->success('Product','Product added succesfully')
+        ->toToast()
+        ->animation('animate__backInRight','animate__backOutRight')
+        ->autoClose(3000)
+        ->timerProgressBar();
+        session()->flash('message', 'Product was updated!');
+        return redirect()->route('product.create');
+           
+            // $product->images()->updateOrCreate(
+            //     ['product_id' => $product->id],
+            //     ['path' => $path]
+            // );
 
-        $user->save();
-        return redirect()->route('users.index')->with('success', 'User '. $request->email.' updated!');
 
     }
 
     protected function edit($id)
     {
         $product= Product::findOrFail($id);
-        return view('admin.forms.product.edit',compact('product'));
+        $producers = Producer::all();
+        $categories_female = Category::distinct()->select('name')->where('gender','female')->get();
+        $categories_male = Category::distinct()->select('name')->where('gender','male')->get();
+        $categories_type_male = Category::where('gender','male')->get();
+        $categories_type_female = Category::where('gender','female')->get();
+
+        return view('admin.forms.product.edit',compact('product','producers','categories_female','categories_male', 'categories_type_female', 'categories_type_male'));
 
     }
     protected function details($id)

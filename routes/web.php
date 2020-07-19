@@ -71,7 +71,7 @@ Route::get('/admin/products','Admin\ProductsController@index')->name('admin.prod
 Route::post('/admin/product/delete','Admin\ProductsController@delete');
 Route::get('/admin/product/new','Admin\ProductsController@create')->name('product.create');
 Route::post('/admin/product/store','Admin\ProductsController@store')->name('admin.product.store');;
-Route::post('/admin/product/update','Admin\ProductsController@update')->name('admin.product.update');
+Route::post('/admin/product/{id}/update','Admin\ProductsController@update')->name('admin.product.update');
 Route::get('/admin/product/{id}/edit','Admin\ProductsController@edit');
 Route::get('/admin/product/{id}/details','Admin\ProductsController@details');
 /**
