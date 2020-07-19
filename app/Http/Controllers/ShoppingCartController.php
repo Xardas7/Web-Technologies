@@ -48,9 +48,15 @@ class ShoppingCartController extends Controller
 
         $product = Product::find($request->product_id);
 
-        if($product->details == null || $product->details->quantity == 0){
+        if($product->details == null){
             return response()->json([
                 'message' => 'Product not available'
+            ]);
+        }
+
+        if($product->details->quantity < $request->quantity){
+            return response()->json([
+                'message' => 'Quantity not available'
             ]);
         }
 

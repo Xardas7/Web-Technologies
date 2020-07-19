@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Address;
 use App\Card;
 use App\Order;
+use App\Product;
 use App\OrdersHaveProduct;
 use App\ShoppingCartsHaveProduct;
 use Illuminate\Http\Request;
@@ -97,7 +98,10 @@ class OrdersController extends Controller
                     'quantity' => $product->details->quantity,
                     'size' => $product->details->size
                 ]);
-                $product->delete();
+                $user->shoppingCart->products()->detach($product->id);
+                $product_real = Product::find($product->id);
+                $product_real->details->quantity -= $product->details->quantity;
+                $product_real->details->save();
             }
 
             $order_details = OrdersHaveProduct::where('order_id',$order->id)->get();
