@@ -460,6 +460,39 @@ $(document).ready(function(){
 
  })
 
+ $('.like-button').on('click',function(event){
+   var comment_id = $(this).data('id');
+   var like_button = $(this);
+
+   $.ajax({
+     type: "GET",
+     url: "/comment/"+comment_id+"/like",
+     success: function (response) {
+       like_button.removeClass('like-button').addClass('dislike-button');
+     },
+     error: function(e){
+       console.log(e);
+     }
+   });
+ })
+
+ $(document).on('click','.dislike-button',function(event){
+  var comment_id = $(this).data('id');
+  var like_button = $(this);
+  console.log(comment_id);
+  $.ajax({
+    type: "GET",
+    url: "/comment/"+comment_id+"/dislike",
+    success: function (response) {
+      like_button.removeClass('dislike-button').addClass('like-button');
+    },
+    error: function(e){
+      console.log(e);
+    }
+  });
+})
+
+
     /* calcolaPrezzo();
 
     $('.lnr.lnr-chevron-up').click(function(event){

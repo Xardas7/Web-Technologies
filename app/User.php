@@ -92,7 +92,7 @@ class User extends Authenticatable
     }
     // Likes comments
     public function likesComments(){
-        return $this->hasMany('App\Comment','users_likes_comments','user_id','comment_id');
+        return $this->belongsToMany('App\Comment','users_like_comments','user_id','comment_id');
     }
     // Likes Products
     public function likesProducts(){
@@ -106,6 +106,7 @@ class User extends Authenticatable
     public function address(){
         return $this->belongsTo('App\Address','default_address');
     }
+
 
     // public function isAdmin(){
     //     foreach($this->groups as $group){

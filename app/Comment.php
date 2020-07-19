@@ -21,6 +21,6 @@ class Comment extends Model
     }
 
     public function likes(){
-        return $this->hasMany('App\User','users_likes_comments','comment_id','user_id');
+        return $this->belongsToMany('App\User','users_like_comments','comment_id','user_id');
     }
 }

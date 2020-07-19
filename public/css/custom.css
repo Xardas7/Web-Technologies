@@ -289,6 +289,26 @@ background: linear-gradient(90deg, rgba(255,228,225,1) 35%, rgba(237,135,169,1) 
     max-width: 10.33333%;
 }
 
+.like-button{
+    transition: 0.3s ease-in-out;
+    color: black;
+}
+
+.like-button:hover{
+    cursor: pointer;
+    transform: scale(1.1,1.1);
+}
+
+
+.dislike-button{
+    color: #f41068;
+}
+
+.dislike-button:hover{
+    cursor: pointer;
+    transform: scale(1.1,1.1);
+}
+
 /* Colore del banner */
 
 /* {

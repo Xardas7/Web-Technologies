@@ -1,6 +1,14 @@
 <h3 class="text-center mb-50 col-12">My Information</h3>
 
-
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 <div class="row justify-content-center">
     <form class="col-8" action="{{ route('user.update',['id' => $user->id]) }}" method="POST">
     @csrf

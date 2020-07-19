@@ -184,3 +184,9 @@ Route::name('card.')->prefix('card')->group(function() {
     Route::post('/comment', 'CommentController@store')->name('product.comment');
     Route::get('{name}', 'ProductController@show')->name('product.show');
 
+// ---- COMMENTS ----//
+
+Route::name('comment.')->prefix('comment')->group(function(){
+    Route::get('/{id}/like','CommentController@like')->name('like');
+    Route::get('/{id}/dislike','CommentController@dislike')->name('dislike');
+});

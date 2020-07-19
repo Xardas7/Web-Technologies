@@ -48,4 +48,16 @@ class CommentController extends Controller
         }
 
     }
+
+    public function like($id){
+        $user = Auth::user();
+
+        $user->likesComments()->attach($id);
+    }
+
+    public function dislike($id){
+        $user = Auth::user();
+
+        $user->likesComments()->detach($id);
+    }
 }
