@@ -49,7 +49,7 @@
             </div>
         </div>
     </div>
-    <form id="checkout" method="POST" action="/confermation" class="billing-form">
+    <form id="checkout" method="POST" action="/store" class="billing-form">
         @csrf
         <div class="row">
             <div class="col-lg-8 col-md-6 order-wrapper mt-50">
