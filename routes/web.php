@@ -37,7 +37,8 @@ Route::get('/category', function () {
     return view('category');
 });
 
-Route::post('/confermation', 'OrdersController@store')->middleware('auth');
+Route::post('/store', 'OrdersController@store')->middleware('auth');
+Route::get('/confermation/{order_id}', 'OrdersController@confermation')->middleware('auth');
 
 Route::get('/tracking', function () {
     return view('tracking');

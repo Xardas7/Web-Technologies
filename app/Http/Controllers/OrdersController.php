@@ -103,11 +103,6 @@ class OrdersController extends Controller
                 $product_real->details->quantity -= $product->details->quantity;
                 $product_real->details->save();
             }
-
-            $order_details = OrdersHaveProduct::where('order_id',$order->id)->get();
-            //($order_details);
-            $shipping_details = Address::find($order->shipping_address_id);
-            $billing_details = Address::find($order->billing_address_id);
         } elseif($request->payment == 'paypal'){
             /**
              *
@@ -122,10 +117,24 @@ class OrdersController extends Controller
              */
         }
         else redirect()->back()->with(['error' => 'Invalid Card']);
-        return view('confermation', [  'order' => $order,
-                                            'order_details' => $order_details,
-                                            'shipping_address' => $shipping_details,
-                                            'billing_address' => $billing_details]);
+        return redirect('/confermation/'.$order->id);
+//        return view('confermation', [  'order' => $order,
+//                                            'order_details' => $order_details,
+//                                            'shipping_address' => $shipping_details,
+//                                            'billing_address' => $billing_details]);
+    }
+
+    public function confermation($order_id){
+        $order = Order::findOrFail($order_id);
+        $order_details = OrdersHaveProduct::where('order_id',$order->id)->get();
+        $shipping_details = Address::find($order->shipping_address_id);
+        $billing_details = Address::find($order->billing_address_id);
+
+        return view('confermation', [
+            'order' => $order,
+            'order_details' => $order_details,
+            'shipping_address' => $shipping_details,
+            'billing_address' => $billing_details]);
     }
 
     /**
