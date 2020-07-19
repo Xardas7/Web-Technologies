@@ -42,25 +42,24 @@ class MainProducerController extends Controller
 
     protected function store(Request $request)
     {
-
         $validate = $request->validate([
-            'images[]' => 'mimes:jpeg,jpg,png,svg,webp',
-            'category_id' => 'integer',
-            'name' => 'unique:products|string',
-            'price' => 'integer',
-            'description' => 'string',
-            'material' => 'string',
-            'composition' => 'nullable|string',
-            'quantity' => 'integer',
-            'width' => 'nullable|integer',
-            'depth' => 'nullable|integer',
-            'weight' => 'nullable|integer',
-            'code' => 'unique:products|alpha_num',
-        ]);
+        'images[]' => 'mimes:jpeg,jpg,png,svg,webp',
+        'producer_id' => 'integer',
+        'category_id' => 'integer',
+        'name' => 'unique:products|string',
+        'description' => 'string',
+        'material' => 'string',
+        'composition' => 'nullable|string',
+        'quantity' => 'integer',
+        'width' => 'nullable|integer',
+        'depth' => 'nullable|integer',
+        'weight' => 'nullable|integer',
+        'code' => 'unique:products|alpha_num',
+    ]);
 
         $product = Product::create([
             'category_id' => $request->category_type,
-            'producer_id' => Auth::user()->id,
+            'producer_id' => $request->producer_id,
             'code' => $request->code,
             'name' => $request->name,
             'price' => $request->price,
@@ -88,7 +87,14 @@ class MainProducerController extends Controller
                 ]);
             }
         }
-        return redirect()->back();
+
+        alert()->success('Product','Product added succesfully')
+            ->toToast()
+            ->animation('animate__backInRight','animate__backOutRight')
+            ->autoClose(3000)
+            ->timerProgressBar();
+        session()->flash('message', 'Product was created!');
+        return redirect()->route('product.create');
 
         // $product->images()->updateOrCreate(
         //     ['product_id' => $product->id],
