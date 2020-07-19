@@ -164,13 +164,13 @@
             @foreach($products as $product)
             <div class="list-row d-flex justify-content-between">
                 <div>{{$product->name}}</div>
-                <div style="text-align: center">x {{$product->details->quantity}}</div>
+                <div style="text-align: center">x {{$product->shoppingCartDetails->quantity}}</div>
                     <div>{{$product->price}}€</div>
             </div>
             @php
             $total=0;
             foreach ($products as $product)
-            $total+=$product->price * $product->details->quantity;
+            $total+=$product->price * $product->shoppingCartDetails->quantity;
             @endphp
             @endforeach
             <div class="list-row d-flex justify-content-between">
