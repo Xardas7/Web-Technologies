@@ -30,21 +30,14 @@
 </section>
 <!-- End Banner Area -->
 <!-- Start Checkout Area -->
-@php
-$user=Auth::user();
-$address=$user->addresses->last()
-@endphp
 <div class="container">
     <div class="checkput-login">
-        @if($address != null)
-        <div class="top-title">
-            <p><a data-toggle="collapse" href="#checkout-login" aria-expanded="false"
-                    aria-controls="checkout-login">Ship to a different address?</a></p>
+        <div>
+            <button data-toggle="collapse" href="#checkout-login" aria-expanded="false" aria-controls="checkout-login" class="view-btn color-2 w-100 mt-20"><span>Insert new address</span></button>
         </div>
-
         <div class="collapse" id="checkout-login">
             <div class="checkout-login-collapse d-flex flex-column">
-                @endif
+
                 <!-- Start Billing Details Form -->
                 <div class="container">
                     <form method="POST" action="/address" class="billing-form">
@@ -72,7 +65,7 @@ $address=$user->addresses->last()
                                             onfocus="this.placeholder=''" onblur="this.placeholder = 'Last name*'"
                                             required class="common-input">
                                     </div>
-                                    
+
                                     <div class="col-lg-12">
                                         <input type="text" name="address" placeholder="Address line 01*"
                                             onfocus="this.placeholder=''" onblur="this.placeholder = 'Address line 01*'"
@@ -116,10 +109,9 @@ $address=$user->addresses->last()
 
                             </div>
                         </div>
-                        <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Payment</span></button>
+                        <button class="view-btn color-2 w-100 mt-20"><span>Save Address</span></button>
                     </form>
                 </div>
-                @if($address != null)
             </div>
         </div>
         <!-- End  New Billing Details Form -->
@@ -130,26 +122,31 @@ $address=$user->addresses->last()
                     <div class="row">
                         <div class="col-lg-6">
                             <h4>Shipping address</h4>
-                            <p>
-                                {{$user->name}}
-                                {{$user->surname}}<br>
-                                {{$address->address}}<br>
-                                {{$address->address_additional}}<br>
-                                {{$address->city}}
-                                {{$address->postal_code}}<br>
-                                {{$address->country}}<br>
-                            </p>
+                                <select id="shipping_address" class="form-control ml-15 " name="shipping_address" required>
+                                        @if(!$addresses->isEmpty())
+                                        @foreach($addresses as $address)
+                                            <option value={{ $address->id }}>
+                                                {{ $address->address.", ".$address->city.", ".$address->country }}</option>
+                                        @endforeach
+                                        @endif
+                                </select>
                         </div>
                         <div class="col-lg-6">
                             <h4>Billing address</h4>
-                            Same as shipping address
+                            <select id="billing_address" class="form-control ml-15 " name="billing_address" required>
+                                @if(!$addresses->isEmpty())
+                                @foreach($addresses as $address)
+                                    <option value={{ $address->id }}>
+                                        {{ $address->address.", ".$address->city.", ".$address->country }}</option>
+                                @endforeach
+                                @endif
+                            </select>
                         </div>
                     </div>
                     <button class="view-btn color-2 w-100 mt-20"><span>Proceed to Payment</span></button>
                 </form>
             </div>
         </div>
-        @endif
     </div>
     <!-- End Checkout Area -->
 
