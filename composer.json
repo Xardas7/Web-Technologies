@@ -13,7 +13,6 @@
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
-        "laravel/telescope": "^3.5",
         "laravel/tinker": "^2.0",
         "realrashid/sweet-alert": "^3.1",
         "spatie/laravel-permission": "^3.13",
@@ -34,7 +33,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "laravel/telescope"
+            ]
         }
     },
     "autoload": {
