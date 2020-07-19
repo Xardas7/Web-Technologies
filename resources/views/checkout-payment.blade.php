@@ -184,13 +184,13 @@
             @if($discount_value!=null)
                 <div class="list-row d-flex justify-content-between">
                     <h6>Discount</h6>
-                    <div>{{number_format($total - $total * $discount_value)}}€</div>
+                    <div>{{number_format($total * $discount_value)}}€</div>
                 </div>
             @endif
             <div class="list-row d-flex justify-content-between">
                 <h6>Total</h6>
                 @if($discount_value!=null)
-                    <div class="total">{{number_format($total * $discount_value + 10, 2) }}€</div> <!-- totale + costi spedizione -->
+                    <div class="total">{{number_format($total - ($total * $discount_value) + 10, 2) }}€</div> <!-- totale + costi spedizione -->
                 @else
                     <div class="total">{{$total + 10}}€</div> <!-- totale + costi spedizione -->
                 @endif

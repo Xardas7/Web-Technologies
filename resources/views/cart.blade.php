@@ -62,7 +62,7 @@
         <div class="row align-items-center">
             <div class="col-md-4 col-12">
                 <div class="product-item d-flex align-items-center">
-                    <img src="{{ Storage::exists($product->images->first()) ? asset("storage/".$product->images->first()) :  $product->images->first()->path}}" style="width:150px;;" class="img-fluid" alt="">
+                    <img src="{{ Storage::exists($product->images->first()->path) ? asset("storage/".$product->images->first()->path) :  $product->images->first()->path}}" style="width:150px;;" class="img-fluid" alt="">
                     <a href="/{{ $product->name }}">
                         <h6>{{ $product->name }}</h6>
                     </a>

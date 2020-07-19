@@ -97,13 +97,13 @@ class OrdersController extends Controller
             foreach($user->shoppingCart->products as $product){
                 $orderDetails = OrdersHaveProduct::create([
                     'order_id' => $order->id,
-                    'product_id' => $product->details->product_id,
+                    'product_id' => $product->id,
                     'product_name' => $product->name,
                     'product_description' => $product->description,
                     'product_price' => $product->price,
                     'image_path' => $product->images->first()->path,
-                    'quantity' => $product->details->quantity,
-                    'size' => $product->details->size
+                    'quantity' => $product->shoppingCartDetails->quantity,
+                    'size' => $product->shoppingCartDetails->size
                 ]);
                 $user->shoppingCart->products()->detach($product->id);
                 $user->shoppingCart->amount = 0;
@@ -212,7 +212,7 @@ class OrdersController extends Controller
         }
         $cards = Auth::user()->cards;
         $products=Auth::user()->shoppingCart->products;
-        return view('checkout-payment', ['cards'=> $cards, 'products' => $products, 'discount_value' => $discount_value, 'coupon'=>$request->coupon]);
+        return view('checkout-payment', ['cards'=> $cards, 'products' => $products, 'discount_value' => $discount_value/100, 'coupon'=>$request->coupon]);
     }
 
     public function verify_coupon($coupon_code){
