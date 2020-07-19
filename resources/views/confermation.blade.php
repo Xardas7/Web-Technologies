@@ -29,7 +29,12 @@
             <!-- End Banner Area -->
 
 		<!-- Start Checkout Area -->
-		<div class="container">
+		@if($error)
+            <div class="container">
+                <p class="text-center">{{ $error }}</p>
+            </div>
+            @else
+            <div class="container">
 			<p class="text-center">Thank you. Your order has been received.</p>
 			<div class="row mt-50">
 				<div class="col-md-4">
@@ -140,6 +145,7 @@
 			</div>
 		</div>
 		<!-- End Billing Details Form -->
+        @endif
 @endsection
 
 
