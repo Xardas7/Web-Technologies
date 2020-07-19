@@ -77,7 +77,7 @@ class AddressController extends Controller
             'postal_code' => 'integer',
             'type' => 'in:billing,delivery,both',
         ]);
-        
+
         $user = Auth::user();
         $address = Address::find($id);
 
@@ -115,7 +115,7 @@ class AddressController extends Controller
         $data = $a->store($request);
         $cards = Auth::user()->cards;
         $products=Auth::user()->shoppingCart->products;
-        return view('/checkout-payment',['cards'=> $cards, 'products' => $products]);
+        return redirect('/payments');
     }
 
 }
