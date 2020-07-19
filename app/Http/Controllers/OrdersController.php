@@ -60,12 +60,15 @@ class OrdersController extends Controller
         ]);
 
         $user = Auth::user();
-
+        $coupon = null;
+        $coupon_id = null;
         $coupon_code = $request->coupon_code;
         $coupon_value = $this->verify_coupon($coupon_code);
         $amount = $user->shoppingCart->amount;
+
         if($coupon_value['validity']=='valid') {
             $coupon = Coupon::where('code',$coupon_code)->first();
+            $coupon_id = $coupon->id;
             $amount = $amount * $coupon->amount;
         }
 
@@ -80,17 +83,16 @@ class OrdersController extends Controller
             }
         }
 
-
-        $address = Address::where('user_id',$user->id)->first();
+        $shipping_address = Address::find($user->shipping_address);
         if($request->payment == 'card' AND $request->card) {
             $order = Order::create([
                 'user_id' => $user->id,
-                'billing_address_id' => $address->id,
-                'shipping_address_id' => $address->id,
-                'shipping_address' => $address->address.", ".$address->city.", ".$address->country,
-                'coupon_id' => $coupon->id,
+                'billing_address_id' => $user->billing_address,
+                'shipping_address_id' => $user->shipping_address,
+                'shipping_address' => $shipping_address->address.", ".$shipping_address->city.", ".$shipping_address->country,
+                'coupon_id' => $coupon_id,
                 'card_id' => $request->card,
-                'amount' => $amount,
+                'amount' => $amount + 10,
                 'state' => 'in progress'
             ]);
 
@@ -196,7 +198,15 @@ class OrdersController extends Controller
         //
     }
 
-    public function payment_checkout(){
+    public function payment_checkout(Request $request){
+        $shipping_address = Address::find($request->shipping_address);
+        $billing_address = Address::find($request->billing_address);
+
+        $user = Auth::user();
+        $user->shipping_address = $shipping_address->id;
+        $user->billing_address = $billing_address->id;
+        $user->save();
+
         $discount_value = null;
         $coupon_code = null;
         $cards = Auth::user()->cards;
@@ -232,4 +242,9 @@ class OrdersController extends Controller
         return ['validity' => $validity, 'discount' => $discount];
     }
 
+    public function checkout(){
+        $user = Auth::user();
+        $addresses = $user->addresses;
+        return view('checkout', ['user'=>$user, 'addresses'=>$addresses]);
+    }
 }

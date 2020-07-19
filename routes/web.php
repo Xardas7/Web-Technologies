@@ -29,9 +29,7 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 
-Route::get('/checkout', function () {
-    return view('checkout');
-})->middleware('auth');
+Route::get('/checkout', 'OrdersController@checkout')->middleware('auth');
 
 Route::get('/category', function () {
     return view('category');

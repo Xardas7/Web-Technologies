@@ -115,7 +115,7 @@ class AddressController extends Controller
         $data = $a->store($request);
         $cards = Auth::user()->cards;
         $products=Auth::user()->shoppingCart->products;
-        return redirect('/payments');
+        return redirect('/checkout');
     }
 
 }

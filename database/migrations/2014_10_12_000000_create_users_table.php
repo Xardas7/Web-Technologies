@@ -19,7 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('surname');
             $table->date('birth_date')->nullable();
             $table->enum('sex', ['male','female','undefined'])->default('undefined');
-            $table->unsignedBigInteger('default_address')->nullable();
+            $table->unsignedBigInteger('shipping_address')->nullable();
+            $table->unsignedBigInteger('billing_address')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password',255);
