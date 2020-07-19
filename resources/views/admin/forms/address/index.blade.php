@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">All Adresses</h1>
+            <h1 class="page-header">All Addresses</h1>
         </div>
     </div>
     @if (\Session::has('success'))

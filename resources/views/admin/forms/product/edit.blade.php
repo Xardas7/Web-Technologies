@@ -25,7 +25,7 @@
 
     <div class="panel panel-default">
         <div class="panel-body">
-            
+
         <form method="POST" action="{{route('admin.product.update',[$product->id])}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
@@ -95,7 +95,7 @@
                     </div>
                     <div class="form-group">
                         <label>Quantity</label>
-                        <input class="form-control"type="number" placeholder="Quantity" name="quantity" min="1" value="{{$product->details->quantity}}" required>
+                        <input class="form-control"type="number" placeholder="Quantity" name="quantity" min="0" value="{{$product->details->quantity}}" required>
                     </div>
                     <div class="form-group">
                         <label>Width</label>

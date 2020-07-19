@@ -104,6 +104,18 @@
                     </a></li>
             </ul>
         </li>
+        <li class="{{(Request::getPathInfo() ==='/admin/category/new' or Request::getPathInfo() === '/admin/categories') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-4" style="color: white">
+                <em class="fa fa-navicon">&nbsp;</em> Categories <span data-toggle="collapse" href="#sub-item-4" class="icon pull-right"><em class="fa fa-plus"></em></span>
+            </a>
+            <ul class="children collapse" id="sub-item-4">
+                <li><a class="" href="/admin/category/new">
+                        <span class="fa fa-arrow-right">&nbsp;</span> New category
+                    </a></li>
+                <li><a class="" href="/admin/categories">
+                        <span class="fa fa-arrow-right">&nbsp;</span> All categories
+                    </a></li>
+            </ul>
+        </li>
         <li class="{{(Request::getPathInfo() ==='/admin/address/new' or Request::getPathInfo() === '/admin/addresses') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-3" style="color: white">
                 <em class="fa fa-navicon">&nbsp;</em> Addresses <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
@@ -117,14 +129,14 @@
             </ul>
         </li>
         <li class="{{(Request::getPathInfo() ==='/admin/card/new' or Request::getPathInfo() === '/admin/card') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-4" style="color: white">
-                <em class="fa fa-navicon">&nbsp;</em> Carts <span data-toggle="collapse" href="#sub-item-4" class="icon pull-right"><em class="fa fa-plus"></em></span>
+                <em class="fa fa-navicon">&nbsp;</em> Cards <span data-toggle="collapse" href="#sub-item-4" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
             <ul class="children collapse" id="sub-item-4">
                 <li><a class="" href="/admin/card/new">
-                        <span class="fa fa-arrow-right">&nbsp;</span> New cart
+                        <span class="fa fa-arrow-right">&nbsp;</span> New card
                     </a></li>
                 <li><a class="" href="/admin/cards">
-                        <span class="fa fa-arrow-right">&nbsp;</span> All carts
+                        <span class="fa fa-arrow-right">&nbsp;</span> All cards
                     </a></li>
             </ul>
         </li>

@@ -79,7 +79,7 @@ class CardsController extends Controller
         $card->exp_date=$exp_date;
         $card->cvv=$request['cvv'];
         $card->save();
-        return redirect()->route('admin.cards.index')->with('success', 'Address '. $request->address.' added successfully!');
+        return redirect()->route('admin.card.index')->with('success', 'Card added successfully!');
 
     }
     protected function edit($id)

@@ -49,7 +49,7 @@ class AddressesController extends Controller
      */
     public function store(Request $request)
     {
-        $user=User::where('email',$request['email'])->first()->id;
+        $user=User::where('email',$request->email)->first()->id;
         if (!filter_var($request->email, FILTER_VALIDATE_EMAIL)) {
             $emailErr = "Invalid email format";
             return \Redirect::back()->withErrors([$emailErr]);
