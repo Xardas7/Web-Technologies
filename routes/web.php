@@ -65,6 +65,7 @@ Route::get('/admin/user/new','Admin\UsersController@create');
 Route::post('/admin/user/store','Admin\UsersController@store');
 Route::post('/admin/user/update','Admin\UsersController@update');
 Route::get('/admin/user/{id}/edit','Admin\UsersController@edit');
+
 /**
  * Admin product
  */
@@ -104,6 +105,13 @@ Route::get('/admin/order/new','Admin\OrdersController@create');
 Route::post('/admin/order/store','Admin\OrdersController@store')->name('admin.order.store');;
 Route::post('/admin/order/update','Admin\OrdersController@update')->name('admin.order.update');
 Route::get('/admin/order/{id}/edit','Admin\OrdersController@edit');
+
+Route::get('/admin/coupons','Admin\CouponsController@index')->name('admin.coupon.index');
+Route::post('/admin/coupon/delete','Admin\CouponsController@delete');
+Route::get('/admin/coupon/new','Admin\CouponsController@create');
+Route::post('/admin/coupon/store','Admin\CouponsController@store');
+Route::post('/admin/coupon/update','Admin\CouponsController@update');
+Route::get('/admin/coupon/{id}/edit','Admin\CouponsController@edit');
 
 /**
  * Other admin routs

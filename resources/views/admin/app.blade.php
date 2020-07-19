@@ -131,14 +131,14 @@
                 <li>
             </ul>
         </li>
-        <li class="{{(Request::getPathInfo() ==='/admin/order/new' or Request::getPathInfo() === '/admin/orders') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-6" style="color: white">
+        <li class="{{(Request::getPathInfo() ==='/admin/coupon/new' or Request::getPathInfo() ==='/admin/coupons' or Request::getPathInfo() ==='/admin/seller/new' or Request::getPathInfo() === '/admin/sellers') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-6" style="color: white">
                 <em class="fa fa-navicon">&nbsp;</em> Other <span data-toggle="collapse" href="#sub-item-6" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
             <ul class="children collapse" id="sub-item-6">
-                <li><a class="" href="/admin/order/new">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Cupons
+                <li><a class="" href="/admin/coupons">
+                        <span class="fa fa-arrow-right">&nbsp;</span> Coupons
                     </a></li>
-                <li><a class="" href="/admin/orders">
+                <li><a class="" href="/admin/sellers">
                         <span class="fa fa-arrow-right">&nbsp;</span> Sellers
                     </a></li>
                 <li>
