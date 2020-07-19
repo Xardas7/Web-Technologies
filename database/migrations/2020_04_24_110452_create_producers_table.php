@@ -15,6 +15,7 @@ class CreateProducersTable extends Migration
     {
         Schema::create('producers', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->unique();
             $table->string('name')->unique();
             $table->string('logo');
             $table->timestamps();
