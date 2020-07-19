@@ -135,12 +135,12 @@ class ChiaveEsterne extends Migration
             $table0->foreign('product_id')->references('id')
                 ->on('products')->onDelete('cascade'); });
 
-        Schema::table('user_like_comments', function(Blueprint $table0){
+        Schema::table('users_like_comments', function(Blueprint $table0){
             $table0->foreign('user_id')->references('id')
             ->on('users')->onDelete('cascade');
         });    
 
-        Schema::table('user_like_comments', function(Blueprint $table0){
+        Schema::table('users_like_comments', function(Blueprint $table0){
             $table0->foreign('comment_id')->references('id')
             ->on('comment')->onDelete('cascade');
         }); 
