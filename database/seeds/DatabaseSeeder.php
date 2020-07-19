@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
             // GroupSeeder::class,
             SizeSeeder::class,
             CategorySeeder::class,
+            UserSeeder::class,
             ProducerSeeder::class,
             StaticSeeder::class,
-            UserSeeder::class,
             DetailsSeeder::class,
             CommentSeeder::class
         ]);

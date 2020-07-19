@@ -81,12 +81,18 @@ class ShoppingCartController extends Controller
                 ->where('size',$size)
                 ->first();
 
+            if ($shoppingcarthasproducts) {
+                //Se il prodotto è già presente, ne aumento solo la quantità
+                $shoppingcarthasproducts->quantity = $quantity;
+                $shoppingcarthasproducts->save();
+
+            } else {
                 //Altrimenti, lo inserisco
-                $cart->products()->syncWithOutDetaching($product->id,[
+                $cart->products()->attach($product->id,[
                     'quantity' => $quantity,
                     'size' => $size
                 ]);
-            
+            }
     }
 
     

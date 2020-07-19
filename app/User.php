@@ -87,7 +87,7 @@ class User extends Authenticatable
     }
 
     // Producers
-    public function producers(){
+    public function preferencesProducers(){
         return $this->hasMany('App\Producer','preferences','user_id','producer_id');
     }
     // Likes comments
@@ -105,6 +105,10 @@ class User extends Authenticatable
     // Address
     public function address(){
         return $this->belongsTo('App\Address','default_address');
+    }
+
+    public function producer(){
+        return $this->hasOne('App\Producer');
     }
 
 

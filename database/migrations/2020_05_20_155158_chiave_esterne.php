@@ -145,9 +145,12 @@ class ChiaveEsterne extends Migration
             $table0->foreign('comment_id')->references('id')
             ->on('comments')->onDelete('cascade');
         });
-        Schema::table('producers', function(Blueprint $table0) {
+
+        Schema::table('producers', function(Blueprint $table0){
             $table0->foreign('user_id')->references('id')
-                ->on('users')->onDelete('cascade'); });
+            ->on('users')->onDelete('cascade');
+        });
+        
 
     }
 

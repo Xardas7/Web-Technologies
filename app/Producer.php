@@ -17,4 +17,8 @@ class Producer extends Model
     public function categories(){
         return $this->belongsToMany('App\Category','preferences','producer_id','category_id')->withTimeStamps();
     }
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }
