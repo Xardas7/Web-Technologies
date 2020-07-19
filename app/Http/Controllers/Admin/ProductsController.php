@@ -12,6 +12,7 @@ use App\Producer;
 use App\Image;
 use App\Category;
 use App\Detail;
+use Alert;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -53,7 +54,6 @@ class ProductsController extends Controller
             'producer_id' => 'integer',
             'category_id' => 'integer',
             'name' => 'unique:products|string',
-            'price' => 'integer',
             'description' => 'string',
             'material' => 'string',
             'composition' => 'nullable|string',
@@ -94,7 +94,14 @@ class ProductsController extends Controller
                     ]);
                     }
         }
-        return redirect()->back();
+        
+        alert()->success('Product','Product added succesfully')
+        ->toToast()
+        ->animation('animate__backInRight','animate__backOutRight')
+        ->autoClose(3000)
+        ->timerProgressBar();
+        session()->flash('message', 'Product was created!');
+        return redirect()->route('product.create');
            
             // $product->images()->updateOrCreate(
             //     ['product_id' => $product->id],
