@@ -86,7 +86,7 @@
                     </div>
                     <div class="form-group">
                         <label>Composition</label>
-                        <input class="form-control"type="text" placeholder="Composition" name="composition" required>
+                        <input class="form-control"type="text" placeholder="Composition" name="composition">
                     </div>
                     <div class="form-group">
                         <label>Quantity</label>

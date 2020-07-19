@@ -208,6 +208,7 @@ $(document).ready(function(){
           items: 1,
           dots: true,
           loop: true,
+
       })
 
 

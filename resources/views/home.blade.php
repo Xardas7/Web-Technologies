@@ -161,7 +161,7 @@
 					<div class="countdown-content pb-40">
 						<div class="title text-center">
 							<h1 class="mb-10">New realeased Products for Women</h1>
-							<p>Who are in extremely love with eco friendly system.</p>
+						<p>Who are in extremely love with eco friendly system.</p>
 						</div>
 					</div>
 					<div class="row">
@@ -169,14 +169,14 @@
 						<div class="col-lg-3 col-md-6 single-product">
 							<a class="content" href="/{{$product->name}}">
 								<div class="content-overlay"></div>
-								<img class="content-image img-fluid d-block mx-auto"
-									src="{{ Storage::exists($product->images->first()->path) ? asset("storage/".$product->images->first()->path) :  $product->images->first()->path}}" alt="">
+								{{-- <img class="content-image img-fluid d-block mx-auto"
+									src="{{ Storage::exists($product->images->first()->path) ? asset("storage/".$product->images->first()->path) :  $product->images->first()->path}}" alt=""> --}}
 	
 							</a>
 							<div class="price">
 								<div>
 									<a href="/{{$product->name}}" class="product_name">
-										<h5>{{$product->name}}</h5>
+										<h5>{{$product->name}}  {{$product->images->first()}}</h5>
 									</a>
 									<p id="description-tab"> {{$product->producer->name}}</p>
 								</div>
