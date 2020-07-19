@@ -45,26 +45,30 @@ class ProducersController extends Controller
      */
     public function store(Request $request)
     {
-        $a=$request->amount;
-        $b=$request->quantity;
-        if (is_numeric($a)) {
-            if (is_numeric($b)){
-            $coupon = new Coupon();
-            $coupon->code = $request['code'];
-            $coupon->amount = $request['amount'];
-            $coupon->exp_date = $request['exp_date'];
-            $coupon->quantity = $request['quantity'];
-            $coupon->save();
-            return redirect()->route('admin.producer.index')->with('success', 'Coupon ' . $request->code . ' added successfully!');
-        } }else {
-            $emailErr = "Invalid format";
+        $user=User::where('email',$request->email)->first();
+            if($user!=null ) {
+                $producer = Producer::find($user->id);
+                if ($producer == null) {
+                    $user = $user->id;
+                    $producer = new Producer();
+                    $producer->logo = $request['logo'];
+                    $producer->name = $request['name'];
+                    $producer->user_id = $user;
+                    $producer->save();
+                    return redirect()->route('admin.producer.index')->with('success', 'Producer ' . $request->code . ' added successfully!');
+                }
+                $emailErr = "this user is already an producer";
+                return \Redirect::back()->withErrors([$emailErr]);
+            }
+            else {
+            $emailErr = "User not found";
             return \Redirect::back()->withErrors([$emailErr]);
         }
     }
     protected function edit($id)
     {
-        $coupon= Coupon::findOrFail($id);
-        return view('admin.forms.other.coupons.edit',compact('coupon'));
+        $producer= Producer::findOrFail($id);
+        return view('admin.forms.other.producers.edit',compact('producer'));
 
     }
     /**
@@ -76,22 +80,12 @@ class ProducersController extends Controller
      */
     public function update(Request $request)
     {
-        $a=$request->amount;
-        $b=$request->quantity;
-        if (is_numeric($a)) {
-            if (is_numeric($b)){
-                $coupon = Coupon::findOrFail($request['id']);
-                $coupon->code = $request['code'];
-                $coupon->amount = $request['amount'];
-                $coupon->exp_date = $request['exp_date'];
-                $coupon->quantity = $request['quantity'];
-                $coupon->updated_at=date('Y-m-d');
-                $coupon->save();
-                return redirect()->route('admin.coupon.index')->with('success', 'Coupon ' . $request->code . ' updated successfully!');
-            } }else {
-            $emailErr = "Invalid format";
-            return \Redirect::back()->withErrors([$emailErr]);
-        }
+        $producer = Producer::find($request->id);
+        $producer->logo = $request['logo'];
+        $producer->name = $request['name'];
+        $producer->save();
+        return redirect()->route('admin.producer.index')->with('success', 'Producer ' . $request->code . ' updated successfully!');
+
     }
     /**
      * Remove the specified resource from storage.
