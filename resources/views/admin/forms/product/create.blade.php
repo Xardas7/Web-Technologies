@@ -25,7 +25,11 @@
 
     <div class="panel panel-default">
         <div class="panel-body">
-            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+            @php
+               $user = \Illuminate\Support\Facades\Auth::user();
+                $producer_id=Producer::where('user_id',$user->id)->first();
+            @endphp
+            @if($user->hasRole('admin'))
                 <form method="POST" action="/admin/product/store" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
@@ -36,10 +40,13 @@
                             @endforeach
                         </select>
                     </div>
-
                     @else
                         <form method="POST" action="/dashboard/product/store" enctype="multipart/form-data">
-                            @endif
+                            @csrf
+                            {{ $user->id}}
+
+                            <input name="producer_id" value="{{ $producer_id}}" hidden>
+                             @endif
                     <div class="form-group">
                         <label>Category Name</label>
                         <select name="category_name" id="categories" class="form-control" required>
