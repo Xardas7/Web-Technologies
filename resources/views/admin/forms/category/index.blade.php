@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">All Addresses</h1>
+            <h1 class="page-header">All Cards</h1>
         </div>
     </div>
     @if (\Session::has('success'))
@@ -14,32 +14,26 @@
             </ul>
         </div>
     @endif
-
     <div class="panel panel-container" style="background-color: #F1F4F7">
         <div class="row">
             <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    Email
+                    User Email
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    Address
+                    Number
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    City
+                    Name
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    Country
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
-                <div class="panel panel-teal panel-widget border-right">
-                    Postal Code
+                    Surname
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
@@ -49,9 +43,10 @@
             </div>
             <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    Address Additional
+                    Exp Date
                 </div>
             </div>
+
             <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                     Edit
@@ -64,92 +59,69 @@
             </div>
         </div>
     </div>
-    @foreach($addresses as $address)
+    @if($cards->first()==null)
+       <h2 style="text-align: center"> No cards found! </h2>
+    @else
+    @foreach($cards as $card)
         @php
-        $id=$address->id
-        @endphp
+        $id= $card->id;
+    @endphp
     <div class="panel panel-container">
-
         <div class="row">
             <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    {{$address->user->email}}
+                    {{$card->user->email}}
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    {{$address->address}}
+                    {{$card->card_number}}
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    {{$address->city}}
+                    {{$card->name}}
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
+                <div class="panel panel-teal panel-widget border-right">
+                    {{$card->surname}}
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    {{$address->country}}
+                    {{$card->type}}
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    {{$address->postal_code}}
+                    {{$card->exp_date}}
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    {{$address->type}}
+                    <a href="/admin/card/{{$id}}/edit"> <i class="fa fa-xl fa-edit"></i> </a>
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    @if($address->address_additional!=null)
-                    <em class="fa fa-xl fa-eye color-green" onclick="myFunction{{$id}}()" style="color : #2d995b; cursor: help;" ></em>
-                    <script>
-                        function myFunction{{$id}}() {
-                            alert("{{$address->address_additional}}");
-                        }
-                    </script>
-                    @else
-                    <p style="color: red">nothing</p>
-                        @endif
+                    <form id="delete-form-{{$id}}"method="POST" action="/admin/card/delete">
+                        @csrf
+                        <em class="fa fa-xl fa-times color-red" style="cursor: pointer;" onclick="deleteFunc{{$id}}()" ></em>
+                        <script>
+                            function deleteFunc{{$id}}() {
+                                var x = confirm('Do you really want to delete this card ?')
+                                if(x == true){
+                                    document.getElementById('delete-form-{{$id}}').submit(); }
+                            }
+                        </script>
+                        <input name="id" value="{{$id}}" hidden >
+                    </form>
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
-                <div class="panel panel-teal panel-widget border-right">
-                    <a href="/admin/address/{{$id}}/edit"> <i class="fa fa-xl fa-edit"></i> </a>
-                </div>
-            </div>
-
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
-                <div class="panel panel-teal panel-widget border-right">
-
-                        <form id="delete-form-{{$id}}"method="POST" action="/admin/address/delete">
-                            @csrf
-                            <em onclick="deleteFunc{{$id}}()" class="fa fa-xl fa-times color-red" style="cursor: pointer" ></em>
-                            <script>
-                                function deleteFunc{{$id}}() {
-                                    var x = confirm('Do you really want to delete {{$address->address}} user ?')
-                                    if(x == true){
-                                        document.getElementById('delete-form-{{$id}}').submit(); }
-                                }
-                            </script>
-                            <input name="id" value="{{$address->id}}" hidden >
-
-                            @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                        </form>
-                </div>
-            </div>
-
         </div>
     </div>
+
     @endforeach
+    @endif
 @endsection

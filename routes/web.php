@@ -119,6 +119,13 @@ Route::post('/admin/producer/store','Admin\ProducersController@store');
 Route::post('/admin/producer/update','Admin\ProducersController@update');
 Route::get('/admin/producer/{id}/edit','Admin\ProducersController@edit');
 
+Route::get('/admin/categories','Admin\CategoriesController@index')->name('admin.producer.index');
+Route::post('/admin/category/delete','Admin\CategoriesController@delete');
+Route::get('/admin/category/new','Admin\CategoriesController@create');
+Route::post('/admin/category/store','Admin\CategoriesController@store');
+Route::post('/admin/category/update','Admin\CategoriesController@update');
+Route::get('/admin/category/{id}/edit','Admin\CategoriesController@edit');
+
 /**
  * Other admin routs
  */
