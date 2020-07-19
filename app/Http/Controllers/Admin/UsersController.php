@@ -51,11 +51,13 @@ class UsersController extends Controller
         $user->email_verified_at = date('Y-m-d');
         $user->password= Hash::make($request['password']);
         $user->save();
-        if($request->role=='admin'){
+        if($request->role == 'admin'){
             $user->assignRole('admin');
-        }
-        if($request->role=='producer'){
-            $user->assignRole('producer');
+        }else if($request->role == 'producer'){
+            $user->assignRole('seller');
+        } else {
+            $user->assignRole('customer');
+            
         }
         return redirect()->route('users.index')->with('success', 'User '. $request->email.' created!');
 
@@ -84,9 +86,15 @@ class UsersController extends Controller
         }
 
         $user->save();
-        if($request->ruole == 'admin'){
+        if($request->role == 'admin'){
             $user->assignRole('admin');
+        }else if($request->role == 'producer'){
+            $user->assignRole('seller');
+        } else {
+            $user->assignRole('customer');
+            
         }
+        
         return redirect()->route('users.index')->with('success', 'User '. $request->email.' updated!');
 
     }

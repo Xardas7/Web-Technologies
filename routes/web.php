@@ -84,7 +84,7 @@ Route::post('/admin/product/delete','Admin\ProductsController@delete');
 Route::get('/admin/product/new','Admin\ProductsController@create')->name('product.create');
 Route::post('/admin/product/store','Admin\ProductsController@store')->name('admin.product.store');;
 Route::post('/admin/product/{id}/update','Admin\ProductsController@update')->name('admin.product.update');
-Route::get('/admin/product/{id}/edit','Admin\ProductsController@edit');
+Route::get('/admin/product/{id}/edit','Admin\ProductsController@edit')->name('admin.product.edit');
 Route::get('/admin/product/{id}/details','Admin\ProductsController@details');
 /**
  * Admin address
@@ -113,7 +113,7 @@ Route::get('/admin/orders','Admin\OrdersController@index')->name('admin.order.in
 Route::post('/admin/order/delete','Admin\OrdersController@delete');
 Route::get('/admin/order/new','Admin\OrdersController@create');
 Route::post('/admin/order/store','Admin\OrdersController@store')->name('admin.order.store');;
-Route::post('/admin/order/update','Admin\OrdersController@update')->name('admin.order.update');
+Route::post('/admin/order/{id}/update','Admin\OrdersController@update')->name('admin.order.update');
 Route::get('/admin/order/{id}/products','Admin\OrdersController@products')->name('admin.order.products');
 Route::get('/admin/order/{id}/edit','Admin\OrdersController@edit');
 

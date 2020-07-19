@@ -32,14 +32,14 @@
                     <div class="form-group">
                         <label>Role</label>
                         <select class="form-control padding" name="role">
-                            <option value="none" selected>
-                                none
+                            <option value="customer" selected>
+                                Customer
                             </option>
                             <option value="admin">
-                                admin
+                                Admin
                             </option>
                             <option value="producer">
-                                producer
+                                Producer
                             </option>
                         </select>
                     </div>

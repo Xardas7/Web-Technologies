@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">All Coupons</h1>
+            <h1 class="page-header">Producers</h1>
         </div>
     </div>
     <div class="col-lg-12">
@@ -22,11 +22,7 @@
     </div>
     <div class="panel panel-container" style="background-color: #F1F4F7">
         <div class="row">
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
-                <div class="panel panel-teal panel-widget border-right">
-                    Logo
-                </div>
-            </div>
+
             <div class="col-xs-6 col-md-3 col-lg-4 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                     Producer Email
@@ -56,11 +52,7 @@
         @endphp
         <div class="panel panel-container">
             <div class="row">
-                <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
-                    <div class="panel panel-teal panel-widget border-right">
-                        <img src="{{$producer->logo}}" style="width: 40px; height: 40px; align-content: center" >
-                    </div>
-                </div>
+
                 <div class="col-xs-6 col-md-3 col-lg-4 no-padding">
                     <div class="panel panel-teal panel-widget border-right">
                         {{$producer->user->email}}

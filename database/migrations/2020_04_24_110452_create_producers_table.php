@@ -17,7 +17,6 @@ class CreateProducersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->unique();
             $table->string('name')->unique();
-            $table->string('logo');
             $table->timestamps();
         });
     }
