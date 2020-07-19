@@ -169,8 +169,8 @@
 						<div class="col-lg-3 col-md-6 single-product">
 							<a class="content" href="/{{$product->name}}">
 								<div class="content-overlay"></div>
-{{--								<img class="content-image img-fluid d-block mx-auto"--}}
-{{--									src="{{ Storage::exists($product->images->first()->path) ? asset("storage/".$product->images->first()->path) :  $product->images->first()->path}}" alt="">--}}
+								<img class="content-image img-fluid d-block mx-auto"
+									src="{{ Storage::exists($product->images->first()->path) ? asset("storage/".$product->images->first()->path) :  $product->images->first()->path}}" alt="">
 
 							</a>
 							<div class="price">
