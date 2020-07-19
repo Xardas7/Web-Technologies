@@ -70,7 +70,7 @@
             </div>
 
             <div class="col-md-2 col-6">
-                <div class="size">{{ $product->details->size}}</div>
+                <div class="size">{{ $product->shoppingCartDetails->size}}</div>
             </div>
 
             <div class="col-md-2 col-6">
@@ -80,7 +80,7 @@
             <div class="col-md-2 col-6 p-1">
                 <div class="quantity-container d-flex align-items-center mt-15">
                     <input type="number" class="quantity-amount cart-to-checkout"
-                        value={{ $product->details->quantity }} data-id="{{$product->id}}" />
+                        value={{ $product->shoppingCartDetails->quantity }} data-id="{{$product->id}}" />
                     <div class="arrow-btn d-inline-flex flex-column">
                         <button class="increase arrow cart" type="button" title="Increase Quantity"><span
                                 class="lnr lnr-chevron-up"></span></button>
