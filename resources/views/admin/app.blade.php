@@ -196,6 +196,12 @@
 
 @yield('section')
 
+@include('sweetalert::alert')
+      <!-- Swal js -->
+  <script src="{{ asset('js/sweetalert2.min.js')}}"></script>
+  <!-- Toastr js -->
+  <script src="{{ asset('js/toastr.min.js')}}"></script>
+
     <script src="/js/admin/jquery-1.11.1.min.js"></script>
     <script src="/js/admin/bootstrap.min.js"></script>
 </div>

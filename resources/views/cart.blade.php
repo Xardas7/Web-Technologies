@@ -38,10 +38,10 @@
     @else
     <div class="cart-title">
         <div class="row">
-            <div class="col-md-2 offset-1">
+            <div class="col-md-2">
                 <h6 class="ml-15">PRODUCT</h6>
             </div>
-            <div class="col-md-2 offset-1">
+            <div class="col-md-2 offset-2">
                 <h6 class="ml-15">SIZE</h6>
             </div>
             <div class="col-md-2">
@@ -50,7 +50,7 @@
             <div class="col-md-2">
                 <h6>QUANTITY</h6>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-1">
                 <h6>TOTAL</h6>
             </div>
         </div>
@@ -90,9 +90,15 @@
                 </div>
             </div>
 
-            <div class="col-md-2 col-12 p-1">
+            <div class="col-md-1 col-12 p-1">
                 <div class="total"></div>
             </div>
+
+            <div class="col-md-1 col-12">
+                <a href="#" class="deleteProductCart" data-id="{{ $product->id }}">
+                        <i class="fa fa-trash fa-2x" style="color: #f44a40;"></i>
+                    </a>
+                </div>
 
         </div>
     </div>

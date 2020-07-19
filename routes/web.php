@@ -114,6 +114,7 @@ Route::post('/admin/order/delete','Admin\OrdersController@delete');
 Route::get('/admin/order/new','Admin\OrdersController@create');
 Route::post('/admin/order/store','Admin\OrdersController@store')->name('admin.order.store');;
 Route::post('/admin/order/update','Admin\OrdersController@update')->name('admin.order.update');
+Route::get('/admin/order/{id}/products','Admin\OrdersController@products')->name('admin.order.products');
 Route::get('/admin/order/{id}/edit','Admin\OrdersController@edit');
 
 Route::get('/admin/coupons','Admin\CouponsController@index')->name('admin.coupon.index');
@@ -188,6 +189,7 @@ Route::name('cart.')->prefix('cart')->group(function(){
     Route::get('', 'ShoppingCartController@indexByUser')->name('show');
     Route::post('/add', 'ShoppingCartController@store')->name('store');
     Route::post('/refresh-quantity', 'ShoppingCartController@refresh_quantity')->name('refresh-quantity');
+    Route::delete('/product/{id}/delete', 'ShoppingCartController@deleteProduct')->name('product.delete');
 });
 
 // ---------- Orders -----------//
