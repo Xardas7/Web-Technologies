@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Product;
 use App\Producer;
+use App\Image;
 use App\Category;
 use App\Detail;
 use Illuminate\Support\Facades\Storage;
@@ -46,6 +47,7 @@ class ProductsController extends Controller
 
     protected function store(Request $request)
     {
+
         $validate = $request->validate([
             'images[]' => 'mimes:jpeg,jpg,png,svg,webp',
             'producer_id' => 'integer',
@@ -54,12 +56,12 @@ class ProductsController extends Controller
             'price' => 'integer',
             'description' => 'string',
             'material' => 'string',
-            'composition' => 'string',
+            'composition' => 'nullable|string',
             'quantity' => 'integer',
-            'width' => 'integer',
-            'depth' => 'integer',
-            'weight' => 'integer',
-            'code' => 'alpha_num',
+            'width' => 'nullable|integer',
+            'depth' => 'nullable|integer',
+            'weight' => 'nullable|integer',
+            'code' => 'unique:products|alpha_num',
         ]);
 
         $product = Product::create([
@@ -82,22 +84,15 @@ class ProductsController extends Controller
 
 
         if($request->hasFile('images')){
-            foreach($request->images as $image){
+            $files = $request->file('images');
+            foreach($files as $image){
                     $fileClientName = $image->getClientOriginalName();
-                    $path = $image->storeAs('products', $fileClientName);   
+                    $path = $image->storeAs('products', $fileClientName);  
+                      $image = Image::create([
+                    'product_id' => $product->id,
+                    'path' => $path
+                    ]);
                     }
-
-        $product->images()->create([
-            'path' => $path
-        ]);
-
-        /* Qui devi collegare ogni path al prodotto, esempio
-             $product->images()->Create([
-                   'path' => $path
-            
-                ]);
-    
-        */
         }
         return redirect()->back();
            
