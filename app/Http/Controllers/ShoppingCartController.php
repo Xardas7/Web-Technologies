@@ -83,7 +83,7 @@ class ShoppingCartController extends Controller
 
             if ($shoppingcarthasproducts) {
                 //Se il prodotto è già presente, ne aumento solo la quantità
-                $shoppingcarthasproducts->quantity += $quantity;
+                $shoppingcarthasproducts->quantity = $quantity;
                 $shoppingcarthasproducts->save();
 
             } else {
@@ -111,9 +111,13 @@ class ShoppingCartController extends Controller
             return response()->json([
                 'message' => 'Quantity not available'
             ]);
+        } else {
+           $user->shoppingCart->products()->updateExistingPivot($product->id,['quantity' => $request->quantity]);
+           return response()->json([
+               'available' => true
+           ]);
         }
 
-        $user->shoppingCart->products()->updateExistingPivot($product->id,['quantity' => $request->quantity]);
-
+        
     }
 }

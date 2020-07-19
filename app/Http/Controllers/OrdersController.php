@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\UnauthorizedException;
+use Alert;
 
 class OrdersController extends Controller
 {
@@ -59,7 +60,20 @@ class OrdersController extends Controller
             'payment' => 'in:card,paypal,delivery'
         ]);
 
+
         $user = Auth::user();
+
+        foreach($user->shoppingCart->products as $product){
+            if($product->shoppingCartDetails->quantity > $product->details->quantity){
+        alert()->error($product->name,'Quantity not available')
+        ->toToast()
+        ->animation('animate__backInRight','animate__backOutRight')
+        ->autoClose(3000)
+        ->timerProgressBar();
+        return redirect()->route('cart.show');
+            }
+        }
+
 
         $address = Address::where('user_id',$user->id)->first();
         if($request->payment == 'card' AND $request->card) {

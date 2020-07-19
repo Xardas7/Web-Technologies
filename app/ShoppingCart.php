@@ -14,7 +14,7 @@ class ShoppingCart extends Model
 
     public function products(){
         return $this->belongsToMany('App\Product','shopping_carts_have_products','shoppingcart_id')
-        ->as('details')
+        ->as('shoppingCartDetails')
         ->withPivot('quantity','size')
         ->withTimeStamps()
         ;

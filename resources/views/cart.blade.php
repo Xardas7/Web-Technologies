@@ -112,7 +112,7 @@
         </div>
         <form id="checkout" method='GET' action="/checkout" class="d-inline-flex flex-column align-items-end">
 
-            <button class="view-btn color-2 mt-10"><span>Buy</span></button>
+            <button id='buy' class="view-btn color-2 mt-10"><span>Buy</span></button>
         </form>
     </div>
     @endif

@@ -160,7 +160,7 @@ Route::name('wishlist.')->prefix('wishlist')->group(function(){
 
 // ---------- Shopping Cart -----------//
 Route::name('cart.')->prefix('cart')->group(function(){
-    Route::get('', 'ShoppingCartController@indexByUser');
+    Route::get('', 'ShoppingCartController@indexByUser')->name('show');
     Route::post('/add', 'ShoppingCartController@store')->name('store');
     Route::post('/refresh-quantity', 'ShoppingCartController@refresh_quantity')->name('refresh-quantity');
 });
