@@ -36,6 +36,7 @@ class ShoppingCartController extends Controller
 
 
     public function store(Request $request){
+
         $validate = $request->validate([
             'product_id' => 'integer',
             'quantity' => 'integer',
@@ -87,7 +88,7 @@ class ShoppingCartController extends Controller
                 $shoppingcarthasproducts->save();
             } else {
                 //Altrimenti, lo inserisco
-                $cart->products()->attach($product->id,[
+                $cart->products()->syncWithOutDetaching($product->id,[
                     'quantity' => $quantity,
                     'size' => $size
                 ]);
@@ -119,6 +120,6 @@ class ShoppingCartController extends Controller
            ]);
         }
 
-        
+
     }
 }
