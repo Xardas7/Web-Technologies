@@ -309,6 +309,10 @@ background: linear-gradient(90deg, rgba(255,228,225,1) 35%, rgba(237,135,169,1) 
     transform: scale(1.1,1.1);
 }
 
+.fa-2x{
+    font-size: 1.5em;
+}
+
 /* Colore del banner */
 
 /* {

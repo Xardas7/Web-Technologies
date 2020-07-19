@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     // Avatar
     public function avatar(){
-        return $this->hasOne('App\Avatar')->withDefault();
+        return $this->hasOne('App\Avatars')->withDefault();
     }
 
     // Addresses
