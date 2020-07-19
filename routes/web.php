@@ -69,7 +69,7 @@ Route::get('/admin/user/{id}/edit','Admin\UsersController@edit');
  */
 Route::get('/admin/products','Admin\ProductsController@index')->name('admin.product.index');
 Route::post('/admin/product/delete','Admin\ProductsController@delete');
-Route::get('/admin/product/new','Admin\ProductsController@create');
+Route::get('/admin/product/new','Admin\ProductsController@create')->name('product.create');
 Route::post('/admin/product/store','Admin\ProductsController@store')->name('admin.product.store');;
 Route::post('/admin/product/update','Admin\ProductsController@update')->name('admin.product.update');
 Route::get('/admin/product/{id}/edit','Admin\ProductsController@edit');
