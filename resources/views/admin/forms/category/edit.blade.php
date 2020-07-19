@@ -29,6 +29,11 @@
                     <input type="text" name="type" placeholder="Category Type" onfocus="this.placeholder = ''"
                            onblur="this.placeholder = 'Category Type'" required class="form-control" value="{{$category->type}}">
                 </div>
+                <div class="form-group">
+                    <label>Category Sizes</label>
+                    <input type="sizes" name="sizes" placeholder="Category Sizes (separate with a comma)" onfocus="this.placeholder = ''"
+                           onblur="this.placeholder = 'Category Sizes (separate with a comma)'" required class="form-control" value="{{$sizes}}">
+                </div>
                 <input name="id" value="{{$category->id}}" hidden>
 
                 @if ($errors->any())

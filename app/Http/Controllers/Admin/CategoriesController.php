@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Size;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
@@ -29,6 +30,15 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Category::all();
+        foreach($categories as $category) {
+            $sizes = $category->sizes;
+            $size_string = '';
+            foreach ($sizes as $size) {
+                $size_string .= ' '.$size->size . ',';
+            }
+            $size_string_trimmed = rtrim($size_string, ',');
+            $category['sizes'] = $size_string_trimmed;
+        }
         return view('admin.forms.category.index',compact('categories'));
     }
 
@@ -51,7 +61,33 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'string',
+            'gender' => 'string',
+            'type' => 'string',
+            'sizes' => 'string'
+        ]);
+
+        $category_name = $request->name;
+        $category_gender = $request->gender;
+        $category_type = $request->type;
+
+        $sizes_array = explode(',', rtrim($request->sizes, ','));
+        $sizes_ids = array();
+        foreach($sizes_array as $size_string){
+            $size = Size::where('size',$size_string)->first();
+            $sizes_ids[] = $size->id;
+        }
+
+        $category = Category::create([
+            'name' => $category_name,
+            'gender' => $category_gender,
+            'type' => $category_type
+        ]);
+
+            $category->sizes()->sync($sizes_ids);
+
+            return redirect()->route('admin.category.index')->with('success', 'Category added!');
     }
 
     /**
@@ -74,7 +110,13 @@ class CategoriesController extends Controller
     public function edit($id)
     {
         $category = Category::findOrFail($id);
-        return view('admin.forms.category.edit', ['category' => $category]);
+        $sizes = $category->sizes;
+        $size_string = '';
+        foreach($sizes as $size){
+            $size_string .= $size->size.',';
+        }
+        $size_string = rtrim($size_string, ',');
+        return view('admin.forms.category.edit', ['category' => $category, 'sizes' => $size_string]);
     }
 
     /**
@@ -89,7 +131,8 @@ class CategoriesController extends Controller
         $validate = $request->validate([
             'name' => 'string',
             'gender' => 'string',
-            'type' => 'string'
+            'type' => 'string',
+            'sizes' => 'string'
             ]);
 
         $category = Category::findOrFail($id);
@@ -98,7 +141,18 @@ class CategoriesController extends Controller
         $category->type = $request->type;
         $category->save();
 
-        return redirect()->route('admin.category.index');
+        $sizes_array = explode(',', rtrim($request->sizes, ','));
+        $sizes_ids = array();
+        foreach($sizes_array as $size_string){
+            if($size_string) {
+                $size = Size::where('size', $size_string)->first();
+                $sizes_ids[] = $size->id;
+            }
+        }
+
+        $category->sizes()->sync($sizes_ids);
+
+        return redirect()->route('admin.category.index')->with('success', 'Category updated!');;
     }
 
     /**
@@ -111,5 +165,6 @@ class CategoriesController extends Controller
     {
         $category = Category::findOrFail($id);
         $category->delete();
+        return back()->with('success', 'Category deleted!');
     }
 }

@@ -16,7 +16,7 @@
     @endif
     <div class="panel panel-container" style="background-color: #F1F4F7">
         <div class="row">
-            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                     Name
                 </div>
@@ -26,9 +26,14 @@
                     Gender
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                     Type
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
+                <div class="panel panel-teal panel-widget border-right">
+                    Sizes
                 </div>
             </div>
 
@@ -53,7 +58,7 @@
         @endphp
     <div class="panel panel-container">
         <div class="row">
-            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                     {{$category->name}}
                 </div>
@@ -63,9 +68,14 @@
                     {{$category->gender}}
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                     {{$category->type}}
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
+                <div class="panel panel-teal panel-widget border-right">
+                    {{$category->sizes}}
                 </div>
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
@@ -75,7 +85,7 @@
             </div>
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
-                    <form id="delete-form-{{$id}}"method="POST" action="/admin/category/delete">
+                    <form id="delete-form-{{$id}}"method="POST" action="/admin/category/{{$category->id}}/delete">
                         @csrf
                         <em class="fa fa-xl fa-times color-red" style="cursor: pointer;" onclick="deleteFunc{{$id}}()" ></em>
                         <script>
