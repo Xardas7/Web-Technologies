@@ -22,7 +22,7 @@
 					<div class="panel panel-blue panel-widget border-right">
 						<div class="row no-padding"><em class="fa fa-xl fa-users color-orange"></em>
 
-							<div class="text-muted">All parties</div>
+							
 						</div>
 					</div>
 				</div>
