@@ -32,9 +32,9 @@
 <!-- Start Cart Area -->
 <div class="container">
     @if(count($products) == 0)
-        <div class="container">
-            <p class="text-center">Your shopping cart is empty!</p>
-        </div>
+    <div class="container">
+        <p class="text-center">Your shopping cart is empty!</p>
+    </div>
     @else
     <div class="cart-title">
         <div class="row">
@@ -62,8 +62,7 @@
         <div class="row align-items-center">
             <div class="col-md-4 col-12">
                 <div class="product-item d-flex align-items-center">
-                    <img src="{{$product->images->first()->path}}" style="width:150px;;" class="img-fluid"
-                        alt="">
+                    <img src="{{$product->images->first()->path}}" style="width:150px;;" class="img-fluid" alt="">
                     <a href="/{{ $product->name }}">
                         <h6>{{ $product->name }}</h6>
                     </a>
@@ -80,11 +79,12 @@
 
             <div class="col-md-2 col-6 p-1">
                 <div class="quantity-container d-flex align-items-center mt-15">
-                    <input type="number" class="quantity-amount" value={{ $product->details->quantity }} />
+                    <input type="number" class="quantity-amount cart-to-checkout"
+                        value={{ $product->details->quantity }} data-id="{{$product->id}}" />
                     <div class="arrow-btn d-inline-flex flex-column">
-                        <button class="increase arrow" type="button" title="Increase Quantity"><span
+                        <button class="increase arrow cart" type="button" title="Increase Quantity"><span
                                 class="lnr lnr-chevron-up"></span></button>
-                        <button class="decrease arrow" type="button" title="Decrease Quantity"><span
+                        <button class="decrease arrow cart" type="button" title="Decrease Quantity"><span
                                 class="lnr lnr-chevron-down"></span></button>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
             </div>
             <a href="#" class="view-btn color-2 have-btn"><span>Have a Coupon?</span></a>
         </div>
-        <form method='GET' action="/checkout" class="d-inline-flex flex-column align-items-end">
+        <form id="checkout" method='GET' action="/checkout" class="d-inline-flex flex-column align-items-end">
 
             <button class="view-btn color-2 mt-10"><span>Buy</span></button>
         </form>

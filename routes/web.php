@@ -153,6 +153,7 @@ Route::name('wishlist.')->prefix('wishlist')->group(function(){
 Route::name('cart.')->prefix('cart')->group(function(){
     Route::get('', 'ShoppingCartController@indexByUser');
     Route::post('/add', 'ShoppingCartController@store')->name('store');
+    Route::post('/refresh-quantity', 'ShoppingCartController@refresh_quantity')->name('refresh-quantity');
 });
 
 // ---------- Orders -----------//
