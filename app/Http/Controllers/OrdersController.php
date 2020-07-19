@@ -10,6 +10,7 @@ use App\OrdersHaveProduct;
 use App\ShoppingCartsHaveProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\UnauthorizedException;
 
 class OrdersController extends Controller
 {
@@ -127,15 +128,22 @@ class OrdersController extends Controller
 
     public function confermation($order_id){
         $order = Order::findOrFail($order_id);
+        if($order->user_id != Auth::id()){
+            $error='Oops, something went wrong!';
+            return view('confermation', [
+                'error' => $error
+            ]);
+        }
         $order_details = OrdersHaveProduct::where('order_id',$order->id)->get();
-        $shipping_details = Address::find($order->shipping_address_id);
-        $billing_details = Address::find($order->billing_address_id);
+        $shipping_details = Address::findOrFail($order->shipping_address_id);
+        $billing_details = Address::findOrFail($order->billing_address_id);
 
         return view('confermation', [
             'order' => $order,
             'order_details' => $order_details,
             'shipping_address' => $shipping_details,
-            'billing_address' => $billing_details]);
+            'billing_address' => $billing_details,
+            'error' => $error = null]);
     }
 
     /**
