@@ -27,7 +27,7 @@
         <div class="panel-body">
             @php
                $user = \Illuminate\Support\Facades\Auth::user();
-                $producer_id=Producer::where('user_id',$user->id)->first();
+                $producer_id= \App\Producer::where('user_id',$user->id)->first();
             @endphp
             @if($user->hasRole('admin'))
                 <form method="POST" action="/admin/product/store" enctype="multipart/form-data">

@@ -104,10 +104,10 @@
                     </a></li>
             </ul>
         </li>
-        <li class="{{(Request::getPathInfo() ==='/admin/category/new' or Request::getPathInfo() === '/admin/categories') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-4" style="color: white">
+        <li class="{{(Request::getPathInfo() ==='/admin/category/new' or Request::getPathInfo() === '/admin/categories') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-3" style="color: white">
                 <em class="fa fa-navicon">&nbsp;</em> Categories <span data-toggle="collapse" href="#sub-item-4" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
-            <ul class="children collapse" id="sub-item-4">
+            <ul class="children collapse" id="sub-item-3">
                 <li><a class="" href="/admin/category/new">
                         <span class="fa fa-arrow-right">&nbsp;</span> New category
                     </a></li>
@@ -116,10 +116,10 @@
                     </a></li>
             </ul>
         </li>
-        <li class="{{(Request::getPathInfo() ==='/admin/address/new' or Request::getPathInfo() === '/admin/addresses') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-3" style="color: white">
+        <li class="{{(Request::getPathInfo() ==='/admin/address/new' or Request::getPathInfo() === '/admin/addresses') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-4" style="color: white">
                 <em class="fa fa-navicon">&nbsp;</em> Addresses <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
-            <ul class="children collapse" id="sub-item-3">
+            <ul class="children collapse" id="sub-item-4">
                 <li><a class="" href="/admin/address/new">
                         <span class="fa fa-arrow-right">&nbsp;</span> New address
                     </a></li>
@@ -128,10 +128,10 @@
                     </a></li>
             </ul>
         </li>
-        <li class="{{(Request::getPathInfo() ==='/admin/card/new' or Request::getPathInfo() === '/admin/card') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-4" style="color: white">
+        <li class="{{(Request::getPathInfo() ==='/admin/card/new' or Request::getPathInfo() === '/admin/card') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-5" style="color: white">
                 <em class="fa fa-navicon">&nbsp;</em> Cards <span data-toggle="collapse" href="#sub-item-4" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
-            <ul class="children collapse" id="sub-item-4">
+            <ul class="children collapse" id="sub-item-5">
                 <li><a class="" href="/admin/card/new">
                         <span class="fa fa-arrow-right">&nbsp;</span> New card
                     </a></li>
@@ -140,10 +140,10 @@
                     </a></li>
             </ul>
         </li>
-        <li class="{{(Request::getPathInfo() ==='/admin/order/new' or Request::getPathInfo() === '/admin/orders') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-5" style="color: white">
+        <li class="{{(Request::getPathInfo() ==='/admin/order/new' or Request::getPathInfo() === '/admin/orders') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-6" style="color: white">
                 <em class="fa fa-navicon">&nbsp;</em> Orders <span data-toggle="collapse" href="#sub-item-5" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
-            <ul class="children collapse" id="sub-item-5">
+            <ul class="children collapse" id="sub-item-6">
                 <li><a class="" href="/admin/order/new">
                         <span class="fa fa-arrow-right">&nbsp;</span> New order
                     </a></li>
@@ -153,10 +153,10 @@
                 <li>
             </ul>
         </li>
-        <li class="{{(Request::getPathInfo() ==='/admin/coupon/new' or Request::getPathInfo() ==='/admin/coupons' or Request::getPathInfo() ==='/admin/producer/new' or Request::getPathInfo() === '/admin/producers') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-6" style="color: white">
+        <li class="{{(Request::getPathInfo() ==='/admin/coupon/new' or Request::getPathInfo() ==='/admin/coupons' or Request::getPathInfo() ==='/admin/producer/new' or Request::getPathInfo() === '/admin/producers') ? 'active parent': 'parent'}}"><a data-toggle="collapse" href="#sub-item-7" style="color: white">
                 <em class="fa fa-navicon">&nbsp;</em> Other <span data-toggle="collapse" href="#sub-item-6" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
-            <ul class="children collapse" id="sub-item-6">
+            <ul class="children collapse" id="sub-item-7">
                 <li><a class="" href="/admin/coupons">
                         <span class="fa fa-arrow-right">&nbsp;</span> Coupons
                     </a></li>
