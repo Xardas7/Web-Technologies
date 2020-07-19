@@ -451,7 +451,6 @@ $(document).ready(function(){
           title: e.message
       });
       }
-      console.log('quantità aggiornata');
     },
     error: function(e){
       console.log(e);
@@ -460,15 +459,24 @@ $(document).ready(function(){
 
  })
 
- $('.like-button').on('click',function(event){
+ $(document).on('click','.like-button',function(event){
    var comment_id = $(this).data('id');
    var like_button = $(this);
 
    $.ajax({
      type: "GET",
      url: "/comment/"+comment_id+"/like",
-     success: function (response) {
-       like_button.removeClass('like-button').addClass('dislike-button');
+     success: function (e) {
+      if(e.message){
+        Toast.fire({
+          type: 'error',
+          title: e.message
+      });
+      } else{
+          like_button.removeClass('like-button').addClass('dislike-button');
+          like_button.parent().siblings('small').text(e.count);
+
+      }
      },
      error: function(e){
        console.log(e);
@@ -479,12 +487,19 @@ $(document).ready(function(){
  $(document).on('click','.dislike-button',function(event){
   var comment_id = $(this).data('id');
   var like_button = $(this);
-  console.log(comment_id);
   $.ajax({
     type: "GET",
     url: "/comment/"+comment_id+"/dislike",
-    success: function (response) {
-      like_button.removeClass('dislike-button').addClass('like-button');
+    success: function (e) {
+      if(e.message){
+        Toast.fire({
+          type: 'error',
+          title: e.message
+      });
+      }else{
+              like_button.removeClass('dislike-button').addClass('like-button');
+              like_button.parent().siblings('small').text(e.count);
+            }
     },
     error: function(e){
       console.log(e);
