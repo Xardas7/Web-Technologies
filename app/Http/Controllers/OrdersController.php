@@ -79,12 +79,13 @@ class OrdersController extends Controller
 //                'cvv' => $request->cvv
 //            ]);
 //        }
-        $address_id = Address::where('user_id',$user->id)->first()->id;
+        $address = Address::where('user_id',$user->id)->first();
         if($request->payment == 'card' AND $request->card) {
             $order = Order::create([
                 'user_id' => $user->id,
-                'billing_address_id' => $address_id,
-                'shipping_address_id' => $address_id,
+                'billing_address_id' => $address->id,
+                'shipping_address_id' => $address->id,
+                'shipping_address' => $address->address.", ".$address->city.", ".$address->country,
                 'coupon_id' => $request->coupon_id,
                 'card_id' => $request->card,
                 'amount' => $request->amount,
@@ -95,6 +96,10 @@ class OrdersController extends Controller
                 $orderDetails = OrdersHaveProduct::create([
                     'order_id' => $order->id,
                     'product_id' => $product->details->product_id,
+                    'product_name' => $product->name,
+                    'product_description' => $product->description,
+                    'product_price' => $product->price,
+                    'image_path' => $product->images->first()->path,
                     'quantity' => $product->details->quantity,
                     'size' => $product->details->size
                 ]);
@@ -118,10 +123,6 @@ class OrdersController extends Controller
         }
         else redirect()->back()->with(['error' => 'Invalid Card']);
         return redirect('/confermation/'.$order->id);
-//        return view('confermation', [  'order' => $order,
-//                                            'order_details' => $order_details,
-//                                            'shipping_address' => $shipping_details,
-//                                            'billing_address' => $billing_details]);
     }
 
     public function confermation($order_id){

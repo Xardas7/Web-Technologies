@@ -204,14 +204,8 @@ class ProductController extends Controller
 
     public function show($name)
     {
-        $products = Product::all();
-        $product = new Product();
-        foreach ($products as $product1) {
-            if ($product1->name == $name) {
-                $product = $product1;
-                break;
-            }
-        }
+        $product = Product::where('name',$name)->first();
+        if(!$product){abort(404);}
         $sizes = $product->category->sizes;
         if($product->name!=null) {
             $m = new MostSearchedHelper();

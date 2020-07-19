@@ -55,7 +55,7 @@ class ChiaveEsterne extends Migration
 
         Schema::table('orders', function(Blueprint $table0) {
             $table0->foreign('card_id')->references('id')
-                ->on('cards')->onDelete('cascade'); });
+                ->on('cards')->onDelete('set null'); });
 
         /*Schema::table('orders', function(Blueprint $table0) {
             $table0->foreign('address_id')->references('id')
@@ -96,7 +96,7 @@ class ChiaveEsterne extends Migration
 
         Schema::table('orders_have_products', function(Blueprint $table0) {
             $table0->foreign('product_id')->references('id')
-                ->on('products')->onDelete('cascade'); });
+                ->on('products')->onDelete('set null'); });
 
         Schema::table('orders_have_products', function(Blueprint $table0) {
             $table0->foreign('order_id')->references('id')

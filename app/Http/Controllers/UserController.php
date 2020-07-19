@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\OrdersHaveProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -90,8 +91,7 @@ class UserController extends Controller
         $user = Auth::user();
         $orders = $user->orders;
         foreach ($orders as $order){
-            $order['address'] = Address::find($order->shipping_address_id);
-            $order['products'] = $order->products;
+            $order['products'] = OrdersHaveProduct::where('order_id',$order->id)->get();
         }
        return view('myorders', ['orders'=>$orders]);
     }
