@@ -50,6 +50,11 @@
                             <a class="dropdown-item" href="{{ route('user.settings') }}">
                                     SETTINGS
                                 </a>
+                                @role('admin')
+                                <a class="dropdown-item" href="/admin">
+                                    DASHBOARD
+                                </a>
+                                @endrole
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
