@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-md-4">
                     <h6 class="ml-10">SHIPPED TO:<br>
-                        @if($order->address){{ $order->address->address.", ".$order->address->city.", ".$order->address->country }}@else The address is no longer available @endif</h6>
+                        @if($order->shipping_address){{ $order->shipping_address }}@else The address is no longer available @endif</h6>
                 </div>
                 <div class="col-md-2">
                     <h6>STATUS:<br>{{ ucfirst($order->state) }}</h6>
@@ -62,16 +62,22 @@
                 @foreach ($order->products as $product)
                     <div class="cart-single-item" >
                         <div class="row align-items-center">
-                            <div class="col-md-10 col-12">
+                            <div class="col-md-6 col-5">
                                 <div class="product-item d-flex align-items-center">
-                                    <img src="{{$product->images->first()->path}}" style="width:150px;" class="img-fluid" alt="">
-                                    <a href="/{{ $product->name }}">
-                                        <h6><b>{{ $product->name }}</b><br>{!! $product->description !!}</h6>
+                                    <img src="{{$product->image_path}}" style="width:150px;" class="img-fluid" alt="">
+                                    <a href="/{{ $product->product_name }}">
+                                        <h6>
+                                            <b>{{ $product->product_name }}</b>
+                                            <br>{!! $product->product_description !!}
+                                        </h6>
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-md-2 col-12">
-                                <div class="price">{{ $product->price."€" }}</div>
+                            <div class="col-md-4 col-2">
+                                <div class="price">Quantity: x{{ $product->quantity }}</div>
+                            </div>
+                            <div class="col-md-2 col-2">
+                                <div class="price">Price: {{ $product->product_price."€" }}</div>
                             </div>
                         </div>
                     </div>
