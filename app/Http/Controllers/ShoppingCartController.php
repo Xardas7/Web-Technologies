@@ -94,4 +94,26 @@ class ShoppingCartController extends Controller
                 ]);
             }
     }
+
+    
+    public function refresh_quantity(Request $request){
+
+
+        $validate = $request->validate([
+            'product_id' => 'integer',
+            'quantity' => 'integer'
+        ]);
+
+        $user = Auth::user();
+        $product = Product::find($request->product_id);
+
+        if($product->details->quantity < $request->quantity){
+            return response()->json([
+                'message' => 'Quantity not available'
+            ]);
+        }
+
+        $user->shoppingCart->products()->updateExistingPivot($product->id,['quantity' => $request->quantity]);
+
+    }
 }

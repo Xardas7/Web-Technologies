@@ -20,7 +20,29 @@ class UserController extends Controller
 
     public function update(Request $request, $id){
 
-        if(Auth::id() != $id){
+        $user = Auth::user();
+
+        if($request->email != $user->email){
+          $validate = $request->validate([
+            'name' => 'required|string',
+            'surname' => 'required|string',
+            'birth_date' => 'required|date_format:Y-m-d',
+            'email' => 'required|email|unique:users',
+            'sex' => 'required|in:male,female,undefined'
+        ]);  
+        } else {
+            $validate = $request->validate([
+                'name' => 'required|string',
+                'surname' => 'required|string',
+                'birth_date' => 'required|date_format:Y-m-d',
+                'email' => 'required|email',
+                'sex' => 'required|in:male,female,undefined'
+            ]); 
+        }
+
+        
+
+        if($user->id != $id){
         alert()->error('Error','This is not your account!')
         ->animation('animate__bounce','animate__hinge')
         ->autoClose(3000)
@@ -28,7 +50,6 @@ class UserController extends Controller
             return back();
         }
 
-        $user = User::find($id);
         $user->update($request->all());
 
         alert()->success('Profile updated','Your profile has been updated')

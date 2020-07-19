@@ -190,4 +190,5 @@ class OrdersController extends Controller
         $products=Auth::user()->shoppingCart->products;
         return view('checkout-payment', ['cards'=> $cards, 'products' => $products]);
     }
+
 }

@@ -371,6 +371,128 @@ $(document).ready(function(){
 
  })
 
+ $('.cart-to-checkout').change(function(){
+
+  var quantity = $(this).val();
+  var product_id = $(this).data('id');
+
+  $.ajax({
+    type: "POST",
+    url: "/cart/refresh-quantity",
+    data: {
+      product_id: product_id,
+      quantity: quantity,
+    },
+    success: function (e) {
+      if(e.message){
+        Toast.fire({
+          type: 'error',
+          title: e.message
+      });
+      }
+      console.log('quantità aggiornata');
+    },
+    error: function(e){
+      console.log(e);
+    }
+  });
+
+ })
+
+ $('.increase.arrow.cart').click(function(e){
+
+  var product = $(this).parent().siblings('input');
+  var quantity = parseInt($(product).val()) + 1;
+  var product_id = $(product).data('id');
+  console.log(quantity);
+
+  $.ajax({
+    type: "POST",
+    url: "/cart/refresh-quantity",
+    data: {
+      product_id: product_id,
+      quantity: quantity,
+    },
+    success: function (e) {
+      if(e.message){
+        Toast.fire({
+          type: 'error',
+          title: e.message
+      });
+      }
+      console.log('quantità aggiornata');
+    },
+    error: function(e){
+      console.log(e);
+    }
+  });
+
+ })
+
+ $('.decrease.arrow.cart').click(function(e){
+
+  var product = $(this).parent().siblings('input');
+  var quantity = parseInt($(product).val()) - 1;
+  var product_id = $(product).data('id');
+
+  console.log(quantity);
+  
+  $.ajax({
+    type: "POST",
+    url: "/cart/refresh-quantity",
+    data: {
+      product_id: product_id,
+      quantity: quantity,
+    },
+    success: function (e) {
+      if(e.message){
+        Toast.fire({
+          type: 'error',
+          title: e.message
+      });
+      }
+      console.log('quantità aggiornata');
+    },
+    error: function(e){
+      console.log(e);
+    }
+  });
+
+ })
+
+ $('.like-button').on('click',function(event){
+   var comment_id = $(this).data('id');
+   var like_button = $(this);
+
+   $.ajax({
+     type: "GET",
+     url: "/comment/"+comment_id+"/like",
+     success: function (response) {
+       like_button.removeClass('like-button').addClass('dislike-button');
+     },
+     error: function(e){
+       console.log(e);
+     }
+   });
+ })
+
+ $(document).on('click','.dislike-button',function(event){
+  var comment_id = $(this).data('id');
+  var like_button = $(this);
+  console.log(comment_id);
+  $.ajax({
+    type: "GET",
+    url: "/comment/"+comment_id+"/dislike",
+    success: function (response) {
+      like_button.removeClass('dislike-button').addClass('like-button');
+    },
+    error: function(e){
+      console.log(e);
+    }
+  });
+})
+
+
     /* calcolaPrezzo();
 
     $('.lnr.lnr-chevron-up').click(function(event){
