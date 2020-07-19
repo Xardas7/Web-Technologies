@@ -1,8 +1,10 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Carbon\Carbon;
@@ -22,6 +24,7 @@ class StaticSeeder extends Seeder{
             }while(in_array($code, $codes));
             $codes[] = $code;
         }
+
         $products = [
             ['category_id' => 1, 'producer_id' => 1, 'code' => $codes[0], 'name' => 'Summer jacket', 'price' => 59.99, 'description' => '<b>Details</b><br>Collar: High collar<br>Fastening: Zip<br>Details: Inseam pockets'],
             ['category_id' => 1, 'producer_id' => 1, 'code' => $codes[1], 'name' => 'Leather jacket', 'price' => 114.99, 'description' => '<b>Details</b><br>Collar: Hood<br>Fastening: Zip<br>Pockets: Zip pockets<br>Pockets: Zip pockets<br>Hood detail: Removable<br>Pattern: Plain'],
@@ -208,6 +211,14 @@ class StaticSeeder extends Seeder{
         $role3->givePermissionTo($permission3);
         $role3->givePermissionTo($permission5);
 
+        $user = User::create([
+            'name' => 'Statico',
+            'surname' => 'Statico',
+            'email' => 'statico@mail.it',
+            'password' => Hash::make('static')
+        ]);
+
+        $user->assignRole('admin');
 
 
 

@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('shipping_address_id');
             $table->text('shipping_address');
             $table->unsignedBigInteger('coupon_id')->nullable();
-            $table->unsignedBigInteger('card_id');
+            $table->unsignedBigInteger('card_id')->nullable();
             $table->string('track')->nullable();
             $table->double('amount');
             $table->enum('state',['in progress','success','shipped','finalized','delivery failed','canceled','returned']);
