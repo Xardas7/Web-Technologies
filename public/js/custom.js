@@ -167,7 +167,7 @@ $(document).ready(function(){
 
   //------ DELETE PRODUCT FROM WISHLIST ------//
 
-    $('.deleteProductWishList').click(function(event){
+    $('.deleteProductCart').click(function(event){
 
       event.preventDefault();
 
@@ -175,12 +175,15 @@ $(document).ready(function(){
       let product_id = $(this).data('id')
 
       $.ajax({
-        url: `/wishlist/delete/${product_id}`,
-        type: 'GET',
+        url: `/cart/product/${product_id}/delete`,
+        type: 'DELETE',
         success: function(){
           parent.fadeOut("normal",function(){
             parent.remove()
           })
+        },
+        error: function(e){
+          console.log(e);
         }
 
       })

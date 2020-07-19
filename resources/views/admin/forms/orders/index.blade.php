@@ -97,7 +97,7 @@
                 </div>
                     <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                         <div class="panel panel-teal panel-widget border-right">
-                            <a href="/admin/order/{{$id}}/edit"> <i class="fa fa-xl fa-shopping-basket"></i> </a>
+                            <a href="/admin/order/{{$id}}/products"> <i class="fa fa-xl fa-shopping-basket"></i> </a>
                         </div>
                     </div>
                     <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
