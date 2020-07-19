@@ -53,7 +53,18 @@ Route::get('/elements', function () {
 /**
  * Admin routes
  */
-Route::get('/admin','Admin\MainController@index');
+Route::get('/admin','Admin\MainController@admin');
+
+/**
+ * Producer
+ */
+Route::get('/dashboard','Admin\MainProducerController@dashboard');
+Route::get('/dashboard/product/new','Admin\MainProducerController@create');
+Route::post('/dashboard/product/delete','Admin\MainProducerController@delete');
+Route::post('/dashboard/product/store','Admin\MainProducerController@store');
+Route::post('/dashboard/product/update','Admin\MainProducerController@update');
+Route::get('/dashboard/product/{id}/edit','Admin\MainProducerController@edit');
+Route::get('/dashboard/product/{id}/details','Admin\MainProducerController@details');
 /**
  * Admin users
  */

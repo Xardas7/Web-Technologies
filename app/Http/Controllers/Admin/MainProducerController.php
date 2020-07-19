@@ -1,62 +1,53 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Producer;
+use App\Category;
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
+use App\Product;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Product;
-use App\Producer;
-use App\Image;
-use App\Category;
-use App\Detail;
-use Alert;
-use Illuminate\Support\Facades\Storage;
 
-
-class ProductsController extends Controller
+class MainProducerController extends Controller
 {
-
-    /**
-     * user controllers
-     */
     public function __construct()
     {
-        $this->middleware(['role:admin']);
+        $this->middleware(['role:producer']);
     }
-    function index(){
-        if(request('code')!=null) {
+
+    function dashboard()
+    {
+        $products = Product::where('producer_id', Auth::user()->id)->get();
+        if (request('code') != null) {
             $key = request('code');
-            $products = Product::where('code', $key)->get();
-            return view('admin.forms.product.index',compact('products'));
-        }
-        else {
+            $products = $products->where('code', $key)->get();
+            return view('admin.forms.product.index', compact('products'));
+        } else {
 
-           $products = Product::all();
-            return view('admin.forms.product.index',compact('products'));
+            return view('admin.forms.product.index', compact('products'));
         }
     }
+        function create()
+        {
+            $producers = Producer::all();
+            $categories_female = Category::distinct()->select('name')->where('gender', 'female')->get();
+            $categories_male = Category::distinct()->select('name')->where('gender', 'male')->get();
+            $categories_type_male = Category::where('gender', 'male')->get();
+            $categories_type_female = Category::where('gender', 'female')->get();
 
-    function create(){
-        $producers = Producer::all();
-        $categories_female = Category::distinct()->select('name')->where('gender','female')->get();
-        $categories_male = Category::distinct()->select('name')->where('gender','male')->get();
-        $categories_type_male = Category::where('gender','male')->get();
-        $categories_type_female = Category::where('gender','female')->get();
-
-        return view('admin.forms.product.create',compact('producers','categories_female','categories_male', 'categories_type_female', 'categories_type_male'));
-    }
+            return view('admin.forms.product.create', compact('producers', 'categories_female', 'categories_male', 'categories_type_female', 'categories_type_male'));
+        }
 
     protected function store(Request $request)
     {
 
         $validate = $request->validate([
             'images[]' => 'mimes:jpeg,jpg,png,svg,webp',
-            'producer_id' => 'integer',
             'category_id' => 'integer',
             'name' => 'unique:products|string',
+            'price' => 'integer',
             'description' => 'string',
             'material' => 'string',
             'composition' => 'nullable|string',
@@ -69,7 +60,7 @@ class ProductsController extends Controller
 
         $product = Product::create([
             'category_id' => $request->category_type,
-            'producer_id' => $request->producer_id,
+            'producer_id' => Auth::user()->id,
             'code' => $request->code,
             'name' => $request->name,
             'price' => $request->price,
@@ -89,27 +80,20 @@ class ProductsController extends Controller
         if($request->hasFile('images')){
             $files = $request->file('images');
             foreach($files as $image){
-                    $fileClientName = $image->getClientOriginalName();
-                    $path = $image->storeAs('products', $fileClientName);
-                      $image = Image::create([
+                $fileClientName = $image->getClientOriginalName();
+                $path = $image->storeAs('products', $fileClientName);
+                $image = Image::create([
                     'product_id' => $product->id,
                     'path' => $path
-                    ]);
-                    }
+                ]);
+            }
         }
+        return redirect()->back();
 
-        alert()->success('Product','Product added succesfully')
-        ->toToast()
-        ->animation('animate__backInRight','animate__backOutRight')
-        ->autoClose(3000)
-        ->timerProgressBar();
-        session()->flash('message', 'Product was created!');
-        return redirect()->route('product.create');
-
-            // $product->images()->updateOrCreate(
-            //     ['product_id' => $product->id],
-            //     ['path' => $path]
-            // );
+        // $product->images()->updateOrCreate(
+        //     ['product_id' => $product->id],
+        //     ['path' => $path]
+        // );
 
     }
     protected function update(Request $request)
@@ -151,5 +135,6 @@ class ProductsController extends Controller
         $product->delete();
         return back()->with('success', 'Product '. $code.' deleted!');
     }
+
 
 }

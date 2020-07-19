@@ -47,7 +47,20 @@
             <label>Password</label>
             <input type="password" class="form-control" value="passwordnoncambiata" name="password" >
         </div>
-
+        <div class="form-group">
+            <label>Role</label>
+            <select class="form-control padding" name="role">
+                <option value="none" selected>
+                    none
+                </option>
+                <option value="admin">
+                    admin
+                </option>
+                <option value="producer">
+                    producer
+                </option>
+            </select>
+        </div>
 
         <input value="{{$user->email}}" name="old_email" hidden>
         @if ($errors->any())

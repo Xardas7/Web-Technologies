@@ -7,6 +7,7 @@
             <h1 class="page-header">All proudcts</h1>
         </div>
     </div>
+
     @if (\Session::has('success'))
         <div class="alert alert-success">
             <ul>

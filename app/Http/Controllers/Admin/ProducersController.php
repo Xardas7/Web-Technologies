@@ -15,8 +15,13 @@ class ProducersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware(['role:admin']);
+    }
     public function index()
     {
+
         if (request('code') != null) {
             $key = request('code');
             $key = Producer::where('code', $key)->first()->id;
@@ -49,12 +54,13 @@ class ProducersController extends Controller
             if($user!=null ) {
                 $producer = Producer::find($user->id);
                 if ($producer == null) {
-                    $user = $user->id;
+                    $user_id = $user->id;
                     $producer = new Producer();
                     $producer->logo = $request['logo'];
                     $producer->name = $request['name'];
-                    $producer->user_id = $user;
+                    $producer->user_id = $user_id;
                     $producer->save();
+                    $user->assignRole('producer');
                     return redirect()->route('admin.producer.index')->with('success', 'Producer ' . $request->code . ' added successfully!');
                 }
                 $emailErr = "this user is already an producer";
