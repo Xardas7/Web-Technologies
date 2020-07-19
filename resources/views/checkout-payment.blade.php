@@ -35,16 +35,27 @@
             <p>Have a coupon? <a data-toggle="collapse" href="#checkout-cupon" aria-expanded="false"
                     aria-controls="checkout-cupon">Click here to enter your code</a></p>
         </div>
-        <div class="collapse" id="checkout-cupon">
+        <div @if($coupon)class="collapse show"@else class="collapse" @endif id="checkout-cupon">
             <div class="checkout-login-collapse d-flex flex-column">
-                <form action="#" class="d-block">
+                <form action="/coupon" method='GET' class="d-block">
                     <div class="row">
                         <div class="col-lg-8">
-                            <input type="text" placeholder="Enter coupon code" onfocus="this.placeholder=''"
-                                onblur="this.placeholder = 'Enter coupon code'" required class="common-input mt-10">
+                            <input type="text" name="coupon" placeholder="Enter coupon code" onfocus="this.placeholder=''"
+                                onblur="this.placeholder = 'Enter coupon code'" required class="common-input mt-10" @if($coupon)value="{{$coupon}}@endif">
                         </div>
                     </div>
+                    <div class="d-inline-flex">
                     <button class="view-btn color-2 mt-20"><span>Apply Coupon</span></button>
+                    @if($coupon)
+                    <div class="mt-20">
+                        @if($discount_value == null)
+                            Invalid Coupon
+                        @else
+                            Coupon Applied!
+                        @endif
+                    </div>
+                    @endif
+                    </div>
                 </form>
             </div>
         </div>
@@ -85,91 +96,6 @@
                             aria-expanded="false" aria-controls="checkout-cupon"><span>Insert card</span></button>
                     </div>
                 </div>
-                {{-- <div class="collapse" id="insert-card" style="">
-                        <div class="checkout-login-collapse d-flex flex-column">
-                        <form id="form1" class="col-6 p-5" action="{{ route('card.store') }}" method="POST">
-                <input form="add-card" type="hidden" name="_token" value="DvKSczZWKst3PuBHwZdwODMKTUvxh1u4yMcNCWTp">
-                <div class="form-group row justify-content-center">
-                    <label class="col-2 col-form-label">Number</label>
-                    <div class="input-group-icon col-10">
-                        <div class="icon">
-                            <i class="far fa-credit-card"></i>
-                        </div>
-                        <input form="add-card" type="number" name="card_number" placeholder="Card number"
-                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Card number'" required=""
-                            class="single-input" value="">
-                    </div>
-                </div>
-
-                <div class="form-group row justify-content-center">
-                    <label for="example-date-input" class="col-2 col-form-label">Exp Date</label>
-                    <div class="input-group-icon col-10">
-                        <div class="icon">
-                            <i class="far fa-calendar-alt"></i>
-                        </div>
-                        <input form="add-card" class="single-input" name="exp_date" type="text"
-                            placeholder="Example: 2020/04" onfocus="this.placeholder = ''"
-                            onblur="this.placeholder = 'Example: 2020/04'" maxlength="7" required="">
-                    </div>
-                </div>
-
-                <div class="form-group row justify-content-center">
-                    <label class="col-2 col-form-label">Type</label>
-                    <div class="input-group-icon col-10">
-                        <div class="icon">
-                            <i class="fas fa-credit-card"></i>
-                        </div>
-                        <select form="add-card" class="form-control padding" name="type">
-                            <option value="visa">Visa
-                            </option>
-                            <option value="mastercard">Mastercard
-                            </option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group row justify-content-center">
-                    <label class="col-2 col-form-label">CVV</label>
-                    <div class="input-group-icon col-10">
-                        <div class="icon">
-                            <i class="fas fa-caret-right"></i>
-                        </div>
-                        <input form="add-card" type="number" name="cvv" placeholder="CVV" onfocus="this.placeholder=''"
-                            onblur="this.placeholder = 'CVV'" required="" class="single-input" min="100" max="999"
-                            value="">
-                    </div>
-                </div>
-
-                <div class="form-group row justify-content-center p-1">
-                    <label class="col-2 col-form-label">Name</label>
-                    <div class="input-group-icon col-10">
-                        <div class="icon">
-                            <i class="fas fa-caret-right"></i>
-                        </div>
-                        <input form="add-card" type="text" name="name" placeholder="First Name"
-                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" required=""
-                            class="single-input" value="">
-                    </div>
-                </div>
-
-                <div class="form-group row justify-content-center">
-                    <label class="col-2 col-form-label">Surname</label>
-                    <div class="input-group-icon col-10">
-                        <div class="icon">
-                            <i class="fas fa-caret-right" aria-hidden="true"></i>
-                        </div>
-                        <input form="add-card" type="text" name="surname" placeholder="Last Name"
-                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" required=""
-                            class="single-input" value="">
-                    </div>
-                </div>
-
-                <div class="text-center mt-30">
-                    <button class="btn btn-success btn-save" type="submit" form="form1">Save</button>
-                </div>
-    </form>
-</div>
-</div> --}}
 <hr />
 
 <div class="order-wrapper mt-50">
@@ -239,7 +165,7 @@
             <div class="list-row d-flex justify-content-between">
                 <div>{{$product->name}}</div>
                 <div style="text-align: center">x {{$product->details->quantity}}</div>
-                <div>{{$product->price}}€</div>
+                    <div>{{$product->price}}€</div>
             </div>
             @php
             $total=0;
@@ -255,14 +181,24 @@
                 <h6>Shipping</h6>
                 <div>Shipping cost: 10.00€</div>
             </div>
+            @if($discount_value!=null)
+                <div class="list-row d-flex justify-content-between">
+                    <h6>Discount</h6>
+                    <div>{{number_format($total - $total * $discount_value)}}€</div>
+                </div>
+            @endif
             <div class="list-row d-flex justify-content-between">
                 <h6>Total</h6>
-                <div class="total">{{$total+=10}}€</div> <!-- totale + costi spedizione -->
+                @if($discount_value!=null)
+                    <div class="total">{{number_format($total * $discount_value + 10, 2) }}€</div> <!-- totale + costi spedizione -->
+                @else
+                    <div class="total">{{$total + 10}}€</div> <!-- totale + costi spedizione -->
+                @endif
             </div>
-            <p class="payment-info">Please send a check to Store Name, Store Street, Store Town, Store State / County,
-                Store Postcode.</p>
             <div class="mt-20 d-flex align-items-start">
-                <input type="hidden" value="{{$total}}" name="amount">
+                @if($discount_value!=null)
+                <input type="hidden" name="coupon_code" value="{{$coupon}}">
+                @endif
                 <input type="checkbox" class="pixel-checkbox" id="login-4" value="true" name="" required>
                 <label for="login-4">I’ve read and accept the <a href="#" class="terms-link">terms &
                         conditions*</a></label>

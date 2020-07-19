@@ -102,13 +102,9 @@
         <div class="col-2 title text-uppercase">Subtotal</div>
         <div class="col-2 subtotal"></div>
     </div>
-    <div class="cupon-area d-flex align-items-center justify-content-between flex-wrap">
-        <div class="cuppon-wrap d-flex align-items-center flex-wrap">
-            <div class="cupon-code">
-                <input type="text">
-                <button class="view-btn color-2"><span>Apply</span></button>
-            </div>
-            <a href="#" class="view-btn color-2 have-btn"><span>Have a Coupon?</span></a>
+    <div class="d-flex align-items-center justify-content-between flex-wrap">
+        <div>
+            <a class="view-btn color-2 mt-10" href="/home"><span>Continue Shopping</span></a>
         </div>
         <form id="checkout" method='GET' action="/checkout" class="d-inline-flex flex-column align-items-end">
 
