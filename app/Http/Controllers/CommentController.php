@@ -52,12 +52,25 @@ class CommentController extends Controller
     public function like($id){
         $user = Auth::user();
 
-        $user->likesComments()->attach($id);
+        if($user->likesComments()->where('comment_id',$id)->first() != null){
+            return response()->json([
+                'message' => 'You have already liked this comment'
+            ]);
+        } else {
+                   $user->likesComments()->syncWithoutDetaching($id);
+                   return response()->json([
+                       'count' => count(Comment::find($id)->likes)
+                   ]);
+        }
+
     }
 
     public function dislike($id){
         $user = Auth::user();
 
         $user->likesComments()->detach($id);
+        return response()->json([
+            'count' => count(Comment::find($id)->likes)
+        ]);
     }
 }

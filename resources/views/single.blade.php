@@ -284,7 +284,11 @@
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                         </div>
-                                    <div><i class="far fa-thumbs-up {{$comment->likes()->where('user_id', Auth::id())->first() != null ? 'dislike-button' : 'like-button'}}" data-id="{{$comment->id}}"></i></div>
+                                        <div class="d-flex inline-flex">
+                                            <small>{{count($comment->likes)}}</small>
+                                            <div class="ml-2"><i class="far fa-thumbs-up {{$comment->likes()->where('user_id', Auth::id())->first() != null ? 'dislike-button' : 'like-button'}}" data-id="{{$comment->id}}"></i></div> 
+                                        </div>
+                                    
                                     </div>
                                 </div>
                                 <p class="user-comment">
