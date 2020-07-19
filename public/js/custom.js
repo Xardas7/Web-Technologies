@@ -389,8 +389,10 @@ $(document).ready(function(){
           type: 'error',
           title: e.message
       });
+      $('#buy').prop('disabled', true);
+      } else {
+        $('#buy').prop('disabled', false);
       }
-      console.log('quantità aggiornata');
     },
     error: function(e){
       console.log(e);
@@ -419,8 +421,10 @@ $(document).ready(function(){
           type: 'error',
           title: e.message
       });
+      $('#buy').prop('disabled', true);
+      } else {
+        $('#buy').prop('disabled', false);
       }
-      console.log('quantità aggiornata');
     },
     error: function(e){
       console.log(e);
@@ -450,6 +454,9 @@ $(document).ready(function(){
           type: 'error',
           title: e.message
       });
+      $('#buy').prop('disabled', true);
+      }  else {
+        $('#buy').prop('disabled', false);
       }
     },
     error: function(e){

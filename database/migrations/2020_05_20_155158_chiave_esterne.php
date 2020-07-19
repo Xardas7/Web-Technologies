@@ -57,6 +57,7 @@ class ChiaveEsterne extends Migration
             $table0->foreign('card_id')->references('id')
                 ->on('cards')->onDelete('set null'); });
 
+
         /*Schema::table('orders', function(Blueprint $table0) {
             $table0->foreign('address_id')->references('id')
                 ->on('addresses')->onDelete('cascade'); });*/
@@ -138,15 +139,20 @@ class ChiaveEsterne extends Migration
         Schema::table('users_like_comments', function(Blueprint $table0){
             $table0->foreign('user_id')->references('id')
             ->on('users')->onDelete('cascade');
-        });    
+        });
 
         Schema::table('users_like_comments', function(Blueprint $table0){
             $table0->foreign('comment_id')->references('id')
             ->on('comments')->onDelete('cascade');
-        }); 
-        }
+        });
+        Schema::table('producers', function(Blueprint $table0) {
+            $table0->foreign('user_id')->references('id')
+                ->on('users')->onDelete('cascade'); });
 
-        
+    }
+
+
+
 
     /**
      * Reverse the migrations.

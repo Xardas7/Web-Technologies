@@ -65,6 +65,7 @@ Route::get('/admin/user/new','Admin\UsersController@create');
 Route::post('/admin/user/store','Admin\UsersController@store');
 Route::post('/admin/user/update','Admin\UsersController@update');
 Route::get('/admin/user/{id}/edit','Admin\UsersController@edit');
+
 /**
  * Admin product
  */
@@ -104,6 +105,21 @@ Route::get('/admin/order/new','Admin\OrdersController@create');
 Route::post('/admin/order/store','Admin\OrdersController@store')->name('admin.order.store');;
 Route::post('/admin/order/update','Admin\OrdersController@update')->name('admin.order.update');
 Route::get('/admin/order/{id}/edit','Admin\OrdersController@edit');
+
+Route::get('/admin/coupons','Admin\CouponsController@index')->name('admin.coupon.index');
+Route::post('/admin/coupon/delete','Admin\CouponsController@delete');
+Route::get('/admin/coupon/new','Admin\CouponsController@create');
+Route::post('/admin/coupon/store','Admin\CouponsController@store');
+Route::post('/admin/coupon/update','Admin\CouponsController@update');
+Route::get('/admin/coupon/{id}/edit','Admin\CouponsController@edit');
+
+
+Route::get('/admin/producers','Admin\ProducersController@index')->name('admin.producer.index');
+Route::post('/admin/producer/delete','Admin\ProducersController@delete');
+Route::get('/admin/producer/new','Admin\ProducersController@create');
+Route::post('/admin/producer/store','Admin\ProducersController@store');
+Route::post('/admin/producer/update','Admin\ProducersController@update');
+Route::get('/admin/producer/{id}/edit','Admin\ProducersController@edit');
 
 /**
  * Other admin routs
@@ -152,7 +168,7 @@ Route::name('wishlist.')->prefix('wishlist')->group(function(){
 
 // ---------- Shopping Cart -----------//
 Route::name('cart.')->prefix('cart')->group(function(){
-    Route::get('', 'ShoppingCartController@indexByUser');
+    Route::get('', 'ShoppingCartController@indexByUser')->name('show');
     Route::post('/add', 'ShoppingCartController@store')->name('store');
     Route::post('/refresh-quantity', 'ShoppingCartController@refresh_quantity')->name('refresh-quantity');
 });

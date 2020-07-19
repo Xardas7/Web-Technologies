@@ -78,15 +78,16 @@
                     @php
                     $billing=\App\Address::find($order->billing_address_id)->address;
                     @endphp
+                        @if($billing!=null)
                         {{$billing}}
+                        @else
+                        the same as shipping
+                        @endif
                     </div>
                 </div>
                 <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                     <div class="panel panel-teal panel-widget border-right">
-                        @php
-                            $shipping=\App\Address::find($order->shipping_address_id)->address;
-                        @endphp
-                        {{$shipping}}
+                        {{$order->shipping_address}}
                 </div>
                 </div>
                 <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
@@ -101,7 +102,7 @@
                     </div>
                     <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                         <div class="panel panel-teal panel-widget border-right">
-                            <a href="/admin/order/{{$id}}/edit"> <i class="fa fa-xl fa-credit-card"></i> </a>
+                            <a href="/admin/cards?id={{$order->card_id}}"> <i class="fa fa-xl fa-credit-card"></i> </a>
                         </div>
                     </div>
                     <div class="col-xs-6 col-md-3 col-lg-1 no-padding">

@@ -44,7 +44,7 @@
                     @foreach($product->images as $image)
                     <div class="item">
                         <!-- style="background: url($image->path);-->
-                        <img src="{{$image->path}}" />
+                    <img src="{{ Storage::exists($product->images->first()) ? asset("storage/".$image->path) :  $image->path}}" />
                     </div>
                     @endforeach
                     @endif

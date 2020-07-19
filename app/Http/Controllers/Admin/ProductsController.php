@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Product;
 use App\Detail;
+use Illuminate\Support\Facades\Storage;
+
+
 class ProductsController extends Controller
 {
 
@@ -30,26 +33,44 @@ class ProductsController extends Controller
     }
 
     function create(){
-        return view('admin.forms.user.create');
+        return view('admin.forms.product.create');
     }
 
     protected function store(Request $request)
     {
-        if (!filter_var($request->email, FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "Invalid email format";
-            return \Redirect::back()->withErrors([$emailErr]);
+        $validate = $request->validate([
+            'images[]' => 'mimes:jpeg,jpg,png,svg,webp',
+
+        ]);
+
+        /* logica creazione prodotto */
+
+        /*
+        .
+        .
+        . 
+        */
+
+        if($request->hasFile('images')){
+            foreach($request->images as $image){
+                    $fileClientName = $image->getClientOriginalName();
+                    $path = $image->storeAs('products', $fileClientName);   
+                    }
+
+        /* Qui devi collegare ogni path al prodotto, esempio
+             $product->images()->Create([
+                   'path' => $path
+            
+                ]);
+    
+        */
         }
-        if (User::where('email',$request->email)->first()) {
-            $emailErr = "this mail is already used";
-            return \Redirect::back()->withErrors([$emailErr]);
-        }
-        $user= new User();
-        $user->name=$request['name'];
-        $user->email=$request['email'];
-        $user->email_verified_at = date('Y-m-d');
-        $user->password= Hash::make($request['password']);
-        $user->save();
-        return redirect()->route('users.index')->with('success', 'User '. $request->email.' created!');
+        return redirect()->back();
+           
+            // $product->images()->updateOrCreate(
+            //     ['product_id' => $product->id],
+            //     ['path' => $path]
+            // );
 
     }
     protected function update(Request $request)
