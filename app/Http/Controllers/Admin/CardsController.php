@@ -22,7 +22,13 @@ class CardsController extends Controller
             $key = User::where('email', $key)->first()->id;
             $cards=Card::where('user_id',$key)->get();
             return view('admin.forms.card.index', compact('cards'));
-        } else {
+        }
+            elseif (request('id') != null) {
+                $key = request('id');
+                    $cards=Card::where('id',$key)->get();
+                    return view('admin.forms.card.index', compact('cards'));
+                }
+                else{
             $cards=Card::all();
             return view('admin.forms.card.index', compact('cards'));
         }
@@ -107,13 +113,8 @@ class CardsController extends Controller
      */
     public function delete(Request $request)
     {
-        $vote=UserParticipatesParty::find($request->id);
-        if($vote == null) { return redirect()->back();}
-        $track=Track::find($vote->vote);
-        $track->votes -= 1;
-        $track->save();
-        $vote->vote=null;
-        $vote->save();
-        return redirect()->back()->with('success','vote deleted!');
+        $card=Card::find($request->id);
+        $card->delete();
+        return redirect()->back()->with('success','card deleted!');
     }
 }

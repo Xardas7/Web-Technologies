@@ -30,7 +30,7 @@ class ProductsController extends Controller
     }
 
     function create(){
-        return view('admin.forms.user.create');
+        return view('admin.forms.product.create');
     }
 
     protected function store(Request $request)

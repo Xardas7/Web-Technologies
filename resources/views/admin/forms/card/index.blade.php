@@ -107,7 +107,7 @@
                         <em class="fa fa-xl fa-times color-red" style="cursor: pointer;" onclick="deleteFunc{{$id}}()" ></em>
                         <script>
                             function deleteFunc{{$id}}() {
-                                var x = confirm('Do you really want to delete this kick ?')
+                                var x = confirm('Do you really want to delete this card ?')
                                 if(x == true){
                                     document.getElementById('delete-form-{{$id}}').submit(); }
                             }
