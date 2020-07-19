@@ -169,14 +169,14 @@
 						<div class="col-lg-3 col-md-6 single-product">
 							<a class="content" href="/{{$product->name}}">
 								<div class="content-overlay"></div>
-								{{-- <img class="content-image img-fluid d-block mx-auto"
-									src="{{ Storage::exists($product->images->first()->path) ? asset("storage/".$product->images->first()->path) :  $product->images->first()->path}}" alt=""> --}}
+								<img class="content-image img-fluid d-block mx-auto"
+									src="{{ Storage::exists($product->images->first()->path) ? asset("storage/".$product->images->first()->path) :  $product->images->first()->path}}" alt="">
 	
 							</a>
 							<div class="price">
 								<div>
 									<a href="/{{$product->name}}" class="product_name">
-										<h5>{{$product->name}}  {{$product->images->first()}}</h5>
+										<h5>{{$product->name}}</h5>
 									</a>
 									<p id="description-tab"> {{$product->producer->name}}</p>
 								</div>
