@@ -19,11 +19,7 @@
                     <input type="text" name="name" placeholder="name" onfocus="this.placeholder = ''"
                            onblur="this.placeholder = 'First Name'" required class="form-control" value="{{$producer->name}}">
                 </div>
-                <div class="form-group">
-                    <label> Logo</label>
-                    <input type="text" name="logo" placeholder="logo link" onfocus="this.placeholder = ''"
-                           onblur="this.placeholder = 'Last Name'" required class="form-control" value="{{$producer->logo}}">
-                </div>
+
                 <input name="id" value="{{$producer->id}}" hidden>
                 @if ($errors->any())
                     <div class="alert alert-danger">

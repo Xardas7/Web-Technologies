@@ -56,7 +56,6 @@ class ProducersController extends Controller
                 if ($producer == null) {
                     $user_id = $user->id;
                     $producer = new Producer();
-                    $producer->logo = $request['logo'];
                     $producer->name = $request['name'];
                     $producer->user_id = $user_id;
                     $producer->save();
@@ -87,7 +86,6 @@ class ProducersController extends Controller
     public function update(Request $request)
     {
         $producer = Producer::find($request->id);
-        $producer->logo = $request['logo'];
         $producer->name = $request['name'];
         $producer->save();
         return redirect()->route('admin.producer.index')->with('success', 'Producer ' . $request->code . ' updated successfully!');
@@ -102,6 +100,7 @@ class ProducersController extends Controller
     public function delete(Request $request)
     {
         $producer=Producer::findOrFail($request->id);
+        $producer->user->removeRole('producer');
         $producer->delete();
         return back()->with('success', 'producer deleted!');
     }

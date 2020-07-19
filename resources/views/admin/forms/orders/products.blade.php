@@ -50,8 +50,16 @@
     </div>
     @foreach($products as $product)
 
-    <div class="panel panel-container">
-        <div class="row">
+    <div class="container panel panel-container">
+        <div class="row align-items-center">
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding ">
+                <div class="panel panel-teal panel-widget border-right">
+                <a href="{{ route('admin.product.edit',['id' => $product->id]) }}">
+                        <img src="{{ Storage::exists($product->images->first()->path) ? asset("storage/".$product->images->first()->path) :  $product->images->first()->path}}" style="width:150px;;" class="img-fluid" alt="">
+                        </a>
+                </div>
+            </div>
+
             <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                     {{$product->code}}
@@ -62,7 +70,7 @@
                     {{$product->name}}
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                     {{$product->category->type}}
                 </div>
@@ -78,7 +86,7 @@
                 </div>
             </div>
 
-            <div class="col-xs-6 col-md-3 col-lg-1 no-padding">
+            <div class="col-xs-6 col-md-3 col-lg-2 no-padding">
                 <div class="panel panel-teal panel-widget border-right">
                     {{$product->description}}
                 </div>

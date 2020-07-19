@@ -62,9 +62,18 @@ class OrdersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request,$id)
     {
+ 
+        $validate = $request->validate([
+            'state' => 'in:in progress,success,shipped,finalized,delivery failed,canceled,returned|string'
+        ]);
 
+        $order = Order::find($id);
+        $order->state = $request->state;
+        $order->save();
+
+        return redirect()->route('admin.order.index');
     }
 
     /**
@@ -76,6 +85,11 @@ class OrdersController extends Controller
     public function delete(Request $request)
     {
 
+    }
+
+    public function edit($id){
+        $order = Order::find($id);
+        return view('admin.forms.orders.edit',compact('order'));
     }
 
     public function products($id){

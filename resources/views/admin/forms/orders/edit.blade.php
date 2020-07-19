@@ -4,26 +4,26 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Create a vote</h1>
+            <h1 class="page-header">Update Order Status</h1>
         </div>
     </div>
     <hr/>
 
     <div class="panel panel-default">
         <div class="panel-body">
-            <form method="POST" action="/admin/vote/store">
+        <form method="POST" action="{{route('admin.order.update',['id' => $order->id])}}">
                 @csrf
                 <div class="form-group">
-                    <label>Email</label>
-                    <input class="form-control" placeholder="user email" name="email">
-                </div>
-                <div class="form-group">
-                    <label>Party Code</label>
-                    <input class="form-control" placeholder="party code" name="code">
-                </div>
-                <div class="form-group">
-                    <label>Track id</label>
-                    <input class="form-control" placeholder="track id" name="track_id">
+                    <label for="state">State</label>
+                    <select class="form-control" name="state" id="state">
+                        <option value="in progress">In progress</option>
+                        <option value="success">Success</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="finalized">Finalized</option>
+                        <option value="delivery failed">Delivery failed</option>
+                        <option value="canceled">Canceled</option>
+                        <option value="returned">Returned</option>
+                    </select>
                 </div>
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -38,5 +38,4 @@
             </form>
         </div>
     </div>
-
 @endsection
