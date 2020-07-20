@@ -225,4 +225,50 @@ class ProductController extends Controller
             abort(404);
         }
     }
+
+    public function search(Request $request){
+        $query = $request->input('query');
+        $error = null;
+
+        $macro_categories= Category::all()->unique('name');
+
+        $categories = Category::distinct()->get();
+
+        foreach($categories as $category){
+            $category['count'] = count($category->products);
+            if($category->gender == 'male'){
+                $category['gender'] == 'Men';
+            } else $category['gender'] == 'Women';
+        }
+
+        foreach($macro_categories as $macro_category){
+            $counter = 0;
+            $sub_categories = array();
+            foreach($categories as $category){
+                if($category->name == $macro_category->name){
+                    $sub_categories[] = $category;
+                    $counter += $category->count;
+                }
+                $macro_category['count'] = $counter;
+                $macro_category['sub_categories'] = $sub_categories;
+            }
+        }
+        $p = new SearchHelper();
+        $products = Product::where('name','LIKE','%'.$query.'%')->get();
+        $products = $p->paginate($products);
+        $producers = collect();
+        foreach($products as $product){
+            $producers->push($product->producer);
+        }
+        if($products->isEmpty()){
+            $error = "There's nothing here!";
+        }
+        return view('search', [
+            'products' => $products,
+            'macro_categories' => $macro_categories,
+            'error' => $error,
+            'producers' => $producers,
+            'search_term' => $query
+        ]);
+    }
 }

@@ -51,6 +51,7 @@ Route::get('/elements', function () {
     return view('elements');
 });
 
+Route::get('/search', 'ProductController@search');
 /**
  * Admin routes
  */

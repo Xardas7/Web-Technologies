@@ -11,6 +11,9 @@
             </button>
 
             <div class="collapse navbar-collapse justify-content-end align-items-center row" id="navbarSupportedContent">
+                <form action="/search" method="GET">
+                    <input class="form-control" type="text" name="query" value="" placeholder="Search">
+                </form>
                 <ul class="navbar-nav">
                     <li class="col"><a href="/">Home</a></li>
                     <li class="col"><a href="/all-clothing">All</a></li>
