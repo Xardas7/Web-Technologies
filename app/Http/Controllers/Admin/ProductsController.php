@@ -61,9 +61,9 @@ class ProductsController extends Controller
             'material' => 'string',
             'composition' => 'nullable|string',
             'quantity' => 'integer',
-            'width' => 'nullable|integer',
-            'depth' => 'nullable|integer',
-            'weight' => 'nullable|integer',
+            'width' => 'nullable',
+            'depth' => 'nullable',
+            'weight' => 'nullable',
             'code' => 'unique:products|alpha_num',
         ]);
 
@@ -124,9 +124,9 @@ class ProductsController extends Controller
             'material' => 'string',
             'composition' => 'nullable|string',
             'quantity' => 'integer',
-            'width' => 'nullable|integer',
-            'depth' => 'nullable|integer',
-            'weight' => 'nullable|integer',
+            'width' => 'nullable',
+            'depth' => 'nullable',
+            'weight' => 'nullable',
             'code' => 'alpha_num',
         ]);
 
