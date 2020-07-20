@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Producer;
 use App\Category;
+use App\Image;
 use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Foundation\Auth\User;
@@ -19,7 +20,8 @@ class MainProducerController extends Controller
 
     function dashboard()
     {
-        $products = Product::where('producer_id', Auth::user()->id)->get();
+        $id=Producer::where('user_id',Auth::user()->id)->first()->id;
+        $products = Product::where('producer_id', $id)->get();
         if (request('code') != null) {
             $key = request('code');
             $products = $products->where('code', $key)->get();

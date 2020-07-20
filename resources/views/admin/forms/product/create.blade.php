@@ -29,6 +29,7 @@
                $user = \Illuminate\Support\Facades\Auth::user();
                 $producer_id= \App\Producer::where('user_id',$user->id)->first();
             @endphp
+
             @if($user->hasRole('admin'))
                 <form method="POST" action="/admin/product/store" enctype="multipart/form-data">
                     @csrf
@@ -43,9 +44,9 @@
                     @else
                         <form method="POST" action="/dashboard/product/store" enctype="multipart/form-data">
                             @csrf
-                            {{ $user->id}}
 
-                            <input name="producer_id" value="{{ $producer_id}}" hidden>
+
+                            <input name="producer_id" value="{{ $producer_id->id}}" hidden>
                              @endif
                     <div class="form-group">
                         <label>Category Name</label>

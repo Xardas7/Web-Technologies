@@ -10,7 +10,7 @@
 
 		<div class="panel panel-container">
 			<div class="row">
-				<div class="col-xs-6 col-md-3 col-lg-4 no-padding">
+				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-teal panel-widget border-right">
 						<div class="row no-padding"><em class="fa fa-xl fa-user color-blue"></em>
 							<div class="large">{{\App\User::all()->count()}}</div>
@@ -18,15 +18,25 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-xs-6 col-md-3 col-lg-4 no-padding">
+				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-blue panel-widget border-right">
-						<div class="row no-padding"><em class="fa fa-xl fa-users color-orange"></em>
+						<div class="row no-padding"><em class="fa fa-xl fa-gift color-red"></em>
+                            <div class="large">{{\App\Product::all()->count()}}</div>
+                            <div class="text-muted">All Products</div>
 
-							
 						</div>
 					</div>
 				</div>
-				<div class="col-xs-6 col-md-3 col-lg-4 no-padding">
+                <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+                    <div class="panel panel-blue panel-widget border-right">
+                        <div class="row no-padding"><em class="fa fa-xl fa-users color-orange"></em>
+                            <div class="large">{{\App\Producer::all()->count()}}</div>
+                            <div class="text-muted">All Producers</div>
+
+                        </div>
+                    </div>
+                </div>
+				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-orange panel-widget border-right">
 						<div class="row no-padding"><em class="fa fa-xl fa-plus-circle color-teal"></em>
 							<div class="large">{{\App\User::where('created_at', '>=', date('Y-m-d'))->count()}}</div>

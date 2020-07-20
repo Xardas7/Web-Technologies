@@ -57,6 +57,7 @@ class ProducersController extends Controller
                     $user_id = $user->id;
                     $producer = new Producer();
                     $producer->name = $request['name'];
+
                     $producer->user_id = $user_id;
                     $producer->save();
                     $user->assignRole('producer');
