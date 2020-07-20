@@ -24,7 +24,8 @@ class MainProducerController extends Controller
         $products = Product::where('producer_id', $id)->get();
         if (request('code') != null) {
             $key = request('code');
-            $products = $products->where('code', $key)->get();
+            $id=Producer::where('user_id',Auth::user()->id)->first()->id;
+            $products = Product::where('producer_id', $id)->where('code', $key)->get();
             return view('admin.forms.product.index', compact('products'));
         } else {
 
